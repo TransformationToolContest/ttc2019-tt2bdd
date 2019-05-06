@@ -1,8 +1,6 @@
-# The TTC 2018 Social Media Case
+# The TTC 2019 TT2BDD ATL Zoo Case
 
 ## Case description
-
-The `docs/2018_TTC_Live.pdf` file contains the [case description](https://github.com/TransformationToolContest/ttc2018liveContest/raw/master/docs/2018_TTC_Live.pdf).
 
 ## Prerequisites
 
@@ -11,8 +9,6 @@ The `docs/2018_TTC_Live.pdf` file contains the [case description](https://github
 * R
 
 ## Solution Prerequisites
-
-* NMF: You need to install [.NET Core 2.0](https://www.microsoft.com/net/download/linux-package-manager/ubuntu16-04/sdk-current)
 
 Add your prerequisites here!
 
@@ -38,7 +34,7 @@ The `config` directory contains the configuration for the scripts:
 
 ### Running the benchmark
 
-The script runs the benchmark for the given number of runs, for the specified tools and change sequences.
+The script runs the benchmark for the given number of runs, for the specified tools and input models.
 
 The benchmark results are stored in a CSV file. The header for the CSV file is stored in the `output/header.csv` file.
 

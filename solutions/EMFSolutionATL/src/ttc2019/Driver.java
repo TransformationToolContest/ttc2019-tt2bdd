@@ -32,7 +32,6 @@ public class Driver {
 	private static String RunIndex;
 	private static String Model;
 	private static String Tool;
-	private static String Query;
 
 	private static long stopwatch;
 
@@ -75,7 +74,6 @@ public class Driver {
 		ModelPath = System.getenv("ModelPath");
 		RunIndex = System.getenv("RunIndex");
 		Tool = System.getenv("Tool");
-		Query = System.getenv("Query");
 
 		solution = new Solution();
 
@@ -92,7 +90,7 @@ public class Driver {
 	}
 
 	static void report(BenchmarkPhase phase) {
-		System.out.println(String.format("%s;%s;%s;%s;%s;Time;%s", Tool, Query, Model, RunIndex, phase.toString(), Long.toString(stopwatch)));
+		System.out.println(String.format("%s;%s;%s;%s;Time;%s", Tool, Model, RunIndex, phase.toString(), Long.toString(stopwatch)));
 
 		if ("true".equals(System.getenv("NoGC"))) {
 			// nothing to do
@@ -105,7 +103,7 @@ public class Driver {
 		}
 
 		final long memoryUsed = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-		System.out.println(String.format("%s;%s;%s;%s;%s;Memory;%s", Tool, Query, Model, RunIndex, phase.toString(), Long.toString(memoryUsed)));
+		System.out.println(String.format("%s;%s;%s;%s;Memory;%s", Tool, Model, RunIndex, phase.toString(), Long.toString(memoryUsed)));
 	}
 
 	enum BenchmarkPhase {

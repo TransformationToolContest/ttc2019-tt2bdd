@@ -1,11 +1,9 @@
 {
   "Dimensions": {
     "X_Dimensions": {
-      "Size": true,
-      "Iteration": false
+      "RunIndex": true
     },
     "Groups": {
-      "View": false,
       "Tool": true
     }
   },
@@ -13,8 +11,11 @@
     {
       "Name": "Runtime",
       "Phases": [
-        "Run"
-      ]
+          "Initialization",
+          "Load",
+          "Run"
+      ],
+      "Metric": "Time"
     }
   ],
   "Extension": ["png", "pdf"]
