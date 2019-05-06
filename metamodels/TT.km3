@@ -1,0 +1,41 @@
+
+package TT {
+
+   class LocatedElement {
+      attribute location : String;
+   }
+
+   class TruthTable extends LocatedElement {
+      attribute name : String;
+      reference ports[1-*] container : Port oppositeOf owner;
+      reference rows[2-*] container : Row oppositeOf owner;
+   }
+
+   abstract class Port extends LocatedElement {
+      attribute name : String;
+      reference owner : TruthTable oppositeOf ports;
+      reference cells[*] : Cell oppositeOf port;
+   }
+
+   class InputPort extends Port {
+   }
+
+   class OutputPort extends Port {
+   }
+
+   class Row extends LocatedElement {
+      reference owner : TruthTable oppositeOf rows;
+      reference cells[1-*] container : Cell oppositeOf owner;
+   }
+
+   class Cell extends LocatedElement {
+      attribute value : Boolean;
+      reference owner : Row oppositeOf cells;
+      reference port : Port oppositeOf cells;
+   }
+}
+
+package PrimitiveTypes {
+   datatype String;
+   datatype Boolean;
+}
