@@ -1,0 +1,6 @@
+{
+  "Tools": ["ATL"],
+  "Sequences": 20,
+  "Runs": 5,
+  "Timeout": 6000
+}

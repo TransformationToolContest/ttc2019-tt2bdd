@@ -1,0 +1,21 @@
+{
+  "Dimensions": {
+    "X_Dimensions": {
+      "Size": true,
+      "Iteration": false
+    },
+    "Groups": {
+      "View": false,
+      "Tool": true
+    }
+  },
+  "Summarize_Functions": [
+    {
+      "Name": "Runtime",
+      "Phases": [
+        "Run"
+      ]
+    }
+  ],
+  "Extension": ["png", "pdf"]
+}
