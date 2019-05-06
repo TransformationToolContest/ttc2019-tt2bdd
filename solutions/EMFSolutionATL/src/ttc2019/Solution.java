@@ -2,6 +2,7 @@ package ttc2019;
 
 import java.io.IOException;
 
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.m2m.atl.emftvm.EmftvmFactory;
@@ -13,7 +14,6 @@ import org.eclipse.m2m.atl.emftvm.util.ClassModuleResolver;
 import org.eclipse.m2m.atl.emftvm.util.ModuleResolver;
 import org.eclipse.m2m.atl.emftvm.util.TimingData;
 
-import ttc2019.bdd.BDD;
 import ttc2019.bdd.BDDPackage;
 import ttc2019.tt.TTPackage;
 import ttc2019.tt.TruthTable;
@@ -21,7 +21,7 @@ import ttc2019.tt.TruthTable;
 public class Solution {
 
 	private TruthTable truthTable;
-	private BDD bdd;
+	private Resource outputResource;
 
 	public TruthTable getTruthTable() {
 		return truthTable;
@@ -29,14 +29,6 @@ public class Solution {
 
 	public void setTruthTable(TruthTable tt) {
 		this.truthTable = tt;
-	}
-
-	public BDD getBDD() {
-		return bdd;
-	}
-
-	public void setBDD(BDD bdd) {
-		this.bdd = bdd;
 	}
 
 	public void run(String moduleName) {
@@ -50,7 +42,7 @@ public class Solution {
           Metamodel bddMetamodel = EmftvmFactory.eINSTANCE.createMetamodel();
           bddMetamodel.setResource(BDDPackage.eINSTANCE.getTree().eResource());
           env.registerMetaModel("BDD", bddMetamodel);
-          
+
           // loading models
           rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("emftvm", new EMFTVMResourceFactoryImpl());
 
@@ -59,7 +51,7 @@ public class Solution {
           env.registerInputModel("IN", inModel);
 
           Model outModel = EmftvmFactory.eINSTANCE.createModel();
-          outModel.setResource(bdd.eResource());
+          outModel.setResource(outputResource);
           env.registerOutputModel("OUT", outModel);
 
           ModuleResolver mr = new ClassModuleResolver(Solution.class);
@@ -71,7 +63,14 @@ public class Solution {
 	}
 
 	public void save() throws IOException {
-		bdd.eResource().save(null);
+		outputResource.save(null);
 	}
 
+	public void setOutputResource(Resource outputResource) {
+		this.outputResource = outputResource;
+	}
+
+	public Resource getOutputResource() {
+		return outputResource;
+	}
 }

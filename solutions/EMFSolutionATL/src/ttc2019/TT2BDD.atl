@@ -125,26 +125,25 @@ helper def:
       };
 
 ---------------------------------------------------------------------------------------------------
--- Construire une structure d'arbre à partir d'un ensemble de lignes.
+-- Build a tree structure from a sequence of rows.
 --
--- Ce helper construit un arbre à base de tuples.
--- Parmi l'ensemble des ports d'entrée utilisables, il sélectionne un port dont la valeur est
--- définie dans toutes les lignes.
--- Le helper getPartition est invoqué pour obtenir deux sous-ensembles de lignes correspondant
--- aux deux états possibles du port sélectionné.
--- L'arbre se construit de manière récursive jusqu'à ce que l'ensemble de lignes fourni se
--- réduise à une seule ligne.
+-- This helper builds a tree from tuples. Among the sequence of usable inputs, it selects a
+-- port where the value is defined in all lines.
 --
--- Entrées :
---    rows        : l'ensemble des lignes à traiter
---    usablePorts : l'ensemble des ports dont la valeur doit être considérée dans la construction
---                  de l'arbre 
+-- The helper getPartition is invoked to obtain two row subsequences that correspond to the
+-- possible states from the selected port.
 --
--- Sorties :
---    un tuple contenant :
---       cell        : une cellule qui sert de référence et désigne le noeud courant de l'arbre
---       zeroSubtree : le sous-arbre correspondant à la valeur zéro du port
---       oneSubtree  : le sous-arbre correspondant à la valeur un du port
+-- The tree is built recursively, with the base case leaving the row sequence as a single row.
+--
+-- Inputs:
+--    rows        : the sequence of rows to be processed
+--    usablePorts : the sequence of ports to be considered to build the tree
+--
+-- Outputs:
+--    a tuple contains:
+--      cell        : a cell which acts as a reference and points to the current tree node
+--      zeroSubtree : the subtree for the 0 value of the port
+--      oneSubtree  : the subtree for the 1 value of the port
 ---------------------------------------------------------------------------------------------------
 helper def:
    getTree(rows : Sequence(TT!Row), usablePorts : Sequence(TT!Port))
@@ -200,18 +199,18 @@ helper context TT!TruthTable def:
       thisModule.getTree(self.rows, self.ports->select(p | p.oclIsKindOf(TT!InputPort)));
       
 ---------------------------------------------------------------------------------------------------
--- Recherche une cellule de table de vérité dans un arbre.
+-- Search for a truth table cell within a tree
 --
--- Ce helper explore récursivement les sous-arbres jusqu'à ce que la cellule cherchée ait été
--- trouvée ou jusqu'à ce que l'arbre entier ait été parcouru sans succès.
+-- This helper explores recursively the subtrees until the cell is found or until
+-- the entire tree has been searched without a match.
 --
--- Entrées :
---    cell : la cellule cherchée
---    tree : le noeud racine de l'arbre dans lequel il faut le rechercher
+-- Inputs :
+--    cell : the cell to be found
+--    tree : the root node of the tree which should be searched
 --
--- Sorties :
---    un noeud de l'arbre en cas de succès,
---    OclUndefined en cas d'échec
+-- Outputs :
+--    a node of the tree if found,
+--    OclUndefined if unsuccessful
 ---------------------------------------------------------------------------------------------------
 helper def:
    findCell(cell : TT!Cell, tree : TupleType( cell : TT!Cell, zeroSubtree : OclAny, oneSubtree : OclAny ))
@@ -221,24 +220,22 @@ helper def:
          tree
       else if tree.zeroSubtree.oclIsKindOf(TT!Row) then
          if tree.oneSubtree.oclIsKindOf(TT!Row) then
-            -- Les deux sous-arbres sont des feuilles
-            Sequence{}->first()
+            -- Both subtrees are leaf nodes
+            OclUndefined
          else
-            -- Seul Le sous-arbre 1 n'est pas une feuille
+            -- Only the subtree 1 is not a leaf
             thisModule.findCell(cell,tree.oneSubtree)
          endif
       else
          let tryInZero : OclAny = thisModule.findCell(cell,tree.zeroSubtree) in
          if tree.oneSubtree.oclIsKindOf(TT!Row) then
-            -- Seul Le sous-arbre 0 n'est pas une feuille
+            -- Only the subtree 0 is not a leaf
             tryInZero
          else if tryInZero.oclIsUndefined() then
-            -- Aucun des sous-arbres n'est une feuille
-            -- mais le sous-arbre 0 n'a donné aucun résultat
+            -- Both subtrees are non-leaves, but subtree 0 did not produce any results
             thisModule.findCell(cell,tree.oneSubtree)
          else
-            -- Aucun des sous-arbres n'est une feuille
-            -- et le sous-arbre 0 a donné un résultat
+            -- Both subtrees are non-leaves, and subtree 0 has produced results
             tryInZero
          endif endif
       endif endif;

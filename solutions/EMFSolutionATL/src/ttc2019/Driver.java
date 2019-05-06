@@ -56,9 +56,7 @@ public class Driver {
 		URI uri = URI.createFileURI(new File("output.xmi").getCanonicalPath());
 		Resource outputResource = repository.createResource(uri);
 		outputResource.getContents().clear();
-		BDD bdd = BDDFactory.eINSTANCE.createBDD();
-		outputResource.getContents().add(bdd);
-		solution.setBDD(bdd);
+		solution.setOutputResource(outputResource);
 
 		stopwatch = System.nanoTime() - stopwatch;
 		report(BenchmarkPhase.Load);
