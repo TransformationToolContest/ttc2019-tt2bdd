@@ -37,6 +37,7 @@ public class Driver {
 	private static long stopwatch;
 
 	private static Solution solution;
+	private static String ModelPath;
 
 	private static Object loadFile(String path) {
 		Resource mRes;
@@ -48,16 +49,13 @@ public class Driver {
 		return mRes.getContents().get(0);
 	}
 
-	static void load() {
+	static void load() throws IOException {
 		stopwatch = System.nanoTime();
-		solution.setTruthTable((TruthTable) loadFile(Model));
+		solution.setTruthTable((TruthTable) loadFile(ModelPath));
 
-		Resource outputResource;
-		try {
-			outputResource = repository.getResource(URI.createFileURI(new File("output.xmi").getCanonicalPath()), false);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+		URI uri = URI.createFileURI(new File("output.xmi").getCanonicalPath());
+		Resource outputResource = repository.createResource(uri);
+		outputResource.getContents().clear();
 		BDD bdd = BDDFactory.eINSTANCE.createBDD();
 		outputResource.getContents().add(bdd);
 		solution.setBDD(bdd);
@@ -70,12 +68,13 @@ public class Driver {
 		stopwatch = System.nanoTime();
 
 		repository = new ResourceSetImpl();
-		repository.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 		repository.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
+		repository.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 		repository.getPackageRegistry().put(TTPackage.eINSTANCE.getNsURI(), TTPackage.eINSTANCE);
 		repository.getPackageRegistry().put(BDDPackage.eINSTANCE.getNsURI(), BDDPackage.eINSTANCE);
 
 		Model = System.getenv("Model");
+		ModelPath = System.getenv("ModelPath");
 		RunIndex = System.getenv("RunIndex");
 		Tool = System.getenv("Tool");
 		Query = System.getenv("Query");
@@ -86,11 +85,12 @@ public class Driver {
 		report(BenchmarkPhase.Initialization);
 	}
 
-	static void run() {
+	static void run() throws IOException {
 		stopwatch = System.nanoTime();
 		solution.run("TT2BDD");
 		stopwatch = System.nanoTime() - stopwatch;
 		report(BenchmarkPhase.Run);
+		solution.save();
 	}
 
 	static void report(BenchmarkPhase phase) {

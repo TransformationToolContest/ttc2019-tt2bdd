@@ -1,5 +1,6 @@
 {
-  "Tools": ["ATL"],
+  "Tools": ["EMFSolutionATL"],
+  "Models": ["Test.ttmodel"],
   "Sequences": 20,
   "Runs": 5,
   "Timeout": 6000

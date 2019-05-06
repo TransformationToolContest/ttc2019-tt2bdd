@@ -1,5 +1,7 @@
 package ttc2019;
 
+import java.io.IOException;
+
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.m2m.atl.emftvm.EmftvmFactory;
@@ -58,7 +60,7 @@ public class Solution {
 
           Model outModel = EmftvmFactory.eINSTANCE.createModel();
           outModel.setResource(bdd.eResource());
-          env.registerInputModel("IN", outModel);
+          env.registerOutputModel("OUT", outModel);
 
           ModuleResolver mr = new ClassModuleResolver(Solution.class);
           TimingData td = new TimingData();
@@ -66,6 +68,10 @@ public class Solution {
           td.finishLoading();
           env.run(td);
           td.finish();
+	}
+
+	public void save() throws IOException {
+		bdd.eResource().save(null);
 	}
 
 }

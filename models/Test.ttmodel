@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<TruthTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="TT" location="2:1-13:2" name="Test">
+<TruthTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.transformation-tool-contest.eu/2019/tt" location="2:1-13:2" name="Test">
   <ports xsi:type="InputPort" location="2:19-2:23" name="a" cells="//@rows.0/@cells.0 //@rows.1/@cells.0 //@rows.2/@cells.0 //@rows.3/@cells.0 //@rows.4/@cells.0 //@rows.5/@cells.0 //@rows.6/@cells.0 //@rows.7/@cells.0 //@rows.8/@cells.0"/>
   <ports xsi:type="InputPort" location="2:25-2:29" name="b" cells="//@rows.0/@cells.1 //@rows.1/@cells.1 //@rows.2/@cells.1 //@rows.3/@cells.1 //@rows.4/@cells.1 //@rows.5/@cells.1 //@rows.7/@cells.1 //@rows.8/@cells.1"/>
   <ports xsi:type="InputPort" location="2:31-2:35" name="c" cells="//@rows.1/@cells.2 //@rows.2/@cells.2 //@rows.3/@cells.2 //@rows.4/@cells.2 //@rows.5/@cells.2 //@rows.7/@cells.2 //@rows.8/@cells.2"/>
