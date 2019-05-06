@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
-  <ecore:EPackage name="TT" nsURI="https://www.transformation-tool-contest.eu/2019/tt"
+  <ecore:EPackage name="TT" nsURI="https://www.transformation-tool-contest.eu/2019/tt" xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
       nsPrefix="tt">
     <eClassifiers xsi:type="ecore:EClass" name="LocatedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" ordered="false"
@@ -40,4 +39,3 @@
           lowerBound="1" eType="#/0/Port" eOpposite="#/0/Port/cells"/>
     </eClassifiers>
   </ecore:EPackage>
-</xmi:XMI>
