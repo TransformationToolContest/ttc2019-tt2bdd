@@ -1,0 +1,50 @@
+
+
+package BDD {
+
+   class BDD {
+      attribute name : String;
+      reference ports[1-*] container : Port oppositeOf owner;
+      reference tree container : Tree oppositeOf ownerBDD;
+   }
+
+   abstract class Port {
+      attribute name : String;
+      reference owner : BDD oppositeOf ports;
+   }
+
+   class InputPort extends Port {
+      reference subtrees[*] : Subtree oppositeOf port;
+   }
+
+   class OutputPort extends Port {
+      reference assignments[*] : Assignment oppositeOf port;
+   }
+
+   abstract class Tree {
+      reference ownerBDD[0-1] : BDD oppositeOf tree;
+      reference ownerSubtreeForZero[0-1] : Subtree oppositeOf treeForZero;
+      reference ownerSubtreeForOne[0-1] : Subtree oppositeOf treeForOne;
+   }
+
+   class Leaf extends Tree {
+      reference assignments[1-*] container : Assignment oppositeOf owner;
+   }
+
+   class Assignment {
+      attribute value : Boolean;
+      reference port : OutputPort oppositeOf assignments;
+      reference owner : Leaf oppositeOf assignments;
+   }
+
+   class Subtree extends Tree {
+      reference port : InputPort oppositeOf subtrees;
+      reference treeForZero container : Tree oppositeOf ownerSubtreeForZero;
+      reference treeForOne container : Tree oppositeOf ownerSubtreeForOne;
+   }
+}
+   
+package PrimitiveTypes {
+   datatype String;
+   datatype Boolean;
+}

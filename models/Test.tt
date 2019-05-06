@@ -1,0 +1,14 @@
+
+truth table Test (in a, in b, in c, in d, out s)
+{
+   {a=F, b=F,           s=F}
+   {a=F, b=T, c=F, d=F, s=T}
+   {a=F, b=T, c=F, d=T, s=F}
+   {a=F, b=T, c=T,      s=F}
+   {a=T, b=F, c=F, d=F, s=F}
+   {a=T, b=F, c=T, d=F, s=T}
+   {a=T, d=T,           s=F}
+   {a=T, b=T, c=F, d=F, s=T}
+   {a=T, b=T, c=T, d=F, s=F}
+}
+

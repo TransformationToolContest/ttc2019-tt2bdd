@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<TruthTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="TT" location="2:1-13:2" name="Test">
+  <ports xsi:type="InputPort" location="2:19-2:23" name="a" cells="//@rows.0/@cells.0 //@rows.1/@cells.0 //@rows.2/@cells.0 //@rows.3/@cells.0 //@rows.4/@cells.0 //@rows.5/@cells.0 //@rows.6/@cells.0 //@rows.7/@cells.0 //@rows.8/@cells.0"/>
+  <ports xsi:type="InputPort" location="2:25-2:29" name="b" cells="//@rows.0/@cells.1 //@rows.1/@cells.1 //@rows.2/@cells.1 //@rows.3/@cells.1 //@rows.4/@cells.1 //@rows.5/@cells.1 //@rows.7/@cells.1 //@rows.8/@cells.1"/>
+  <ports xsi:type="InputPort" location="2:31-2:35" name="c" cells="//@rows.1/@cells.2 //@rows.2/@cells.2 //@rows.3/@cells.2 //@rows.4/@cells.2 //@rows.5/@cells.2 //@rows.7/@cells.2 //@rows.8/@cells.2"/>
+  <ports xsi:type="InputPort" location="2:37-2:41" name="d" cells="//@rows.1/@cells.3 //@rows.2/@cells.3 //@rows.4/@cells.3 //@rows.5/@cells.3 //@rows.6/@cells.1 //@rows.7/@cells.3 //@rows.8/@cells.3"/>
+  <ports xsi:type="OutputPort" location="2:43-2:48" name="s" cells="//@rows.0/@cells.2 //@rows.1/@cells.4 //@rows.2/@cells.4 //@rows.3/@cells.3 //@rows.4/@cells.4 //@rows.5/@cells.4 //@rows.6/@cells.2 //@rows.7/@cells.4 //@rows.8/@cells.4"/>
+  <rows location="4:4-4:29">
+    <cells location="4:5-4:8" value="false" port="//@ports.0"/>
+    <cells location="4:10-4:13" value="false" port="//@ports.1"/>
+    <cells location="4:25-4:28" value="false" port="//@ports.4"/>
+  </rows>
+  <rows location="5:4-5:29">
+    <cells location="5:5-5:8" value="false" port="//@ports.0"/>
+    <cells location="5:10-5:13" value="true" port="//@ports.1"/>
+    <cells location="5:15-5:18" value="false" port="//@ports.2"/>
+    <cells location="5:20-5:23" value="false" port="//@ports.3"/>
+    <cells location="5:25-5:28" value="true" port="//@ports.4"/>
+  </rows>
+  <rows location="6:4-6:29">
+    <cells location="6:5-6:8" value="false" port="//@ports.0"/>
+    <cells location="6:10-6:13" value="true" port="//@ports.1"/>
+    <cells location="6:15-6:18" value="false" port="//@ports.2"/>
+    <cells location="6:20-6:23" value="true" port="//@ports.3"/>
+    <cells location="6:25-6:28" value="false" port="//@ports.4"/>
+  </rows>
+  <rows location="7:4-7:29">
+    <cells location="7:5-7:8" value="false" port="//@ports.0"/>
+    <cells location="7:10-7:13" value="true" port="//@ports.1"/>
+    <cells location="7:15-7:18" value="true" port="//@ports.2"/>
+    <cells location="7:25-7:28" value="false" port="//@ports.4"/>
+  </rows>
+  <rows location="8:4-8:29">
+    <cells location="8:5-8:8" value="true" port="//@ports.0"/>
+    <cells location="8:10-8:13" value="false" port="//@ports.1"/>
+    <cells location="8:15-8:18" value="false" port="//@ports.2"/>
+    <cells location="8:20-8:23" value="false" port="//@ports.3"/>
+    <cells location="8:25-8:28" value="false" port="//@ports.4"/>
+  </rows>
+  <rows location="9:4-9:29">
+    <cells location="9:5-9:8" value="true" port="//@ports.0"/>
+    <cells location="9:10-9:13" value="false" port="//@ports.1"/>
+    <cells location="9:15-9:18" value="true" port="//@ports.2"/>
+    <cells location="9:20-9:23" value="false" port="//@ports.3"/>
+    <cells location="9:25-9:28" value="true" port="//@ports.4"/>
+  </rows>
+  <rows location="10:4-10:29">
+    <cells location="10:5-10:8" value="true" port="//@ports.0"/>
+    <cells location="10:10-10:13" value="true" port="//@ports.3"/>
+    <cells location="10:25-10:28" value="false" port="//@ports.4"/>
+  </rows>
+  <rows location="11:4-11:29">
+    <cells location="11:5-11:8" value="true" port="//@ports.0"/>
+    <cells location="11:10-11:13" value="true" port="//@ports.1"/>
+    <cells location="11:15-11:18" value="false" port="//@ports.2"/>
+    <cells location="11:20-11:23" value="false" port="//@ports.3"/>
+    <cells location="11:25-11:28" value="true" port="//@ports.4"/>
+  </rows>
+  <rows location="12:4-12:29">
+    <cells location="12:5-12:8" value="true" port="//@ports.0"/>
+    <cells location="12:10-12:13" value="true" port="//@ports.1"/>
+    <cells location="12:15-12:18" value="true" port="//@ports.2"/>
+    <cells location="12:20-12:23" value="false" port="//@ports.3"/>
+    <cells location="12:25-12:28" value="false" port="//@ports.4"/>
+  </rows>
+</TruthTable>

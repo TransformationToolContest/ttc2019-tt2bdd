@@ -1,0 +1,27 @@
+bdd Test (in a, in b, in c, in d, out s) {
+  subtree a {
+    F:subtree b {
+        F:leaf s = F
+        T:subtree c {
+            F:subtree d {
+                F:leaf s = T
+                T:leaf s = F
+              }
+            T:leaf s = F
+          }
+      }
+    T:subtree d {
+        F:subtree b {
+            F:subtree c {
+                F:leaf s = F
+                T:leaf s = T
+              }
+            T:subtree c {
+                F:leaf s = T
+                T:leaf s = F
+              }
+          }
+        T:leaf s = F
+      }
+  }
+}
