@@ -82,24 +82,6 @@ def set_working_directory(*path):
     os.chdir(dir)
 
 
-def visualize():
-    """
-    Visualizes the benchmark results
-    """
-    clean_dir("diagrams")
-    set_working_directory("reporting")
-    subprocess.call(["Rscript", "visualize.R", os.path.join(BASE_DIRECTORY, "config", "reporting.json")])
-
-
-def extract_results():
-    """
-    Extracts the benchmark results
-    """
-    clean_dir("results")
-    set_working_directory("reporting")
-    subprocess.call(["Rscript", "check_results.R"])
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-b", "--build",
@@ -110,9 +92,6 @@ if __name__ == "__main__":
                         action="store_true")
     parser.add_argument("-s", "--skip-tests",
                         help="skip JUNIT tests",
-                        action="store_true")
-    parser.add_argument("-v", "--visualize",
-                        help="create visualizations",
                         action="store_true")
     parser.add_argument("-e", "--extract",
                         help="extract results",
@@ -138,10 +117,6 @@ if __name__ == "__main__":
         benchmark(config)
     if args.test:
         build(config, False)
-    if args.visualize:
-        visualize()
-    if args.extract:
-        extract_results()
 
     # if there are no args, execute a full sequence
     # with the test and the visualization/reporting
@@ -149,5 +124,3 @@ if __name__ == "__main__":
     if no_args:
         build(config, False)
         benchmark(config)
-        visualize()
-        extract_results()
