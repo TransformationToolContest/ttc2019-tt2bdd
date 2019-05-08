@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TTC2019 TT2BDD Model GeneratorTests
+Bundle-SymbolicName: ttc2019.model.generator.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Transformation Tools Contest
+Fragment-Host: ttc2019.model.generator;bundle-version="1.0.0"
+Automatic-Module-Name: ttc2019.model.generator.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.junit;bundle-version="4.12.0"

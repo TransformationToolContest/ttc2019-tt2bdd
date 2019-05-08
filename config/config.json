@@ -1,7 +1,12 @@
 {
-  "Tools": ["EMFSolutionATL"],
-  "Models": ["Test.ttmodel"],
-  "Sequences": 20,
-  "Runs": 5,
-  "Timeout": 6000
+    "Tools": ["EMFSolutionATL"],
+    "Models": [
+        "Test.ttmodel",
+        "GeneratedI4O2Seed42.ttmodel",
+        "GeneratedI8O2Seed68.ttmodel",
+        "GeneratedI8O4Seed68.ttmodel"
+    ],
+    "Sequences": 20,
+    "Runs": 5,
+    "Timeout": 6000
 }
