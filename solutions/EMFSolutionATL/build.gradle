@@ -31,18 +31,12 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'java-library-distribution'
 
-xtend {
-	sourceSets {
-		main.xtendOutputDir = 'xtend-gen'
-	}
-}
-
 mainClassName = 'ttc2019.Driver'
 
 sourceSets {
 	main {
 		java {
-			srcDirs = ['src', 'src-gen']
+			srcDirs = ['src', '../../metamodels/ttc2019.metamodels/src-gen']
 		}
 		resources {
 			srcDirs = ['src']

@@ -14,9 +14,9 @@ import org.eclipse.m2m.atl.emftvm.util.ClassModuleResolver;
 import org.eclipse.m2m.atl.emftvm.util.ModuleResolver;
 import org.eclipse.m2m.atl.emftvm.util.TimingData;
 
-import ttc2019.bdd.BDDPackage;
-import ttc2019.tt.TTPackage;
-import ttc2019.tt.TruthTable;
+import ttc2019.metamodels.bdd.BDDPackage;
+import ttc2019.metamodels.tt.TTPackage;
+import ttc2019.metamodels.tt.TruthTable;
 
 public class Solution {
 

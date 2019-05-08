@@ -8,12 +8,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: ttc2019.bdd,
- ttc2019.bdd.impl,
- ttc2019.bdd.util,
- ttc2019.tt,
- ttc2019.tt.impl,
- ttc2019.tt.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ ttc2019.metamodels;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

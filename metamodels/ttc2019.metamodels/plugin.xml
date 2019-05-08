@@ -10,14 +10,15 @@
       <!-- @generated BDD -->
       <package
             uri="https://www.transformation-tool-contest.eu/2019/bdd"
-            class="ttc2019.bdd.BDDPackage"/>
+            class="ttc2019.metamodels.bdd.BDDPackage"
+            genModel="models/BDD.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated TT -->
       <package
             uri="https://www.transformation-tool-contest.eu/2019/tt"
-            class="ttc2019.tt.TTPackage"
+            class="ttc2019.metamodels.tt.TTPackage"
             genModel="models/TT.genmodel"/>
    </extension>
 

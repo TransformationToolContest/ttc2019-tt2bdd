@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ttc2019.metamodels/src-gen" modelPluginID="ttc2019.metamodels"
+    modelName="TT" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>TT.ecore</foreignModel>
+  <genPackages prefix="TT" basePackage="ttc2019.metamodels" disposableProviderFactory="true"
+      ecorePackage="TT.ecore#/">
+    <genClasses ecoreClass="TT.ecore#//TruthTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TT.ecore#//TruthTable/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TT.ecore#//TruthTable/ports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TT.ecore#//TruthTable/rows"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="TT.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TT.ecore#//Port/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference TT.ecore#//Port/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TT.ecore#//Port/cells"/>
+    </genClasses>
+    <genClasses ecoreClass="TT.ecore#//InputPort"/>
+    <genClasses ecoreClass="TT.ecore#//OutputPort"/>
+    <genClasses ecoreClass="TT.ecore#//Row">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference TT.ecore#//Row/owner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TT.ecore#//Row/cells"/>
+    </genClasses>
+    <genClasses ecoreClass="TT.ecore#//Cell">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TT.ecore#//Cell/value"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference TT.ecore#//Cell/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TT.ecore#//Cell/port"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
