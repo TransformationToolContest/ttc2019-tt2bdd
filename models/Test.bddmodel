@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<BDD xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="BDD" name="Test">
+<BDD xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.transformation-tool-contest.eu/2019/bdd" name="Test">
   <ports xsi:type="InputPort" name="a" subtrees="//@tree"/>
   <ports xsi:type="InputPort" name="b" subtrees="//@tree/@treeForOne/@treeForZero //@tree/@treeForZero"/>
   <ports xsi:type="InputPort" name="c" subtrees="//@tree/@treeForOne/@treeForZero/@treeForOne //@tree/@treeForZero/@treeForOne //@tree/@treeForOne/@treeForZero/@treeForZero"/>
