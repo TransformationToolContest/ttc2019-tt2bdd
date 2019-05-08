@@ -7,9 +7,6 @@
   <foreignModel>TT.ecore</foreignModel>
   <genPackages prefix="TT" basePackage="ttc2019" disposableProviderFactory="true"
       ecorePackage="TT.ecore#/">
-    <genClasses ecoreClass="TT.ecore#//LocatedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TT.ecore#//LocatedElement/location"/>
-    </genClasses>
     <genClasses ecoreClass="TT.ecore#//TruthTable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TT.ecore#//TruthTable/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TT.ecore#//TruthTable/ports"/>

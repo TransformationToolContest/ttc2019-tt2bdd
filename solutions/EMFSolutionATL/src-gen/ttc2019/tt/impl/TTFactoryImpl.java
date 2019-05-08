@@ -56,7 +56,6 @@ public class TTFactoryImpl extends EFactoryImpl implements TTFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TTPackage.LOCATED_ELEMENT: return createLocatedElement();
 			case TTPackage.TRUTH_TABLE: return createTruthTable();
 			case TTPackage.INPUT_PORT: return createInputPort();
 			case TTPackage.OUTPUT_PORT: return createOutputPort();
@@ -65,16 +64,6 @@ public class TTFactoryImpl extends EFactoryImpl implements TTFactory {
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LocatedElement createLocatedElement() {
-		LocatedElementImpl locatedElement = new LocatedElementImpl();
-		return locatedElement;
 	}
 
 	/**

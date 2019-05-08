@@ -22,15 +22,6 @@ public interface TTFactory extends EFactory {
 	TTFactory eINSTANCE = ttc2019.tt.impl.TTFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Located Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Located Element</em>'.
-	 * @generated
-	 */
-	LocatedElement createLocatedElement();
-
-	/**
 	 * Returns a new object of class '<em>Truth Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -2,6 +2,8 @@
  */
 package ttc2019.tt;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +23,7 @@ package ttc2019.tt;
  * @model
  * @generated
  */
-public interface Cell extends LocatedElement {
+public interface Cell extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->

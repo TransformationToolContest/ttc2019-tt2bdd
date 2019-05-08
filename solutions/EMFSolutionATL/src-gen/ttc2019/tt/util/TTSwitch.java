@@ -66,23 +66,15 @@ public class TTSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case TTPackage.LOCATED_ELEMENT: {
-				LocatedElement locatedElement = (LocatedElement)theEObject;
-				T result = caseLocatedElement(locatedElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TTPackage.TRUTH_TABLE: {
 				TruthTable truthTable = (TruthTable)theEObject;
 				T result = caseTruthTable(truthTable);
-				if (result == null) result = caseLocatedElement(truthTable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TTPackage.PORT: {
 				Port port = (Port)theEObject;
 				T result = casePort(port);
-				if (result == null) result = caseLocatedElement(port);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,7 +82,6 @@ public class TTSwitch<T> extends Switch<T> {
 				InputPort inputPort = (InputPort)theEObject;
 				T result = caseInputPort(inputPort);
 				if (result == null) result = casePort(inputPort);
-				if (result == null) result = caseLocatedElement(inputPort);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,41 +89,23 @@ public class TTSwitch<T> extends Switch<T> {
 				OutputPort outputPort = (OutputPort)theEObject;
 				T result = caseOutputPort(outputPort);
 				if (result == null) result = casePort(outputPort);
-				if (result == null) result = caseLocatedElement(outputPort);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TTPackage.ROW: {
 				Row row = (Row)theEObject;
 				T result = caseRow(row);
-				if (result == null) result = caseLocatedElement(row);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TTPackage.CELL: {
 				Cell cell = (Cell)theEObject;
 				T result = caseCell(cell);
-				if (result == null) result = caseLocatedElement(cell);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Located Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Located Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLocatedElement(LocatedElement object) {
-		return null;
 	}
 
 	/**

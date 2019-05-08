@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import ttc2019.tt.Cell;
@@ -32,7 +33,7 @@ import ttc2019.tt.TTPackage;
  *
  * @generated
  */
-public class CellImpl extends LocatedElementImpl implements Cell {
+public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	/**
 	 * The default value of the '{@link #isValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

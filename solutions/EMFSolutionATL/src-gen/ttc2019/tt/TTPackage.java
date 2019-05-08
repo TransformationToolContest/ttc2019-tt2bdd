@@ -57,43 +57,6 @@ public interface TTPackage extends EPackage {
 	TTPackage eINSTANCE = ttc2019.tt.impl.TTPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link ttc2019.tt.impl.LocatedElementImpl <em>Located Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ttc2019.tt.impl.LocatedElementImpl
-	 * @see ttc2019.tt.impl.TTPackageImpl#getLocatedElement()
-	 * @generated
-	 */
-	int LOCATED_ELEMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCATED_ELEMENT__LOCATION = 0;
-
-	/**
-	 * The number of structural features of the '<em>Located Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCATED_ELEMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Located Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCATED_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link ttc2019.tt.impl.TruthTableImpl <em>Truth Table</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,16 +64,7 @@ public interface TTPackage extends EPackage {
 	 * @see ttc2019.tt.impl.TTPackageImpl#getTruthTable()
 	 * @generated
 	 */
-	int TRUTH_TABLE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUTH_TABLE__LOCATION = LOCATED_ELEMENT__LOCATION;
+	int TRUTH_TABLE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -119,7 +73,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUTH_TABLE__NAME = LOCATED_ELEMENT_FEATURE_COUNT + 0;
+	int TRUTH_TABLE__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -128,7 +82,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUTH_TABLE__PORTS = LOCATED_ELEMENT_FEATURE_COUNT + 1;
+	int TRUTH_TABLE__PORTS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
@@ -137,7 +91,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUTH_TABLE__ROWS = LOCATED_ELEMENT_FEATURE_COUNT + 2;
+	int TRUTH_TABLE__ROWS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Truth Table</em>' class.
@@ -146,7 +100,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUTH_TABLE_FEATURE_COUNT = LOCATED_ELEMENT_FEATURE_COUNT + 3;
+	int TRUTH_TABLE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Truth Table</em>' class.
@@ -155,7 +109,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUTH_TABLE_OPERATION_COUNT = LOCATED_ELEMENT_OPERATION_COUNT + 0;
+	int TRUTH_TABLE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ttc2019.tt.impl.PortImpl <em>Port</em>}' class.
@@ -165,16 +119,7 @@ public interface TTPackage extends EPackage {
 	 * @see ttc2019.tt.impl.TTPackageImpl#getPort()
 	 * @generated
 	 */
-	int PORT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PORT__LOCATION = LOCATED_ELEMENT__LOCATION;
+	int PORT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -183,7 +128,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__NAME = LOCATED_ELEMENT_FEATURE_COUNT + 0;
+	int PORT__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
@@ -192,7 +137,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__OWNER = LOCATED_ELEMENT_FEATURE_COUNT + 1;
+	int PORT__OWNER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Cells</b></em>' reference list.
@@ -201,7 +146,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__CELLS = LOCATED_ELEMENT_FEATURE_COUNT + 2;
+	int PORT__CELLS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Port</em>' class.
@@ -210,7 +155,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_FEATURE_COUNT = LOCATED_ELEMENT_FEATURE_COUNT + 3;
+	int PORT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Port</em>' class.
@@ -219,7 +164,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_OPERATION_COUNT = LOCATED_ELEMENT_OPERATION_COUNT + 0;
+	int PORT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ttc2019.tt.impl.InputPortImpl <em>Input Port</em>}' class.
@@ -229,16 +174,7 @@ public interface TTPackage extends EPackage {
 	 * @see ttc2019.tt.impl.TTPackageImpl#getInputPort()
 	 * @generated
 	 */
-	int INPUT_PORT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PORT__LOCATION = PORT__LOCATION;
+	int INPUT_PORT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -293,16 +229,7 @@ public interface TTPackage extends EPackage {
 	 * @see ttc2019.tt.impl.TTPackageImpl#getOutputPort()
 	 * @generated
 	 */
-	int OUTPUT_PORT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PORT__LOCATION = PORT__LOCATION;
+	int OUTPUT_PORT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -357,16 +284,7 @@ public interface TTPackage extends EPackage {
 	 * @see ttc2019.tt.impl.TTPackageImpl#getRow()
 	 * @generated
 	 */
-	int ROW = 5;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROW__LOCATION = LOCATED_ELEMENT__LOCATION;
+	int ROW = 4;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
@@ -375,7 +293,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW__OWNER = LOCATED_ELEMENT_FEATURE_COUNT + 0;
+	int ROW__OWNER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Cells</b></em>' containment reference list.
@@ -384,7 +302,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW__CELLS = LOCATED_ELEMENT_FEATURE_COUNT + 1;
+	int ROW__CELLS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Row</em>' class.
@@ -393,7 +311,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_FEATURE_COUNT = LOCATED_ELEMENT_FEATURE_COUNT + 2;
+	int ROW_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Row</em>' class.
@@ -402,7 +320,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_OPERATION_COUNT = LOCATED_ELEMENT_OPERATION_COUNT + 0;
+	int ROW_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ttc2019.tt.impl.CellImpl <em>Cell</em>}' class.
@@ -412,16 +330,7 @@ public interface TTPackage extends EPackage {
 	 * @see ttc2019.tt.impl.TTPackageImpl#getCell()
 	 * @generated
 	 */
-	int CELL = 6;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CELL__LOCATION = LOCATED_ELEMENT__LOCATION;
+	int CELL = 5;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -430,7 +339,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL__VALUE = LOCATED_ELEMENT_FEATURE_COUNT + 0;
+	int CELL__VALUE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
@@ -439,7 +348,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL__OWNER = LOCATED_ELEMENT_FEATURE_COUNT + 1;
+	int CELL__OWNER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Port</b></em>' reference.
@@ -448,7 +357,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL__PORT = LOCATED_ELEMENT_FEATURE_COUNT + 2;
+	int CELL__PORT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Cell</em>' class.
@@ -457,7 +366,7 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL_FEATURE_COUNT = LOCATED_ELEMENT_FEATURE_COUNT + 3;
+	int CELL_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Cell</em>' class.
@@ -466,29 +375,8 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL_OPERATION_COUNT = LOCATED_ELEMENT_OPERATION_COUNT + 0;
+	int CELL_OPERATION_COUNT = 0;
 
-
-	/**
-	 * Returns the meta object for class '{@link ttc2019.tt.LocatedElement <em>Located Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Located Element</em>'.
-	 * @see ttc2019.tt.LocatedElement
-	 * @generated
-	 */
-	EClass getLocatedElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ttc2019.tt.LocatedElement#getLocation <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Location</em>'.
-	 * @see ttc2019.tt.LocatedElement#getLocation()
-	 * @see #getLocatedElement()
-	 * @generated
-	 */
-	EAttribute getLocatedElement_Location();
 
 	/**
 	 * Returns the meta object for class '{@link ttc2019.tt.TruthTable <em>Truth Table</em>}'.
@@ -694,24 +582,6 @@ public interface TTPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link ttc2019.tt.impl.LocatedElementImpl <em>Located Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ttc2019.tt.impl.LocatedElementImpl
-		 * @see ttc2019.tt.impl.TTPackageImpl#getLocatedElement()
-		 * @generated
-		 */
-		EClass LOCATED_ELEMENT = eINSTANCE.getLocatedElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LOCATED_ELEMENT__LOCATION = eINSTANCE.getLocatedElement_Location();
-
 		/**
 		 * The meta object literal for the '{@link ttc2019.tt.impl.TruthTableImpl <em>Truth Table</em>}' class.
 		 * <!-- begin-user-doc -->

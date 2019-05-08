@@ -68,10 +68,6 @@ public class TTAdapterFactory extends AdapterFactoryImpl {
 	protected TTSwitch<Adapter> modelSwitch =
 		new TTSwitch<Adapter>() {
 			@Override
-			public Adapter caseLocatedElement(LocatedElement object) {
-				return createLocatedElementAdapter();
-			}
-			@Override
 			public Adapter caseTruthTable(TruthTable object) {
 				return createTruthTableAdapter();
 			}
@@ -114,20 +110,6 @@ public class TTAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ttc2019.tt.LocatedElement <em>Located Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ttc2019.tt.LocatedElement
-	 * @generated
-	 */
-	public Adapter createLocatedElementAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link ttc2019.tt.TruthTable <em>Truth Table</em>}'.

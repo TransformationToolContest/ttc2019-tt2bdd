@@ -3,6 +3,7 @@
 package ttc2019.tt;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Row extends LocatedElement {
+public interface Row extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link ttc2019.tt.TruthTable#getRows <em>Rows</em>}'.

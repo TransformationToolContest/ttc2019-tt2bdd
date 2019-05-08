@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -37,7 +38,7 @@ import ttc2019.tt.TruthTable;
  *
  * @generated
  */
-public class TruthTableImpl extends LocatedElementImpl implements TruthTable {
+public class TruthTableImpl extends MinimalEObjectImpl.Container implements TruthTable {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

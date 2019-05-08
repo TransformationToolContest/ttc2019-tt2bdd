@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import ttc2019.tt.Cell;
 import ttc2019.tt.InputPort;
-import ttc2019.tt.LocatedElement;
 import ttc2019.tt.OutputPort;
 import ttc2019.tt.Port;
 import ttc2019.tt.Row;
@@ -26,13 +25,6 @@ import ttc2019.tt.TruthTable;
  * @generated
  */
 public class TTPackageImpl extends EPackageImpl implements TTPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass locatedElementEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,24 +126,6 @@ public class TTPackageImpl extends EPackageImpl implements TTPackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(TTPackage.eNS_URI, theTTPackage);
 		return theTTPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getLocatedElement() {
-		return locatedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLocatedElement_Location() {
-		return (EAttribute)locatedElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -335,9 +309,6 @@ public class TTPackageImpl extends EPackageImpl implements TTPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		locatedElementEClass = createEClass(LOCATED_ELEMENT);
-		createEAttribute(locatedElementEClass, LOCATED_ELEMENT__LOCATION);
-
 		truthTableEClass = createEClass(TRUTH_TABLE);
 		createEAttribute(truthTableEClass, TRUTH_TABLE__NAME);
 		createEReference(truthTableEClass, TRUTH_TABLE__PORTS);
@@ -390,17 +361,10 @@ public class TTPackageImpl extends EPackageImpl implements TTPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		truthTableEClass.getESuperTypes().add(this.getLocatedElement());
-		portEClass.getESuperTypes().add(this.getLocatedElement());
 		inputPortEClass.getESuperTypes().add(this.getPort());
 		outputPortEClass.getESuperTypes().add(this.getPort());
-		rowEClass.getESuperTypes().add(this.getLocatedElement());
-		cellEClass.getESuperTypes().add(this.getLocatedElement());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(locatedElementEClass, LocatedElement.class, "LocatedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLocatedElement_Location(), ecorePackage.getEString(), "location", null, 1, 1, LocatedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(truthTableEClass, TruthTable.class, "TruthTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTruthTable_Name(), ecorePackage.getEString(), "name", null, 1, 1, TruthTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getTruthTable_Ports(), this.getPort(), this.getPort_Owner(), "ports", null, 1, -1, TruthTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
