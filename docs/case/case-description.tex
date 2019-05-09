@@ -11,6 +11,16 @@
   a.garcia-dominguez@aston.ac.uk
 }
 
+\usepackage{tikz}
+\usepackage{graphicx}
+\graphicspath{{}{figures/}}
+
+\usepackage[pdftex,colorlinks=true]{hyperref}
+
+\newcommand*{\class}[1]{\textsc{#1}}
+\newcommand*{\feature}[1]{\emph{#1}}
+\newcommand*{\file}[1]{\texttt{#1}}
+
 \begin{document}
 
 \maketitle
@@ -64,7 +74,8 @@ Striving for raw performance is an option, but the case welcomes approaches that
 focus on other attributes of interest to a high-quality model transformation.
 This includes attributes such as verifiability, traceability, bidirectionality,
 or understandability, but solution providers are welcome to propose their own
-attributes of interest.
+attributes of interest. In general, this case is proposed as a showcase of the
+current variety of model transformation tools.
 
 The rest of the document is structured as follows:
 Section~\ref{sec:transf-descr} describes the TT2BDD transformation.
@@ -79,53 +90,362 @@ derive additional prizes depending on the attributes targeted by the solutions.
 \section{Transformation Description}
 \label{sec:transf-descr}
 
-Short intro + structure.
+This section introduces the Truth Tables to Binary Decision Diagram
+transformation, with a description of the input and output metamodels, and an
+outline of an implementation.
 
 \subsection{Input Metamodel: Truth Tables}
 \label{sec:input-metam-truth}
 
-Explain the TT metamodel, with diagram + example.
+\begin{figure}
+  \centering
+  \includegraphics[width=.9\textwidth]{tt}
+  \caption{Class diagram for the input Truth Tables metamodel}
+  \label{fig:tt-metamodel}
+\end{figure}
+
+\begin{table}
+  \centering
+  \begin{tabular}{llll|l}
+    $A$ & $B$ & $C$ & $D$ & $S$ \\
+    \hline
+    0 & 0 & - & - & 0 \\
+    0 & 1 & 0 & 0 & 1 \\
+    0 & 1 & 0 & 0 & 1 \\
+    0 & 1 & 0 & 1 & 0 \\
+    0 & 1 & 1 & - & 0 \\
+    1 & 0 & 0 & 0 & 0 \\
+    1 & 0 & 1 & 0 & 1 \\
+    1 & - & - & 1 & 0 \\
+    1 & 1 & 0 & 0 & 1 \\
+    1 & 1 & 1 & 0 & 0 \\
+  \end{tabular}
+  \caption{Example truth table: $A$ to $D$ are input ports and $S$ is an output port. ``-'' means ``ignored''.}
+  \label{tab:tt-example}
+\end{table}
+
+The input metamodel is shown on Figure~\ref{fig:tt-metamodel}. A
+\class{Truth\-Table} object acts as the root of the model, and contains a
+collection of \class{Port}s and \class{Row}s. \class{Port}s come in two types:
+\class{Input\-Port}s and \class{Output\-Port}s. \class{Row}s contain sequences
+of \class{Cell}s, which assign values to the \class{Input\-Port}s and
+\class{Output\-Port}s of the table.
+
+Automated EMF opposite references are used liberally in the metamodel to
+simplify the specification of the transformation. \feature{owner} is used to
+access the container from several child objects (e.g. the \class{Truth\-Table}
+of a \class{Row}), and it is possible to see which \feature{cells} referenced a
+specific \class{Port}.
+
+A sample model is shown on Table~\ref{tab:tt-example}. The truth table has four
+\class{Input\-Port}s named $A$ to $D$, and one \class{Output\-Port} named $S$.
+The first \class{Row} contains only 3 \class{Cell}s, specifying that if $A$ and
+$B$ are 0, then $S$ should be 0.
 
 \subsection{Output Metamodel: Binary Decision Trees}
 \label{sec:outp-metam-binary}
 
-Explain the BDD metamodel, with diagram + example.
+\begin{figure}
+  \centering
+  \includegraphics[width=.9\textwidth]{bdd}
+  \caption{Class diagram for the output Binary Decision Diagram metamodel}
+  \label{fig:bdd-metamodel}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[
+      level 1/.style={level distance=12em},
+      level 2/.style={level distance=4em},
+      level 6/.style={level distance=3em},
+      level 7/.style={level distance=2em},
+      port/.style={circle, draw},
+      value/.style={draw},
+      assignment/.style={ellipse, fill=blue!20},
+  ]
+    \node[port] {$A$}
+    child[grow=left] {
+      node[value] {0}
+      [grow=down]
+      child {
+        node[port] {$B$}
+        child[grow=left] {
+          node[value] {0}
+          child[grow=down] { node[assignment] {$S = 0$} }
+        }
+        child[grow=right] {
+          node[value] {1}
+          child[grow=down] {
+            node[port] {$C$}
+            child[grow=left] {
+              node[value] {0}
+              child[grow=down] {
+                node[port] {$D$}
+                child[grow=left] {
+                  node[value] {0}
+                  child[grow=down] { node[assignment] {$S=1$} }
+                }
+                child[grow=right] {
+                  node[value] {1}
+                  child[grow=down] { node[assignment] {$S=0$} }
+                }
+              }
+            }
+            child[grow=right] {
+              node[value] {1}
+              child[grow=down] {node[assignment] {$S=0$}}
+            }
+          }
+        }
+      }
+    }
+    child[grow=right] {
+      node[value] {1}
+      [grow=down]
+      child {
+        node[port] {$D$}
+        child[grow=left] {
+          node[value] {0}
+          child[grow=down] {
+            node[port] {$B$}
+            child[grow=left] {
+              node[value] {0}
+              child[grow=down] {
+                node[port] {$C$}
+                child[grow=left] {
+                  node[value] {0} child[grow=down] { node[assignment] {$S=0$} }
+                }
+                child[grow=right] {
+                  node[value] {1} child[grow=down] { node[assignment] {$S=1$} }
+                }
+              }
+            }
+            child[grow=right] {
+              node[value] {1}
+              child[grow=down] {
+                node[port] {$C$}
+                child[grow=left] {
+                  node[value] {0} child[grow=down] { node[assignment] {$S=1$} }
+                }
+                child[grow=right] {
+                  node[value] {1} child[grow=down] { node[assignment] {$S=0$} }
+                }
+              }
+            }
+          }
+        }
+        child[grow=right] {
+          node[value] {1} child[grow=down] { node[assignment] {$S=0$} }
+        }
+      }
+    }
+    ;
+  \end{tikzpicture}
+  \caption{Equivalent BDD for the truth table on Table~\ref{tab:tt-example}}
+  \label{fig:bdd-equivalent}
+\end{figure}
+
+The output metamodel is shown on Figure~\ref{fig:bdd-metamodel}. A \class{BDD}
+object acts as the root of the model, and contains the root of the \class{Tree}
+and a collection of \class{Port}s. Similarly to the Truth Tables metamodel,
+there are \class{Input\-Port}s and \class{Output\-Port}s.
+
+\class{Tree} is the common superclass for any node in the tree. Inner nodes
+check the value of an \class{Input\-Port}: if it is a false value, evaluation
+will proceed through the \feature{tree\-For\-Zero} \class{Tree}; otherwise,
+evaluation will go through the \feature{tree\-For\-One} \class{Tree}. Leaf nodes
+are \class{Leaf} objects, which provide an \class{Assignment} of a boolean value
+to each of the available \class{Output\-Port}s.
+
+The equivalent BDD for the truth table on Table~\ref{tab:tt-example} is shown on
+Figure~\ref{fig:bdd-equivalent}. \class{Subtree}s are represented by the circle
+referencing an \class{Input\-Port} and their subtrees for when the port takes a
+0 or 1 value. \class{Assignment}s are represented by the shaded nodes that
+provide values to the \class{Output\-Port}s.
 
 \subsection{Process Outline}
 \label{sec:process-outline}
 
-Explain in broad terms what the tx should do (based on ATL outline).
+The transformation essentially needs to construct a (preferably minimal) binary
+decision diagram that produces the same values for the output ports, given the
+same values in the input ports. Given the high interest about this problem in
+circuit design, many algorithms have been proposed in the literature.
 
-\section{Task Suggestions}
+Solution authors are welcome to implement a more optimal algorithm in their
+transformation tool. This section will only outline a simple approach that can
+be readily implemented without too much complication.
+
+There are some basic mappings which are immediately obvious:
+
+\begin{itemize}
+\item Each \class{TruthTable} object should correspond to a \class{BDD} object,
+  with the same name and equivalent \class{Port}s.
+
+\item Each \class{Input\-Port} and \class{Output\-Port} should be mapped to an
+  object of the BDD type with the same name, and should be assigned the same
+  \feature{name}.
+
+\item Each \class{Row} should become a \class{Leaf} node: the \class{Cell}s for
+  the \class{Output\-Port}s will become \class{Assignment}s.
+\end{itemize}
+
+The complexity is in deriving the inner nodes: the \class{Subtree} objects. One
+simple approach is to find a TT \class{Input\-Port} which is (ideally) defined
+in all the \class{Row}s, and turn it into an inner node (a \class{Subtree})
+which points to the equivalent BDD \class{Input\-Port} and has two
+\class{Tree}s:
+\begin{itemize}
+\item The zero subtree, produced from the \class{Row}(s) where the port was 0.
+  This will be a \class{Subtree} if there are at least two rows in that
+  situation: the transformation should proceed recursively in this case with
+  those rows, excluding the input ports that have already been considered. If
+  there is only one such row, this would simply point to the \class{Leaf}
+  created above.
+
+\item The one subtree, produced in a parallel way to the zero subtree.
+\end{itemize}
+
+This simple approach does not necessarily ensure a minimal subtree, as in some
+points there may be multiple ports to choose from. It may require improvements
+for cases where there are no input ports which are defined in all available
+rows. Authors are welcome to try and implement a more efficient or optimal
+approach in their solutions.
+
+\section{Main Task}
 \label{sec:task-suggestions}
 
-Bidirectionality and performance are two obvious ones, but this section should
-make it clear that people are free to do what they want.
+The obvious main task in this case is to implement the TT2BDD transformation in
+your favourite model transformation language, ensuring that the resulting BDDs
+are equivalent to the original truth table. To simplify the work involved, the
+case includes an Eclipse Modelling Framework implementation of the metamodels in
+the \file{ttc2019.metamodels} project within the \file{metamodels} folder, and a
+set of sample XMI input models conforming to the metamodels in the \file{models}
+folder.
+
+The \file{models} folder includes two additional tools, which can be run with
+\file{java -jar tool.jar}:
+\begin{itemize}
+\item \file{generator.jar} can produce truth tables of an arbitrary number of
+  input and output ports, given seed. Solution implementers may want to be
+  careful with the values given, as truth tables grow exponentially as more
+  input ports are added.
+
+\item \file{validator.jar} can validate if a BDD model is equivalent to a source
+  truth table model, by evaluating all the rows in the TT model through the BDD
+  and comparing the values of the \class{Output\-Port}s. This tool is required
+  to check that your transformation is correct.
+\end{itemize}
+
+Solutions are free to focus on any specific quality attribute of the
+transformation beyond optimality and performance. For instance, it may be useful
+to be able to prove that the transformation does indeed produce a BDD which is
+equivalent to the TT (even if suboptimal). It may also be interesting to be able
+to visualize the BDD being built from the TT, or to be able to trace which
+subtree came from which collection of rows.
+
+The conciseness of the transformation may also be of interest, given that its
+recursive nature may be difficult to map to some existing transformation
+languages.
 
 \section{Benchmark Framework}
 \label{sec:benchmark-framework}
 
-Mention that this is only required if focusing on performance.
+If focusing on performance, the solution authors should integrate their solution with the provided benchmark framework. It is based on that of the TTC 2017 Smart Grid case\footnote{\url{https://www.transformation-tool-contest.eu/2017/solutions_smartGrid.html}}, and supports the automated build and execution of solutions. For this specific case study, the visualisation of the results is currently disabled.
+
+The benchmark consists of three phases:
+
+\begin{enumerate}
+\item \textbf{Initialization}, which involves setting up the basic
+  infrastructure (e.g. loading metamodels). These measurements are optional.
+\item \textbf{Load}, which loads the input models.
+\item \textbf{Run}, which runs the transformation, produces the BDD and saves
+  the file.
+\end{enumerate}
 
 \subsection{Solution requirements}
 \label{sec:solut-requ}
 
+Each solution wishing to use the benchmarking framework should print to the
+standard output a line with the following fields, separated by semicolons
+(``;''):
+
+\begin{itemize}
+\item \textbf{Tool}: name of the tool.
+\item \textbf{Model}: name of the model being transformed.
+\item \textbf{RunIndex}: the index of the repetition of the transformation.
+\item \textbf{Phase}: the name of the phase.
+\item \textbf{MetricName}: the name of the metric. It may be the used
+  \textbf{Memory} in bytes, or the wall clock \textbf{Time} spent in integer
+  nanoseconds.
+\end{itemize}
+
+To enable automatic execution by the benchmark framework, solutions should add a
+subdirectory to the \file{solutions} folder of the benchmark with a
+\file{solution.ini}q file stating how the solution should be built and how it
+should be run. Solution authors will want to study the available
+\file{solution.ini} for the sample ATL solution, and adjust its settings in
+order to run the appropriate commands for building and running their solutions.
+
+The repetition of executions as defined in the benchmark configuration is done
+by the benchmark. For 5 runs, the specified command will be called 5 times,
+passing any required information (e.g. run index, or input model name) through
+environment variables. Solutions must not save intermediate data between
+different runs: each run should be entirely independent.
+
+The name and absolute path of the input model, the run index and the name of the
+tool are passed using environment variables \file{Model}, \file{ModelPath},
+\file{RunIndex} and \file{Tool}. Solution authors are suggested to study the
+example ATL solution on how to use these values to run their transformation.
+
 \subsection{Running the benchmark}
 \label{sec:running-benchmark}
+
+The benchmark framework only requires Python 2.7 to be installed. Furthermore,
+the solutions may imply additional frameworks. We would ask solution authors to
+explicitly note dependencies to additional frameworks necessary to run their
+solutions.
+
+If all prerequisites are fulfilled, the benchmark can be run using Python with
+the command \file{python scripts/run.py}. Additional options can be queried
+using the option \file{{-}{-}help}. The benchmark framework can be configured
+through the \file{config/config.json} file: this includes the input models to be
+evaluated (some of which have been excluded by default due to their high cost with the sample solution), the names of the tools to be run, the number of runs per tool+model, and the timeout for each command in milliseconds.
 
 \section{Evaluation}
 \label{sec:evaluation}
 
-Since this is an open problem, the evaluation will also depend on the submitted
-solutions. There will be an audience award, where the audience will be given a
-limited number of points that they can distribute (e.g. 2 per attendee). If
-multiple solutions aim at the same research priorities (e.g. bidirectionality /
-incremental change propagation / raw performance), a dedicated category will be
-created for it.
+Given the call for a broader set of research interests in this transformation,
+the evaluation will operate on two dimensions:
 
-Correctness is important, though - there is a validator that checks whether a
-BDD matches an input TT model. Essentially, it runs the BDD through all the
-inputs in the various rows and checks the same result is produced for each
-output port.
+\begin{itemize}
+\item Is it a high-quality model transformation? The transformation should be
+  complete, correct, easy to understand, efficient, and produce optimal results.
+
+  The \file{validator.jar} will be used to check the produced BDDs against the
+  source truth tables, and the authors will need to provide a convincing
+  argument about the correctness of the solution.
+
+  Attendees to the contest will evaluate the understandability of the solution,
+  and the benchmark framework will provide independent measurements of memory
+  and time usage.
+
+  Tree sizes for the BDDs will be considered for the optimality of the
+  transformations: the smaller, the better.
+
+\item Does it highlight a promising research direction? Although the
+  transformation may not be entirely complete or may be harder to understand, it
+  may serve as an example of an active research area within model
+  transformations that the community may wish to showcase.
+
+  This may include aspects such as incrementality, bidirectionality,
+  traceability, verifiability, or the ability to visualize interactively the
+  transformation, among other areas of interest in the field.
+
+  Depending on the submitted solutions, the awards for this dimension may
+  change. If there are no common areas of interest in the solutions, an
+  audience-driven ``Most Promising'' award will be awarded. If there are common
+  themes between solutions, dedicated 1st/2nd/3rd place awards for those
+  research areas may be awarded.
+\end{itemize}
 
 \end{document}

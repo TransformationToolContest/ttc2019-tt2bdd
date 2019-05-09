@@ -46,7 +46,6 @@ def benchmark(conf):
     if os.path.exists(result_file):
         os.remove(result_file)
     shutil.copy(header, result_file)
-    os.environ['Sequences'] = str(conf.Sequences)
     os.environ['Runs'] = str(conf.Runs)
     for r in range(0, conf.Runs):
         os.environ['RunIndex'] = str(r)

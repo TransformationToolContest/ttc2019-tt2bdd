@@ -188,7 +188,7 @@ helper def:
       };
 
 ---------------------------------------------------------------------------------------------------
--- Obtain the tree which represents an entire trust table.
+-- Obtain the tree which represents an entire truth table.
 --
 -- This helper builds a tree structure using thisModule.getTree().
 ---------------------------------------------------------------------------------------------------
