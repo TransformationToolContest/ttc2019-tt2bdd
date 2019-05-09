@@ -1,4 +1,4 @@
-\documentclass[a4paper]{scrarticle}
+\documentclass[a4paper]{scrartcl}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -30,36 +30,91 @@
 
 \section{Introduction}
 
-\section{Case Description}
+Past editions of the Transformation Tool Contest have focused on a variety of
+topics:
+\begin{itemize}
+\item In 2018, the Quality-based Software Selection and Hardware-Mapping case
+  discussed optimisation-oriented model transformations (with a combination of
+  performance and solution quality). The Social Media Live Case considered
+  performance in updating model views as models changed (with a strong
+  preference for approaches supporting incrementality).
+
+\item In 2017, the Smart Grid case focused on incrementality, the Families to
+  Persons case discussed bidirectional transformations, State Elimination
+  focused on performance and the live case on Transformation Reuse discussed
+  mechanisms to share complex logic across multiple versions of a
+  transformation.
+
+\item In 2016, optimisation-oriented model transformations were discussed in
+  considerable breadth through the Class Responsibility Assignment case, and an
+  alternative dataflow-based notation for model transformation was evaluated in
+  the live case study.
+\end{itemize}
+
+While these were notable examples of realistic transformations, they were
+narrowly focused on a specific topic,and their inherent complexity discouraged
+some attendees from trying their hand with their own research agenda on the
+transformation.
+
+In this case, we propose a broader contest that welcomes all active lines of
+work on model transformation, based on a simpler, well-known transformation from
+the ATL Zoo\footnote{\url{https://www.eclipse.org/atl/atlTransformations/}}: the
+TT2BDD (Truth Tables to Binary Decision Diagrams) example transformation.
+Striving for raw performance is an option, but the case welcomes approaches that
+focus on other attributes of interest to a high-quality model transformation.
+This includes attributes such as verifiability, traceability, bidirectionality,
+or understandability, but solution providers are welcome to propose their own
+attributes of interest.
+
+The rest of the document is structured as follows:
+Section~\ref{sec:transf-descr} describes the TT2BDD transformation.
+Section~\ref{sec:task-suggestions} suggests several tasks of interest that could
+be tackled in a solution (authors are free to propose their own tasks of
+interest). Section~\ref{sec:benchmark-framework} mentions the benchmark
+framework for those solutions that focus on raw performance. Finally,
+Section~\ref{sec:evaluation} mentions an outline of the initial audience-based
+evaluation across all solutions, and the approach that will be followed to
+derive additional prizes depending on the attributes targeted by the solutions.
+
+\section{Transformation Description}
+\label{sec:transf-descr}
 
 Short intro + structure.
 
 \subsection{Input Metamodel: Truth Tables}
+\label{sec:input-metam-truth}
 
 Explain the TT metamodel, with diagram + example.
 
 \subsection{Output Metamodel: Binary Decision Trees}
+\label{sec:outp-metam-binary}
 
 Explain the BDD metamodel, with diagram + example.
 
-\subsection{Transformation Outline}
+\subsection{Process Outline}
+\label{sec:process-outline}
 
 Explain in broad terms what the tx should do (based on ATL outline).
 
 \section{Task Suggestions}
+\label{sec:task-suggestions}
 
 Bidirectionality and performance are two obvious ones, but this section should
 make it clear that people are free to do what they want.
 
 \section{Benchmark Framework}
+\label{sec:benchmark-framework}
 
 Mention that this is only required if focusing on performance.
 
 \subsection{Solution requirements}
+\label{sec:solut-requ}
 
 \subsection{Running the benchmark}
+\label{sec:running-benchmark}
 
 \section{Evaluation}
+\label{sec:evaluation}
 
 Since this is an open problem, the evaluation will also depend on the submitted
 solutions. There will be an audience award, where the audience will be given a
