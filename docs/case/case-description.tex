@@ -17,6 +17,9 @@
 
 \usepackage[pdftex,colorlinks=true]{hyperref}
 
+\usepackage{listings}
+\lstset{columns=flexible}
+
 \newcommand*{\class}[1]{\textsc{#1}}
 \newcommand*{\feature}[1]{\emph{#1}}
 \newcommand*{\file}[1]{\texttt{#1}}
@@ -43,22 +46,24 @@
 Past editions of the Transformation Tool Contest have focused on a variety of
 topics:
 \begin{itemize}
-\item In 2018, the Quality-based Software Selection and Hardware-Mapping case
-  discussed optimisation-oriented model transformations (with a combination of
-  performance and solution quality). The Social Media Live Case considered
-  performance in updating model views as models changed (with a strong
-  preference for approaches supporting incrementality).
+\item In 2018, the Quality-based Software Selection and Hardware-Mapping
+  case~\cite{gotz_quality-based_2018} discussed optimisation-oriented model
+  transformations (with a combination of performance and solution quality). The
+  Social Media Live Case~\cite{hinkel_ttc_2018} considered performance in
+  updating model views as models changed (with a strong preference for
+  approaches supporting incrementality).
 
-\item In 2017, the Smart Grid case focused on incrementality, the Families to
-  Persons case discussed bidirectional transformations, State Elimination
-  focused on performance and the live case on Transformation Reuse discussed
-  mechanisms to share complex logic across multiple versions of a
-  transformation.
+\item In 2017, the Smart Grid case focused on
+  incrementality~\cite{hinkel_ttc_2017}, the Families to Persons case discussed
+  bidirectional transformations~\cite{anjorin_families_2017}, State Elimination
+  focused on performance and the live case on Transformation
+  Reuse~\cite{live2017} discussed mechanisms to share complex logic across
+  multiple versions of a transformation.
 
 \item In 2016, optimisation-oriented model transformations were discussed in
-  considerable breadth through the Class Responsibility Assignment case, and an
-  alternative dataflow-based notation for model transformation was evaluated in
-  the live case study.
+  considerable breadth through the Class Responsibility Assignment
+  case~\cite{fleck_class_2016}, and an alternative dataflow-based notation for
+  model transformation was evaluated in the live case study~\cite{live2016}.
 \end{itemize}
 
 While these were notable examples of realistic transformations, they were
@@ -66,21 +71,20 @@ narrowly focused on a specific topic,and their inherent complexity discouraged
 some attendees from trying their hand with their own research agenda on the
 transformation.
 
-In this case, we propose a broader contest that welcomes all active lines of
-work on model transformation, based on a simpler, well-known transformation from
-the ATL Zoo\footnote{\url{https://www.eclipse.org/atl/atlTransformations/}}: the
-TT2BDD (Truth Tables to Binary Decision Diagrams) example transformation.
-Striving for raw performance is an option, but the case welcomes approaches that
-focus on other attributes of interest to a high-quality model transformation.
-This includes attributes such as verifiability, traceability, bidirectionality,
-or understandability, but solution providers are welcome to propose their own
+This year, we propose a broader contest that welcomes all active lines of work
+on model transformation. It is based on a simpler, well-known transformation
+from the ATL Zoo~\cite{atlzoo}: TT2BDD (Truth Tables to Binary Decision
+Diagrams). Striving for raw performance is an option, but the case welcomes
+approaches that focus on other attributes of interest of a high-quality model
+transformation: for example, verifiability, traceability, bidirectionality, or
+understandability. Solution providers are welcome to propose their own
 attributes of interest. In general, this case is proposed as a showcase of the
 current variety of model transformation tools.
 
 The rest of the document is structured as follows:
 Section~\ref{sec:transf-descr} describes the TT2BDD transformation.
-Section~\ref{sec:task-suggestions} suggests several tasks of interest that could
-be tackled in a solution (authors are free to propose their own tasks of
+Section~\ref{sec:task-suggestions} several tasks of interest that
+should be tackled in a solution (authors are free to propose their own tasks of
 interest). Section~\ref{sec:benchmark-framework} mentions the benchmark
 framework for those solutions that focus on raw performance. Finally,
 Section~\ref{sec:evaluation} mentions an outline of the initial audience-based
@@ -124,8 +128,8 @@ outline of an implementation.
   \label{tab:tt-example}
 \end{table}
 
-The input metamodel is shown on Figure~\ref{fig:tt-metamodel}. A
-\class{Truth\-Table} object acts as the root of the model, and contains a
+The input metamodel is shown on Figure~\ref{fig:tt-metamodel}. The
+\class{Truth\-Table} class is as the root of the model, and contains a
 collection of \class{Port}s and \class{Row}s. \class{Port}s come in two types:
 \class{Input\-Port}s and \class{Output\-Port}s. \class{Row}s contain sequences
 of \class{Cell}s, which assign values to the \class{Input\-Port}s and
@@ -161,7 +165,7 @@ $B$ are 0, then $S$ should be 0.
       level 7/.style={level distance=2em},
       port/.style={circle, draw},
       value/.style={draw},
-      assignment/.style={ellipse, fill=blue!20},
+      assignment/.style={fill=blue!20},
   ]
     \node[port] {$A$}
     child[grow=left] {
@@ -245,8 +249,8 @@ $B$ are 0, then $S$ should be 0.
   \label{fig:bdd-equivalent}
 \end{figure}
 
-The output metamodel is shown on Figure~\ref{fig:bdd-metamodel}. A \class{BDD}
-object acts as the root of the model, and contains the root of the \class{Tree}
+The output metamodel is shown on Figure~\ref{fig:bdd-metamodel}. The \class{BDD}
+class is the root of the model, and contains the root of the \class{Tree}
 and a collection of \class{Port}s. Similarly to the Truth Tables metamodel,
 there are \class{Input\-Port}s and \class{Output\-Port}s.
 
@@ -260,7 +264,7 @@ to each of the available \class{Output\-Port}s.
 The equivalent BDD for the truth table on Table~\ref{tab:tt-example} is shown on
 Figure~\ref{fig:bdd-equivalent}. \class{Subtree}s are represented by the circle
 referencing an \class{Input\-Port} and their subtrees for when the port takes a
-0 or 1 value. \class{Assignment}s are represented by the shaded nodes that
+0 or 1 value. \class{Assignment}s are represented by the highlighted nodes that
 provide values to the \class{Output\-Port}s.
 
 \subsection{Process Outline}
@@ -308,8 +312,8 @@ which points to the equivalent BDD \class{Input\-Port} and has two
 This simple approach does not necessarily ensure a minimal subtree, as in some
 points there may be multiple ports to choose from. It may require improvements
 for cases where there are no input ports which are defined in all available
-rows. Authors are welcome to try and implement a more efficient or optimal
-approach in their solutions.
+rows. Authors are welcome to implement a more efficient or optimal approach in
+their solutions.
 
 \section{Main Task}
 \label{sec:task-suggestions}
@@ -350,7 +354,11 @@ languages.
 \section{Benchmark Framework}
 \label{sec:benchmark-framework}
 
-If focusing on performance, the solution authors should integrate their solution with the provided benchmark framework. It is based on that of the TTC 2017 Smart Grid case\footnote{\url{https://www.transformation-tool-contest.eu/2017/solutions_smartGrid.html}}, and supports the automated build and execution of solutions. For this specific case study, the visualisation of the results is currently disabled.
+If focusing on performance, the solution authors should integrate their solution
+with the provided benchmark framework. It is based on that of the TTC 2017 Smart
+Grid case~\cite{hinkel_ttc_2017}, and supports the automated build and execution
+of solutions. For this specific case study, the visualisation of the results is
+currently disabled.
 
 The benchmark consists of three phases:
 
@@ -379,12 +387,21 @@ standard output a line with the following fields, separated by semicolons
   nanoseconds.
 \end{itemize}
 
+\lstinputlisting[
+  float,frame=tb,numbers=left,
+  caption={\file{solution.ini} file for the reference ATL solution},
+  label=lst:ini-atl
+]{../../solutions/EMFSolutionATL/solution.ini}
+
 To enable automatic execution by the benchmark framework, solutions should add a
 subdirectory to the \file{solutions} folder of the benchmark with a
-\file{solution.ini}q file stating how the solution should be built and how it
-should be run. Solution authors will want to study the available
-\file{solution.ini} for the sample ATL solution, and adjust its settings in
-order to run the appropriate commands for building and running their solutions.
+\file{solution.ini} file stating how the solution should be built and how it
+should be run. As an example, the \file{solution.ini} file for the reference ATL
+solution is shown on Listing~\ref{lst:ini-atl}. In the \file{build} section, the
+\file{default} option specifies the command to build and test the solution, and
+the \file{skipTests} option specifies the command to build the solution while
+skipping unit tests. In the \file{run} section, the \file{cmd} option specifies
+the command to run the solution.
 
 The repetition of executions as defined in the benchmark configuration is done
 by the benchmark. For 5 runs, the specified command will be called 5 times,
@@ -447,5 +464,8 @@ the evaluation will operate on two dimensions:
   themes between solutions, dedicated 1st/2nd/3rd place awards for those
   research areas may be awarded.
 \end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
 
 \end{document}
