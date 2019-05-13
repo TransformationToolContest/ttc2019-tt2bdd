@@ -210,33 +210,36 @@ helper context TT!TruthTable def:
 --    a node of the tree if found,
 --    OclUndefined if unsuccessful
 ---------------------------------------------------------------------------------------------------
-helper def:
-   findCell(cell : TT!Cell, tree : TupleType( cell : TT!Cell, zeroSubtree : OclAny, oneSubtree : OclAny ))
-      : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
+helper context TT!TruthTable def: 
+	nodesByCell
+		: Map(TT!Cell, TupleType( cell : TT!Cell, zeroSubtree : OclAny, oneSubtree : OclAny )) =
+	
+		thisModule.collectAllNodes(self.tree)
+			->mappedBySingle(node | node.cell);
 
-      if tree.cell = cell then
-         tree
-      else if tree.zeroSubtree.oclIsKindOf(TT!Row) then
-         if tree.oneSubtree.oclIsKindOf(TT!Row) then
-            -- Both subtrees are leaf nodes
-            OclUndefined
-         else
-            -- Only the subtree 1 is not a leaf
-            thisModule.findCell(cell,tree.oneSubtree)
-         endif
-      else
-         let tryInZero : OclAny = thisModule.findCell(cell,tree.zeroSubtree) in
-         if tree.oneSubtree.oclIsKindOf(TT!Row) then
-            -- Only the subtree 0 is not a leaf
-            tryInZero
-         else if tryInZero.oclIsUndefined() then
-            -- Both subtrees are non-leaves, but subtree 0 did not produce any results
-            thisModule.findCell(cell,tree.oneSubtree)
-         else
-            -- Both subtrees are non-leaves, and subtree 0 has produced results
-            tryInZero
-         endif endif
-      endif endif;
+helper def:
+	collectAllNodes(tree : TupleType( cell : TT!Cell, zeroSubtree : OclAny, oneSubtree : OclAny ))
+		: Sequence(TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny )) =
+
+		if tree.zeroSubtree.oclIsKindOf(TT!Row) then
+			if tree.oneSubtree.oclIsKindOf(TT!Row) then
+            	-- Both subtrees are leaf nodes
+            	Sequence{}
+         	else
+            	-- Only the subtree 1 is not a leaf
+            	thisModule.collectAllNodes(tree.oneSubtree)
+			endif
+		else
+			if tree.oneSubtree.oclIsKindOf(TT!Row) then
+            	-- Only the subtree 0 is not a leaf
+            	thisModule.collectAllNodes(tree.zeroSubtree)
+			else
+            	-- Both subtrees are non-leaves
+				thisModule.collectAllNodes(tree.zeroSubtree)->union(
+					thisModule.collectAllNodes(tree.oneSubtree))
+			endif
+		endif
+		->prepend(tree);
 
 ---------------------------------------------------------------------------------------------------
 -- Obtain, for a given truth table cell, the matching node within the corresponding
@@ -245,7 +248,7 @@ helper def:
 -- This helper uses tree and findCell.
 ---------------------------------------------------------------------------------------------------
 helper context TT!Cell def:
-   node 
-      : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
+	node 
+		: TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
 
-      thisModule.findCell(self, self.owner.owner.tree);
+      	self.owner.owner.nodesByCell.get(self);
