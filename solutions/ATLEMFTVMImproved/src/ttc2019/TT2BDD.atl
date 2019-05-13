@@ -103,18 +103,14 @@ helper def:
       
       -- Select the rows for which the port is false
       let _zeroPart : Sequence(TT!Row) =
-         rows->select(r |
-            r.cells->exists(c |
-               c.port = port and c.value = false
-            )
+         rows->reject(r |
+            r.falseCellsByPort.get(port).oclIsUndefined()
          ) in
          
       -- Select the rows for which the port is true
       let _onePart : Sequence(TT!Row) =
-         rows->select(r |
-            r.cells->exists(c |
-               c.port = port and c.value = true
-            )
+         rows->reject(r |
+            r.trueCellsByPort.get(port).oclIsUndefined()
          ) in
 
       -- Build the resulting tuple
@@ -122,6 +118,16 @@ helper def:
          zeroPart = _zeroPart,
          onePart = _onePart
       };
+
+helper context TT!Row def: trueCellsByPort : Map(TT!Port, Set(TT!Cell)) =
+	self.cells
+		->select(c | c.value)
+		->mappedBy(c | c.port);
+
+helper context TT!Row def: falseCellsByPort : Map(TT!Port, Set(TT!Cell)) =
+	self.cells
+		->reject(c | c.value)
+		->mappedBy(c | c.port);
 
 ---------------------------------------------------------------------------------------------------
 -- Build a tree structure from a sequence of rows.
