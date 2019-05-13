@@ -48,25 +48,21 @@ rule Cell2Assignment {
 }
 
 rule Cell2Subtree {
-   from src: TT!Cell (not src.getNode().oclIsUndefined())
-   using {
-      node : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
-         src.getNode();
-   }
+   from src: TT!Cell (not src.node.oclIsUndefined())
    to dest : BDD!Subtree
       (
          port <- src.port,
          treeForZero <-
-            if node.zeroSubtree.oclIsKindOf(TT!Row) then
-               node.zeroSubtree
+            if src.node.zeroSubtree.oclIsKindOf(TT!Row) then
+               src.node.zeroSubtree
             else
-               node.zeroSubtree.cell
+               src.node.zeroSubtree.cell
             endif,
          treeForOne <-
-            if node.oneSubtree.oclIsKindOf(TT!Row) then
-               node.oneSubtree
+            if src.node.oneSubtree.oclIsKindOf(TT!Row) then
+               src.node.oneSubtree
             else
-               node.oneSubtree.cell
+               src.node.oneSubtree.cell
             endif
       )
 }
@@ -246,10 +242,10 @@ helper def:
 -- Obtain, for a given truth table cell, the matching node within the corresponding
 -- binary decision tree.
 --
--- This helper uses getTree and findCell.
+-- This helper uses tree and findCell.
 ---------------------------------------------------------------------------------------------------
 helper context TT!Cell def:
-   getNode() 
+   node 
       : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
 
       thisModule.findCell(self, self.owner.owner.tree);
