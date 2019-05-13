@@ -16,12 +16,12 @@ import ttc2019.metamodels.tt.TruthTable;
 
 public class Driver {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		try {
 			initialize();
 			load();
 			run();
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -36,11 +36,11 @@ public class Driver {
 	private static Solution solution;
 	private static String ModelPath;
 
-	private static Object loadFile(String path) {
+	private static Object loadFile(final String path) {
 		Resource mRes;
 		try {
 			mRes = repository.getResource(URI.createFileURI(new File(path).getCanonicalPath()),	true);
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			throw new RuntimeException(e);
 		}
 		return mRes.getContents().get(0);
@@ -50,8 +50,8 @@ public class Driver {
 		stopwatch = System.nanoTime();
 		solution.setTruthTable((TruthTable) loadFile(ModelPath));
 
-		URI uri = URI.createFileURI(new File("output.xmi").getCanonicalPath());
-		Resource outputResource = repository.createResource(uri);
+		final URI uri = URI.createFileURI(new File("output.xmi").getCanonicalPath());
+		final Resource outputResource = repository.createResource(uri);
 		outputResource.getContents().clear();
 		solution.setOutputResource(outputResource);
 
@@ -74,6 +74,7 @@ public class Driver {
 		Tool = System.getenv("Tool");
 
 		solution = new Solution();
+		solution.load("TT2BDD");
 
 		stopwatch = System.nanoTime() - stopwatch;
 		report(BenchmarkPhase.Initialization);
@@ -81,13 +82,13 @@ public class Driver {
 
 	static void run() throws IOException {
 		stopwatch = System.nanoTime();
-		solution.run("TT2BDD");
+		solution.run();
 		stopwatch = System.nanoTime() - stopwatch;
 		report(BenchmarkPhase.Run);
 		solution.save();
 	}
 
-	static void report(BenchmarkPhase phase) {
+	static void report(final BenchmarkPhase phase) {
 		System.out.println(String.format("%s;%s;%s;%s;Time;%s", Tool, Model, RunIndex, phase.toString(), Long.toString(stopwatch)));
 
 		if ("true".equals(System.getenv("NoGC"))) {
