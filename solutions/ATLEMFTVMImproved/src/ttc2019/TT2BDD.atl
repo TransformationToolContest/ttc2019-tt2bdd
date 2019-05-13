@@ -1,6 +1,6 @@
 -- @atlcompiler emftvm
--- @path TT=/ttc2019.metamodels/models/TT.ecore
--- @path BDD=/ttc2019.metamodels/models/BDD.ecore
+-- @nsURI TT=https://www.transformation-tool-contest.eu/2019/tt
+-- @nsURI BDD=https://www.transformation-tool-contest.eu/2019/bdd
 module TT2BDD;
 create OUT:BDD from IN:TT;
 
@@ -205,16 +205,14 @@ helper context TT!TruthTable def:
 ---------------------------------------------------------------------------------------------------
 -- Search for a truth table cell within a tree
 --
--- This helper explores recursively the subtrees until the cell is found or until
--- the entire tree has been searched without a match.
+-- This helper maps all tree nodes by their truth table cell. It uses the collectAllNodes
+-- helper to flatten the tree of nodes into a Sequence.
 --
 -- Inputs :
---    cell : the cell to be found
---    tree : the root node of the tree which should be searched
+--    self : the truth table for which to search the tree
 --
 -- Outputs :
---    a node of the tree if found,
---    OclUndefined if unsuccessful
+--    the Map of cells to tree nodes
 ---------------------------------------------------------------------------------------------------
 helper context TT!TruthTable def: 
 	nodesByCell
@@ -251,7 +249,7 @@ helper def:
 -- Obtain, for a given truth table cell, the matching node within the corresponding
 -- binary decision tree.
 --
--- This helper uses tree and findCell.
+-- This helper uses nodesByCell.
 ---------------------------------------------------------------------------------------------------
 helper context TT!Cell def:
 	node 
