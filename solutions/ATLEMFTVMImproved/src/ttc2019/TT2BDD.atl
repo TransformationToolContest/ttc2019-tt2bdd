@@ -1,3 +1,6 @@
+-- @atlcompiler emftvm
+-- @path TT=/ttc2019.metamodels/models/TT.ecore
+-- @path BDD=/ttc2019.metamodels/models/BDD.ecore
 module TT2BDD;
 create OUT:BDD from IN:TT;
 
@@ -7,7 +10,7 @@ rule TruthTable2BDD {
       (
          name <- src.name,
          ports <- src.ports,
-         tree <- src.getTree().cell
+         tree <- src.tree.cell
       )
 }
 
@@ -193,7 +196,7 @@ helper def:
 -- This helper builds a tree structure using thisModule.getTree().
 ---------------------------------------------------------------------------------------------------
 helper context TT!TruthTable def:
-   getTree()
+   tree
       : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
       thisModule.getTree(self.rows, self.ports->select(p | p.oclIsKindOf(TT!InputPort)));
       
@@ -249,4 +252,4 @@ helper context TT!Cell def:
    getNode() 
       : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
 
-      thisModule.findCell(self, self.owner.owner.getTree());
+      thisModule.findCell(self, self.owner.owner.tree);
