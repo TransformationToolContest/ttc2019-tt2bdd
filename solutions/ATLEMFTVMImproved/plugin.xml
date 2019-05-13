@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BDD -->
+      <package
+            uri="https://www.transformation-tool-contest.eu/2019/bdd"
+            class="ttc2019.bdd.BDDPackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated TT -->
+      <package
+            uri="https://www.transformation-tool-contest.eu/2019/tt"
+            class="ttc2019.tt.TTPackage"
+            genModel="models/TT.genmodel"/>
+   </extension>
+
+</plugin>
