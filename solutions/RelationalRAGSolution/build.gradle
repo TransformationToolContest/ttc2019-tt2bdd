@@ -47,7 +47,7 @@ dependencies {
 }
 
 run {
-    mainClassName = 'de.tudresden.inf.st.mquat.Main'
+    mainClassName = 'de.tudresden.inf.st.ttc19.Main'
     standardInput = System.in
     if (project.hasProperty("appArgs")) {
         args Eval.me(appArgs)
@@ -90,7 +90,7 @@ task preprocess(type: JavaExec) {
     ]
 
     inputs.files file("./src/main/jastadd/TT.relast"), file("./src/main/jastadd/BDD.relast"), file("./libs/relast.jar")
-    outputs.files file("./src/main/jastadd/Mquat.ast"), file("./src/main/jastadd/Mquat.jadd"), file("./src/main/jastadd/MquatRefResolver.jadd")
+    outputs.files file("./src/main/jastadd/TTBDD.ast"), file("./src/main/jastadd/TTBDD.jadd"), file("./src/main/jastadd/TTBDDRefResolver.jadd")
 }
 
 task jastadd2(type: JavaExec) {
@@ -114,9 +114,9 @@ task jastadd2(type: JavaExec) {
 }
 
 clean.doFirst {
-    delete "./src/main/jastadd/Mquat.ast"
-    delete "./src/main/jastadd/Mquat.jadd"
-    delete "./src/main/jastadd/MquatRefResolver.jadd"
+    delete "./src/main/jastadd/TTBDD.ast"
+    delete "./src/main/jastadd/TTBDD.jadd"
+    delete "./src/main/jastadd/TTBDDRefResolver.jadd"
 }
 
 
