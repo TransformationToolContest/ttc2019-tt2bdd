@@ -1,0 +1,124 @@
+group 'de.tudresden.inf.st'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+idea {
+    module {
+        generatedSourceDirs += file('src/gen/java')
+    }
+}
+
+configurations {
+    ragdoc
+}
+
+sourceSets {
+    main {
+        java.srcDir "src/gen/java"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task cleanRagdoc(type: Delete) {
+    group = 'documentation'
+    new File(docsDir, 'ragdoc').deleteDir()
+}
+
+dependencies {
+
+    compile 'org.jastadd:jastadd:2.3.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.8.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.10.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.10.0'
+
+    ragdoc files('libs/rd-builder.jar')
+}
+
+run {
+    mainClassName = 'de.tudresden.inf.st.mquat.Main'
+    standardInput = System.in
+    if (project.hasProperty("appArgs")) {
+        args Eval.me(appArgs)
+    }
+}
+
+buildscript {
+    repositories.mavenCentral()
+}
+
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'de.tudresden.inf.st.ttc19.Main'
+        )
+    }
+}
+
+task preprocess(type: JavaExec) {
+    group = 'Build'
+    main = "-jar"
+
+    doFirst {
+        delete "./src/main/jastadd/*.ast"
+        delete "./src/main/jastadd/TTBDD.jadd"
+        delete "./src/main/jastadd/TTBDDRefResolver.jadd"
+    }
+
+    args = [
+            "libs/relast.jar",
+            "./src/main/jastadd/TT.relast",
+            "./src/main/jastadd/BDD.relast",
+            "--listClass=ArrayList",
+            "--jastAddList=JastAddList",
+            "--file",
+            "--resolverHelper",
+            "--grammarName=./src/main/jastadd/TTBDD"
+    ]
+
+    inputs.files file("./src/main/jastadd/TT.relast"), file("./src/main/jastadd/BDD.relast"), file("./libs/relast.jar")
+    outputs.files file("./src/main/jastadd/Mquat.ast"), file("./src/main/jastadd/Mquat.jadd"), file("./src/main/jastadd/MquatRefResolver.jadd")
+}
+
+task jastadd2(type: JavaExec) {
+    classpath=configurations.compile
+    group = 'Build'
+    main = 'org.jastadd.JastAdd'
+    args = ["--cache=all",
+            "--flush=full",
+            "--list=JastAddList",
+            "--rewrite=cnta",
+            "--package=de.tudresden.inf.st.ttc19.jastadd.model",
+            "--o=src/gen/java"
+    ] + fileTree("./src/main/jastadd/").matching {exclude "*.relast"}
+
+    doFirst {
+        delete fileTree('src/gen/java/')
+    }
+
+    inputs.files fileTree("./solve/src/main/jastadd/") + file("libs/jastadd2.jar")
+    outputs.files file("src/gen/java/ASTNode.java")
+}
+
+clean.doFirst {
+    delete "./src/main/jastadd/Mquat.ast"
+    delete "./src/main/jastadd/Mquat.jadd"
+    delete "./src/main/jastadd/MquatRefResolver.jadd"
+}
+
+
+jastadd2.dependsOn preprocess
+compileJava.dependsOn jastadd2

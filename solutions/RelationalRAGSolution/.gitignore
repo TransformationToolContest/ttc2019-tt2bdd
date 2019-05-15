@@ -4,12 +4,6 @@
 # Log file
 *.log
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Package Files #
 *.jar
 *.war
@@ -22,9 +16,15 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-.Rproj.user
-.Rhistory
-*.Rproj
-Rplots.pdf
-.idea
-.gradle
+*/out/
+*.iml
+/.idea/*
+!.idea/codeStyles
+!libs/relast.jar
+
+src/gen/
+*.ast
+src/main/jastadd/TTBDD.jadd
+src/main/jastadd/TTBDDRefResolver.jadd
+src/main/jastadd/TTBDDResolverStubs.jrag
+build/
