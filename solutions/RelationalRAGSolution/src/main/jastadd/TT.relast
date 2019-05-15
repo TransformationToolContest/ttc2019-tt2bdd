@@ -1,0 +1,9 @@
+LocatedElement ::= <Location:String>;
+TruthTable:LocatedElement ::= <Name:String> Port:Port* Row:Row*;
+abstract Port:LocatedElement ::= <Name:String>;
+InputPort:Port;
+OutputPort:Port;
+Row:LocatedElement ::= Cell:Cell*;
+Cell:LocatedElement ::= <Value:Boolean>;
+
+rel Port.Cell* <-> Cell.Port;
