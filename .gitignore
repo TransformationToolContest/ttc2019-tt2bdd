@@ -28,3 +28,4 @@ hs_err_pid*
 Rplots.pdf
 .idea
 .gradle
+!gradle/wrapper/gradle-wrapper.jar
