@@ -85,7 +85,15 @@ public class Validator {
 					return findAssignments(ttRow, c.isValue() ? sb.getTreeForOne() : sb.getTreeForZero());
 				}
 			}
-			throw new NoSuchElementException("Could not find input port " + sbInputPort.getName() + " in the cells of the truth table");
+			// begin::modification (2019-05-23 Artur Boronat) 
+			// a row in a table may not be complete, specifying a family of rows]
+			List<Assignment> list = findAssignments(ttRow, sb.getTreeForZero());
+			list.addAll(
+					findAssignments(ttRow, sb.getTreeForOne())
+			);
+			return list;
+			//throw new NoSuchElementException("Could not find input port " + sbInputPort.getName() + " in the cells of the truth table");
+			// end::modification
 		} else {
 			throw new IllegalArgumentException("Tree must be a subtree or a leaf");
 		}
