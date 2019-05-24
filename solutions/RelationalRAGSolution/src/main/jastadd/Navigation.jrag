@@ -1,0 +1,16 @@
+aspect Navigation {
+  syn boolean Port.isInput() = false;
+  eq InputPort.isInput() = true;
+
+  // inh TruthTable LocatedElement.containingTruthTable();
+  // eq TruthTable.getPort().containingTruthTable() = this;
+  // eq TruthTable.getRow().containingTruthTable() = this;
+
+  inh ASTNode ASTNode.root();
+  eq TruthTable.getPort().root() = this;
+  eq TruthTable.getRow().root() = this;
+  eq BDD.getTree().root() = this;
+
+  syn ASTNode TruthTable.root() = this;
+  syn ASTNode BDD.root() = this;
+}

@@ -1,0 +1,126 @@
+aspect NameResolution {
+
+  refine RefResolverStubs eq ASTNode.globallyResolvePortByToken(String id) {
+    return (Port) resolvePath(id);
+  }
+
+  refine RefResolverStubs eq ASTNode.globallyResolveRowByToken(String id) {
+    return (Row) resolvePath(id);
+  }
+
+  refine RefResolverStubs eq ASTNode.globallyResolveCellByToken(String id) {
+    return (Cell) resolvePath(id);
+  }
+
+  syn ASTNode ASTNode.resolvePath(String path) {
+    int length = path.length();
+    if (length > 0) {
+      if (path.charAt(0) == '/') {
+        path = path.substring(1);
+        ASTNode result = resolvePath(path.split("/"));
+        return result;
+      } else if (path.charAt(length - 1) == '?') {
+        int index = path.lastIndexOf('?', length - 2);
+        if (index > 0) {
+          path = path.substring(0, index);
+        }
+      }
+    }
+    throw new RuntimeException("Unable to resolve empty path");
+  }
+
+  syn ASTNode ASTNode.resolvePath(String[] path) {
+    ASTNode result = null;
+    boolean first = true;
+    if (path.length == 0) {
+      return resolvePathRootFragment("");
+    } else {
+      for (String fragment: path) {
+        if (first) {
+          first = false;
+          result = resolvePathRootFragment(fragment);
+        } else {
+          result = result.resolvePathFragment(fragment);
+        }
+      }
+      return result;
+    }
+  }
+
+  syn ASTNode ASTNode.resolvePathRootFragment(String fragment) {
+    // This method is only relevant if there are multiple roots, and in this case, in general, it is not possible to
+    // select the right one (because we cannot navigate to them)
+    return root();
+  }
+
+  syn ASTNode ASTNode.resolvePathFragment(String fragment) {
+
+    int length = fragment.length();
+
+    if (fragment.length() == 0) {
+      throw new RuntimeException("Empty fragment cannot be resolved!");
+    } else if (fragment.charAt(0) != '@') {
+      throw new RuntimeException("ID references are not supported!");
+    }
+
+    int lastIndex = fragment.length() - 1;
+    char lastChar = fragment.charAt(lastIndex);
+    if (lastChar == ']') {
+      throw new RuntimeException("predicate references are not supported!");
+    } else {
+      int dotIndex = -1;
+      if (Character.isDigit(lastChar)) {
+        dotIndex = fragment.lastIndexOf('.', lastIndex - 1);
+      }
+
+      int index = -1;
+      if (dotIndex > 0) {
+        try {
+          index = Integer.parseInt(fragment.substring(dotIndex + 1));
+        } catch (NumberFormatException exception) {
+          throw new RuntimeException("the uri fragment contains a '.', but the string behind it is not a nuber!");
+        }
+      }
+
+      return resolveChild(fragment.substring(1, dotIndex), index);
+    }
+  }
+
+  syn ASTNode ASTNode.resolveChild(String name, int index) {
+    throw new RuntimeException("No child with name '" + name + "' found.");
+  }
+
+  eq TruthTable.resolveChild(String name, int index) {
+    switch (name) {
+      case "ports":
+        if (getNumPort() <= index)
+          throw new RuntimeException("index is larger than number of ports: " + index + " >= " + getNumPort());
+        else if (getPort(index) == null)
+          throw new RuntimeException("Port at index " + index + " is null!");
+        else
+          return getPort(index);
+      case "rows":
+        if (getNumRow() <= index)
+          throw new RuntimeException("index is larger than number of rows: " + index + " >= " + getNumRow());
+        else if (getRow(index) == null)
+          throw new RuntimeException("Row at index " + index + " is null!");
+        else
+          return getRow(index);
+      default: return super.resolveChild(name, index);
+    }
+  }
+
+  eq Row.resolveChild(String name, int index) {
+    switch (name) {
+      case "cells":
+        if (getNumCell() <= index)
+          throw new RuntimeException("index is larger than number of cells: " + index + " >= " + getNumCell());
+        else if (getCell(index) == null)
+          throw new RuntimeException("Cell at index " + index + " is null!");
+        else
+          return getCell(index);
+      default: return super.resolveChild(name, index);
+    }
+  }
+
+}

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tt:TruthTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tt="https://www.transformation-tool-contest.eu/2019/tt" name="TableI4O2Seed42">
+  <ports xsi:type="tt:InputPort" name="I0" cells="//@rows.0/@cells.0 //@rows.1/@cells.0 //@rows.2/@cells.0 //@rows.3/@cells.0 //@rows.4/@cells.0 //@rows.5/@cells.0 //@rows.6/@cells.0 //@rows.7/@cells.0 //@rows.8/@cells.0 //@rows.9/@cells.0 //@rows.10/@cells.0 //@rows.11/@cells.0 //@rows.12/@cells.0 //@rows.13/@cells.0 //@rows.14/@cells.0 //@rows.15/@cells.0"/>
+  <ports xsi:type="tt:InputPort" name="I1" cells="//@rows.0/@cells.1 //@rows.1/@cells.1 //@rows.2/@cells.1 //@rows.3/@cells.1 //@rows.4/@cells.1 //@rows.5/@cells.1 //@rows.6/@cells.1 //@rows.7/@cells.1 //@rows.8/@cells.1 //@rows.9/@cells.1 //@rows.10/@cells.1 //@rows.11/@cells.1 //@rows.12/@cells.1 //@rows.13/@cells.1 //@rows.14/@cells.1 //@rows.15/@cells.1"/>
+  <ports xsi:type="tt:InputPort" name="I2" cells="//@rows.0/@cells.2 //@rows.1/@cells.2 //@rows.2/@cells.2 //@rows.3/@cells.2 //@rows.4/@cells.2 //@rows.5/@cells.2 //@rows.6/@cells.2 //@rows.7/@cells.2 //@rows.8/@cells.2 //@rows.9/@cells.2 //@rows.10/@cells.2 //@rows.11/@cells.2 //@rows.12/@cells.2 //@rows.13/@cells.2 //@rows.14/@cells.2 //@rows.15/@cells.2"/>
+  <ports xsi:type="tt:InputPort" name="I3" cells="//@rows.0/@cells.3 //@rows.1/@cells.3 //@rows.2/@cells.3 //@rows.3/@cells.3 //@rows.4/@cells.3 //@rows.5/@cells.3 //@rows.6/@cells.3 //@rows.7/@cells.3 //@rows.8/@cells.3 //@rows.9/@cells.3 //@rows.10/@cells.3 //@rows.11/@cells.3 //@rows.12/@cells.3 //@rows.13/@cells.3 //@rows.14/@cells.3 //@rows.15/@cells.3"/>
+  <ports xsi:type="tt:OutputPort" name="O0" cells="//@rows.0/@cells.4 //@rows.1/@cells.4 //@rows.2/@cells.4 //@rows.3/@cells.4 //@rows.4/@cells.4 //@rows.5/@cells.4 //@rows.6/@cells.4 //@rows.7/@cells.4 //@rows.8/@cells.4 //@rows.9/@cells.4 //@rows.10/@cells.4 //@rows.11/@cells.4 //@rows.12/@cells.4 //@rows.13/@cells.4 //@rows.14/@cells.4 //@rows.15/@cells.4"/>
+  <ports xsi:type="tt:OutputPort" name="O1" cells="//@rows.0/@cells.5 //@rows.1/@cells.5 //@rows.2/@cells.5 //@rows.3/@cells.5 //@rows.4/@cells.5 //@rows.5/@cells.5 //@rows.6/@cells.5 //@rows.7/@cells.5 //@rows.8/@cells.5 //@rows.9/@cells.5 //@rows.10/@cells.5 //@rows.11/@cells.5 //@rows.12/@cells.5 //@rows.13/@cells.5 //@rows.14/@cells.5 //@rows.15/@cells.5"/>
+  <rows>
+    <cells port="//@ports.0"/>
+    <cells port="//@ports.1"/>
+    <cells port="//@ports.2"/>
+    <cells port="//@ports.3"/>
+    <cells value="true" port="//@ports.4"/>
+    <cells port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells value="true" port="//@ports.0"/>
+    <cells port="//@ports.1"/>
+    <cells port="//@ports.2"/>
+    <cells port="//@ports.3"/>
+    <cells value="true" port="//@ports.4"/>
+    <cells port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells port="//@ports.0"/>
+    <cells value="true" port="//@ports.1"/>
+    <cells port="//@ports.2"/>
+    <cells port="//@ports.3"/>
+    <cells port="//@ports.4"/>
+    <cells value="true" port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells value="true" port="//@ports.0"/>
+    <cells value="true" port="//@ports.1"/>
+    <cells port="//@ports.2"/>
+    <cells port="//@ports.3"/>
+    <cells port="//@ports.4"/>
+    <cells value="true" port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells port="//@ports.0"/>
+    <cells port="//@ports.1"/>
+    <cells value="true" port="//@ports.2"/>
+    <cells port="//@ports.3"/>
+    <cells value="true" port="//@ports.4"/>
+    <cells port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells value="true" port="//@ports.0"/>
+    <cells port="//@ports.1"/>
+    <cells value="true" port="//@ports.2"/>
+    <cells port="//@ports.3"/>
+    <cells value="true" port="//@ports.4"/>
+    <cells port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells port="//@ports.0"/>
+    <cells value="true" port="//@ports.1"/>
+    <cells value="true" port="//@ports.2"/>
+    <cells port="//@ports.3"/>
+    <cells port="//@ports.4"/>
+    <cells port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells value="true" port="//@ports.0"/>
+    <cells value="true" port="//@ports.1"/>
+    <cells value="true" port="//@ports.2"/>
+    <cells port="//@ports.3"/>
+    <cells port="//@ports.4"/>
+    <cells value="true" port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells port="//@ports.0"/>
+    <cells port="//@ports.1"/>
+    <cells port="//@ports.2"/>
+    <cells value="true" port="//@ports.3"/>
+    <cells port="//@ports.4"/>
+    <cells value="true" port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells value="true" port="//@ports.0"/>
+    <cells port="//@ports.1"/>
+    <cells port="//@ports.2"/>
+    <cells value="true" port="//@ports.3"/>
+    <cells value="true" port="//@ports.4"/>
+    <cells value="true" port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells port="//@ports.0"/>
+    <cells value="true" port="//@ports.1"/>
+    <cells port="//@ports.2"/>
+    <cells value="true" port="//@ports.3"/>
+    <cells value="true" port="//@ports.4"/>
+    <cells port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells value="true" port="//@ports.0"/>
+    <cells value="true" port="//@ports.1"/>
+    <cells port="//@ports.2"/>
+    <cells value="true" port="//@ports.3"/>
+    <cells port="//@ports.4"/>
+    <cells port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells port="//@ports.0"/>
+    <cells port="//@ports.1"/>
+    <cells value="true" port="//@ports.2"/>
+    <cells value="true" port="//@ports.3"/>
+    <cells value="true" port="//@ports.4"/>
+    <cells value="true" port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells value="true" port="//@ports.0"/>
+    <cells port="//@ports.1"/>
+    <cells value="true" port="//@ports.2"/>
+    <cells value="true" port="//@ports.3"/>
+    <cells port="//@ports.4"/>
+    <cells value="true" port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells port="//@ports.0"/>
+    <cells value="true" port="//@ports.1"/>
+    <cells value="true" port="//@ports.2"/>
+    <cells value="true" port="//@ports.3"/>
+    <cells port="//@ports.4"/>
+    <cells port="//@ports.5"/>
+  </rows>
+  <rows>
+    <cells value="true" port="//@ports.0"/>
+    <cells value="true" port="//@ports.1"/>
+    <cells value="true" port="//@ports.2"/>
+    <cells value="true" port="//@ports.3"/>
+    <cells value="true" port="//@ports.4"/>
+    <cells port="//@ports.5"/>
+  </rows>
+</tt:TruthTable>

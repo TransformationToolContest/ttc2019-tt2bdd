@@ -1,0 +1,50 @@
+aspect XMIWriter {
+  public void TruthTable.writeXMI(StringBuilder b) {
+    b.append("<?xml version=\"1.0\" encoding=\"ASCII\"?>\n")
+      .append("<tt:TruthTable xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:tt=\"https://www.transformation-tool-contest.eu/2019/tt\" name=\"")
+      .append(getName())
+      .append("\">\n");
+
+    for (Port port: getPortList()) {
+      port.writeXMI(b);
+    }
+    for (Row row: getRowList()) {
+      row.writeXMI(b);
+    }
+    b.append("</tt:TruthTable>");
+  }
+
+  public void Port.writeXMI(StringBuilder b) {
+    b.append("  <ports xsi:type=\"tt:")
+      .append(isInput()?"Input":"Output")
+      .append("Port\" name=\"")
+      .append(getName())
+      .append("\" cells=\"");
+    boolean first = true;
+    for (Cell cell: getCellList()) {
+      if (first) {
+        first = false;
+      } else {
+        b.append(" ");
+      }
+      b.append(cell.xmiPath());
+    }
+    b.append("\"/>\n");
+  }
+
+  public void Row.writeXMI(StringBuilder b) {
+    b.append("  <rows>\n");
+    for (Cell cell: getCellList()) {
+      cell.writeXMI(b);
+    }
+    b.append("  </rows>\n");
+  }
+
+  public void Cell.writeXMI(StringBuilder b) {
+    b.append("    <cells")
+      .append(getValue()?" value=\"true\"":"")
+      .append(" port=\"")
+      .append(getPort().xmiPath())
+      .append("\"/>\n");
+  }
+}

@@ -84,13 +84,14 @@ task preprocess(type: JavaExec) {
             "./src/main/jastadd/BDD.relast",
             "--listClass=ArrayList",
             "--jastAddList=JastAddList",
+            "--useJastAddNames",
             "--file",
             "--resolverHelper",
-            "--grammarName=./src/main/jastadd/TTBDD"
+            "--grammarName=./src/gen/jastadd/TTBDD"
     ]
 
     inputs.files file("./src/main/jastadd/TT.relast"), file("./src/main/jastadd/BDD.relast"), file("./libs/relast.jar")
-    outputs.files file("./src/main/jastadd/TTBDD.ast"), file("./src/main/jastadd/TTBDD.jadd"), file("./src/main/jastadd/TTBDDRefResolver.jadd")
+    outputs.files file("./src/gen/jastadd/TTBDD.ast"), file("./src/gen/jastadd/TTBDD.jadd"), file("./src/gen/jastadd/TTBDDRefResolver.jadd")
 }
 
 task jastadd2(type: JavaExec) {
@@ -103,13 +104,13 @@ task jastadd2(type: JavaExec) {
             "--rewrite=cnta",
             "--package=de.tudresden.inf.st.ttc19.jastadd.model",
             "--o=src/gen/java"
-    ] + fileTree("./src/main/jastadd/").matching {exclude "*.relast"}
+    ] + fileTree("./src/main/jastadd/").matching {exclude "*.relast"} + fileTree("./src/gen/jastadd/")
 
     doFirst {
         delete fileTree('src/gen/java/')
     }
 
-    inputs.files fileTree("./solve/src/main/jastadd/") + file("libs/jastadd2.jar")
+    inputs.files fileTree("src/main/jastadd/") + file("libs/jastadd2.jar")
     outputs.files file("src/gen/java/ASTNode.java")
 }
 

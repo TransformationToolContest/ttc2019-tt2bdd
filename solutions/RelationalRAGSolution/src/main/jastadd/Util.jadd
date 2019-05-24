@@ -1,0 +1,7 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+aspect Logging {
+  static Logger ASTNode.logger = LogManager.getLogger(ASTNode.class);
+}
+

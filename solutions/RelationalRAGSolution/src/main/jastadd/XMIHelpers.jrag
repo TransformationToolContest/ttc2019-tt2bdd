@@ -1,0 +1,12 @@
+aspect XMIHelper {
+
+  inh String Port.xmiPath();
+  eq TruthTable.getPort(int i).xmiPath() = "//@ports." + i;
+
+  inh String Row.xmiPath();
+  eq TruthTable.getRow(int i).xmiPath() = "//@rows." + i;
+
+  inh String Cell.xmiPath();
+  eq Row.getCell(int i).xmiPath() = xmiPath() + "/@cells." + i;
+
+}
