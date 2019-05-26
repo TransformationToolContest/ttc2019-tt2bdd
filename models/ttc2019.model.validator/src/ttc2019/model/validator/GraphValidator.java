@@ -41,6 +41,9 @@ public class GraphValidator {
 
 	private boolean validate(int iRow, Row ttRow, Tree tree) {
 		final List<Assignment> assignments = findAssignments(ttRow, tree); 
+		if (assignments.isEmpty()) {
+			System.err.println(String.format("Row %d of TT did not produce any assignments in BDD", iRow));
+		}
 
 		for (Assignment a : assignments) {
 			final String oPortName = a.getPort().getName();
@@ -77,9 +80,20 @@ public class GraphValidator {
 					return findAssignments(ttRow, c.isValue() ? sb.getTreeForOne() : sb.getTreeForZero());
 				}
 			}
-			throw new NoSuchElementException("Could not find input port " + sbInputPort.getName() + " in the cells of the truth table");
+
+			/*
+			 * (2019-05-23 Artur Boronat) If the row in the table does not require a
+			 * specific value for the port checked in this subtree, try both values.
+			 */
+			List<Assignment> zeroList = findAssignments(ttRow, sb.getTreeForZero());
+			if (zeroList.isEmpty()) {
+				return findAssignments(ttRow, sb.getTreeForOne());
+			} else {
+				return zeroList;
+			}
 		} else {
 			throw new IllegalArgumentException("Tree must be a subtree or a leaf");
 		}
 	}
+
 }
