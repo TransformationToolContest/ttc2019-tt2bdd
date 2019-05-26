@@ -13,7 +13,10 @@ Export-Package: ttc2019.metamodels.bdd,
  ttc2019.metamodels.bdd.util,
  ttc2019.metamodels.tt,
  ttc2019.metamodels.tt.impl,
- ttc2019.metamodels.tt.util
+ ttc2019.metamodels.tt.util,
+ ttc2019.metamodels.bddg,
+ ttc2019.metamodels.bddg.impl,
+ ttc2019.metamodels.bddg.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -22,4 +22,12 @@
             genModel="models/TT.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BDDv2 -->
+      <package
+            uri="https://www.transformation-tool-contest.eu/2019/bdd/graph"
+            class="ttc2019.metamodels.bddg.BDDGPackage"
+            genModel="models/BDDv2.genmodel"/>
+   </extension>
+
 </plugin>

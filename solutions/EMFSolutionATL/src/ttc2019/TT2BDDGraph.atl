@@ -1,0 +1,253 @@
+module TT2BDD;
+create OUT:BDDG from IN:TT;
+
+rule TruthTable2BDDGraph {
+   from src : TT!TruthTable
+   to dest : BDDG!BDD
+      (
+         name <- src.name,
+         ports <- src.ports,
+         root <- src.getTree().cell,
+         trees <- BDDG!Tree.allInstances()
+      )
+}
+
+rule InputPort2InputPort {
+   from src : TT!InputPort
+   to dest : BDDG!InputPort
+      (
+         name <- src.name
+      )
+}
+
+rule OutputPort2OutputPort {
+   from src : TT!OutputPort
+   to dest : BDDG!OutputPort
+      (
+         name <- src.name
+      )
+}
+
+rule Row2Leaf {
+   from src : TT!Row
+   to dest : BDDG!Leaf
+      (
+         assignments <- src.cells->select(c | c.port.oclIsKindOf(TT!OutputPort))
+      )
+}
+
+rule Cell2Assignment {
+   from src: TT!Cell (src.port.oclIsKindOf(TT!OutputPort))
+   to dest : BDDG!Assignment
+      (
+         value <- src.value,
+         port <- src.port
+      )
+}
+
+rule Cell2Subtree {
+   from src: TT!Cell (not src.getNode().oclIsUndefined())
+   using {
+      node : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
+         src.getNode();
+   }
+   to dest : BDDG!Subtree
+      (
+         port <- src.port,
+         treeForZero <-
+            if node.zeroSubtree.oclIsKindOf(TT!Row) then
+               node.zeroSubtree
+            else
+               node.zeroSubtree.cell
+            endif,
+         treeForOne <-
+            if node.oneSubtree.oclIsKindOf(TT!Row) then
+               node.oneSubtree
+            else
+               node.oneSubtree.cell
+            endif
+      )
+}
+
+---------------------------------------------------------------------------------------------------
+-- Partition one part of the truth table.
+--
+-- This helper performs some preparatory work before the creation of a binary tree.
+-- It takes a subsequence of the rows of a truth table and a certain port, and returns
+-- two subsequences of rows: cells for which the port is false, and cells for which the
+-- port is true.
+--
+-- Inputs:
+--    rows : the collection of lines to be processed.
+--    port : the port which should act as a reference for the partitioning.
+--
+-- Outputs:
+--    a tuple that contains:
+--       zeroPart : the collection of rows for which the port is 0 (false)
+--       onePart  : the collection of rows for which the port is 1 (true)
+--
+-- Preconditions :
+--
+--    The port to be used must be an input port :
+--
+--       port.oclIsKindOf(TT!InputPort))
+--
+--    The value is defined for all rows:
+--
+--         rows->forAll(r |
+--            r.cells->collect(c | c.port)
+--                   ->includes(port)
+--         )
+---------------------------------------------------------------------------------------------------
+helper def:
+   getPartition(rows : Sequence(TT!Row), port : TT!Port)
+      : TupleType( zeroPart : Sequence(TT!Row) , onePart : Sequence(TT!Row) ) =
+      
+      -- Select the rows for which the port is false
+      let _zeroPart : Sequence(TT!Row) =
+         rows->select(r |
+            r.cells->exists(c |
+               c.port = port and c.value = false
+            )
+         ) in
+         
+      -- Select the rows for which the port is true
+      let _onePart : Sequence(TT!Row) =
+         rows->select(r |
+            r.cells->exists(c |
+               c.port = port and c.value = true
+            )
+         ) in
+
+      -- Build the resulting tuple
+      Tuple{
+         zeroPart = _zeroPart,
+         onePart = _onePart
+      };
+
+---------------------------------------------------------------------------------------------------
+-- Build a tree structure from a sequence of rows.
+--
+-- This helper builds a tree from tuples. Among the sequence of usable inputs, it selects a
+-- port where the value is defined in all lines.
+--
+-- The helper getPartition is invoked to obtain two row subsequences that correspond to the
+-- possible states from the selected port.
+--
+-- The tree is built recursively, with the base case leaving the row sequence as a single row.
+--
+-- Inputs:
+--    rows        : the sequence of rows to be processed
+--    usablePorts : the sequence of ports to be considered to build the tree
+--
+-- Outputs:
+--    a tuple contains:
+--      cell        : a cell which acts as a reference and points to the current tree node
+--      zeroSubtree : the subtree for the 0 value of the port
+--      oneSubtree  : the subtree for the 1 value of the port
+---------------------------------------------------------------------------------------------------
+helper def:
+   getTree(rows : Sequence(TT!Row), usablePorts : Sequence(TT!Port))
+      : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
+
+      -- Among the usable ports, select one where the value is defined in all rows
+      let _port : TT!Port =
+         usablePorts->any(p |
+            rows->forAll(r |
+               r.cells->collect(c | c.port)
+                     ->includes(p)
+            )
+         ) in
+      
+      -- Select a cell which defines a value for the port
+      let _cell : TT!Cell =
+         rows->first().cells->any(c | c.port = _port) in
+         
+      -- Partition the provided collection of rows
+      let _part : TupleType( zeroPart : Sequence(TT!Row), onePart : Sequence(TT!Row) ) =
+         thisModule.getPartition(rows, _port) in
+
+      -- Define the new collection of usable ports for the resulting partitionings
+      let _updatedPorts : Sequence(TT!Port) =
+         usablePorts->excluding(_port) in
+            
+      -- Build the resulting tuple : the tree structure is created recursively
+      Tuple{
+         cell = _cell,
+         zeroSubtree =
+            if _part.zeroPart->size() = 1 then
+               _part.zeroPart->first()
+            else
+               thisModule.getTree(_part.zeroPart, _updatedPorts)
+            endif,
+         oneSubtree =
+            if _part.onePart->size() = 1 then
+               _part.onePart->first()
+            else
+               thisModule.getTree(_part.onePart, _updatedPorts)
+            endif
+      };
+
+---------------------------------------------------------------------------------------------------
+-- Obtain the tree which represents an entire truth table.
+--
+-- This helper builds a tree structure using thisModule.getTree().
+---------------------------------------------------------------------------------------------------
+helper context TT!TruthTable def:
+   getTree()
+      : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
+      thisModule.getTree(self.rows, self.ports->select(p | p.oclIsKindOf(TT!InputPort)));
+      
+---------------------------------------------------------------------------------------------------
+-- Search for a truth table cell within a tree
+--
+-- This helper explores recursively the subtrees until the cell is found or until
+-- the entire tree has been searched without a match.
+--
+-- Inputs :
+--    cell : the cell to be found
+--    tree : the root node of the tree which should be searched
+--
+-- Outputs :
+--    a node of the tree if found,
+--    OclUndefined if unsuccessful
+---------------------------------------------------------------------------------------------------
+helper def:
+   findCell(cell : TT!Cell, tree : TupleType( cell : TT!Cell, zeroSubtree : OclAny, oneSubtree : OclAny ))
+      : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
+
+      if tree.cell = cell then
+         tree
+      else if tree.zeroSubtree.oclIsKindOf(TT!Row) then
+         if tree.oneSubtree.oclIsKindOf(TT!Row) then
+            -- Both subtrees are leaf nodes
+            OclUndefined
+         else
+            -- Only the subtree 1 is not a leaf
+            thisModule.findCell(cell,tree.oneSubtree)
+         endif
+      else
+         let tryInZero : OclAny = thisModule.findCell(cell,tree.zeroSubtree) in
+         if tree.oneSubtree.oclIsKindOf(TT!Row) then
+            -- Only the subtree 0 is not a leaf
+            tryInZero
+         else if tryInZero.oclIsUndefined() then
+            -- Both subtrees are non-leaves, but subtree 0 did not produce any results
+            thisModule.findCell(cell,tree.oneSubtree)
+         else
+            -- Both subtrees are non-leaves, and subtree 0 has produced results
+            tryInZero
+         endif endif
+      endif endif;
+
+---------------------------------------------------------------------------------------------------
+-- Obtain, for a given truth table cell, the matching node within the corresponding
+-- binary decision tree.
+--
+-- This helper uses getTree and findCell.
+---------------------------------------------------------------------------------------------------
+helper context TT!Cell def:
+   getNode() 
+      : TupleType( cell : TT!Cell , zeroSubtree : OclAny , oneSubtree : OclAny ) =
+
+      thisModule.findCell(self, self.owner.owner.getTree());

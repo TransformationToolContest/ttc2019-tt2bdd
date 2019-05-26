@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ttc2019.metamodels/src-gen" modelPluginID="ttc2019.metamodels"
+    modelName="BDDv2" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>BDDv2.ecore</foreignModel>
+  <genPackages prefix="BDDG" basePackage="ttc2019.metamodels" disposableProviderFactory="true"
+      ecorePackage="BDDv2.ecore#/">
+    <genClasses ecoreClass="BDDv2.ecore#//BDD">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BDDv2.ecore#//BDD/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BDDv2.ecore#//BDD/ports"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BDDv2.ecore#//BDD/root"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BDDv2.ecore#//BDD/trees"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="BDDv2.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BDDv2.ecore#//Port/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BDDv2.ecore#//Port/owner"/>
+    </genClasses>
+    <genClasses ecoreClass="BDDv2.ecore#//InputPort">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BDDv2.ecore#//InputPort/subtrees"/>
+    </genClasses>
+    <genClasses ecoreClass="BDDv2.ecore#//OutputPort">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BDDv2.ecore#//OutputPort/assignments"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="BDDv2.ecore#//Tree">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BDDv2.ecore#//Tree/ownerBDD"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BDDv2.ecore#//Tree/ownerSubtreeForZero"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BDDv2.ecore#//Tree/ownerSubtreeForOne"/>
+    </genClasses>
+    <genClasses ecoreClass="BDDv2.ecore#//Leaf">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BDDv2.ecore#//Leaf/assignments"/>
+    </genClasses>
+    <genClasses ecoreClass="BDDv2.ecore#//Assignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BDDv2.ecore#//Assignment/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BDDv2.ecore#//Assignment/port"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BDDv2.ecore#//Assignment/owner"/>
+    </genClasses>
+    <genClasses ecoreClass="BDDv2.ecore#//Subtree">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BDDv2.ecore#//Subtree/port"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BDDv2.ecore#//Subtree/treeForZero"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BDDv2.ecore#//Subtree/treeForOne"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

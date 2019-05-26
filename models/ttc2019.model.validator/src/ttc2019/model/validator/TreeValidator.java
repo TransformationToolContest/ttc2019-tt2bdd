@@ -1,33 +1,25 @@
 package ttc2019.model.validator;
 
-import java.io.File;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
 import ttc2019.metamodels.bdd.Assignment;
 import ttc2019.metamodels.bdd.BDD;
-import ttc2019.metamodels.bdd.BDDPackage;
 import ttc2019.metamodels.bdd.InputPort;
 import ttc2019.metamodels.bdd.Leaf;
 import ttc2019.metamodels.bdd.Subtree;
 import ttc2019.metamodels.bdd.Tree;
 import ttc2019.metamodels.tt.Cell;
 import ttc2019.metamodels.tt.Row;
-import ttc2019.metamodels.tt.TTPackage;
 import ttc2019.metamodels.tt.TruthTable;
 
 /**
- * Validates that a given BDD model corresponds to a given truth table: it gives
- * the same outputs for the same inputs. We essentially "run" the BDD on the same
- * inputs as the row, and we check that assignments match those of the TT.
+ * Validates that a given tree-style BDD model corresponds to a given truth
+ * table: it gives the same outputs for the same inputs. We essentially "run"
+ * the BDD on the same inputs as the row, and we check that assignments match
+ * those of the TT.
  */
-public class Validator {
+public class TreeValidator {
 
 	public boolean validate(TruthTable tt, BDD bdd) {
 		if (tt.getPorts().size() != bdd.getPorts().size()) {
@@ -91,37 +83,4 @@ public class Validator {
 		}
 	}
 
-	public static void main(String[] args) {
-		if (args.length != 2) {
-			System.err.println("Usage: java -jar validator.jar input.ttmodel output.bddmodel");
-			System.exit(1);
-		}
-		final File fInputTT = new File(args[0]);
-		final File fOutputBDD = new File(args[1]);
-
-		try {
-			// We only need to get these two metamodels loaded
-			TTPackage.eINSTANCE.getName();
-			BDDPackage.eINSTANCE.getName();
-			
-			ResourceSet rs = new ResourceSetImpl();
-			rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-			Resource rTT = rs.getResource(URI.createFileURI(fInputTT.getCanonicalPath()), true);
-			Resource rBDD = rs.getResource(URI.createFileURI(fOutputBDD.getCanonicalPath()), true);
-
-			TruthTable tt = (TruthTable) rTT.getContents().get(0);
-			BDD bdd = (BDD) rBDD.getContents().get(0);
-
-			final boolean valid = new Validator().validate(tt, bdd);
-			if (valid) {
-				System.out.println(String.format("BDD %2$s matches TT %1$s: all OK", fInputTT.getName(), fOutputBDD.getName()));
-			} else {
-				System.err.println(String.format("BDD %2$s does not match TT %1$s: see issues above", fInputTT.getName(), fOutputBDD.getName()));
-				System.exit(2);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.exit(255);
-		}
-	}
 }
