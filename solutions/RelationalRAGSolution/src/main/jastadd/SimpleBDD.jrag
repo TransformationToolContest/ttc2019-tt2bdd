@@ -1,0 +1,33 @@
+aspect SimpleBDD {
+
+  // BDD ::= <Name:String> Tree;
+  //
+  // abstract Tree;
+  // Leaf:Tree ::= Assignment*;
+  // SubTree:Tree ::= TreeForZero:Tree TreeForOne:Tree;
+  //
+  // Assignment ::= <Value:boolean>;
+  //
+  // rel InputPort.Subtree* <-> SubTree.Port;
+  // rel OutputPort.Assignment* <-> Assignment.Port;
+  // rel BDD.Port* -> Port;
+
+  public BDD TruthTable.simpleBDD() {
+    BDD bdd = new BDD();
+
+    //  Each TruthTable object should correspond to a BDD object, with the same name and equivalent Ports.
+    bdd.setName(getName());
+
+    //  Each InputPort and OutputPort should be mapped to an object of the BDD
+    for (Port port: getPortList()) {
+      bdd.addPort(port);
+    }
+
+    // select an input port
+
+  }
+
+  public Tree TruthTable.subTree(List<InputPort> remainingPorts) {
+
+  }
+}
