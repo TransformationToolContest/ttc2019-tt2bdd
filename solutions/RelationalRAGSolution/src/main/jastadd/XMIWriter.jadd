@@ -1,4 +1,7 @@
 aspect XMIWriter {
+
+  public static String[] ASTNode.XMI_INDENTS = {"", "  ", "    ", "      ", "        ", "          ", "            "};
+
   public void TruthTable.writeXMI(StringBuilder b) {
     b.append("<?xml version=\"1.0\" encoding=\"ASCII\"?>\n")
       .append("<tt:TruthTable xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:tt=\"https://www.transformation-tool-contest.eu/2019/tt\" name=\"")
@@ -47,4 +50,85 @@ aspect XMIWriter {
       .append(getPort().xmiPath())
       .append("\"/>\n");
   }
+
+  public void BDD.writeXMI(StringBuilder b) {
+    b.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n")
+      .append("<BDD xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:tt=\"https://www.transformation-tool-contest.eu/2019/bdd\" name=\"")
+      .append(getName())
+      .append("\">\n");
+
+    for (Port port : getPortList()) {
+      port.writeXMI_BDD(b);
+    }
+    getTree().writeXMI(0, "tree", b);
+    b.append("</BDD>");
+  }
+
+  public void Port.writeXMI_BDD(StringBuilder b) {
+    b.append("  <ports xsi:type=\"")
+      .append(isInput() ? "Input" : "Output")
+      .append("Port\" name=\"")
+      .append(getName())
+      .append("\" ");
+    if (isInput()) {
+      b.append("subtrees=\"");
+      boolean first = true;
+      for (Subtree subTree : asInput().getSubtreeList()) {
+        if (first) {
+          first = false;
+        } else {
+          b.append(" ");
+        }
+        b.append(subTree.xmiPath());
+      }
+    } else {
+      boolean first = true;
+      for (Assignment assignment : asOutput().getAssignmentList()) {
+        if (first) {
+          first = false;
+        } else {
+          b.append(" ");
+        }
+        b.append(assignment.xmiPath());
+      }
+    }
+    b.append("\"/>\n");
+  }
+
+  public abstract void Tree.writeXMI(int indent, String name, StringBuilder b);
+
+  public void Subtree.writeXMI(int indent, String name, StringBuilder b) {
+    b.append(XMI_INDENTS[indent])
+      .append("<")
+      .append(name)
+      .append(" xsi:type=\"Subtree\" port=\"")
+      .append(getPort().xmiPath())
+      .append("\">\n");
+    getTreeForZero().writeXMI(indent + 1, "treeForZero", b);
+    getTreeForOne().writeXMI(indent + 1, "treeForOne", b);
+    b.append(XMI_INDENTS[indent])
+      .append("</")
+      .append(name)
+      .append(">\n");
+  }
+
+  public void Leaf.writeXMI(int indent, String name, StringBuilder b) {
+    b.append(XMI_INDENTS[indent])
+      .append("<")
+      .append(name)
+      .append(" xsi:type=\"Leaf\">");
+    for (Assignment assignment : getAssignmentList()) {
+      b.append(XMI_INDENTS[indent + 1])
+        .append("<assignments value=\"")
+        .append(Boolean.toString(assignment.getValue()))
+        .append("\" port=\"")
+        .append(assignment.getPort().xmiPath())
+        .append("\"/>\n");
+    }
+    b.append(XMI_INDENTS[indent])
+      .append("</")
+      .append(name)
+      .append(">\n");
+  }
+
 }

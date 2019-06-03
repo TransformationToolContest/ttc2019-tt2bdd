@@ -23,8 +23,4 @@ out/
 !libs/relast.jar
 
 src/gen/
-*.ast
-src/main/jastadd/TTBDD.jadd
-src/main/jastadd/TTBDDRefResolver.jadd
-src/main/jastadd/TTBDDResolverStubs.jrag
 build/

@@ -13,7 +13,7 @@ repositories {
 
 idea {
     module {
-        generatedSourceDirs += file('src/gen/java')
+        generatedSourceDirs += file('./src/gen/java')
     }
 }
 
@@ -73,9 +73,9 @@ task preprocess(type: JavaExec) {
     main = "-jar"
 
     doFirst {
-        delete "./src/main/jastadd/*.ast"
-        delete "./src/main/jastadd/TTBDD.jadd"
-        delete "./src/main/jastadd/TTBDDRefResolver.jadd"
+        delete "./src/gen/jastadd/*.ast"
+        delete "./src/gen/jastadd/TTBDD.jadd"
+        delete "./src/gen/jastadd/TTBDDRefResolver.jadd"
     }
 
     args = [
@@ -115,9 +115,9 @@ task jastadd2(type: JavaExec) {
 }
 
 clean.doFirst {
-    delete "./src/main/jastadd/TTBDD.ast"
-    delete "./src/main/jastadd/TTBDD.jadd"
-    delete "./src/main/jastadd/TTBDDRefResolver.jadd"
+    delete "./src/gen/jastadd/TTBDD.ast"
+    delete "./src/gen/jastadd/TTBDD.jadd"
+    delete "./src/gen/jastadd/TTBDDRefResolver.jadd"
 }
 
 

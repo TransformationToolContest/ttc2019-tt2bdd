@@ -2,6 +2,15 @@ aspect Navigation {
   syn boolean Port.isInput() = false;
   eq InputPort.isInput() = true;
 
+  syn InputPort Port.asInput() = null;
+  eq InputPort.asInput() = this;
+
+  syn OutputPort Port.asOutput() = null;
+  eq OutputPort.asOutput() = this;
+
+  syn Subtree Tree.asSubtree() = null;
+  eq Subtree.asSubtree() = this;
+
   // inh TruthTable LocatedElement.containingTruthTable();
   // eq TruthTable.getPort().containingTruthTable() = this;
   // eq TruthTable.getRow().containingTruthTable() = this;
@@ -9,6 +18,7 @@ aspect Navigation {
   inh ASTNode ASTNode.root();
   eq TruthTable.getPort().root() = this;
   eq TruthTable.getRow().root() = this;
+  eq TruthTable.getPortOrder().root() = this;
   eq BDD.getTree().root() = this;
 
   syn ASTNode TruthTable.root() = this;

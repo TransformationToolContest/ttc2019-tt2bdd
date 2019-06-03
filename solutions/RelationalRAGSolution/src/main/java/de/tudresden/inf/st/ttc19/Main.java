@@ -1,5 +1,6 @@
 package de.tudresden.inf.st.ttc19;
 
+import de.tudresden.inf.st.ttc19.jastadd.model.BDD;
 import de.tudresden.inf.st.ttc19.jastadd.model.TruthTable;
 import de.tudresden.inf.st.ttc19.parser.TruthTableParser;
 import org.apache.logging.log4j.LogManager;
@@ -18,6 +19,17 @@ public class Main {
     StringBuilder builder = new StringBuilder();
     tt.writeXMI(builder);
     logger.info("Printed XMI:\n{}", builder.toString());
+
+    BDD bdd = tt.simpleBDD();
+
+    StringBuilder bddBuilder = new StringBuilder();
+    try {
+      bdd.writeXMI(bddBuilder);
+      logger.info("BDD XMI:\n{}", bddBuilder.toString());
+    } catch (Exception e) {
+      logger.error("Problems in writing bdd xmi");
+      logger.catching(e);
+    }
   }
 
 }

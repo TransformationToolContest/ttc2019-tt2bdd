@@ -2,10 +2,10 @@ BDD ::= <Name:String> Tree;
 
 abstract Tree;
 Leaf:Tree ::= Assignment*;
-SubTree:Tree ::= TreeForZero:Tree TreeForOne:Tree;
+Subtree:Tree ::= TreeForZero:Tree TreeForOne:Tree;
 
 Assignment ::= <Value:boolean>;
 
-rel InputPort.Subtree* <-> SubTree.Port;
+rel InputPort.Subtree* <-> Subtree.Port;
 rel OutputPort.Assignment* <-> Assignment.Port;
 rel BDD.Port* -> Port;

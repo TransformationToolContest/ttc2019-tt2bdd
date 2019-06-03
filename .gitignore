@@ -29,3 +29,5 @@ Rplots.pdf
 .idea
 .gradle
 !gradle/wrapper/gradle-wrapper.jar
+
+output/output.csv

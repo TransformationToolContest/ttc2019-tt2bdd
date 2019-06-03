@@ -1,14 +1,25 @@
 aspect SimpleBDD {
 
+  // LocatedElement ::= <Location:String>;
+  // TruthTable:LocatedElement ::= <Name:String> Port:Port* Row:Row*;
+  // abstract Port:LocatedElement ::= <Name:String>;
+  // InputPort:Port;
+  // OutputPort:Port;
+  // Row:LocatedElement ::= Cell:Cell*;
+  // Cell:LocatedElement ::= <Value:Boolean>;
+  //
+  // rel Port.Cell* <-> Cell.Port;
+  // rel TruthTable.BDD? -> BDD;
+
   // BDD ::= <Name:String> Tree;
   //
   // abstract Tree;
   // Leaf:Tree ::= Assignment*;
-  // SubTree:Tree ::= TreeForZero:Tree TreeForOne:Tree;
+  // Subtree:Tree ::= TreeForZero:Tree TreeForOne:Tree;
   //
   // Assignment ::= <Value:boolean>;
   //
-  // rel InputPort.Subtree* <-> SubTree.Port;
+  // rel InputPort.Subtree* <-> Subtree.Port;
   // rel OutputPort.Assignment* <-> Assignment.Port;
   // rel BDD.Port* -> Port;
 
@@ -24,8 +35,105 @@ aspect SimpleBDD {
     }
 
     // select an input port
+    // Idea:
+    // 1. pick port order
+    PortOrder portOrder = getPortOrder();
+    // 1b. create tree for first port in TT
+    Subtree firstSubtree = new Subtree();
+    firstSubtree.setPort(portOrder.getPortList().get(0));
+    bdd.setTree(firstSubtree);
+    // 2. iterate over rows, create or get inner nodes until last port which will be a leaf
+    Port leafPort = portOrder.leafPort();
+    for (Row row : getRowList()) {
+      Subtree current = firstSubtree;
+      for (InputPort port : portOrder.subTreePortList()) {
+        current = current.getOrCreateSubtree(port, row.valueFor(port));
+      }
+      // create leaf node
+      current.createLeafNode(leafPort, row);
+    }
 
     return bdd;
+  }
+
+  //--- subTreePortList ---
+  syn List<InputPort> PortOrder.subTreePortList() = getPortList().subList(0, getPortList().size() - 1);
+
+  //--- leafPort ---
+  syn InputPort PortOrder.leafPort() = getPortList().get(getPortList().size() - 1);
+
+  //--- getOrCreateSubtree ---
+  Subtree Subtree.getOrCreateSubtree(InputPort port, boolean value) {
+    Subtree result;
+    Tree tree = value ? getTreeForOne() : getTreeForZero();
+    if (tree == null) {
+      Subtree subTree = new Subtree();
+      subTree.setPort(port);
+      if (value) {
+        setTreeForOne(subTree);
+      } else {
+        setTreeForZero(subTree);
+      }
+      result = subTree;
+    } else {
+      result = tree.asSubtree();
+    }
+    return result;
+  }
+
+  //--- createLeafNode ---
+  void Subtree.createLeafNode(Port lastPort, Row row) {
+    // assumption: treeForOne/Zero is always null at this point, so no need to check first
+    Leaf leaf = new Leaf();
+    for (Cell cell : row.getCellList()) {
+      if (!cell.getPort().isInput()) {
+        // add to list of assignments
+        Assignment assignment = new Assignment();
+        assignment.setPort(cell.getPort().asOutput());
+        assignment.setValue(cell.getValue());
+      }
+    }
+    if (row.valueFor(lastPort)) {
+      setTreeForOne(leaf);
+    } else {
+      setTreeForZero(leaf);
+    }
+  }
+
+  /**
+   * Return a list of rows, for which the given port has the given value.
+   * Preformance-Note: This should be done using an iterator, and not manifesting it as a new list.
+   */
+  syn List<Row> TruthTable.getRowsFor(Port port, boolean value) {
+    List<Row> result = new ArrayList<>();
+    for (Row row : getRowList()) {
+      if (row.valueFor(port) == value) {
+        result.add(row);
+      }
+    }
+    return result;
+  }
+
+  // Eval probably in extra aspect
+  syn boolean Row.valueFor(Port port) {
+    for (Cell cell : getCellList()) {
+      if (cell.getPort().equals(port)) {
+        return cell.getValue();
+      }
+    }
+    return false;
+  }
+
+  syn PortOrder TruthTable.getPortOrder() {
+    // a port order defines the order, in which the ports are evaluated
+    // for the simple case, this order is defined by the list in which the ports are defined
+    PortOrder result = new PortOrder();
+    for (Port port : getPortList()) {
+      if (port.isInput()) {
+        result.addPort(port.asInput());
+      }
+    }
+    return result;
   }
 
   public Tree TruthTable.subTree(List<InputPort> remainingPorts) {
