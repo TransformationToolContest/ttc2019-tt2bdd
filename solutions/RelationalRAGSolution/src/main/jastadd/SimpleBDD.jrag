@@ -25,9 +25,10 @@ aspect SimpleBDD {
 
     // select an input port
 
+    return bdd;
   }
 
   public Tree TruthTable.subTree(List<InputPort> remainingPorts) {
-
+    return null;
   }
 }

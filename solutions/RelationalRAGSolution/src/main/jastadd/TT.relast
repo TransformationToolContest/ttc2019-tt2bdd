@@ -7,4 +7,4 @@ Row:LocatedElement ::= Cell:Cell*;
 Cell:LocatedElement ::= <Value:Boolean>;
 
 rel Port.Cell* <-> Cell.Port;
-rel TruthTable? -> BDD;
+rel TruthTable.BDD? -> BDD;
