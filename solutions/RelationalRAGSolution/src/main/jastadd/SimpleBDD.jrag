@@ -45,9 +45,12 @@ aspect SimpleBDD {
     // 2. iterate over rows, create or get inner nodes until last port which will be a leaf
     Port leafPort = portOrder.leafPort();
     for (Row row : getRowList()) {
+      row.printDebug();
       Subtree current = firstSubtree;
+      boolean value = row.valueFor(firstSubtree.getPort());
       for (InputPort port : portOrder.subTreePortList()) {
-        current = current.getOrCreateSubtree(port, row.valueFor(port));
+        current = current.getOrCreateSubtree(port, value);
+        value = row.valueFor(port);
       }
       // create leaf node
       current.createLeafNode(leafPort, row);
@@ -56,8 +59,24 @@ aspect SimpleBDD {
     return bdd;
   }
 
+  void Row.printDebug() {
+    StringBuilder b = new StringBuilder("row ");
+    boolean first = true;
+    for (Cell cell : getCellList()) {
+      if (first) {
+        first = false;
+      } else {
+        b.append(" ");
+      }
+      b.append(cell.getPort().getName())
+        .append(":")
+        .append(cell.getValue() ? 1 : 0);
+    }
+    logger.info(b.toString());
+  }
+
   //--- subTreePortList ---
-  syn List<InputPort> PortOrder.subTreePortList() = getPortList().subList(0, getPortList().size() - 1);
+  syn List<InputPort> PortOrder.subTreePortList() = getPortList().subList(1, getPortList().size());
 
   //--- leafPort ---
   syn InputPort PortOrder.leafPort() = getPortList().get(getPortList().size() - 1);
@@ -67,6 +86,7 @@ aspect SimpleBDD {
     Subtree result;
     Tree tree = value ? getTreeForOne() : getTreeForZero();
     if (tree == null) {
+      logger.debug("new subtree {} -{}-> {}", getPort().getName(), value ? 1 : 0, port.getName());
       Subtree subTree = new Subtree();
       subTree.setPort(port);
       if (value) {
@@ -84,6 +104,7 @@ aspect SimpleBDD {
   //--- createLeafNode ---
   void Subtree.createLeafNode(Port lastPort, Row row) {
     // assumption: treeForOne/Zero is always null at this point, so no need to check first
+    logger.debug("new leaf {} -{}-> leaf", getPort().getName(), row.valueFor(lastPort) ? 1 : 0);
     Leaf leaf = new Leaf();
     for (Cell cell : row.getCellList()) {
       if (!cell.getPort().isInput()) {
@@ -91,6 +112,7 @@ aspect SimpleBDD {
         Assignment assignment = new Assignment();
         assignment.setPort(cell.getPort().asOutput());
         assignment.setValue(cell.getValue());
+        leaf.addAssignment(assignment);
       }
     }
     if (row.valueFor(lastPort)) {
@@ -125,7 +147,7 @@ aspect SimpleBDD {
   }
 
   syn PortOrder TruthTable.getPortOrder() {
-    // a port order defines the order, in which the ports are evaluated
+    // a port order defines the order, in which the input ports are evaluated
     // for the simple case, this order is defined by the list in which the ports are defined
     PortOrder result = new PortOrder();
     for (Port port : getPortList()) {

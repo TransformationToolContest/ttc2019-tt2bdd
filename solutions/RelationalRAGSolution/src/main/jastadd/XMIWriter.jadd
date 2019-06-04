@@ -53,7 +53,7 @@ aspect XMIWriter {
 
   public void BDD.writeXMI(StringBuilder b) {
     b.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n")
-      .append("<BDD xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:tt=\"https://www.transformation-tool-contest.eu/2019/bdd\" name=\"")
+      .append("<BDD xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"https://www.transformation-tool-contest.eu/2019/bdd\" name=\"")
       .append(getName())
       .append("\">\n");
 
@@ -83,6 +83,7 @@ aspect XMIWriter {
       }
     } else {
       boolean first = true;
+      b.append("assignments=\"");
       for (Assignment assignment : asOutput().getAssignmentList()) {
         if (first) {
           first = false;
@@ -104,8 +105,16 @@ aspect XMIWriter {
       .append(" xsi:type=\"Subtree\" port=\"")
       .append(getPort().xmiPath())
       .append("\">\n");
-    getTreeForZero().writeXMI(indent + 1, "treeForZero", b);
-    getTreeForOne().writeXMI(indent + 1, "treeForOne", b);
+    if (getTreeForZero() != null) {
+      getTreeForZero().writeXMI(indent + 1, "treeForZero", b);
+    } else {
+      logger.warn("treeForZero is null in {}", xmiPath());
+    }
+    if (getTreeForOne() != null) {
+      getTreeForOne().writeXMI(indent + 1, "treeForOne", b);
+    } else {
+      logger.warn("treeForOne is null in {}", xmiPath());
+    }
     b.append(XMI_INDENTS[indent])
       .append("</")
       .append(name)
@@ -116,7 +125,7 @@ aspect XMIWriter {
     b.append(XMI_INDENTS[indent])
       .append("<")
       .append(name)
-      .append(" xsi:type=\"Leaf\">");
+      .append(" xsi:type=\"Leaf\">\n");
     for (Assignment assignment : getAssignmentList()) {
       b.append(XMI_INDENTS[indent + 1])
         .append("<assignments value=\"")

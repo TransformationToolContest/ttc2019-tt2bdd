@@ -27,9 +27,10 @@ public class TruthTableParser {
   private static final QName ATTRIBUTE_PORT = new QName("port");
   private static final QName ATTRIBUTE_VALUE = new QName("value");
 
-
-  private static final String TYPE_INPUTPORT = "tt:InputPort";
-  private static final String TYPE_OUTPUTPORT = "tt:OutputPort";
+  private static final String TYPE_INPUTPORT = "InputPort";
+  private static final String TYPE_OUTPUTPORT = "OutputPort";
+  private static final String TYPE_TT_INPUTPORT = "tt:InputPort";
+  private static final String TYPE_TT_OUTPUTPORT = "tt:OutputPort";
 
   private static Logger logger = LogManager.getLogger(TruthTableParser.class);
   private final XMLInputFactory factory = XMLInputFactory.newInstance();
@@ -74,9 +75,11 @@ public class TruthTableParser {
     String portType = portElement.getAttributeByName(ATTRIBUTE_TYPE).getValue();
     switch (portType) {
       case TYPE_INPUTPORT:
+      case TYPE_TT_INPUTPORT:
         port = new InputPort();
         break;
       case TYPE_OUTPUTPORT:
+      case TYPE_TT_OUTPUTPORT:
         port = new OutputPort();
         break;
       default:

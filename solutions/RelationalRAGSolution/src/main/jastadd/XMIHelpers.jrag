@@ -11,8 +11,10 @@ aspect XMIHelper {
 
   inh String Tree.xmiPath();
   eq BDD.getTree().xmiPath() = "//@tree";
+  eq Subtree.getTreeForZero().xmiPath() = xmiPath() + "/@treeForZero";
+  eq Subtree.getTreeForOne().xmiPath() = xmiPath() + "/@treeForOne";
 
   inh String Assignment.xmiPath();
-  eq Leaf.getAssignment(int i).xmiPath() = "HELP!";
+  eq Leaf.getAssignment(int i).xmiPath() = xmiPath() + "/@assignments." + i;
 
 }
