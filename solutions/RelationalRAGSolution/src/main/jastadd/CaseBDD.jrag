@@ -1,0 +1,87 @@
+aspect SimpleBDD {
+
+  public Tree TruthTable.createTree(List<Row> rows, ArrayList<InputPort> remainingPorts) {
+
+    Map<OutputPort,Boolean> firstAssignment = null;
+    boolean isLeaf = true;
+    rowLoop: for (Row row: rows) {
+      if (firstAssignment == null) {
+        firstAssignment = new HashMap<>();
+        for (Cell cell: row.getCellList()) {
+          if (!cell.getPort().isInput()) {
+            firstAssignment.put(cell.getPort().asOutput(), cell.getValue());
+          }
+        }
+      }
+      for (Cell cell: row.getCellList()) {
+        if (!cell.getPort().isInput() && firstAssignment.get(cell.getPort()) != cell.getValue()) {
+          isLeaf = false;
+          break rowLoop;
+        }
+      }
+    }
+
+    if (isLeaf) {
+      Leaf result = new Leaf();
+      for (Map.Entry<OutputPort, Boolean> entry: firstAssignment.entrySet()) {
+        Assignment assignment = new Assignment();
+        assignment.setValue(entry.getValue());
+        assignment.setPort(entry.getKey());
+        result.addAssignment(assignment);
+      }
+      return result;
+    } else {
+      // pick next InputPort
+      int nextPortIndex = 0;
+      InputPort nextPort = remainingPorts.remove(nextPortIndex);
+      ArrayList remainingPortsForZero = remainingPorts;
+      ArrayList remainingPortsForOne  = (ArrayList) remainingPorts.clone();
+
+      List<Row> rowsForZero = new ArrayList();
+      List<Row> rowsForOne = new ArrayList();
+      for (Row row: rows) {
+        Boolean rowValue = row.valueFor(nextPort);
+        if (rowValue) {
+          rowsForOne.add(row);
+        } else if (!rowValue) {
+          rowsForZero.add(row);
+        } else {
+          rowsForOne.add(row);
+          rowsForZero.add(row);
+        }
+      }
+      Subtree result = new Subtree();
+      result.setPort(nextPort);
+      result.setTreeForZero(createTree(rowsForZero, remainingPortsForZero));
+      result.setTreeForOne(createTree(rowsForOne, remainingPortsForOne));
+      return result;
+    }
+  }
+
+  public BDD TruthTable.caseBDD() {
+    BDD bdd = new BDD();
+
+    bdd.setName(getName());
+
+    for (Port port: getPortList()) {
+      bdd.addPort(port);
+    }
+
+    List<Row> allRows = new ArrayList(getNumRow());
+    for(Row row: getRowList()) {
+      allRows.add(row);
+    }
+    ArrayList<InputPort> allInputPorts = new ArrayList(getNumPort());
+    for (Port port: getPortList()) {
+      if (port.isInput()) {
+        allInputPorts.add(port.asInput());
+      }
+    }
+
+    bdd.setTree(createTree(allRows, allInputPorts));
+
+    return bdd;
+  }
+
+
+}
