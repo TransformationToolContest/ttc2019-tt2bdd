@@ -12,12 +12,11 @@ import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.zip.ZipInputStream;
 
 public class TruthTableParser {
 
   private static final String XSI_NS = "http://www.w3.org/2001/XMLSchema-instance";
-  private static final String ELEMENT_TRUTH_TABLE= "TruthTable";
+  private static final String ELEMENT_TRUTH_TABLE = "TruthTable";
   private static final String ELEMENT_PORTS = "ports";
   private static final String ELEMENT_ROWS = "rows";
   private static final String ELEMENT_CELLS = "cells";
@@ -39,29 +38,25 @@ public class TruthTableParser {
 
     TruthTable truthTable = new TruthTable();
     try (final InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream(file)) {
-      try (final ZipInputStream zip = new ZipInputStream(stream)) {
-        final XMLEventReader reader = factory.createXMLEventReader(stream);
-        while (reader.hasNext()) {
-          final XMLEvent event = reader.nextEvent();
-          if (event.isStartElement()) {
-            StartElement startElement = event.asStartElement();
-            switch (startElement.getName().getLocalPart()) {
-              case ELEMENT_TRUTH_TABLE:
-                truthTable.setName(startElement.getAttributeByName(ATTRIBUTE_NAME).getValue());
-                break;
-              case ELEMENT_PORTS:
-                truthTable.addPort(parsePort(startElement));
-                break;
-              case ELEMENT_ROWS:
-                truthTable.addRow(parseRow(reader));
-                break;
-            }
+      final XMLEventReader reader = factory.createXMLEventReader(stream);
+      while (reader.hasNext()) {
+        final XMLEvent event = reader.nextEvent();
+        if (event.isStartElement()) {
+          StartElement startElement = event.asStartElement();
+          switch (startElement.getName().getLocalPart()) {
+            case ELEMENT_TRUTH_TABLE:
+              truthTable.setName(startElement.getAttributeByName(ATTRIBUTE_NAME).getValue());
+              break;
+            case ELEMENT_PORTS:
+              truthTable.addPort(parsePort(startElement));
+              break;
+            case ELEMENT_ROWS:
+              truthTable.addRow(parseRow(reader));
+              break;
           }
         }
-      } catch (XMLStreamException e) {
-        e.printStackTrace();
       }
-    } catch (IOException e) {
+    } catch (XMLStreamException | IOException e) {
       e.printStackTrace();
     }
 
@@ -72,7 +67,7 @@ public class TruthTableParser {
     Port port;
 
     // construct the port
-    String portType = portElement.getAttributeByName(ATTRIBUTE_TYPE).getValue();
+    final String portType = portElement.getAttributeByName(ATTRIBUTE_TYPE).getValue();
     switch (portType) {
       case TYPE_INPUTPORT:
       case TYPE_TT_INPUTPORT:
@@ -110,7 +105,7 @@ public class TruthTableParser {
     throw new XMLStreamException("Row element was not closed before the end of the file!");
   }
 
-  private Cell parseCell(final StartElement cellElement) throws XMLStreamException {
+  private Cell parseCell(final StartElement cellElement) {
     Cell cell = new Cell();
 
     cell.setPort(Port.createRefDirection(cellElement.getAttributeByName(ATTRIBUTE_PORT).getValue()));
