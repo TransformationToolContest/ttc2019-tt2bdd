@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bdd" nsURI="https://www.transformation-tool-contest.eu/2019/bdd"
-    nsPrefix="bdd">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bddg" nsURI="https://www.transformation-tool-contest.eu/2019/bdd/graph"
+    nsPrefix="bddg">
   <eClassifiers xsi:type="ecore:EClass" name="BDD">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ports" ordered="false"
         lowerBound="1" upperBound="-1" eType="#//Port" containment="true" eOpposite="#//Port/owner"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tree" ordered="false" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" ordered="false" lowerBound="1"
         eType="#//Tree"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="trees" upperBound="-1"
         eType="#//Tree" containment="true" eOpposite="#//Tree/ownerBDD"/>
