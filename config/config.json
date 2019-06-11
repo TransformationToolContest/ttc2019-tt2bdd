@@ -4,7 +4,8 @@
         "EMFSolutionATLGraph",
         "ATLEMFTVMImproved",
         "NMF",
-        "Fulib"
+        "Fulib",
+        "RelationalRAGSolution"
     ],
     "Models": [
         "Test.ttmodel",
@@ -15,3 +16,4 @@
     "Runs": 5,
     "Timeout": 6000
 }
+

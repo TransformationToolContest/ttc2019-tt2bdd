@@ -10,7 +10,6 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-import java.io.IOException;
 import java.io.InputStream;
 
 public class TruthTableParser {
@@ -34,10 +33,10 @@ public class TruthTableParser {
   private static Logger logger = LogManager.getLogger(TruthTableParser.class);
   private final XMLInputFactory factory = XMLInputFactory.newInstance();
 
-  public TruthTable parse(String file) {
+  public TruthTable parse(InputStream stream) {
 
     TruthTable truthTable = new TruthTable();
-    try (final InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream(file)) {
+    try {
       final XMLEventReader reader = factory.createXMLEventReader(stream);
       while (reader.hasNext()) {
         final XMLEvent event = reader.nextEvent();
@@ -56,8 +55,8 @@ public class TruthTableParser {
           }
         }
       }
-    } catch (XMLStreamException | IOException e) {
-      e.printStackTrace();
+    } catch (XMLStreamException e) {
+      logger.error(e);
     }
 
     return truthTable;
