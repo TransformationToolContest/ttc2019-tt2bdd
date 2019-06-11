@@ -1,0 +1,16 @@
+BDD ::= <Name:String> Root:AbstractNode AbstractNode*;
+
+abstract AbstractNode;
+TerminalNode:AbstractNode ::= Assignment*;
+InnerNode:AbstractNode;
+
+// reused from BDD
+// Assignment ::= <Value:boolean>;
+// rel OutputPort.Assignment* <-> Assignment.Port;
+
+rel InnerNode.GraphForZero? <-> AbstractNode.ParentForZero*;
+rel InnerNode.GraphForOne? <-> AbstractNode.ParentForOne*;
+rel InputPort.InnerNode* <-> InnerNode.Port;
+rel BDD.Port* -> Port;
+
+rel BDD.TruthTable -> TruthTable;

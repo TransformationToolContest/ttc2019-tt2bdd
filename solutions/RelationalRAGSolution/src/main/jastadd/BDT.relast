@@ -9,3 +9,5 @@ Assignment ::= <Value:boolean>;
 rel InputPort.Subtree* <-> Subtree.Port;
 rel OutputPort.Assignment* <-> Assignment.Port;
 rel BDT.Port* -> Port;
+
+rel BDT.TruthTable -> TruthTable;

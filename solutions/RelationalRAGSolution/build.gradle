@@ -87,6 +87,7 @@ task preprocess(type: JavaExec) {
             "libs/relast.jar",
             "./src/main/jastadd/TT.relast",
             "./src/main/jastadd/BDT.relast",
+            "./src/main/jastadd/BDD.relast",
             "--listClass=ArrayList",
             "--jastAddList=JastAddList",
             "--useJastAddNames",
@@ -95,8 +96,8 @@ task preprocess(type: JavaExec) {
             "--grammarName=./src/gen/jastadd/TTBDD"
     ]
 
-    inputs.files file("./src/main/jastadd/TT.relast"), file("./src/main/jastadd/BDT.relast"), file("./libs/relast.jar")
-    outputs.files file("./src/gen/jastadd/TTBDD.ast"), file("./src/gen/jastadd/TTBDD.jadd"), file("./src/gen/jastadd/TTBDDRefResolver.jadd")
+    inputs.files file("./src/main/jastadd/TT.relast"), file("./src/main/jastadd/BDT.relast"), file("./src/main/jastadd/BDD.relast"), file("./libs/relast.jar")
+    outputs.files file("./src/gen/jastadd/TTBDD.ast"), file("./src/gen/jastadd/TTBDD.jadd"), file("./src/gen/jastadd/TTBDDRefResolver.jadd"), file('./src/gen/jastadd/TTBDDResolverStubs.jrag')
 }
 
 task jastadd2(type: JavaExec) {
@@ -123,6 +124,7 @@ clean.doFirst {
     delete "./src/gen/jastadd/TTBDD.ast"
     delete "./src/gen/jastadd/TTBDD.jadd"
     delete "./src/gen/jastadd/TTBDDRefResolver.jadd"
+    delete "./src/gen/jastadd/TTBDDResolverStubs.jrag"
 }
 
 
