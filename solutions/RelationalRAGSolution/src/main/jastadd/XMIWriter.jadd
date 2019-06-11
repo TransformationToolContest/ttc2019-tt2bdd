@@ -1,6 +1,10 @@
 aspect XMIWriter {
 
-  public static String[] ASTNode.XMI_INDENTS = {"", "  ", "    ", "      ", "        ", "          ", "            "};
+  public static String ASTNode.indentString(int n) {
+    char[] chars = new char[2*n];
+    Arrays.fill(chars, ' ');
+    return new String(chars);
+  }
 
   public void TruthTable.writeXMI(StringBuilder b) {
     b.append("<?xml version=\"1.0\" encoding=\"ASCII\"?>\n")
@@ -99,7 +103,7 @@ aspect XMIWriter {
   public abstract void Tree.writeXMI(int indent, String name, StringBuilder b);
 
   public void Subtree.writeXMI(int indent, String name, StringBuilder b) {
-    b.append(XMI_INDENTS[indent])
+    b.append(indentString(indent))
       .append("<")
       .append(name)
       .append(" xsi:type=\"Subtree\" port=\"")
@@ -115,26 +119,26 @@ aspect XMIWriter {
     } else {
       logger.warn("treeForOne is null in {}", xmiPath());
     }
-    b.append(XMI_INDENTS[indent])
+    b.append(indentString(indent))
       .append("</")
       .append(name)
       .append(">\n");
   }
 
   public void Leaf.writeXMI(int indent, String name, StringBuilder b) {
-    b.append(XMI_INDENTS[indent])
+    b.append(indentString(indent))
       .append("<")
       .append(name)
       .append(" xsi:type=\"Leaf\">\n");
     for (Assignment assignment : getAssignmentList()) {
-      b.append(XMI_INDENTS[indent + 1])
+      b.append(indentString(indent + 1))
         .append("<assignments value=\"")
         .append(Boolean.toString(assignment.getValue()))
         .append("\" port=\"")
         .append(assignment.getPort().xmiPath())
         .append("\"/>\n");
     }
-    b.append(XMI_INDENTS[indent])
+    b.append(indentString(indent))
       .append("</")
       .append(name)
       .append(">\n");
