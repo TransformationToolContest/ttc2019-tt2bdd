@@ -55,20 +55,20 @@ aspect XMIWriter {
       .append("\"/>\n");
   }
 
-  public void BDD.writeXMI(StringBuilder b) {
+  public void BDT.writeXMI(StringBuilder b) {
     b.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n")
       .append("<BDD xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"https://www.transformation-tool-contest.eu/2019/bdd\" name=\"")
       .append(getName())
       .append("\">\n");
 
     for (Port port : getPortList()) {
-      port.writeXMI_BDD(b);
+      port.writeXMI_BDT(b);
     }
     getTree().writeXMI(0, "tree", b);
     b.append("</BDD>");
   }
 
-  public void Port.writeXMI_BDD(StringBuilder b) {
+  public void Port.writeXMI_BDT(StringBuilder b) {
     b.append("  <ports xsi:type=\"")
       .append(isInput() ? "Input" : "Output")
       .append("Port\" name=\"")

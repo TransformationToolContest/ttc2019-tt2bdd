@@ -10,7 +10,7 @@ aspect XMIHelper {
   eq Row.getCell(int i).xmiPath() = xmiPath() + "/@cells." + i;
 
   inh String Tree.xmiPath();
-  eq BDD.getTree().xmiPath() = "//@tree";
+  eq BDT.getTree().xmiPath() = "//@tree";
   eq Subtree.getTreeForZero().xmiPath() = xmiPath() + "/@treeForZero";
   eq Subtree.getTreeForOne().xmiPath() = xmiPath() + "/@treeForOne";
 

@@ -1,4 +1,4 @@
-BDD ::= <Name:String> Tree;
+BDT ::= <Name:String> Tree;
 
 abstract Tree;
 Leaf:Tree ::= Assignment*;
@@ -8,4 +8,4 @@ Assignment ::= <Value:boolean>;
 
 rel InputPort.Subtree* <-> Subtree.Port;
 rel OutputPort.Assignment* <-> Assignment.Port;
-rel BDD.Port* -> Port;
+rel BDT.Port* -> Port;

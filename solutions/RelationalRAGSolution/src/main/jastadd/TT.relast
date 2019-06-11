@@ -9,4 +9,4 @@ PortOrder;
 
 rel PortOrder.Port* -> InputPort;
 rel Port.Cell* <-> Cell.Port;
-rel TruthTable.BDD? -> BDD;
+rel TruthTable.BDT? -> BDT;

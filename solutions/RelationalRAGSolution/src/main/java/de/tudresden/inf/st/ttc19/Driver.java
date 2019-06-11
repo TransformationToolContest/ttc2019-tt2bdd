@@ -1,6 +1,6 @@
 package de.tudresden.inf.st.ttc19;
 
-import de.tudresden.inf.st.ttc19.jastadd.model.BDD;
+import de.tudresden.inf.st.ttc19.jastadd.model.BDT;
 import de.tudresden.inf.st.ttc19.jastadd.model.TruthTable;
 import de.tudresden.inf.st.ttc19.parser.TruthTableParser;
 import org.apache.logging.log4j.LogManager;
@@ -62,7 +62,7 @@ public class Driver {
   static void run() throws IOException {
     stopwatch = System.nanoTime();
 
-    BDD solution = truthTable.caseBDD();
+    BDT solution = truthTable.caseBDT();
     stopwatch = System.nanoTime() - stopwatch;
     report(BenchmarkPhase.Run);
     StringBuilder bddBuilder = new StringBuilder();

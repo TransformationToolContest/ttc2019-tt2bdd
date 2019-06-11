@@ -1,6 +1,6 @@
 package de.tudresden.inf.st.ttc19;
 
-import de.tudresden.inf.st.ttc19.jastadd.model.BDD;
+import de.tudresden.inf.st.ttc19.jastadd.model.BDT;
 import de.tudresden.inf.st.ttc19.jastadd.model.TruthTable;
 import de.tudresden.inf.st.ttc19.parser.TruthTableParser;
 import org.apache.logging.log4j.LogManager;
@@ -96,14 +96,14 @@ public class JastAddTest {
 
   @ParameterizedTest
   @MethodSource("truthTableFiles")
-  void testSimpleBDD(String pathName) throws IOException {
+  void testSimpleBDT(String pathName) throws IOException {
     TruthTable tt = loadTruthTable(pathName);
     File inputFile = new File(pathName);
 
-    BDD simpleBDD = tt.simpleBDD();
+    BDT simpleBDT = tt.simpleBDT();
 
     StringBuilder simpleBuilder = new StringBuilder();
-    simpleBDD.writeXMI(simpleBuilder);
+    simpleBDT.writeXMI(simpleBuilder);
 
     Path outputPath = Files.createTempFile("relrag-test-simple", ".bddmodel");
     outputPath.toFile().deleteOnExit();
@@ -120,7 +120,7 @@ public class JastAddTest {
     TruthTable tt = loadTruthTable(pathName);
     File inputFile = new File(pathName);
 
-    BDD caseBdd = tt.caseBDD();
+    BDT caseBdd = tt.caseBDT();
 
     StringBuilder bddBuilder = new StringBuilder();
     caseBdd.writeXMI(bddBuilder);

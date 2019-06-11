@@ -19,8 +19,8 @@ aspect Navigation {
   eq TruthTable.getPort().root() = this;
   eq TruthTable.getRow().root() = this;
   eq TruthTable.getPortOrder().root() = this;
-  eq BDD.getTree().root() = this;
+  eq BDT.getTree().root() = this;
 
   syn ASTNode TruthTable.root() = this;
-  syn ASTNode BDD.root() = this;
+  syn ASTNode BDT.root() = this;
 }

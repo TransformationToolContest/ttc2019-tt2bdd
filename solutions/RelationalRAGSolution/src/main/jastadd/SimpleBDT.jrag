@@ -1,37 +1,14 @@
-aspect SimpleBDD {
+aspect SimpleBDT {
 
-  // LocatedElement ::= <Location:String>;
-  // TruthTable:LocatedElement ::= <Name:String> Port:Port* Row:Row*;
-  // abstract Port:LocatedElement ::= <Name:String>;
-  // InputPort:Port;
-  // OutputPort:Port;
-  // Row:LocatedElement ::= Cell:Cell*;
-  // Cell:LocatedElement ::= <Value:Boolean>;
-  //
-  // rel Port.Cell* <-> Cell.Port;
-  // rel TruthTable.BDD? -> BDD;
+  public BDT TruthTable.simpleBDT() {
+    BDT bdt = new BDT();
 
-  // BDD ::= <Name:String> Tree;
-  //
-  // abstract Tree;
-  // Leaf:Tree ::= Assignment*;
-  // Subtree:Tree ::= TreeForZero:Tree TreeForOne:Tree;
-  //
-  // Assignment ::= <Value:boolean>;
-  //
-  // rel InputPort.Subtree* <-> Subtree.Port;
-  // rel OutputPort.Assignment* <-> Assignment.Port;
-  // rel BDD.Port* -> Port;
+    //  Each TruthTable object should correspond to a BDT object, with the same name and equivalent Ports.
+    bdt.setName(getName());
 
-  public BDD TruthTable.simpleBDD() {
-    BDD bdd = new BDD();
-
-    //  Each TruthTable object should correspond to a BDD object, with the same name and equivalent Ports.
-    bdd.setName(getName());
-
-    //  Each InputPort and OutputPort should be mapped to an object of the BDD
+    //  Each InputPort and OutputPort should be mapped to an object of the BDT
     for (Port port: getPortList()) {
-      bdd.addPort(port);
+      bdt.addPort(port);
     }
 
     // select an input port
@@ -41,7 +18,7 @@ aspect SimpleBDD {
     // 1b. create tree for first port in TT
     Subtree firstSubtree = new Subtree();
     firstSubtree.setPort(portOrder.getPortList().get(0));
-    bdd.setTree(firstSubtree);
+    bdt.setTree(firstSubtree);
     // 2. iterate over rows, create or get inner nodes until last port which will be a leaf
     Port leafPort = portOrder.leafPort();
     for (Row row : getRowList()) {
@@ -56,7 +33,7 @@ aspect SimpleBDD {
       current.createLeafNode(leafPort, row);
     }
 
-    return bdd;
+    return bdt;
   }
 
   void Row.printDebug() {

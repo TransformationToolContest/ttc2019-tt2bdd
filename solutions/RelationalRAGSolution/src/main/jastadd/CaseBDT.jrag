@@ -1,4 +1,4 @@
-aspect SimpleBDD {
+aspect SimpleBDT {
 
   public Tree TruthTable.createTree(List<Row> rows, ArrayList<InputPort> remainingPorts) {
 
@@ -58,13 +58,13 @@ aspect SimpleBDD {
     }
   }
 
-  public BDD TruthTable.caseBDD() {
-    BDD bdd = new BDD();
+  public BDT TruthTable.caseBDT() {
+    BDT bdt = new BDT();
 
-    bdd.setName(getName());
+    bdt.setName(getName());
 
     for (Port port: getPortList()) {
-      bdd.addPort(port);
+      bdt.addPort(port);
     }
 
     List<Row> allRows = new ArrayList(getNumRow());
@@ -78,9 +78,9 @@ aspect SimpleBDD {
       }
     }
 
-    bdd.setTree(createTree(allRows, allInputPorts));
+    bdt.setTree(createTree(allRows, allInputPorts));
 
-    return bdd;
+    return bdt;
   }
 
 
