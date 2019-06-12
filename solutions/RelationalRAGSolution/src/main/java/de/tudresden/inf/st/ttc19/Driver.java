@@ -33,7 +33,7 @@ public class Driver {
     }
   }
 
-  static void load() {
+  private static void load() {
     stopwatch = System.nanoTime();
 
     try (final FileInputStream stream = new FileInputStream(ModelPath)) {
@@ -47,7 +47,7 @@ public class Driver {
     report(BenchmarkPhase.Load);
   }
 
-  static void initialize() {
+  private static void initialize() {
     stopwatch = System.nanoTime();
 
     Model = System.getenv("Model");
@@ -59,25 +59,23 @@ public class Driver {
     report(BenchmarkPhase.Initialization);
   }
 
-  static void run() throws IOException {
+  private static void run() throws IOException {
     stopwatch = System.nanoTime();
 
     BDT solution = truthTable.caseBDT();
     stopwatch = System.nanoTime() - stopwatch;
     report(BenchmarkPhase.Run);
     StringBuilder bddBuilder = new StringBuilder();
-    solution.writeXMI(bddBuilder);
+    solution.writeBDT(bddBuilder);
     try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("output.xmi"))) {
       writer.write(bddBuilder.toString());
     }
   }
 
-  static void report(BenchmarkPhase phase) {
+  private static void report(BenchmarkPhase phase) {
     System.out.println(String.format("%s;%s;%s;%s;Time;%s", Tool, Model, RunIndex, phase.toString(), Long.toString(stopwatch)));
 
-    if ("true".equals(System.getenv("NoGC"))) {
-      // nothing to do
-    } else {
+    if (!"true".equals(System.getenv("NoGC"))) {
       Runtime.getRuntime().gc();
       Runtime.getRuntime().gc();
       Runtime.getRuntime().gc();

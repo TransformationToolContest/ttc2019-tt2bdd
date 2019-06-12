@@ -1,5 +1,6 @@
 package de.tudresden.inf.st.ttc19;
 
+import de.tudresden.inf.st.ttc19.jastadd.model.BDD;
 import de.tudresden.inf.st.ttc19.jastadd.model.BDT;
 import de.tudresden.inf.st.ttc19.jastadd.model.TruthTable;
 import de.tudresden.inf.st.ttc19.parser.TruthTableParser;
@@ -16,7 +17,7 @@ import java.nio.file.Path;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class JastAddTest {
+class JastAddTest {
 
   private static Logger logger = LogManager.getLogger(Test.class);
 
@@ -60,15 +61,26 @@ public class JastAddTest {
 
     Process proc = Runtime.getRuntime().exec(new String[]{"java", "-jar", "../../models/validator.jar", tt, bdd});
     InputStream in = proc.getInputStream();
+    InputStream err = proc.getErrorStream();
     try {
       proc.waitFor();
     } catch (InterruptedException e) {
       Assertions.fail(e);
     }
-    byte b[] = new byte[in.available()];
+    byte[] b = new byte[in.available()];
+    //noinspection ResultOfMethodCallIgnored
     in.read(b, 0, b.length);
     String output = new String(b);
-    logger.debug("process returned {}", output);
+    logger.debug("process returned {}", output.trim());
+
+    byte[] berr = new byte[err.available()];
+    //noinspection ResultOfMethodCallIgnored
+    err.read(berr, 0, berr.length);
+    String errorOutput = new String(berr);
+    if (errorOutput.trim().length() > 0) {
+      logger.debug("process returned errors\n{}", errorOutput);
+    }
+
     Assertions.assertTrue(output.trim().endsWith("all OK"));
   }
 
@@ -87,7 +99,7 @@ public class JastAddTest {
     Assertions.assertNotNull(originalTT);
 
     StringBuilder roundtripBuilder = new StringBuilder();
-    loadTruthTable(file).writeXMI(roundtripBuilder);
+    loadTruthTable(file).writeTruthTable(roundtripBuilder);
     String roundtripTT = roundtripBuilder.toString();
     Assertions.assertNotNull(roundtripTT);
 
@@ -103,7 +115,7 @@ public class JastAddTest {
     BDT simpleBDT = tt.simpleBDT();
 
     StringBuilder simpleBuilder = new StringBuilder();
-    simpleBDT.writeXMI(simpleBuilder);
+    simpleBDT.writeBDT(simpleBuilder);
 
     Path outputPath = Files.createTempFile("relrag-test-simple", ".bddmodel");
     outputPath.toFile().deleteOnExit();
@@ -123,8 +135,27 @@ public class JastAddTest {
     BDT caseBdd = tt.caseBDT();
 
     StringBuilder bddBuilder = new StringBuilder();
-    caseBdd.writeXMI(bddBuilder);
+    caseBdd.writeBDT(bddBuilder);
     Path outputPath = Files.createTempFile("relrag-test-case", ".bddmodel");
+    outputPath.toFile().deleteOnExit();
+    try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
+      writer.write(bddBuilder.toString());
+    }
+
+    validate(inputFile.getAbsolutePath(), outputPath.toString());
+  }
+
+  @ParameterizedTest
+  @MethodSource("truthTableFiles")
+  void testCaseBDD(String pathName) throws IOException {
+    TruthTable tt = loadTruthTable(pathName);
+    File inputFile = new File(pathName);
+
+    BDD caseBdd = tt.caseBDD();
+
+    StringBuilder bddBuilder = new StringBuilder();
+    caseBdd.writeBDD(bddBuilder);
+    Path outputPath = Files.createTempFile("relrag-test-case-bdd", ".bddmodel");
     outputPath.toFile().deleteOnExit();
     try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
       writer.write(bddBuilder.toString());

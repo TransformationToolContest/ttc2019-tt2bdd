@@ -1,4 +1,4 @@
-BDD ::= <Name:String> Root:AbstractNode AbstractNode*;
+BDD ::= <Name:String> AbstractNode*;
 
 abstract AbstractNode;
 TerminalNode:AbstractNode ::= Assignment*;
@@ -8,6 +8,7 @@ InnerNode:AbstractNode;
 // Assignment ::= <Value:boolean>;
 // rel OutputPort.Assignment* <-> Assignment.Port;
 
+rel BDD.Root -> AbstractNode;
 rel InnerNode.GraphForZero? <-> AbstractNode.ParentForZero*;
 rel InnerNode.GraphForOne? <-> AbstractNode.ParentForOne*;
 rel InputPort.InnerNode* <-> InnerNode.Port;
