@@ -7,7 +7,6 @@ import argparse
 import os
 import shutil
 import subprocess
-import sys
 try:
     import ConfigParser
 except ImportError:
@@ -17,6 +16,7 @@ from subprocess import CalledProcessError
 
 BASE_DIRECTORY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print("Running benchmark with root directory " + BASE_DIRECTORY)
+
 
 class JSONObject(object):
     def __init__(self, d):
@@ -44,8 +44,13 @@ def benchmark(conf):
     header = os.path.join(BASE_DIRECTORY, "output", "header.csv")
     result_file = os.path.join(BASE_DIRECTORY, "output", "output.csv")
     if os.path.exists(result_file):
-        os.remove(result_file)
-    shutil.copy(header, result_file)
+        with open(result_file, "ab") as file:
+            # append a separator line
+            from datetime import datetime
+            file.write('-' * 30 + ' New measurement started at ' + datetime.now().isoformat() + ' ' + '-' * 30 + '\n')
+    else:
+        shutil.copy(header, result_file)
+        # os.remove(result_file)
     os.environ['Runs'] = str(conf.Runs)
     for r in range(0, conf.Runs):
         os.environ['RunIndex'] = str(r)
@@ -103,10 +108,9 @@ if __name__ == "__main__":
                         action="store_true")
     args = parser.parse_args()
 
-
     set_working_directory("config")
     with open("config.json", "r") as config_file:
-        config = json.load(config_file, object_hook = JSONObject)
+        config = json.load(config_file, object_hook=JSONObject)
 
     if args.debug:
         os.environ['Debug'] = 'true'
@@ -119,7 +123,7 @@ if __name__ == "__main__":
 
     # if there are no args, execute a full sequence
     # with the test and the visualization/reporting
-    no_args = all(val==False for val in vars(args).values())
+    no_args = all(val is False for val in vars(args).values())
     if no_args:
         build(config, False)
         benchmark(config)
