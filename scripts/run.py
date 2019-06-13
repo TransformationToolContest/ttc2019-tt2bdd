@@ -44,7 +44,7 @@ def benchmark(conf):
     header = os.path.join(BASE_DIRECTORY, "output", "header.csv")
     result_file = os.path.join(BASE_DIRECTORY, "output", "output.csv")
     if os.path.exists(result_file):
-        with open(result_file, "ab") as file:
+        with open(result_file, "a") as file:
             # append a separator line
             from datetime import datetime
             file.write('-' * 30 + ' New measurement started at ' + datetime.now().isoformat() + ' ' + '-' * 30 + '\n')
