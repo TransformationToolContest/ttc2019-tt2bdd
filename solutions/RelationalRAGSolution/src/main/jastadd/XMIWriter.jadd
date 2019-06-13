@@ -241,14 +241,14 @@ aspect XMIWriter {
     b.append(" port=\"")
       .append(getPort().xmiPath())
       .append("\"");
-    if (hasGraphForZero()) {
+    if (getGraphForZero() != null) {
       b.append(" treeForZero=\"")
         .append(getGraphForZero().xmiPath())
         .append("\"");
     } else {
       logger.warn("GraphForZero is null in {}", xmiPath());
     }
-    if (hasGraphForOne()) {
+    if (getGraphForOne() != null) {
       b.append(" treeForOne=\"")
         .append(getGraphForOne().xmiPath())
         .append("\"");

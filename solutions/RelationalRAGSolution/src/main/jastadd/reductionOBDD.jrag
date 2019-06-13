@@ -1,0 +1,140 @@
+aspect ReductionOBDD {
+
+  public BDD TruthTable.reductionOBDD() {
+    BDD bdd = new BDD();
+
+    bdd.setName(getName());
+
+    for (Port port: getPortList()) {
+      bdd.addPort(port);
+    }
+
+    for (TerminalNode terminal: terminalNodeMap().values()) {
+      bdd.addAbstractNode(terminal);
+    }
+
+    PortOrder portOrder = getPortOrder();
+
+    InnerNode root = new InnerNode();
+    root.setPort(portOrder.getPortList().get(0));
+    bdd.addAbstractNode(root);
+    bdd.setRoot(root);
+
+    Port leafPort = portOrder.leafPort();
+    for (Row row : getRowList()) {
+      insertRow(bdd, root, row, 0);
+    }
+
+    return bdd;
+  }
+
+
+  public void TruthTable.insertRow(BDD bdd, InnerNode parent, Row row, int position) {
+
+    InputPort port = getPortOrder().getPortList().get(position);
+    Boolean value = row.valueFor(port);
+
+    if (position < getPortOrder().getPortList().size() - 1) {
+      InputPort nextPort = getPortOrder().getPortList().get(position + 1);
+      if (value == null || value) {
+        InnerNode result;
+        if (parent.getGraphForOne() != null) {
+          result = parent.getGraphForOne().asInnerNode();
+        } else {
+          result = new InnerNode();
+          result.setPort(nextPort);
+          parent.setGraphForOne(result);
+          bdd.addAbstractNode(result);
+        }
+        insertRow(bdd, result, row, position + 1);
+      }
+      if (value == null || !value) {
+        InnerNode result;
+        if (parent.getGraphForZero() != null) {
+          result = parent.getGraphForZero().asInnerNode();
+        } else {
+          result = new InnerNode();
+          result.setPort(nextPort);
+          parent.setGraphForZero(result);
+          bdd.addAbstractNode(result);
+        }
+        insertRow(bdd, result, row, position + 1);
+      }
+    } else {
+      TerminalNode terminal = terminalNodeMap().get(row.outputString());
+      if (value == null) {
+        if (parent.getGraphForOne() != null || parent.getGraphForZero() != null) {
+          throw new RuntimeException();
+        }
+        parent.setGraphForOne(terminal);
+        parent.setGraphForZero(terminal);
+      } else if (value) {
+        if (parent.getGraphForOne() != null) {
+          throw new RuntimeException();
+        }
+        parent.setGraphForOne(terminal);
+      } else {
+        if (parent.getGraphForZero() != null) {
+          throw new RuntimeException();
+        }
+        parent.setGraphForZero(terminal);
+      }
+    }
+  }
+
+  syn String Row.outputString() {
+    StringBuilder b = new StringBuilder();
+    for (OutputPort port: containingTruthTable().outputPorts()) {
+      Boolean value = valueFor(port);
+      b.append(value==null?"-":value);
+    }
+    return b.toString();
+  }
+
+  syn String TruthTable.compactTable() {
+    StringBuffer result = new StringBuffer();
+    for (Row row: getRowList()) {
+      result.append(row.rowString()).append("\n");
+    }
+    return result.toString();
+  }
+
+  syn String Row.rowString() {
+    StringBuilder b = new StringBuilder();
+    for (Port port: containingTruthTable().getPortList()) {
+      Boolean value = valueFor(port);
+      b.append(value==null?"-":(value?"1":"0"));
+    }
+    return b.toString();
+  }
+
+  syn String TerminalNode.assignmentString() {
+    StringBuilder b = new StringBuilder();
+    for (Port port: this.getAssignment(0).getPort().containingTruthTable().getPortList()) {
+      Boolean value = valueFor(port);
+      b.append(value==null?"-":(value?"1":"0"));
+    }
+    return b.toString();
+  }
+
+  syn Map<String, TerminalNode> TruthTable.terminalNodeMap() {
+    Map<String, TerminalNode> result = new HashMap<>(getNumRow());
+    for (Row row: getRowList()) {
+      String outputString = row.outputString();
+      if (!result.containsKey(outputString)) {
+        TerminalNode terminal = new TerminalNode();
+        for (Cell cell: row.getCellList()) {
+          Port cellPort = cell.getPort();
+          if (!cellPort.isInput()) {
+            Assignment a = new Assignment();
+            a.setPort(cellPort.asOutput());
+            a.setValue(cell.getValue());
+            terminal.addAssignment(a);
+          }
+        }
+        result.put(row.outputString(), terminal);
+      }
+    }
+    return result;
+  }
+}

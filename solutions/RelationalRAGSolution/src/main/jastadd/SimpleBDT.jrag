@@ -24,9 +24,14 @@ aspect SimpleBDT {
     for (Row row : getRowList()) {
       row.printDebug();
       Subtree current = firstSubtree;
-      boolean value = row.valueFor(firstSubtree.getPort());
+      Boolean value = row.valueFor(firstSubtree.getPort());
       for (InputPort port : portOrder.subTreePortList()) {
-        current = current.getOrCreateSubtree(port, value);
+        if (value!=null) {
+          current = current.getOrCreateSubtree(port, value);
+        } else {
+          current.getOrCreateSubtree(port, true);
+          current = current.getOrCreateSubtree(port, false);
+        }
         value = row.valueFor(port);
       }
       // create leaf node
@@ -59,21 +64,25 @@ aspect SimpleBDT {
   syn InputPort PortOrder.leafPort() = getPortList().get(getPortList().size() - 1);
 
   //--- getOrCreateSubtree ---
-  Subtree Subtree.getOrCreateSubtree(InputPort port, boolean value) {
-    Subtree result;
-    Tree tree = value ? getTreeForOne() : getTreeForZero();
-    if (tree == null) {
-      logger.debug("new subtree {} -{}-> {}", getPort().getName(), value ? 1 : 0, port.getName());
-      Subtree subTree = new Subtree();
-      subTree.setPort(port);
-      if (value) {
-        setTreeForOne(subTree);
+  Subtree Subtree.getOrCreateSubtree(InputPort port, Boolean value) {
+    Subtree result = null;
+    if (value == null || value) {
+      if (getTreeForOne() != null) {
+        result = getTreeForOne().asSubtree();
       } else {
-        setTreeForZero(subTree);
+        result = new Subtree();
+        result.setPort(port);
+        setTreeForOne(result);
       }
-      result = subTree;
-    } else {
-      result = tree.asSubtree();
+    }
+    if (value == null || !value) {
+      if (getTreeForZero() != null) {
+        result = getTreeForZero().asSubtree();
+      } else {
+        result = new Subtree();
+        result.setPort(port);
+        setTreeForZero(result);
+      }
     }
     return result;
   }
@@ -81,7 +90,6 @@ aspect SimpleBDT {
   //--- createLeafNode ---
   void Subtree.createLeafNode(Port lastPort, Row row) {
     // assumption: treeForOne/Zero is always null at this point, so no need to check first
-    logger.debug("new leaf {} -{}-> leaf", getPort().getName(), row.valueFor(lastPort) ? 1 : 0);
     Leaf leaf = new Leaf();
     for (Cell cell : row.getCellList()) {
       if (!cell.getPort().isInput()) {
@@ -92,7 +100,21 @@ aspect SimpleBDT {
         leaf.addAssignment(assignment);
       }
     }
-    if (row.valueFor(lastPort)) {
+    Boolean value = row.valueFor(lastPort);
+    if (value == null){
+      setTreeForOne(leaf);
+      Leaf leaf2 = new Leaf();
+      for (Cell cell : row.getCellList()) {
+        if (!cell.getPort().isInput()) {
+          // add to list of assignments
+          Assignment assignment = new Assignment();
+          assignment.setPort(cell.getPort().asOutput());
+          assignment.setValue(cell.getValue());
+          leaf2.addAssignment(assignment);
+        }
+      }
+      setTreeForZero(leaf2);
+    } else if (value) {
       setTreeForOne(leaf);
     } else {
       setTreeForZero(leaf);
@@ -111,16 +133,6 @@ aspect SimpleBDT {
       }
     }
     return result;
-  }
-
-  // Eval probably in extra aspect
-  syn boolean Row.valueFor(Port port) {
-    for (Cell cell : getCellList()) {
-      if (cell.getPort().equals(port)) {
-        return cell.getValue();
-      }
-    }
-    return false;
   }
 
   syn PortOrder TruthTable.getPortOrder() {

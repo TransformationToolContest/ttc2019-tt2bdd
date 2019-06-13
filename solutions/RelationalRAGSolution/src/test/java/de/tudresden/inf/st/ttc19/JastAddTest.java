@@ -117,7 +117,7 @@ class JastAddTest {
     StringBuilder simpleBuilder = new StringBuilder();
     simpleBDT.writeBDT(simpleBuilder);
 
-    Path outputPath = Files.createTempFile("relrag-test-simple", ".bddmodel");
+    Path outputPath = Files.createTempFile("relrag-test-simpleBDT", ".bddmodel");
     outputPath.toFile().deleteOnExit();
     try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
       writer.write(simpleBuilder.toString());
@@ -136,7 +136,7 @@ class JastAddTest {
 
     StringBuilder bddBuilder = new StringBuilder();
     caseBdd.writeBDT(bddBuilder);
-    Path outputPath = Files.createTempFile("relrag-test-case", ".bddmodel");
+    Path outputPath = Files.createTempFile("relrag-test-caseBDT", ".bddmodel");
     outputPath.toFile().deleteOnExit();
     try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
       writer.write(bddBuilder.toString());
@@ -155,12 +155,33 @@ class JastAddTest {
 
     StringBuilder bddBuilder = new StringBuilder();
     caseBdd.writeBDD(bddBuilder);
-    Path outputPath = Files.createTempFile("relrag-test-case-bdd", ".bddmodel");
+    Path outputPath = Files.createTempFile("relrag-test-caseBDD", ".bddmodel");
+    // outputPath.toFile().deleteOnExit();
+    try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
+      writer.write(bddBuilder.toString());
+    }
+
+    Assertions.assertTrue(new Validator().validate(tt, caseBdd));
+    validate(inputFile.getAbsolutePath(), outputPath.toString());
+  }
+
+  @ParameterizedTest
+  @MethodSource("truthTableFiles")
+  void testReductionOBDD(String pathName) throws IOException {
+    TruthTable tt = loadTruthTable(pathName);
+    File inputFile = new File(pathName);
+
+    BDD caseBdd = tt.reductionOBDD();
+
+    StringBuilder bddBuilder = new StringBuilder();
+    caseBdd.writeBDD(bddBuilder);
+    Path outputPath = Files.createTempFile("relrag-test-reductionOBDD", ".bddmodel");
     outputPath.toFile().deleteOnExit();
     try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
       writer.write(bddBuilder.toString());
     }
 
+    Assertions.assertTrue(new Validator().validate(tt, caseBdd));
     validate(inputFile.getAbsolutePath(), outputPath.toString());
   }
 

@@ -42,12 +42,12 @@ aspect SimpleBDD {
       List<Row> rowsForOne = new ArrayList();
       for (Row row: rows) {
         Boolean rowValue = row.valueFor(nextPort);
-        if (rowValue) {
+        if (rowValue == null) {
           rowsForOne.add(row);
-        } else if (!rowValue) {
           rowsForZero.add(row);
-        } else {
+        } else if (rowValue) {
           rowsForOne.add(row);
+        } else {
           rowsForZero.add(row);
         }
       }

@@ -9,8 +9,8 @@ InnerNode:AbstractNode;
 // rel OutputPort.Assignment* <-> Assignment.Port;
 
 rel BDD.Root -> AbstractNode;
-rel InnerNode.GraphForZero? <-> AbstractNode.ParentForZero*;
-rel InnerNode.GraphForOne? <-> AbstractNode.ParentForOne*;
+rel InnerNode.GraphForZero <-> AbstractNode.ParentForZero*;
+rel InnerNode.GraphForOne <-> AbstractNode.ParentForOne*;
 rel InputPort.InnerNode* <-> InnerNode.Port;
 rel BDD.Port* -> Port;
 

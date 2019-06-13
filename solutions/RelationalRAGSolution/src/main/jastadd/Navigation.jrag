@@ -11,6 +11,9 @@ aspect Navigation {
   syn Subtree Tree.asSubtree() = null;
   eq Subtree.asSubtree() = this;
 
+  syn InnerNode AbstractNode.asInnerNode() = null;
+  eq InnerNode.asInnerNode() = this;
+
   // inh TruthTable LocatedElement.containingTruthTable();
   // eq TruthTable.getPort().containingTruthTable() = this;
   // eq TruthTable.getRow().containingTruthTable() = this;
@@ -26,4 +29,32 @@ aspect Navigation {
 
   syn ASTNode TruthTable.root() = this;
   syn ASTNode BDT.root() = this;
+
+  inh TruthTable Port.containingTruthTable();
+  inh TruthTable Row.containingTruthTable();
+  inh TruthTable PortOrder.containingTruthTable();
+  inh TruthTable Cell.containingTruthTable();
+  eq TruthTable.getPort().containingTruthTable() = this;
+  eq TruthTable.getRow().containingTruthTable() = this;
+  eq TruthTable.getPortOrder().containingTruthTable() = this;
+
+  syn List<OutputPort> TruthTable.outputPorts() {
+    List<OutputPort> result = new ArrayList<>();
+    for (Port port: getPortList()) {
+      if (!port.isInput()) {
+        result.add(port.asOutput());
+      }
+    }
+    return Collections.unmodifiableList(result);
+  }
+
+  syn List<InputPort> TruthTable.inputPorts() {
+    List<InputPort> result = new ArrayList<>();
+    for (Port port: getPortList()) {
+      if (port.isInput()) {
+        result.add(port.asInput());
+      }
+    }
+    return Collections.unmodifiableList(result);
+  }
 }
