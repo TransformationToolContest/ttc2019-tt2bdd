@@ -36,6 +36,12 @@ task cleanRagdoc(type: Delete) {
     new File(docsDir, 'ragdoc').deleteDir()
 }
 
+task reader (type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    group = 'verification'
+    main = 'de.tudresden.inf.st.ttc19.TruthTableReader'
+}
+
 dependencies {
 
     compile 'org.jastadd:jastadd:2.3.2'
