@@ -25,9 +25,104 @@ aspect ReductionOBDD {
       insertRow(bdd, root, row, 0);
     }
 
+    bdd.setTruthTable(this);
+
+    logger.info("BDD has {} nodes before reduction.", bdd.getNumAbstractNode());
+
+    bdd.reduce();
+
+    logger.info("BDD has {} nodes after reduction.", bdd.getNumAbstractNode());
+
     return bdd;
   }
 
+  public void BDD.reduce() {
+    // get the required inputs
+    int n = getTruthTable().inputPorts().size();
+
+    // assign to each node v a positive number id(v) in a bijective way:
+    // This is not necessary, the number is the hahsCode().
+    // There is no reason why the number must be positive, as long as oldKey is always smaller.
+
+    Map<InnerNode, de.tudresden.inf.st.ttc19.Pair> keys = new HashMap<>();
+
+    for (int i = n - 1; i >= 0; i--) {
+
+      InputPort port = getTruthTable().getPortOrder().getPortList().get(i);
+
+      List<InnerNode> V = new ArrayList<>();
+      for (InnerNode inner : port.getInnerNodeList()) {
+        V.add(inner);
+      }
+
+      // Elimination rule
+      for (Iterator<InnerNode> vIterator = V.iterator(); vIterator.hasNext(); ) {
+
+        InnerNode v = vIterator.next();
+
+        if (v.getGraphForOne() == v.getGraphForZero()) {
+          // remove v from V
+          vIterator.remove();
+
+          // redirect all incoming edges of v to v.getGraphForOne()
+          for (InnerNode parentNode : new ArrayList<InnerNode>(v.getParentForOneList())) {
+            parentNode.setGraphForOne(v.getGraphForOne());
+          }
+          for (InnerNode parentNode : new ArrayList<InnerNode>(v.getParentForZeroList())) {
+            parentNode.setGraphForZero(v.getGraphForZero());
+          }
+          if (getRoot() == v) {
+            setRoot(v.getGraphForZero());
+          }
+
+          // remove v
+          v.getPort().removeInnerNode(v);
+          v.getGraphForOne().removeParentForOne(v);
+          v.getGraphForZero().removeParentForZero(v);
+          v.removeSelf();
+        } else {
+          // assign a key to v that is a tuple of the two child graphs
+          keys.put(v, new de.tudresden.inf.st.ttc19.Pair(v.getGraphForZero(), v.getGraphForOne()));
+        }
+      }
+
+      List<InnerNode> sortedV = new ArrayList<>(V);
+      sortedV.sort(new Comparator<InnerNode>() {
+        @Override
+        public int compare(InnerNode node1, InnerNode node2) {
+          return keys.get(node1).compareTo(keys.get(node2));
+        }
+      });
+
+      // Merging rule
+      de.tudresden.inf.st.ttc19.Pair oldKey = new de.tudresden.inf.st.ttc19.Pair(null, null);
+      InnerNode oldNode = null;
+      for (Iterator<InnerNode> vIterator = sortedV.iterator(); vIterator.hasNext(); ) {
+        InnerNode v = vIterator.next();
+        if (keys.get(v).equals(oldKey)) {
+          // remove v from V
+          vIterator.remove();
+
+          // redirect all incoming edges of v to to oldNode
+          for (InnerNode parentNode : new ArrayList<InnerNode>(v.getParentForOneList())) {
+            parentNode.setGraphForOne(oldNode);
+          }
+          for (InnerNode parentNode : new ArrayList<InnerNode>(v.getParentForZeroList())) {
+            parentNode.setGraphForZero(oldNode);
+          }
+
+          // remove v
+          v.getPort().removeInnerNode(v);
+          v.getGraphForOne().removeParentForOne(v);
+          v.getGraphForZero().removeParentForZero(v);
+          v.removeSelf();
+        } else {
+          oldNode = v;
+          oldKey = keys.get(v);
+        }
+      }
+    }
+  }
 
   public void TruthTable.insertRow(BDD bdd, InnerNode parent, Row row, int position) {
 

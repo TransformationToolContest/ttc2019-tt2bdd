@@ -26,10 +26,12 @@ class JastAddTest {
   static Stream<String> truthTableFiles() {
     return Stream.of(
         "../../models/Test.ttmodel",
+        "../../models/reduction.ttmodel",
         "../../models/GeneratedI4O2Seed42.ttmodel",
         "../../models/GeneratedI8O2Seed68.ttmodel",
         "../../models/GeneratedI8O4Seed68.ttmodel",
-        "../../models/GeneratedI10O2Seed68.ttmodel");
+        "../../models/GeneratedI10O2Seed68.ttmodel"
+    );
   }
 
   static Stream<String> generatedTruthTableFiles() {

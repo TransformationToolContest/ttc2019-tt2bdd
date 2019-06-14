@@ -17,4 +17,6 @@ aspect Analysis {
     }
     return null;
   }
+
+  syn int BDD.nodeCount() = getNumAbstractNode();
 }
