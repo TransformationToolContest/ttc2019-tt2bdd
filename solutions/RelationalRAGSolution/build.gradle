@@ -80,6 +80,7 @@ task preprocess(type: JavaExec) {
         delete "./src/gen/jastadd/*.ast"
         delete "./src/gen/jastadd/TTBDD.jadd"
         delete "./src/gen/jastadd/TTBDDRefResolver.jadd"
+        mkdir  "src/gen/jastadd/"
     }
 
     args = [
@@ -113,6 +114,7 @@ task jastadd2(type: JavaExec) {
 
     doFirst {
         delete fileTree('src/gen/java/')
+        mkdir 'src/gen/java/'
     }
 
     inputs.files fileTree("src/main/jastadd/") + fileTree("src/gen/jastadd/") + file("libs/jastadd2.jar")
