@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="https://www.transformation-tool-contest.eu/2019/bdd" Prefix="bdd" Name="BDD" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <Types xsi:type="nmeta:Class" IdentifierScope="Local" Identifier="#//BDD/name" Name="BDD">
+    <References IsContainment="True" Opposite="#//Port/owner" ReferenceType="nmeta:Class #//Port" IsOrdered="True" IsUnique="True" LowerBound="1" UpperBound="-1" Name="ports" />
+    <References IsContainment="True" Opposite="#//Tree/ownerBDD" ReferenceType="nmeta:Class #//Tree" IsOrdered="True" IsUnique="True" LowerBound="1" Name="tree" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" IdentifierScope="Local" Identifier="#//Port/name" Name="Port">
+    <References Opposite="#//BDD/ports" ReferenceType="nmeta:Class #//BDD" IsUnique="True" LowerBound="1" Name="owner" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Port" Name="InputPort">
+    <References Opposite="#//Subtree/port" ReferenceType="nmeta:Class #//Subtree" IsUnique="True" UpperBound="-1" Name="subtrees" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Port" Name="OutputPort">
+    <References Opposite="#//Assignment/port" ReferenceType="nmeta:Class #//Assignment" IsUnique="True" UpperBound="-1" Name="assignments" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" Name="Tree">
+    <References Opposite="#//BDD/tree" ReferenceType="nmeta:Class #//BDD" IsUnique="True" Name="ownerBDD" />
+    <References Opposite="#//Subtree/treeForZero" ReferenceType="nmeta:Class #//Subtree" IsUnique="True" Name="ownerSubtreeForZero" />
+    <References Opposite="#//Subtree/treeForOne" ReferenceType="nmeta:Class #//Subtree" IsUnique="True" Name="ownerSubtreeForOne" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Tree" Name="Leaf">
+    <References IsContainment="True" Opposite="#//Assignment/owner" ReferenceType="nmeta:Class #//Assignment" IsOrdered="True" IsUnique="True" LowerBound="1" UpperBound="-1" Name="assignments" />
+  </Types>
+  <Types xsi:type="nmeta:Class" Name="Assignment">
+    <References Opposite="#//OutputPort/assignments" ReferenceType="nmeta:Class #//OutputPort" IsUnique="True" LowerBound="1" Name="port" />
+    <References Opposite="#//Leaf/assignments" ReferenceType="nmeta:Class #//Leaf" IsUnique="True" LowerBound="1" Name="owner" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Boolean" Name="value" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Tree" Name="Subtree">
+    <References Opposite="#//InputPort/subtrees" ReferenceType="nmeta:Class #//InputPort" IsUnique="True" LowerBound="1" Name="port" />
+    <References IsContainment="True" Opposite="#//Tree/ownerSubtreeForZero" ReferenceType="nmeta:Class #//Tree" IsOrdered="True" IsUnique="True" LowerBound="1" Name="treeForZero" />
+    <References IsContainment="True" Opposite="#//Tree/ownerSubtreeForOne" ReferenceType="nmeta:Class #//Tree" IsOrdered="True" IsUnique="True" LowerBound="1" Name="treeForOne" />
+  </Types>
+</nmeta:Namespace>

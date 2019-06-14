@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>TTC2019.BinaryDecision</RootNamespace>
+    <AssemblyName>TTC2019.BinaryDecision.NMF</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="BinaryDecisionDiagrams.nmeta" />
+    <None Remove="TruthTables.nmeta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="BinaryDecisionDiagrams.nmeta" />
+    <EmbeddedResource Include="TruthTables.nmeta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NMF-Basics" Version="2.0.138" />
+    <PackageReference Include="NMF-Synchronizations" Version="2.0.138" />
+  </ItemGroup>
+
+</Project>

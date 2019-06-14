@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "NMF": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "RunIndex": "Debug",
+        "ModelPath": "D:\\Projekte\\ttc2019-tt2bdd\\models\\Test.ttmodel",
+        "Model": "Test",
+        "Tool": "NMF"
+      }
+    }
+  }
+}
