@@ -127,10 +127,6 @@ namespace TTC2019.BinaryDecision
                             {
                                 peek.TreeForOne = subTree;
                             }
-                            if (peek == ownerForOne || peek == ownerForZero)
-                            {
-
-                            }
                             // we need to be careful not to accidently delete peek
                             if (ownerForOne != null)
                             {
