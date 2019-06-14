@@ -21,7 +21,8 @@ aspect Navigation {
   inh ASTNode ASTNode.root();
   eq TruthTable.getPort().root() = this;
   eq TruthTable.getRow().root() = this;
-  eq TruthTable.getPortOrder().root() = this;
+  eq TruthTable.getNaturalPortOrder().root() = this;
+  eq TruthTable.getHeuristicPortOrder().root() = this;
 
   eq BDT.getTree().root() = this;
 
@@ -36,7 +37,8 @@ aspect Navigation {
   inh TruthTable Cell.containingTruthTable();
   eq TruthTable.getPort().containingTruthTable() = this;
   eq TruthTable.getRow().containingTruthTable() = this;
-  eq TruthTable.getPortOrder().containingTruthTable() = this;
+  eq TruthTable.getNaturalPortOrder().containingTruthTable() = this;
+  eq TruthTable.getHeuristicPortOrder().containingTruthTable() = this;
 
   syn List<OutputPort> TruthTable.outputPorts() {
     List<OutputPort> result = new ArrayList<>();

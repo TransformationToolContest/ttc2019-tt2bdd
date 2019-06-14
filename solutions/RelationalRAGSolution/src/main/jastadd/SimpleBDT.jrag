@@ -135,18 +135,6 @@ aspect SimpleBDT {
     return result;
   }
 
-  syn PortOrder TruthTable.getPortOrder() {
-    // a port order defines the order, in which the input ports are evaluated
-    // for the simple case, this order is defined by the list in which the ports are defined
-    PortOrder result = new PortOrder();
-    for (Port port : getPortList()) {
-      if (port.isInput()) {
-        result.addPort(port.asInput());
-      }
-    }
-    return result;
-  }
-
   public Tree TruthTable.subTree(List<InputPort> remainingPorts) {
     return null;
   }

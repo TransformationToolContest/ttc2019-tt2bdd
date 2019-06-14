@@ -2,6 +2,7 @@ package de.tudresden.inf.st.ttc19;
 
 import de.tudresden.inf.st.ttc19.jastadd.model.BDD;
 import de.tudresden.inf.st.ttc19.jastadd.model.BDT;
+import de.tudresden.inf.st.ttc19.jastadd.model.PortOrder;
 import de.tudresden.inf.st.ttc19.jastadd.model.TruthTable;
 import de.tudresden.inf.st.ttc19.parser.TruthTableParser;
 import org.apache.logging.log4j.LogManager;
@@ -14,6 +15,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -109,73 +111,63 @@ class JastAddTest {
   @ParameterizedTest
   @MethodSource("truthTableFiles")
   void testSimpleBDT(String pathName) throws IOException {
-    TruthTable tt = loadTruthTable(pathName);
-    File inputFile = new File(pathName);
-
-    BDT simpleBDT = tt.simpleBDT();
-
-    StringBuilder simpleBuilder = new StringBuilder();
-    simpleBDT.writeBDT(simpleBuilder);
-
-    Path outputPath = Files.createTempFile("relrag-test-simpleBDT", ".bddmodel");
-    outputPath.toFile().deleteOnExit();
-    try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
-      writer.write(simpleBuilder.toString());
-    }
-
-    validate(inputFile.getAbsolutePath(), outputPath.toString());
+    testBDT(pathName, "relrag-test-natural-simpleBDT", TruthTable::simpleBDT, TruthTable::getNaturalPortOrder);
+    testBDT(pathName, "relrag-test-heuristic-simpleBDT", TruthTable::simpleBDT, TruthTable::getHeuristicPortOrder);
   }
 
   @ParameterizedTest
   @MethodSource("truthTableFiles")
   void testCaseBDT(String pathName) throws IOException {
-    TruthTable tt = loadTruthTable(pathName);
-    File inputFile = new File(pathName);
-
-    BDT caseBdd = tt.caseBDT();
-
-    StringBuilder bddBuilder = new StringBuilder();
-    caseBdd.writeBDT(bddBuilder);
-    Path outputPath = Files.createTempFile("relrag-test-caseBDT", ".bddmodel");
-    outputPath.toFile().deleteOnExit();
-    try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
-      writer.write(bddBuilder.toString());
-    }
-
-    validate(inputFile.getAbsolutePath(), outputPath.toString());
+    testBDT(pathName, "relrag-test-natural-caseBDT", TruthTable::caseBDT, TruthTable::getNaturalPortOrder);
+    testBDT(pathName, "relrag-test-heuristic-caseBDT", TruthTable::caseBDT, TruthTable::getHeuristicPortOrder);
   }
 
   @ParameterizedTest
   @MethodSource("truthTableFiles")
   void testCaseBDD(String pathName) throws IOException {
-    TruthTable tt = loadTruthTable(pathName);
-    File inputFile = new File(pathName);
-
-    BDD caseBdd = tt.caseBDD();
-
-    StringBuilder bddBuilder = new StringBuilder();
-    caseBdd.writeBDD(bddBuilder);
-    Path outputPath = Files.createTempFile("relrag-test-caseBDD", ".bddmodel");
-    // outputPath.toFile().deleteOnExit();
-    try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
-      writer.write(bddBuilder.toString());
-    }
-
-    Assertions.assertTrue(new Validator().validate(tt, caseBdd));
-    validate(inputFile.getAbsolutePath(), outputPath.toString());
+    testBDD(pathName, "relrag-test-natural-caseBDD", TruthTable::caseBDD, TruthTable::getNaturalPortOrder);
+    testBDD(pathName, "relrag-test-heuristic-caseBDD", TruthTable::caseBDD, TruthTable::getHeuristicPortOrder);
   }
 
   @ParameterizedTest
   @MethodSource("truthTableFiles")
   void testReductionOBDD(String pathName) throws IOException {
+    testBDD(pathName, "relrag-test-natural-reductionOBDD", TruthTable::reductionOBDD, TruthTable::getNaturalPortOrder);
+    testBDD(pathName, "relrag-test-heuristic-reductionOBDD", TruthTable::reductionOBDD, TruthTable::getHeuristicPortOrder);
+  }
+
+  private void testBDT(String pathName, String outputFileName,
+                       Function<TruthTable, BDT> generate, Function<TruthTable, PortOrder> portOrder)
+      throws IOException{
     TruthTable tt = loadTruthTable(pathName);
+    tt.setPortOrder(portOrder.apply(tt));
     File inputFile = new File(pathName);
 
-    BDD caseBdd = tt.reductionOBDD();
+    BDT caseBdt = generate.apply(tt);
+
+    StringBuilder bdtBuilder = new StringBuilder();
+    caseBdt.writeBDT(bdtBuilder);
+    Path outputPath = Files.createTempFile(outputFileName, ".bddmodel");
+    outputPath.toFile().deleteOnExit();
+    try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
+      writer.write(bdtBuilder.toString());
+    }
+
+    validate(inputFile.getAbsolutePath(), outputPath.toString());
+  }
+
+  private void testBDD(String pathName, String outputFileName,
+                       Function<TruthTable, BDD> generate, Function<TruthTable, PortOrder> portOrder)
+      throws IOException{
+    TruthTable tt = loadTruthTable(pathName);
+    tt.setPortOrder(portOrder.apply(tt));
+    File inputFile = new File(pathName);
+
+    BDD caseBdd = generate.apply(tt);
 
     StringBuilder bddBuilder = new StringBuilder();
     caseBdd.writeBDD(bddBuilder);
-    Path outputPath = Files.createTempFile("relrag-test-reductionOBDD", ".bddmodel");
+    Path outputPath = Files.createTempFile(outputFileName, ".bddmodel");
     outputPath.toFile().deleteOnExit();
     try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
       writer.write(bddBuilder.toString());

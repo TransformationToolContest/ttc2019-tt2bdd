@@ -1,10 +1,12 @@
 LocatedElement ::= <Location:String>;
-TruthTable:LocatedElement ::= <Name:String> Port:Port* Row:Row* /PortOrder/;
-abstract Port:LocatedElement ::= <Name:String>;
-InputPort:Port;
-OutputPort:Port;
-Row:LocatedElement ::= Cell:Cell*;
-Cell:LocatedElement ::= <Value:Boolean>;
+TruthTable : LocatedElement ::= <Name:String> Port:Port* Row:Row* /NaturalPortOrder:PortOrder/ /HeuristicPortOrder:PortOrder/ ;
+rel TruthTable.PortOrder -> PortOrder ;
+
+abstract Port : LocatedElement ::= <Name:String>;
+InputPort : Port;
+OutputPort : Port;
+Row : LocatedElement ::= Cell:Cell*;
+Cell : LocatedElement ::= <Value:Boolean>;
 PortOrder;
 
 rel PortOrder.Port* -> InputPort;
