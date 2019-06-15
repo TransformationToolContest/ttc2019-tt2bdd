@@ -1,4 +1,4 @@
-aspect NameResolution {
+aspect XMIPathResolution {
 
   refine RefResolverStubs eq ASTNode.globallyResolvePortByToken(String id) {
     return (Port) resolvePath(id);

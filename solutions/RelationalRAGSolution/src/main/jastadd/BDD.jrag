@@ -1,4 +1,4 @@
-aspect SimpleBDD {
+aspect BDD {
 
   public AbstractNode TruthTable.createDAG(BDD bdd, List<Row> rows, ArrayList<InputPort> remainingPorts) {
 
@@ -60,7 +60,7 @@ aspect SimpleBDD {
     }
   }
 
-  public BDD TruthTable.caseBDD() {
+  public BDD TruthTable.BDD() {
     BDD bdd = new BDD();
 
     bdd.setName(getName());

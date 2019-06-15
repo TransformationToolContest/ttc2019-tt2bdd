@@ -1,6 +1,6 @@
-aspect SimpleBDT {
+aspect OBDT {
 
-  public BDT TruthTable.simpleBDT() {
+  public BDT TruthTable.OBDT() {
     BDT bdt = new BDT();
 
     //  Each TruthTable object should correspond to a BDT object, with the same name and equivalent Ports.
@@ -22,7 +22,6 @@ aspect SimpleBDT {
     // 2. iterate over rows, create or get inner nodes until last port which will be a leaf
     Port leafPort = portOrder.leafPort();
     for (Row row : getRowList()) {
-//      row.printDebug();
       Subtree current = firstSubtree;
       Boolean value = row.valueFor(firstSubtree.getPort());
       for (InputPort port : portOrder.subTreePortList()) {
@@ -39,22 +38,6 @@ aspect SimpleBDT {
     }
 
     return bdt;
-  }
-
-  void Row.printDebug() {
-    StringBuilder b = new StringBuilder("row ");
-    boolean first = true;
-    for (Cell cell : getCellList()) {
-      if (first) {
-        first = false;
-      } else {
-        b.append(" ");
-      }
-      b.append(cell.getPort().getName())
-        .append(":")
-        .append(cell.getValue() ? 1 : 0);
-    }
-    logger.info(b.toString());
   }
 
   //--- subTreePortList ---

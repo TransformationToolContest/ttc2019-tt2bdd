@@ -1,4 +1,4 @@
-aspect XMIHelper {
+aspect XMIPathConstruction {
 
   inh String Port.xmiPath();
   eq TruthTable.getPort(int i).xmiPath() = "//@ports." + i;

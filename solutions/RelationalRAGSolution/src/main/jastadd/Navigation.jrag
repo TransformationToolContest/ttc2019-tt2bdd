@@ -1,41 +1,6 @@
 aspect Navigation {
-  syn boolean Port.isInput() = false;
-  eq InputPort.isInput() = true;
 
-  syn InputPort Port.asInput() = null;
-  eq InputPort.asInput() = this;
-
-  syn OutputPort Port.asOutput() = null;
-  eq OutputPort.asOutput() = this;
-
-  syn boolean Tree.isSubtree() = false;
-  eq Subtree.isSubtree() = true;
-
-  syn Subtree Tree.asSubtree() = null;
-  eq Subtree.asSubtree() = this;
-
-  syn boolean AbstractNode.isInnerNode() = false;
-  eq InnerNode.isInnerNode() = true;
-
-  syn InnerNode AbstractNode.asInnerNode() = null;
-  eq InnerNode.asInnerNode() = this;
-
-  // inh TruthTable LocatedElement.containingTruthTable();
-  // eq TruthTable.getPort().containingTruthTable() = this;
-  // eq TruthTable.getRow().containingTruthTable() = this;
-
-  inh ASTNode ASTNode.root();
-  eq TruthTable.getPort().root() = this;
-  eq TruthTable.getRow().root() = this;
-  eq TruthTable.getNaturalPortOrder().root() = this;
-  eq TruthTable.getHeuristicPortOrder().root() = this;
-
-  eq BDT.getTree().root() = this;
-
-  eq BDD.getAbstractNode().root() = this;
-
-  syn ASTNode TruthTable.root() = this;
-  syn ASTNode BDT.root() = this;
+  // TruthTable
 
   inh TruthTable Port.containingTruthTable();
   inh TruthTable Row.containingTruthTable();
@@ -65,4 +30,63 @@ aspect Navigation {
     }
     return Collections.unmodifiableList(result);
   }
+
+  syn boolean Port.isInput() = false;
+  eq InputPort.isInput() = true;
+
+  syn InputPort Port.asInput() = null;
+  eq InputPort.asInput() = this;
+
+  syn OutputPort Port.asOutput() = null;
+  eq OutputPort.asOutput() = this;
+
+  syn Boolean Row.valueFor(Port port) {
+    for (Cell cell : getCellList()) {
+      if (cell.getPort().equals(port)) {
+        return cell.getValue();
+      }
+    }
+    return null;
+  }
+
+  syn Boolean TerminalNode.valueFor(Port port) {
+    for (Assignment assignment : getAssignmentList()) {
+      if (assignment.getPort().equals(port)) {
+        return assignment.getValue();
+      }
+    }
+    return null;
+  }
+
+  // BDT
+
+  syn boolean Tree.isSubtree() = false;
+  eq Subtree.isSubtree() = true;
+
+  syn Subtree Tree.asSubtree() = null;
+  eq Subtree.asSubtree() = this;
+
+  // BDD
+
+  syn boolean AbstractNode.isInnerNode() = false;
+  eq InnerNode.isInnerNode() = true;
+
+  syn InnerNode AbstractNode.asInnerNode() = null;
+  eq InnerNode.asInnerNode() = this;
+
+  // Shared Attributes
+
+  inh ASTNode ASTNode.root();
+  eq TruthTable.getPort().root() = this;
+  eq TruthTable.getRow().root() = this;
+  eq TruthTable.getNaturalPortOrder().root() = this;
+  eq TruthTable.getHeuristicPortOrder().root() = this;
+
+  eq BDT.getTree().root() = this;
+
+  eq BDD.getAbstractNode().root() = this;
+
+  syn ASTNode TruthTable.root() = this;
+  syn ASTNode BDT.root() = this;
+
 }

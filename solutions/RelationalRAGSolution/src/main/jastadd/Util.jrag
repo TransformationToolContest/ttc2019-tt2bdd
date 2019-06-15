@@ -1,23 +1,4 @@
 aspect Helpers {
-  /**
-   * removes the object from the AST, i.e. removes the reference from its parent to the object
-   *
-   * Please note that any intrinsic non-containment relations to the object are not removed.
-   * @return true, if the object had a parent.
-   */
-  public boolean ASTNode.removeSelf() {
-    if (getParent() == null) {
-      return false;
-    } else {
-      for (int childIndex = 0; childIndex < getParent().numChildren(); childIndex++) {
-        if (getParent().getChild(childIndex) == this) {
-          getParent().removeChild(childIndex);
-          return true;
-        }
-      }
-    }
-    throw new RuntimeException("unable to remove child, because it was not contained in its parent!");
-  }
 
   syn String Row.outputString() {
     StringBuilder b = new StringBuilder();
@@ -53,4 +34,5 @@ aspect Helpers {
     }
     return b.toString();
   }
+
 }

@@ -1,4 +1,4 @@
-aspect SimpleBDT {
+aspect BDT {
 
   public Tree TruthTable.createTree(List<Row> rows, ArrayList<InputPort> remainingPorts) {
 
@@ -58,7 +58,7 @@ aspect SimpleBDT {
     }
   }
 
-  public BDT TruthTable.caseBDT() {
+  public BDT TruthTable.BDT() {
     BDT bdt = new BDT();
 
     bdt.setName(getName());

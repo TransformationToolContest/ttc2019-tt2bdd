@@ -1,38 +1,8 @@
-aspect OBDD {
+aspect ROBDD {
 
   public BDD TruthTable.reductionOBDD() {
     BDD bdd = fullOBDD();
     bdd.reduce();
-    return bdd;
-  }
-
-  public BDD TruthTable.fullOBDD() {
-    BDD bdd = new BDD();
-
-    bdd.setName(getName());
-
-    for (Port port: getPortList()) {
-      bdd.addPort(port);
-    }
-
-    for (TerminalNode terminal: terminalNodeMap().values()) {
-      bdd.addAbstractNode(terminal);
-    }
-
-    PortOrder portOrder = getPortOrder();
-
-    InnerNode root = new InnerNode();
-    root.setPort(portOrder.getPortList().get(0));
-    bdd.addAbstractNode(root);
-    bdd.setRoot(root);
-
-    Port leafPort = portOrder.leafPort();
-    for (Row row : getRowList()) {
-      insertRow(bdd, root, row, 0);
-    }
-
-    bdd.setTruthTable(this);
-
     return bdd;
   }
 
@@ -124,77 +94,4 @@ aspect OBDD {
     }
   }
 
-  public void TruthTable.insertRow(BDD bdd, InnerNode parent, Row row, int position) {
-
-    InputPort port = getPortOrder().getPortList().get(position);
-    Boolean value = row.valueFor(port);
-
-    if (position < getPortOrder().getPortList().size() - 1) {
-      InputPort nextPort = getPortOrder().getPortList().get(position + 1);
-      if (value == null || value) {
-        InnerNode result;
-        if (parent.getGraphForOne() != null) {
-          result = parent.getGraphForOne().asInnerNode();
-        } else {
-          result = new InnerNode();
-          result.setPort(nextPort);
-          parent.setGraphForOne(result);
-          bdd.addAbstractNode(result);
-        }
-        insertRow(bdd, result, row, position + 1);
-      }
-      if (value == null || !value) {
-        InnerNode result;
-        if (parent.getGraphForZero() != null) {
-          result = parent.getGraphForZero().asInnerNode();
-        } else {
-          result = new InnerNode();
-          result.setPort(nextPort);
-          parent.setGraphForZero(result);
-          bdd.addAbstractNode(result);
-        }
-        insertRow(bdd, result, row, position + 1);
-      }
-    } else {
-      TerminalNode terminal = terminalNodeMap().get(row.outputString());
-      if (value == null) {
-        if (parent.getGraphForOne() != null || parent.getGraphForZero() != null) {
-          logger.warn("found duplicate row");
-        }
-        parent.setGraphForOne(terminal);
-        parent.setGraphForZero(terminal);
-      } else if (value) {
-        if (parent.getGraphForOne() != null) {
-          logger.warn("found duplicate row");
-        }
-        parent.setGraphForOne(terminal);
-      } else {
-        if (parent.getGraphForZero() != null) {
-          logger.warn("found duplicate row");
-        }
-        parent.setGraphForZero(terminal);
-      }
-    }
-  }
-
-  syn Map<String, TerminalNode> TruthTable.terminalNodeMap() {
-    Map<String, TerminalNode> result = new HashMap<>(getNumRow());
-    for (Row row: getRowList()) {
-      String outputString = row.outputString();
-      if (!result.containsKey(outputString)) {
-        TerminalNode terminal = new TerminalNode();
-        for (Cell cell: row.getCellList()) {
-          Port cellPort = cell.getPort();
-          if (!cellPort.isInput()) {
-            Assignment a = new Assignment();
-            a.setPort(cellPort.asOutput());
-            a.setValue(cell.getValue());
-            terminal.addAssignment(a);
-          }
-        }
-        result.put(row.outputString(), terminal);
-      }
-    }
-    return result;
-  }
 }

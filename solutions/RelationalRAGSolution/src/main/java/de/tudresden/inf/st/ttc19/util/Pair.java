@@ -1,4 +1,4 @@
-package de.tudresden.inf.st.ttc19;
+package de.tudresden.inf.st.ttc19.util;
 
 import de.tudresden.inf.st.ttc19.jastadd.model.AbstractNode;
 

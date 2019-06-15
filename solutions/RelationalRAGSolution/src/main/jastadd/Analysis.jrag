@@ -1,23 +1,5 @@
 aspect Analysis {
 
-  syn Boolean Row.valueFor(Port port) {
-    for (Cell cell : getCellList()) {
-      if (cell.getPort().equals(port)) {
-        return cell.getValue();
-      }
-    }
-    return null;
-  }
-
-  syn Boolean TerminalNode.valueFor(Port port) {
-    for (Assignment assignment : getAssignmentList()) {
-      if (assignment.getPort().equals(port)) {
-        return assignment.getValue();
-      }
-    }
-    return null;
-  }
-
   syn int BDD.decisionNodeCount() {
     int result = 0;
     for (AbstractNode node: getAbstractNodeList()) {
@@ -43,4 +25,5 @@ aspect Analysis {
   syn int Tree.assignmentNodeCount();
   eq Subtree.assignmentNodeCount() = getTreeForZero().assignmentNodeCount() + getTreeForOne().assignmentNodeCount();
   eq Leaf.assignmentNodeCount() = 1;
+
 }
