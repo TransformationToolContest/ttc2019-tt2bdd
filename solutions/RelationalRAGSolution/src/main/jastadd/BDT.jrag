@@ -1,5 +1,49 @@
 aspect BDT {
 
+  syn nta BDT TruthTable.BDT() {
+
+    BDT bdt = emptyBDT();
+
+    List<Row> allRows = new ArrayList(getNumRow());
+    for(Row row: getRowList()) {
+      allRows.add(row);
+    }
+    ArrayList<InputPort> allInputPorts = new ArrayList(getNumPort());
+    for (Port port: getPortList()) {
+      if (port.isInput()) {
+        allInputPorts.add(port.asInput());
+      }
+    }
+
+    bdt.setTree(bdt.createTree(allRows, allInputPorts));
+
+    return bdt;
+  }
+
+  public BDT TruthTable.emptyBDT() {
+    BDT bdt = new BDT();
+
+    bdt.setTruthTable(this);
+
+    bdt.setName(getName());
+
+    for (Port port: getPortList()) {
+      if (port.isInput()) {
+        BDT_InputPort bdtPort = new BDT_InputPort();
+        bdtPort.setName(port.getName());
+        bdtPort.setTruthTableInputPort(port.asInput());
+        bdt.addPort(bdtPort);
+      } else {
+        BDT_OutputPort bdtPort = new BDT_OutputPort();
+        bdtPort.setName(port.getName());
+        bdtPort.setTruthTableOutputPort(port.asOutput());
+        bdt.addPort(bdtPort);
+      }
+    }
+
+    return bdt;
+  }
+
   public BDT_Tree BDT.createTree(List<Row> rows, ArrayList<InputPort> remainingPorts) {
 
     Map<OutputPort,Boolean> firstAssignment = null;
@@ -56,43 +100,6 @@ aspect BDT {
       result.setTreeForOne(createTree(rowsForOne, remainingPortsForOne));
       return result;
     }
-  }
-
-  public BDT TruthTable.BDT() {
-    BDT bdt = new BDT();
-
-    bdt.setTruthTable(this);
-
-    bdt.setName(getName());
-
-    for (Port port: getPortList()) {
-      if (port.isInput()) {
-        BDT_InputPort bdtPort = new BDT_InputPort();
-        bdtPort.setName(port.getName());
-        bdtPort.setTruthTableInputPort(port.asInput());
-        bdt.addPort(bdtPort);
-      } else {
-        BDT_OutputPort bdtPort = new BDT_OutputPort();
-        bdtPort.setName(port.getName());
-        bdtPort.setTruthTableOutputPort(port.asOutput());
-        bdt.addPort(bdtPort);
-      }
-    }
-
-    List<Row> allRows = new ArrayList(getNumRow());
-    for(Row row: getRowList()) {
-      allRows.add(row);
-    }
-    ArrayList<InputPort> allInputPorts = new ArrayList(getNumPort());
-    for (Port port: getPortList()) {
-      if (port.isInput()) {
-        allInputPorts.add(port.asInput());
-      }
-    }
-
-    bdt.setTree(bdt.createTree(allRows, allInputPorts));
-
-    return bdt;
   }
 
   syn BDT_InputPort BDT.bdtInputPort(Port port) {

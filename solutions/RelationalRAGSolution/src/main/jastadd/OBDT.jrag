@@ -1,28 +1,8 @@
 aspect OBDT {
 
-  public BDT TruthTable.OBDT() {
+  syn nta BDT TruthTable.OBDT() {
 
-    BDT bdt = new BDT();
-
-    bdt.setTruthTable(this);
-
-    //  Each TruthTable object should correspond to a BDT object, with the same name and equivalent Ports.
-    bdt.setName(getName());
-
-    //  Each InputPort and OutputPort should be mapped to an object of the BDT
-    for (Port port: getPortList()) {
-      if (port.isInput()) {
-        BDT_InputPort bdtPort = new BDT_InputPort();
-        bdtPort.setName(port.getName());
-        bdtPort.setTruthTableInputPort(port.asInput());
-        bdt.addPort(bdtPort);
-      } else {
-        BDT_OutputPort bdtPort = new BDT_OutputPort();
-        bdtPort.setName(port.getName());
-        bdtPort.setTruthTableOutputPort(port.asOutput());
-        bdt.addPort(bdtPort);
-      }
-    }
+    BDT bdt = emptyBDT();
 
     // select an input port
     // Idea:
