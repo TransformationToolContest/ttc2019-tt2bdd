@@ -1,6 +1,12 @@
-aspect ReductionOBDD {
+aspect OBDD {
 
   public BDD TruthTable.reductionOBDD() {
+    BDD bdd = fullOBDD();
+    bdd.reduce();
+    return bdd;
+  }
+
+  public BDD TruthTable.fullOBDD() {
     BDD bdd = new BDD();
 
     bdd.setName(getName());
@@ -26,12 +32,6 @@ aspect ReductionOBDD {
     }
 
     bdd.setTruthTable(this);
-
-    logger.info("BDD has {} nodes before reduction.", bdd.getNumAbstractNode());
-
-    bdd.reduce();
-
-    logger.info("BDD has {} nodes after reduction.", bdd.getNumAbstractNode());
 
     return bdd;
   }
@@ -159,57 +159,22 @@ aspect ReductionOBDD {
       TerminalNode terminal = terminalNodeMap().get(row.outputString());
       if (value == null) {
         if (parent.getGraphForOne() != null || parent.getGraphForZero() != null) {
-          throw new RuntimeException();
+          logger.warn("found duplicate row");
         }
         parent.setGraphForOne(terminal);
         parent.setGraphForZero(terminal);
       } else if (value) {
         if (parent.getGraphForOne() != null) {
-          throw new RuntimeException();
+          logger.warn("found duplicate row");
         }
         parent.setGraphForOne(terminal);
       } else {
         if (parent.getGraphForZero() != null) {
-          throw new RuntimeException();
+          logger.warn("found duplicate row");
         }
         parent.setGraphForZero(terminal);
       }
     }
-  }
-
-  syn String Row.outputString() {
-    StringBuilder b = new StringBuilder();
-    for (OutputPort port: containingTruthTable().outputPorts()) {
-      Boolean value = valueFor(port);
-      b.append(value==null?"-":value);
-    }
-    return b.toString();
-  }
-
-  syn String TruthTable.compactTable() {
-    StringBuffer result = new StringBuffer();
-    for (Row row: getRowList()) {
-      result.append(row.rowString()).append("\n");
-    }
-    return result.toString();
-  }
-
-  syn String Row.rowString() {
-    StringBuilder b = new StringBuilder();
-    for (Port port: containingTruthTable().getPortList()) {
-      Boolean value = valueFor(port);
-      b.append(value==null?"-":(value?"1":"0"));
-    }
-    return b.toString();
-  }
-
-  syn String TerminalNode.assignmentString() {
-    StringBuilder b = new StringBuilder();
-    for (Port port: this.getAssignment(0).getPort().containingTruthTable().getPortList()) {
-      Boolean value = valueFor(port);
-      b.append(value==null?"-":(value?"1":"0"));
-    }
-    return b.toString();
   }
 
   syn Map<String, TerminalNode> TruthTable.terminalNodeMap() {

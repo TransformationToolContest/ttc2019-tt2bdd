@@ -175,7 +175,7 @@ class JastAddTest {
       writer.write(bddBuilder.toString());
     }
 
-    Assertions.assertTrue(new Validator().validate(tt, caseBdd));
+    Assertions.assertTrue(new Validator().validateBDD(tt, caseBdd));
     validate(inputFile.getAbsolutePath(), outputPath.toString());
   }
 

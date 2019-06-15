@@ -8,8 +8,14 @@ aspect Navigation {
   syn OutputPort Port.asOutput() = null;
   eq OutputPort.asOutput() = this;
 
+  syn boolean Tree.isSubtree() = false;
+  eq Subtree.isSubtree() = true;
+
   syn Subtree Tree.asSubtree() = null;
   eq Subtree.asSubtree() = this;
+
+  syn boolean AbstractNode.isInnerNode() = false;
+  eq InnerNode.isInnerNode() = true;
 
   syn InnerNode AbstractNode.asInnerNode() = null;
   eq InnerNode.asInnerNode() = this;

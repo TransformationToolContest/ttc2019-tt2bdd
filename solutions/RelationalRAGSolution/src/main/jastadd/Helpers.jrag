@@ -18,4 +18,39 @@ aspect Helpers {
     }
     throw new RuntimeException("unable to remove child, because it was not contained in its parent!");
   }
+
+  syn String Row.outputString() {
+    StringBuilder b = new StringBuilder();
+    for (OutputPort port: containingTruthTable().outputPorts()) {
+      Boolean value = valueFor(port);
+      b.append(value==null?"-":value);
+    }
+    return b.toString();
+  }
+
+  syn String TruthTable.compactTable() {
+    StringBuffer result = new StringBuffer();
+    for (Row row: getRowList()) {
+      result.append(row.rowString()).append("\n");
+    }
+    return result.toString();
+  }
+
+  syn String Row.rowString() {
+    StringBuilder b = new StringBuilder();
+    for (Port port: containingTruthTable().getPortList()) {
+      Boolean value = valueFor(port);
+      b.append(value==null?"-":(value?"1":"0"));
+    }
+    return b.toString();
+  }
+
+  syn String TerminalNode.assignmentString() {
+    StringBuilder b = new StringBuilder();
+    for (Port port: this.getAssignment(0).getPort().containingTruthTable().getPortList()) {
+      Boolean value = valueFor(port);
+      b.append(value==null?"-":(value?"1":"0"));
+    }
+    return b.toString();
+  }
 }

@@ -40,12 +40,22 @@ public class Driver {
 
     void writeResult() throws IOException {
       String result = getResultAsString();
-      try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("output.xmi"))) {
+      String directoryName = "../../output/solutions/" + solutionName();
+      String fileName = directoryName + "/" +  ModelPath.substring(ModelPath.lastIndexOf('/') + 1) + ".xmi";
+      Files.createDirectories(Paths.get(directoryName));
+      try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(fileName))) {
         writer.write(result);
       }
     }
 
     protected abstract String getResultAsString();
+
+    protected abstract boolean validate(TruthTable tt);
+
+    protected abstract int decisionNodeCount();
+    protected abstract int assignmentNodeCount();
+
+    protected abstract String solutionName();
   }
 
   private static class BDTSolutionHandler extends SolutionHandler {
@@ -55,10 +65,12 @@ public class Driver {
     @Override
     protected void computeSolution0(TruthTable tt) {
       switch (Computation) {
-        case "simple":
+        case "dynamic":
           lastResult = tt.simpleBDT();
           break;
-        case "case":
+        case "reduced":
+          logger.warn("reduced BDT is not yet supported, using ordered BDT!");
+        case "ordered":
           lastResult = tt.caseBDT();
           break;
         default:
@@ -72,6 +84,27 @@ public class Driver {
       lastResult.writeBDT(sb);
       return sb.toString();
     }
+
+    @Override
+    protected boolean validate(TruthTable tt) {
+      return new Validator().validateBDT(tt, lastResult);
+    }
+
+    @Override
+    protected int decisionNodeCount() {
+      return lastResult.decisionNodeCount();
+    }
+
+
+    @Override
+    protected int assignmentNodeCount() {
+      return lastResult.assignmentNodeCount();
+    }
+
+    @Override
+    protected String solutionName() {
+      return "RelationalRAG-BDT-" + Computation + "-" + PortOrderType;
+    }
   }
 
   private static class BDDSolutionHandler extends SolutionHandler {
@@ -81,10 +114,13 @@ public class Driver {
     @Override
     protected void computeSolution0(TruthTable tt) {
       switch (Computation) {
-        case "case":
+        case "dynamic":
           lastResult = tt.caseBDD();
           break;
-        case "reduction":
+        case "ordered":
+          lastResult = tt.fullOBDD();
+          break;
+        case "reduced":
           lastResult = tt.reductionOBDD();
           break;
         default:
@@ -98,13 +134,34 @@ public class Driver {
       lastResult.writeBDD(sb);
       return sb.toString();
     }
+
+    @Override
+    protected boolean validate(TruthTable tt) {
+      return new Validator().validateBDD(tt, lastResult);
+    }
+
+    @Override
+    protected int decisionNodeCount() {
+      return lastResult.decisionNodeCount();
+    }
+
+
+    @Override
+    protected int assignmentNodeCount() {
+      return lastResult.assignmentNodeCount();
+    }
+
+    @Override
+    protected String solutionName() {
+      return "RelationalRAG-BDD-" + Computation + "-" + PortOrderType;
+    }
   }
 
   public static void main(String[] args) {
     if (args.length != 3) {
       System.err.println("Usage: java -jar Driver RESULT_TYPE COMPUTATION PORT_ORDER");
       System.err.println("RESULT_TYPE = bdd|bdt");
-      System.err.println("COMPUTATION for bdt: simple|case. for bdd: case|reduction");
+      System.err.println("COMPUTATION = dynamic|ordered|reduced");
       System.err.println("PORT_ORDER = natural|heuristic");
       System.exit(1);
     }
@@ -126,6 +183,7 @@ public class Driver {
       initialize();
       load();
       run();
+      validate();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -173,6 +231,13 @@ public class Driver {
     solutionHandler.writeResult();
   }
 
+  private static void validate() {
+    boolean validationResult = solutionHandler.validate(truthTable);
+    if (!validationResult) {
+      logger.error("Generated model is invalid!");
+    }
+  }
+
   private static void report(BenchmarkPhase phase) {
     System.out.println(String.format("%s;%s;%s;%s;Time;%s", Tool, Model, RunIndex, phase.toString(), Long.toString(stopwatch)));
 
@@ -186,6 +251,11 @@ public class Driver {
 
     final long memoryUsed = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
     System.out.println(String.format("%s;%s;%s;%s;Memory;%s", Tool, Model, RunIndex, phase.toString(), Long.toString(memoryUsed)));
+
+    if (phase == BenchmarkPhase.Run) {
+      System.out.println(String.format("%s;%s;%s;%s;DecisionNodes;%s", Tool, Model, RunIndex, phase.toString(), Integer.toString(solutionHandler.decisionNodeCount())));
+      System.out.println(String.format("%s;%s;%s;%s;AssignmentNodes;%s", Tool, Model, RunIndex, phase.toString(), Integer.toString(solutionHandler.assignmentNodeCount())));
+    }
   }
 
   enum BenchmarkPhase {

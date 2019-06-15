@@ -18,5 +18,29 @@ aspect Analysis {
     return null;
   }
 
-  syn int BDD.nodeCount() = getNumAbstractNode();
+  syn int BDD.decisionNodeCount() {
+    int result = 0;
+    for (AbstractNode node: getAbstractNodeList()) {
+      if (node.isInnerNode()) {
+        result++;
+      }
+    }
+    return result;
+  }
+
+  syn int BDD.assignmentNodeCount() {
+    return getNumAbstractNode() - decisionNodeCount();
+  }
+
+  syn int BDT.decisionNodeCount() = getTree().decisionNodeCount();
+
+  syn int Tree.decisionNodeCount();
+  eq Subtree.decisionNodeCount() = 1 + getTreeForZero().decisionNodeCount() + getTreeForOne().decisionNodeCount();
+  eq Leaf.decisionNodeCount() = 0;
+
+  syn int BDT.assignmentNodeCount() = getTree().assignmentNodeCount();
+
+  syn int Tree.assignmentNodeCount();
+  eq Subtree.assignmentNodeCount() = getTreeForZero().assignmentNodeCount() + getTreeForOne().assignmentNodeCount();
+  eq Leaf.assignmentNodeCount() = 1;
 }
