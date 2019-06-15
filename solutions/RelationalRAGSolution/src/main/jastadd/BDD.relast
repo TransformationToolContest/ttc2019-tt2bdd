@@ -4,9 +4,8 @@ abstract AbstractNode;
 TerminalNode:AbstractNode ::= Assignment*;
 InnerNode:AbstractNode;
 
-// reused from BDD
-// Assignment ::= <Value:boolean>;
-// rel OutputPort.Assignment* <-> Assignment.Port;
+Assignment ::= <Value:boolean>;
+rel OutputPort.Assignment* <-> Assignment.Port;
 
 rel BDD.Root -> AbstractNode;
 rel InnerNode.GraphForZero <-> AbstractNode.ParentForZero*;

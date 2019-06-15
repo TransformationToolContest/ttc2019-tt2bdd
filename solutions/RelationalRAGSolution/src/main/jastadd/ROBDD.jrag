@@ -14,7 +14,7 @@ aspect ROBDD {
     // This is not necessary, the number is the hahsCode().
     // There is no reason why the number must be positive, as long as oldKey is always smaller.
 
-    Map<InnerNode, de.tudresden.inf.st.ttc19.Pair> keys = new HashMap<>();
+    Map<InnerNode, de.tudresden.inf.st.ttc19.util.Pair> keys = new HashMap<>();
 
     for (int i = n - 1; i >= 0; i--) {
 
@@ -52,7 +52,7 @@ aspect ROBDD {
           v.removeSelf();
         } else {
           // assign a key to v that is a tuple of the two child graphs
-          keys.put(v, new de.tudresden.inf.st.ttc19.Pair(v.getGraphForZero(), v.getGraphForOne()));
+          keys.put(v, new de.tudresden.inf.st.ttc19.util.Pair(v.getGraphForZero(), v.getGraphForOne()));
         }
       }
 
@@ -65,7 +65,7 @@ aspect ROBDD {
       });
 
       // Merging rule
-      de.tudresden.inf.st.ttc19.Pair oldKey = new de.tudresden.inf.st.ttc19.Pair(null, null);
+      de.tudresden.inf.st.ttc19.util.Pair oldKey = new de.tudresden.inf.st.ttc19.util.Pair(null, null);
       InnerNode oldNode = null;
       for (Iterator<InnerNode> vIterator = sortedV.iterator(); vIterator.hasNext(); ) {
         InnerNode v = vIterator.next();

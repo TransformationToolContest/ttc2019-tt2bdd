@@ -16,14 +16,14 @@ aspect Analysis {
 
   syn int BDT.decisionNodeCount() = getTree().decisionNodeCount();
 
-  syn int Tree.decisionNodeCount();
-  eq Subtree.decisionNodeCount() = 1 + getTreeForZero().decisionNodeCount() + getTreeForOne().decisionNodeCount();
-  eq Leaf.decisionNodeCount() = 0;
+  syn int BDT_Tree.decisionNodeCount();
+  eq BDT_Subtree.decisionNodeCount() = 1 + getTreeForZero().decisionNodeCount() + getTreeForOne().decisionNodeCount();
+  eq BDT_Leaf.decisionNodeCount() = 0;
 
   syn int BDT.assignmentNodeCount() = getTree().assignmentNodeCount();
 
-  syn int Tree.assignmentNodeCount();
-  eq Subtree.assignmentNodeCount() = getTreeForZero().assignmentNodeCount() + getTreeForOne().assignmentNodeCount();
-  eq Leaf.assignmentNodeCount() = 1;
+  syn int BDT_Tree.assignmentNodeCount();
+  eq BDT_Subtree.assignmentNodeCount() = getTreeForZero().assignmentNodeCount() + getTreeForOne().assignmentNodeCount();
+  eq BDT_Leaf.assignmentNodeCount() = 1;
 
 }

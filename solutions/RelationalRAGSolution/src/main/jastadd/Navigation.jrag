@@ -60,11 +60,24 @@ aspect Navigation {
 
   // BDT
 
-  syn boolean Tree.isSubtree() = false;
-  eq Subtree.isSubtree() = true;
+  syn boolean BDT_Tree.isSubtree() = false;
+  eq BDT_Subtree.isSubtree() = true;
 
-  syn Subtree Tree.asSubtree() = null;
-  eq Subtree.asSubtree() = this;
+  syn BDT_Subtree BDT_Tree.asSubtree() = null;
+  eq BDT_Subtree.asSubtree() = this;
+
+  syn boolean BDT_Port.isInput() = false;
+  eq BDT_InputPort.isInput() = true;
+
+  syn BDT_InputPort BDT_Port.asInput() = null;
+  eq BDT_InputPort.asInput() = this;
+
+  syn BDT_OutputPort BDT_Port.asOutput() = null;
+  eq BDT_OutputPort.asOutput() = this;
+
+  inh BDT BDT_Tree.bdt();
+  eq BDT.getTree().bdt() = this;
+  eq BDT.getPort().bdt() = this;
 
   // BDD
 
@@ -83,6 +96,7 @@ aspect Navigation {
   eq TruthTable.getHeuristicPortOrder().root() = this;
 
   eq BDT.getTree().root() = this;
+  eq BDT.getPort().root() = this;
 
   eq BDD.getAbstractNode().root() = this;
 

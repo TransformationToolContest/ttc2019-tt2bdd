@@ -1,14 +1,27 @@
 aspect OBDT {
 
   public BDT TruthTable.OBDT() {
+
     BDT bdt = new BDT();
+
+    bdt.setTruthTable(this);
 
     //  Each TruthTable object should correspond to a BDT object, with the same name and equivalent Ports.
     bdt.setName(getName());
 
     //  Each InputPort and OutputPort should be mapped to an object of the BDT
     for (Port port: getPortList()) {
-      bdt.addPort(port);
+      if (port.isInput()) {
+        BDT_InputPort bdtPort = new BDT_InputPort();
+        bdtPort.setName(port.getName());
+        bdtPort.setTruthTableInputPort(port.asInput());
+        bdt.addPort(bdtPort);
+      } else {
+        BDT_OutputPort bdtPort = new BDT_OutputPort();
+        bdtPort.setName(port.getName());
+        bdtPort.setTruthTableOutputPort(port.asOutput());
+        bdt.addPort(bdtPort);
+      }
     }
 
     // select an input port
@@ -16,14 +29,14 @@ aspect OBDT {
     // 1. pick port order
     PortOrder portOrder = getPortOrder();
     // 1b. create tree for first port in TT
-    Subtree firstSubtree = new Subtree();
-    firstSubtree.setPort(portOrder.getPortList().get(0));
+    BDT_Subtree firstSubtree = new BDT_Subtree();
+    firstSubtree.setPort(bdt.bdtInputPort(portOrder.getPortList().get(0)));
     bdt.setTree(firstSubtree);
     // 2. iterate over rows, create or get inner nodes until last port which will be a leaf
     Port leafPort = portOrder.leafPort();
     for (Row row : getRowList()) {
-      Subtree current = firstSubtree;
-      Boolean value = row.valueFor(firstSubtree.getPort());
+      BDT_Subtree current = firstSubtree;
+      Boolean value = row.valueFor(firstSubtree.getPort().getTruthTableInputPort());
       for (InputPort port : portOrder.subTreePortList()) {
         if (value!=null) {
           current = current.getOrCreateSubtree(port, value);
@@ -47,14 +60,14 @@ aspect OBDT {
   syn InputPort PortOrder.leafPort() = getPortList().get(getPortList().size() - 1);
 
   //--- getOrCreateSubtree ---
-  Subtree Subtree.getOrCreateSubtree(InputPort port, Boolean value) {
-    Subtree result = null;
+  BDT_Subtree BDT_Subtree.getOrCreateSubtree(InputPort port, Boolean value) {
+    BDT_Subtree result = null;
     if (value == null || value) {
       if (getTreeForOne() != null) {
         result = getTreeForOne().asSubtree();
       } else {
-        result = new Subtree();
-        result.setPort(port);
+        result = new BDT_Subtree();
+        result.setPort(bdt().bdtInputPort(port));
         setTreeForOne(result);
       }
     }
@@ -62,8 +75,8 @@ aspect OBDT {
       if (getTreeForZero() != null) {
         result = getTreeForZero().asSubtree();
       } else {
-        result = new Subtree();
-        result.setPort(port);
+        result = new BDT_Subtree();
+        result.setPort(bdt().bdtInputPort(port));
         setTreeForZero(result);
       }
     }
@@ -71,14 +84,14 @@ aspect OBDT {
   }
 
   //--- createLeafNode ---
-  void Subtree.createLeafNode(Port lastPort, Row row) {
+  void BDT_Subtree.createLeafNode(Port lastPort, Row row) {
     // assumption: treeForOne/Zero is always null at this point, so no need to check first
-    Leaf leaf = new Leaf();
+    BDT_Leaf leaf = new BDT_Leaf();
     for (Cell cell : row.getCellList()) {
       if (!cell.getPort().isInput()) {
         // add to list of assignments
-        Assignment assignment = new Assignment();
-        assignment.setPort(cell.getPort().asOutput());
+        BDT_Assignment assignment = new BDT_Assignment();
+        assignment.setPort(bdt().bdtOutputPort(cell.getPort()));
         assignment.setValue(cell.getValue());
         leaf.addAssignment(assignment);
       }
@@ -86,12 +99,12 @@ aspect OBDT {
     Boolean value = row.valueFor(lastPort);
     if (value == null){
       setTreeForOne(leaf);
-      Leaf leaf2 = new Leaf();
+      BDT_Leaf leaf2 = new BDT_Leaf();
       for (Cell cell : row.getCellList()) {
         if (!cell.getPort().isInput()) {
           // add to list of assignments
-          Assignment assignment = new Assignment();
-          assignment.setPort(cell.getPort().asOutput());
+          BDT_Assignment assignment = new BDT_Assignment();
+          assignment.setPort(bdt().bdtOutputPort(cell.getPort()));
           assignment.setValue(cell.getValue());
           leaf2.addAssignment(assignment);
         }
@@ -118,7 +131,4 @@ aspect OBDT {
     return result;
   }
 
-  public Tree TruthTable.subTree(List<InputPort> remainingPorts) {
-    return null;
-  }
 }

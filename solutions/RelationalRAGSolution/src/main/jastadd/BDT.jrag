@@ -1,6 +1,6 @@
 aspect BDT {
 
-  public Tree TruthTable.createTree(List<Row> rows, ArrayList<InputPort> remainingPorts) {
+  public BDT_Tree BDT.createTree(List<Row> rows, ArrayList<InputPort> remainingPorts) {
 
     Map<OutputPort,Boolean> firstAssignment = null;
     boolean isLeaf = true;
@@ -22,11 +22,11 @@ aspect BDT {
     }
 
     if (isLeaf) {
-      Leaf result = new Leaf();
+      BDT_Leaf result = new BDT_Leaf();
       for (Map.Entry<OutputPort, Boolean> entry: firstAssignment.entrySet()) {
-        Assignment assignment = new Assignment();
+        BDT_Assignment assignment = new BDT_Assignment();
         assignment.setValue(entry.getValue());
-        assignment.setPort(entry.getKey());
+        assignment.setPort(bdtPort(entry.getKey()).asOutput());
         result.addAssignment(assignment);
       }
       return result;
@@ -50,8 +50,8 @@ aspect BDT {
           rowsForZero.add(row);
         }
       }
-      Subtree result = new Subtree();
-      result.setPort(nextPort);
+      BDT_Subtree result = new BDT_Subtree();
+      result.setPort(bdtInputPort(nextPort));
       result.setTreeForZero(createTree(rowsForZero, remainingPortsForZero));
       result.setTreeForOne(createTree(rowsForOne, remainingPortsForOne));
       return result;
@@ -61,10 +61,22 @@ aspect BDT {
   public BDT TruthTable.BDT() {
     BDT bdt = new BDT();
 
+    bdt.setTruthTable(this);
+
     bdt.setName(getName());
 
     for (Port port: getPortList()) {
-      bdt.addPort(port);
+      if (port.isInput()) {
+        BDT_InputPort bdtPort = new BDT_InputPort();
+        bdtPort.setName(port.getName());
+        bdtPort.setTruthTableInputPort(port.asInput());
+        bdt.addPort(bdtPort);
+      } else {
+        BDT_OutputPort bdtPort = new BDT_OutputPort();
+        bdtPort.setName(port.getName());
+        bdtPort.setTruthTableOutputPort(port.asOutput());
+        bdt.addPort(bdtPort);
+      }
     }
 
     List<Row> allRows = new ArrayList(getNumRow());
@@ -78,10 +90,41 @@ aspect BDT {
       }
     }
 
-    bdt.setTree(createTree(allRows, allInputPorts));
+    bdt.setTree(bdt.createTree(allRows, allInputPorts));
 
     return bdt;
   }
 
+  syn BDT_InputPort BDT.bdtInputPort(Port port) {
+    for (BDT_Port bdtPort: getPortList()) {
+      if (bdtPort.isInput()) {
+        BDT_InputPort result = bdtPort.asInput();
 
+        if (result.getTruthTableInputPort() == port) {
+          return result;
+        }
+      }
+    }
+    throw new RuntimeException("This BDT does not know about input port " + port.getName());
+  }
+
+  syn BDT_OutputPort BDT.bdtOutputPort(Port port) {
+    for (BDT_Port bdtPort: getPortList()) {
+      if (!bdtPort.isInput()) {
+        BDT_OutputPort result = bdtPort.asOutput();
+        if (result.getTruthTableOutputPort() == port) {
+          return result;
+        }
+      }
+    }
+    throw new RuntimeException("This BDT does not know about output port " + port.getName());
+  }
+
+  syn BDT_Port BDT.bdtPort(Port port) {
+    if (port.isInput()) {
+      return bdtInputPort(port);
+    } else {
+      return bdtOutputPort(port);
+    }
+  }
 }

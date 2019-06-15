@@ -61,14 +61,14 @@ aspect XMIWriter {
       .append(getName())
       .append("\">\n");
 
-    for (Port port : getPortList()) {
+    for (BDT_Port port : getPortList()) {
       port.writeBDT(b);
     }
     getTree().writeBDT(0, "tree", b);
     b.append("</BDD>");
   }
 
-  public void Port.writeBDT(StringBuilder b) {
+  public void BDT_Port.writeBDT(StringBuilder b) {
     b.append("  <ports xsi:type=\"")
       .append(isInput() ? "Input" : "Output")
       .append("Port\" name=\"")
@@ -77,7 +77,7 @@ aspect XMIWriter {
     if (isInput()) {
       b.append("subtrees=\"");
       boolean first = true;
-      for (Subtree subTree : asInput().getSubtreeList()) {
+      for (BDT_Subtree subTree : asInput().getSubtreeList()) {
         if (first) {
           first = false;
         } else {
@@ -88,7 +88,7 @@ aspect XMIWriter {
     } else {
       boolean first = true;
       b.append("assignments=\"");
-      for (Assignment assignment : asOutput().getAssignmentList()) {
+      for (BDT_Assignment assignment : asOutput().getAssignmentList()) {
         if (first) {
           first = false;
         } else {
@@ -100,9 +100,9 @@ aspect XMIWriter {
     b.append("\"/>\n");
   }
 
-  public abstract void Tree.writeBDT(int indent, String name, StringBuilder b);
+  public abstract void BDT_Tree.writeBDT(int indent, String name, StringBuilder b);
 
-  public void Subtree.writeBDT(int indent, String name, StringBuilder b) {
+  public void BDT_Subtree.writeBDT(int indent, String name, StringBuilder b) {
     b.append(indentString(indent))
       .append("<")
       .append(name)
@@ -125,12 +125,12 @@ aspect XMIWriter {
       .append(">\n");
   }
 
-  public void Leaf.writeBDT(int indent, String name, StringBuilder b) {
+  public void BDT_Leaf.writeBDT(int indent, String name, StringBuilder b) {
     b.append(indentString(indent))
       .append("<")
       .append(name)
       .append(" xsi:type=\"Leaf\">\n");
-    for (Assignment assignment : getAssignmentList()) {
+    for (BDT_Assignment assignment : getAssignmentList()) {
       b.append(indentString(indent + 1))
         .append("<assignments value=\"")
         .append(Boolean.toString(assignment.getValue()))

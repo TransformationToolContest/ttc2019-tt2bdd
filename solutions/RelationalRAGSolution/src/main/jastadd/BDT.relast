@@ -1,13 +1,19 @@
-BDT ::= <Name:String> Tree;
+BDT ::= <Name:String> Port:BDT_Port* Tree:BDT_Tree;
 
-abstract Tree;
-Leaf:Tree ::= Assignment*;
-Subtree:Tree ::= TreeForZero:Tree TreeForOne:Tree;
+abstract BDT_Tree;
+BDT_Leaf:BDT_Tree ::= Assignment:BDT_Assignment*;
+BDT_Subtree:BDT_Tree ::= TreeForZero:BDT_Tree TreeForOne:BDT_Tree;
 
-Assignment ::= <Value:boolean>;
+abstract BDT_Port ::= <Name:String>;
+BDT_InputPort : BDT_Port;
+BDT_OutputPort : BDT_Port;
 
-rel InputPort.Subtree* <-> Subtree.Port;
-rel OutputPort.Assignment* <-> Assignment.Port;
-rel BDT.Port* -> Port;
+BDT_Assignment ::= <Value:boolean>;
 
+rel BDT_InputPort.Subtree* <-> BDT_Subtree.Port;
+rel BDT_OutputPort.Assignment* <-> BDT_Assignment.Port;
+
+// relations to TruthTable model
 rel BDT.TruthTable -> TruthTable;
+rel BDT_InputPort.TruthTableInputPort -> InputPort;
+rel BDT_OutputPort.TruthTableOutputPort -> OutputPort;
