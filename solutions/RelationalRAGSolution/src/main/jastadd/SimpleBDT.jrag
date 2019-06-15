@@ -22,7 +22,7 @@ aspect SimpleBDT {
     // 2. iterate over rows, create or get inner nodes until last port which will be a leaf
     Port leafPort = portOrder.leafPort();
     for (Row row : getRowList()) {
-      row.printDebug();
+//      row.printDebug();
       Subtree current = firstSubtree;
       Boolean value = row.valueFor(firstSubtree.getPort());
       for (InputPort port : portOrder.subTreePortList()) {

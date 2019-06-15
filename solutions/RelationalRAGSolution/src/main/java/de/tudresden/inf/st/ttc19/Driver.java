@@ -66,12 +66,12 @@ public class Driver {
     protected void computeSolution0(TruthTable tt) {
       switch (Computation) {
         case "dynamic":
-          lastResult = tt.simpleBDT();
+          lastResult = tt.caseBDT();
           break;
         case "reduced":
           logger.warn("reduced BDT is not yet supported, using ordered BDT!");
         case "ordered":
-          lastResult = tt.caseBDT();
+          lastResult = tt.simpleBDT();
           break;
         default:
           System.err.println("Invalid computation type for BDT: " + Computation);

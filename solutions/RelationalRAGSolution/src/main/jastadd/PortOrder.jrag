@@ -40,17 +40,17 @@ aspect PortOrder {
     }
     int[] inMatchingBits = new int[inputPorts.size()];
     int halfNumRows = getNumRow() / 2;
-    logger.debug("half: {}", halfNumRows);
+//    logger.debug("half: {}", halfNumRows);
     for (int inIndex = 0; inIndex < inputPorts.size(); ++inIndex) {
         for (int outIndex = 0; outIndex < outputPorts.size(); ++outIndex) {
           inMatchingBits[inIndex] -= Math.abs(matchingBits[inIndex][outIndex] - halfNumRows);
       }
-      logger.debug("inMatchingBits[{}] = {}", inIndex, inMatchingBits[inIndex]);
+//      logger.debug("inMatchingBits[{}] = {}", inIndex, inMatchingBits[inIndex]);
     }
     int[] sortedIndices = java.util.stream.IntStream.range(0, inMatchingBits.length)
                             .boxed().sorted((i, j) -> Integer.compare(inMatchingBits[i], inMatchingBits[j]))
                             .mapToInt(ele -> ele).toArray();
-    logger.debug("sorted: {}", Arrays.toString(sortedIndices));
+//    logger.debug("sorted: {}", Arrays.toString(sortedIndices));
     PortOrder result = new PortOrder();
     for (int portIndex : sortedIndices) {
       result.addPort(inputPorts.get(portIndex));

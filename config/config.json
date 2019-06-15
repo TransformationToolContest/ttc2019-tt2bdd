@@ -5,15 +5,22 @@
         "ATLEMFTVMImproved",
         "NMF",
         "Fulib",
-        "RelationalRAGSolution"
+        "RelationalRAGSolutionBDT",
+        "RelationalRAGSolutionOBDD",
+        "RelationalRAGSolutionOBDD-H",
+        "RelationalRAGSolutionOBDT",
+        "RelationalRAGSolutionOBDT-H",
+        "RelationalRAGSolutionROBDD",
+        "RelationalRAGSolutionROBDD-H"
     ],
     "Models": [
-        "Test.ttmodel",
         "GeneratedI4O2Seed42.ttmodel",
         "GeneratedI8O2Seed68.ttmodel",
-        "GeneratedI8O4Seed68.ttmodel"
+        "GeneratedI8O4Seed68.ttmodel",
+        "GeneratedI10O2Seed68.ttmodel"
     ],
-    "Runs": 5,
+    "Runs": 1,
     "Timeout": 6000
 }
+
 
