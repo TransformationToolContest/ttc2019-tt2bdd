@@ -75,10 +75,10 @@ public class Validator {
   }
 
   public boolean validateBDD(TruthTable tt, BDD bdd) {
-    if (tt.getNumPort() != bdd.getPorts().size()) {
+    if (tt.getNumPort() != bdd.getNumPort()) {
       System.err.println(String.format(
           "TT and BDD have different number of ports (TT = %d, BDD = %d)",
-          tt.getNumPort(), bdd.getPorts().size()));
+          tt.getNumPort(), bdd.getNumPort()));
       return false;
     }
 
@@ -92,13 +92,13 @@ public class Validator {
     return true;
   }
 
-  private boolean validateBDD(int iRow, Row ttRow, AbstractNode tree) {
-    final JastAddList<Assignment> assignments = findAssignmentsInGraph(ttRow, tree);
+  private boolean validateBDD(int iRow, Row ttRow, BDD_Tree tree) {
+    final JastAddList<BDD_Assignment> assignments = findAssignmentsInGraph(ttRow, tree);
     if (assignments.getNumChild() == 0) {
       System.err.println(String.format("Row %d of TT did not produce any assignments in BDD", iRow));
     }
 
-    for (Assignment a : assignments) {
+    for (BDD_Assignment a : assignments) {
       final String oPortName = a.getPort().getName();
       final boolean expectedResult = getExpectedResult(ttRow, oPortName);
       if (expectedResult != a.getValue()) {
@@ -120,17 +120,17 @@ public class Validator {
     throw new NoSuchElementException("Could not find output port " + oPortName + " in the cells of the truth table");
   }
 
-  private JastAddList<Assignment> findAssignmentsInGraph(Row ttRow, AbstractNode tree) {
-    if (tree instanceof TerminalNode) {
-      TerminalNode leaf = (TerminalNode) tree;
+  private JastAddList<BDD_Assignment> findAssignmentsInGraph(Row ttRow, BDD_Tree tree) {
+    if (tree instanceof BDD_Leaf) {
+      BDD_Leaf leaf = (BDD_Leaf) tree;
       return leaf.getAssignmentList();
-    } else if (tree instanceof InnerNode) {
-      InnerNode sb = (InnerNode) tree;
-      InputPort sbInputPort = sb.getPort();
+    } else if (tree instanceof BDD_Subtree) {
+      BDD_Subtree sb = (BDD_Subtree) tree;
+      InputPort sbInputPort = sb.getPort().getTruthTableInputPort();
       for (Cell c : ttRow.getCells()) {
         // Port must be an input and have the same name
         if (c.getPort() instanceof InputPort && c.getPort().getName().equals(sbInputPort.getName())) {
-          return findAssignmentsInGraph(ttRow, c.getValue() ? sb.getGraphForOne() : sb.getGraphForZero());
+          return findAssignmentsInGraph(ttRow, c.getValue() ? sb.getTreeForOne() : sb.getTreeForZero());
         }
       }
 
@@ -138,9 +138,9 @@ public class Validator {
        * (2019-05-23 Artur Boronat) If the row in the table does not require a
        * specific value for the port checked in this subtree, try both values.
        */
-      JastAddList<Assignment> zeroList = findAssignmentsInGraph(ttRow, sb.getGraphForZero());
+      JastAddList<BDD_Assignment> zeroList = findAssignmentsInGraph(ttRow, sb.getTreeForZero());
       if (zeroList.getNumChild() == 0) {
-        return findAssignmentsInGraph(ttRow, sb.getGraphForOne());
+        return findAssignmentsInGraph(ttRow, sb.getTreeForOne());
       } else {
         return zeroList;
       }

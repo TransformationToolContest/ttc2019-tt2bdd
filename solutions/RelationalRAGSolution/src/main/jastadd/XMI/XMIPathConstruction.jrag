@@ -3,9 +3,11 @@ aspect XMIPathConstruction {
   inh String Port.xmiPath();
   eq TruthTable.getPort(int i).xmiPath() = "//@ports." + i;
 
-
   inh String BDT_Port.xmiPath();
   eq BDT.getPort(int i).xmiPath() = "//@ports." + i;
+
+  inh String BDD_Port.xmiPath();
+  eq BDD.getPort(int i).xmiPath() = "//@ports." + i;
 
   inh String Row.xmiPath();
   eq TruthTable.getRow(int i).xmiPath() = "//@rows." + i;
@@ -22,14 +24,14 @@ aspect XMIPathConstruction {
   inh String BDT_Assignment.xmiPath();
   eq BDT_Leaf.getAssignment(int i).xmiPath() = xmiPath() + "/@assignments." + i;
 
-  inh String Assignment.xmiPath();
-  eq TerminalNode.getAssignment(int i).xmiPath() = xmiPath() + "/@assignments." + i;
+  inh String BDD_Assignment.xmiPath();
+  eq BDD_Leaf.getAssignment(int i).xmiPath() = xmiPath() + "/@assignments." + i;
 
-  inh String AbstractNode.xmiPath();
-  eq BDD.getAbstractNode(int i).xmiPath() = "//@trees." + i;
+  inh String BDD_Tree.xmiPath();
+  eq BDD.getTree(int i).xmiPath() = "//@trees." + i;
 
-  syn String AbstractNode.xmiName();
-  eq InnerNode.xmiName() = "Subtree";
-  eq TerminalNode.xmiName() = "Leaf";
+  syn String BDD_Tree.xmiName();
+  eq BDD_Subtree.xmiName() = "Subtree";
+  eq BDD_Leaf.xmiName() = "Leaf";
 
 }

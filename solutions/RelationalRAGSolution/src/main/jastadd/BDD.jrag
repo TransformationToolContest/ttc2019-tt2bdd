@@ -1,6 +1,6 @@
 aspect BDD {
 
-  public AbstractNode TruthTable.createDAG(BDD bdd, List<Row> rows, ArrayList<InputPort> remainingPorts) {
+  public BDD_Tree TruthTable.createDAG(BDD bdd, List<Row> rows, ArrayList<InputPort> remainingPorts) {
 
     Map<OutputPort,Boolean> firstAssignment = null;
     boolean isLeaf = true;
@@ -22,14 +22,14 @@ aspect BDD {
     }
 
     if (isLeaf) {
-      TerminalNode result = new TerminalNode();
+      BDD_Leaf result = new BDD_Leaf();
       for (Map.Entry<OutputPort, Boolean> entry: firstAssignment.entrySet()) {
-        Assignment assignment = new Assignment();
+        BDD_Assignment assignment = new BDD_Assignment();
         assignment.setValue(entry.getValue());
-        assignment.setPort(entry.getKey());
+        assignment.setPort(bdd.bddOutputPort(entry.getKey()));
         result.addAssignment(assignment);
       }
-      bdd.addAbstractNode(result);
+      bdd.addTree(result);
       return result;
     } else {
       // pick next InputPort
@@ -51,23 +51,17 @@ aspect BDD {
           rowsForZero.add(row);
         }
       }
-      InnerNode result = new InnerNode();
-      result.setPort(nextPort);
-      result.setGraphForZero(createDAG(bdd, rowsForZero, remainingPortsForZero));
-      result.setGraphForOne(createDAG(bdd, rowsForOne, remainingPortsForOne));
-      bdd.addAbstractNode(result);
+      BDD_Subtree result = new BDD_Subtree();
+      result.setPort(bdd.bddInputPort(nextPort));
+      result.setTreeForZero(createDAG(bdd, rowsForZero, remainingPortsForZero));
+      result.setTreeForOne(createDAG(bdd, rowsForOne, remainingPortsForOne));
+      bdd.addTree(result);
       return result;
     }
   }
 
   public BDD TruthTable.BDD() {
-    BDD bdd = new BDD();
-
-    bdd.setName(getName());
-
-    for (Port port: getPortList()) {
-      bdd.addPort(port);
-    }
+    BDD bdd = emptyBDD();
 
     List<Row> allRows = new ArrayList(getNumRow());
     for(Row row: getRowList()) {
@@ -85,5 +79,60 @@ aspect BDD {
     return bdd;
   }
 
+  public BDD TruthTable.emptyBDD() {
+    BDD bdd = new BDD();
 
+    bdd.setTruthTable(this);
+
+    bdd.setName(getName());
+
+    for (Port port: getPortList()) {
+      if (port.isInput()) {
+        BDD_InputPort bddPort = new BDD_InputPort();
+        bddPort.setName(port.getName());
+        bddPort.setTruthTableInputPort(port.asInput());
+        bdd.addPort(bddPort);
+      } else {
+        BDD_OutputPort bddPort = new BDD_OutputPort();
+        bddPort.setName(port.getName());
+        bddPort.setTruthTableOutputPort(port.asOutput());
+        bdd.addPort(bddPort);
+      }
+    }
+
+    return bdd;
+  }
+
+  syn BDD_InputPort BDD.bddInputPort(Port port) {
+    for (BDD_Port bddPort: getPortList()) {
+      if (bddPort.isInput()) {
+        BDD_InputPort result = bddPort.asInput();
+
+        if (result.getTruthTableInputPort() == port) {
+          return result;
+        }
+      }
+    }
+    throw new RuntimeException("This BDD does not know about input port " + port.getName());
+  }
+
+  syn BDD_OutputPort BDD.bddOutputPort(Port port) {
+    for (BDD_Port bddPort: getPortList()) {
+      if (!bddPort.isInput()) {
+        BDD_OutputPort result = bddPort.asOutput();
+        if (result.getTruthTableOutputPort() == port) {
+          return result;
+        }
+      }
+    }
+    throw new RuntimeException("This BDD does not know about output port " + port.getName());
+  }
+
+  syn BDD_Port BDD.bddPort(Port port) {
+    if (port.isInput()) {
+      return bddInputPort(port);
+    } else {
+      return bddOutputPort(port);
+    }
+  }
 }

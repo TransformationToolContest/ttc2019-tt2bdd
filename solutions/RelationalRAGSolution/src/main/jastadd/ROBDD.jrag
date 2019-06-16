@@ -1,6 +1,6 @@
 aspect ROBDD {
 
-  public BDD TruthTable.reductionOBDD() {
+  syn BDD TruthTable.reductionOBDD() {
     BDD bdd = fullOBDD();
     bdd.reduce();
     return bdd;
@@ -14,77 +14,78 @@ aspect ROBDD {
     // This is not necessary, the number is the hahsCode().
     // There is no reason why the number must be positive, as long as oldKey is always smaller.
 
-    Map<InnerNode, de.tudresden.inf.st.ttc19.util.Pair> keys = new HashMap<>();
+    Map<BDD_Subtree, de.tudresden.inf.st.ttc19.util.Pair> keys = new HashMap<>();
 
     for (int i = n - 1; i >= 0; i--) {
 
       InputPort port = getTruthTable().getPortOrder().getPortList().get(i);
+      BDD_InputPort bddPort = bddInputPort(port);
 
-      List<InnerNode> V = new ArrayList<>();
-      for (InnerNode inner : port.getInnerNodeList()) {
+      List<BDD_Subtree> V = new ArrayList<>();
+      for (BDD_Subtree inner : bddPort.getSubtreeList()) {
         V.add(inner);
       }
 
       // Elimination rule
-      for (Iterator<InnerNode> vIterator = V.iterator(); vIterator.hasNext(); ) {
+      for (Iterator<BDD_Subtree> vIterator = V.iterator(); vIterator.hasNext(); ) {
 
-        InnerNode v = vIterator.next();
+        BDD_Subtree v = vIterator.next();
 
-        if (v.getGraphForOne() == v.getGraphForZero()) {
+        if (v.getTreeForOne() == v.getTreeForZero()) {
           // remove v from V
           vIterator.remove();
 
-          // redirect all incoming edges of v to v.getGraphForOne()
-          for (InnerNode parentNode : new ArrayList<InnerNode>(v.getParentForOneList())) {
-            parentNode.setGraphForOne(v.getGraphForOne());
+          // redirect all incoming edges of v to v.getTreeForOne()
+          for (BDD_Subtree parentNode : new ArrayList<BDD_Subtree>(v.getOwnerSubtreeForOneList())) {
+            parentNode.setTreeForOne(v.getTreeForOne());
           }
-          for (InnerNode parentNode : new ArrayList<InnerNode>(v.getParentForZeroList())) {
-            parentNode.setGraphForZero(v.getGraphForZero());
+          for (BDD_Subtree parentNode : new ArrayList<BDD_Subtree>(v.getOwnerSubtreeForZeroList())) {
+            parentNode.setTreeForZero(v.getTreeForZero());
           }
           if (getRoot() == v) {
-            setRoot(v.getGraphForZero());
+            setRoot(v.getTreeForZero());
           }
 
           // remove v
-          v.getPort().removeInnerNode(v);
-          v.getGraphForOne().removeParentForOne(v);
-          v.getGraphForZero().removeParentForZero(v);
+          v.getPort().removeSubtree(v);
+          v.getTreeForOne().removeOwnerSubtreeForOne(v);
+          v.getTreeForZero().removeOwnerSubtreeForZero(v);
           v.removeSelf();
         } else {
           // assign a key to v that is a tuple of the two child graphs
-          keys.put(v, new de.tudresden.inf.st.ttc19.util.Pair(v.getGraphForZero(), v.getGraphForOne()));
+          keys.put(v, new de.tudresden.inf.st.ttc19.util.Pair(v.getTreeForZero(), v.getTreeForOne()));
         }
       }
 
-      List<InnerNode> sortedV = new ArrayList<>(V);
-      sortedV.sort(new Comparator<InnerNode>() {
+      List<BDD_Subtree> sortedV = new ArrayList<>(V);
+      sortedV.sort(new Comparator<BDD_Subtree>() {
         @Override
-        public int compare(InnerNode node1, InnerNode node2) {
+        public int compare(BDD_Subtree node1, BDD_Subtree node2) {
           return keys.get(node1).compareTo(keys.get(node2));
         }
       });
 
       // Merging rule
       de.tudresden.inf.st.ttc19.util.Pair oldKey = new de.tudresden.inf.st.ttc19.util.Pair(null, null);
-      InnerNode oldNode = null;
-      for (Iterator<InnerNode> vIterator = sortedV.iterator(); vIterator.hasNext(); ) {
-        InnerNode v = vIterator.next();
+      BDD_Subtree oldNode = null;
+      for (Iterator<BDD_Subtree> vIterator = sortedV.iterator(); vIterator.hasNext(); ) {
+        BDD_Subtree v = vIterator.next();
         if (keys.get(v).equals(oldKey)) {
           // remove v from V
           vIterator.remove();
 
           // redirect all incoming edges of v to to oldNode
-          for (InnerNode parentNode : new ArrayList<InnerNode>(v.getParentForOneList())) {
-            parentNode.setGraphForOne(oldNode);
+          for (BDD_Subtree parentNode : new ArrayList<BDD_Subtree>(v.getOwnerSubtreeForOneList())) {
+            parentNode.setTreeForOne(oldNode);
           }
-          for (InnerNode parentNode : new ArrayList<InnerNode>(v.getParentForZeroList())) {
-            parentNode.setGraphForZero(oldNode);
+          for (BDD_Subtree parentNode : new ArrayList<BDD_Subtree>(v.getOwnerSubtreeForZeroList())) {
+            parentNode.setTreeForZero(oldNode);
           }
 
           // remove v
-          v.getPort().removeInnerNode(v);
-          v.getGraphForOne().removeParentForOne(v);
-          v.getGraphForZero().removeParentForZero(v);
+          v.getPort().removeSubtree(v);
+          v.getTreeForOne().removeOwnerSubtreeForOne(v);
+          v.getTreeForZero().removeOwnerSubtreeForZero(v);
           v.removeSelf();
         } else {
           oldNode = v;

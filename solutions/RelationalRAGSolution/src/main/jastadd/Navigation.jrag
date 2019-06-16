@@ -49,8 +49,8 @@ aspect Navigation {
     return null;
   }
 
-  syn Boolean TerminalNode.valueFor(Port port) {
-    for (Assignment assignment : getAssignmentList()) {
+  syn Boolean BDD_Leaf.valueFor(Port port) {
+    for (BDD_Assignment assignment : getAssignmentList()) {
       if (assignment.getPort().equals(port)) {
         return assignment.getValue();
       }
@@ -81,11 +81,24 @@ aspect Navigation {
 
   // BDD
 
-  syn boolean AbstractNode.isInnerNode() = false;
-  eq InnerNode.isInnerNode() = true;
+  syn boolean BDD_Tree.isSubtree() = false;
+  eq BDD_Subtree.isSubtree() = true;
 
-  syn InnerNode AbstractNode.asInnerNode() = null;
-  eq InnerNode.asInnerNode() = this;
+  syn BDD_Subtree BDD_Tree.asSubtree() = null;
+  eq BDD_Subtree.asSubtree() = this;
+
+  syn boolean BDD_Port.isInput() = false;
+  eq BDD_InputPort.isInput() = true;
+
+  syn BDD_InputPort BDD_Port.asInput() = null;
+  eq BDD_InputPort.asInput() = this;
+
+  syn BDD_OutputPort BDD_Port.asOutput() = null;
+  eq BDD_OutputPort.asOutput() = this;
+
+  inh BDD BDD_Tree.bdd();
+  eq BDD.getTree().bdd() = this;
+  eq BDD.getPort().bdd() = this;
 
   // Shared Attributes
 
@@ -98,7 +111,8 @@ aspect Navigation {
   eq BDT.getTree().root() = this;
   eq BDT.getPort().root() = this;
 
-  eq BDD.getAbstractNode().root() = this;
+  eq BDD.getTree().root() = this;
+  eq BDD.getPort().root() = this;
 
   syn ASTNode TruthTable.root() = this;
   syn ASTNode BDT.root() = this;

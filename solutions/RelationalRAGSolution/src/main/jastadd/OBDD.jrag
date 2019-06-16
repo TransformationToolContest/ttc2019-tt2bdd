@@ -1,23 +1,17 @@
 aspect OBDD {
 
-  public BDD TruthTable.fullOBDD() {
-    BDD bdd = new BDD();
+  syn BDD TruthTable.fullOBDD() {
+    BDD bdd = emptyBDD();
 
-    bdd.setName(getName());
-
-    for (Port port: getPortList()) {
-      bdd.addPort(port);
-    }
-
-    for (TerminalNode terminal: terminalNodeMap().values()) {
-      bdd.addAbstractNode(terminal);
+    for (BDD_Leaf terminal: terminalNodeMap(bdd).values()) {
+      bdd.addTree(terminal);
     }
 
     PortOrder portOrder = getPortOrder();
 
-    InnerNode root = new InnerNode();
-    root.setPort(portOrder.getPortList().get(0));
-    bdd.addAbstractNode(root);
+    BDD_Subtree root = new BDD_Subtree();
+    root.setPort(bdd.bddInputPort(portOrder.getPortList().get(0)));
+    bdd.addTree(root);
     bdd.setRoot(root);
 
     Port leafPort = portOrder.leafPort();
@@ -25,75 +19,73 @@ aspect OBDD {
       insertRow(bdd, root, row, 0);
     }
 
-    bdd.setTruthTable(this);
-
     return bdd;
   }
 
-  public void TruthTable.insertRow(BDD bdd, InnerNode parent, Row row, int position) {
+  public void TruthTable.insertRow(BDD bdd, BDD_Subtree parent, Row row, int position) {
 
     InputPort port = getPortOrder().getPortList().get(position);
     Boolean value = row.valueFor(port);
 
     if (position < getPortOrder().getPortList().size() - 1) {
-      InputPort nextPort = getPortOrder().getPortList().get(position + 1);
+      BDD_InputPort nextPort = bdd.bddInputPort(getPortOrder().getPortList().get(position + 1));
       if (value == null || value) {
-        InnerNode result;
-        if (parent.getGraphForOne() != null) {
-          result = parent.getGraphForOne().asInnerNode();
+        BDD_Subtree result;
+        if (parent.getTreeForOne() != null) {
+          result = parent.getTreeForOne().asSubtree();
         } else {
-          result = new InnerNode();
+          result = new BDD_Subtree();
           result.setPort(nextPort);
-          parent.setGraphForOne(result);
-          bdd.addAbstractNode(result);
+          parent.setTreeForOne(result);
+          bdd.addTree(result);
         }
         insertRow(bdd, result, row, position + 1);
       }
       if (value == null || !value) {
-        InnerNode result;
-        if (parent.getGraphForZero() != null) {
-          result = parent.getGraphForZero().asInnerNode();
+        BDD_Subtree result;
+        if (parent.getTreeForZero() != null) {
+          result = parent.getTreeForZero().asSubtree();
         } else {
-          result = new InnerNode();
+          result = new BDD_Subtree();
           result.setPort(nextPort);
-          parent.setGraphForZero(result);
-          bdd.addAbstractNode(result);
+          parent.setTreeForZero(result);
+          bdd.addTree(result);
         }
         insertRow(bdd, result, row, position + 1);
       }
     } else {
-      TerminalNode terminal = terminalNodeMap().get(row.outputString());
+      BDD_Leaf terminal = terminalNodeMap(bdd).get(row.outputString());
       if (value == null) {
-        if (parent.getGraphForOne() != null || parent.getGraphForZero() != null) {
+        if (parent.getTreeForOne() != null || parent.getTreeForZero() != null) {
           logger.warn("found duplicate row");
         }
-        parent.setGraphForOne(terminal);
-        parent.setGraphForZero(terminal);
+        parent.setTreeForOne(terminal);
+        parent.setTreeForZero(terminal);
       } else if (value) {
-        if (parent.getGraphForOne() != null) {
+        if (parent.getTreeForOne() != null) {
           logger.warn("found duplicate row");
         }
-        parent.setGraphForOne(terminal);
+        parent.setTreeForOne(terminal);
       } else {
-        if (parent.getGraphForZero() != null) {
+        if (parent.getTreeForZero() != null) {
           logger.warn("found duplicate row");
         }
-        parent.setGraphForZero(terminal);
+        parent.setTreeForZero(terminal);
       }
     }
   }
 
-  syn Map<String, TerminalNode> TruthTable.terminalNodeMap() {
-    Map<String, TerminalNode> result = new HashMap<>(getNumRow());
+  syn Map<String, BDD_Leaf> TruthTable.terminalNodeMap(BDD bdd) {
+    Map<String, BDD_Leaf> result = new HashMap<>(getNumRow());
     for (Row row: getRowList()) {
       String outputString = row.outputString();
       if (!result.containsKey(outputString)) {
-        TerminalNode terminal = new TerminalNode();
+        BDD_Leaf terminal = new BDD_Leaf();
         for (Cell cell: row.getCellList()) {
           Port cellPort = cell.getPort();
           if (!cellPort.isInput()) {
-            Assignment a = new Assignment();
-            a.setPort(cellPort.asOutput());
+            BDD_Assignment a = new BDD_Assignment();
+            a.setPort(bdd.bddOutputPort(cellPort.asOutput()));
             a.setValue(cell.getValue());
             terminal.addAssignment(a);
           }

@@ -1,22 +1,22 @@
 package de.tudresden.inf.st.ttc19.util;
 
-import de.tudresden.inf.st.ttc19.jastadd.model.AbstractNode;
+import de.tudresden.inf.st.ttc19.jastadd.model.BDD_Tree;
 
 public class Pair implements Comparable {
 
-  private final AbstractNode first;
-  private final AbstractNode second;
+  private final BDD_Tree first;
+  private final BDD_Tree second;
 
-  public Pair(AbstractNode left, AbstractNode right) {
+  public Pair(BDD_Tree left, BDD_Tree right) {
     this.first = left;
     this.second = right;
   }
 
-  public AbstractNode getFirst() {
+  public BDD_Tree getFirst() {
     return first;
   }
 
-  public AbstractNode getSecond() {
+  public BDD_Tree getSecond() {
     return second;
   }
 

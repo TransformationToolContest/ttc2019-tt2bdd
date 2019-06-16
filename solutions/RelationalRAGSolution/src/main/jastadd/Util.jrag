@@ -26,9 +26,9 @@ aspect Helpers {
     return b.toString();
   }
 
-  syn String TerminalNode.assignmentString() {
+  syn String BDD_Leaf.assignmentString() {
     StringBuilder b = new StringBuilder();
-    for (Port port: this.getAssignment(0).getPort().containingTruthTable().getPortList()) {
+    for (Port port: this.bdd().getTruthTable().getPortList()) {
       Boolean value = valueFor(port);
       b.append(value==null?"-":(value?"1":"0"));
     }

@@ -152,25 +152,25 @@ aspect XMIWriter {
     .append(getRoot().xmiPath())
     .append("\">\n");
 
-    for (Port port : getPortList()) {
+    for (BDD_Port port : getPortList()) {
       port.writeBDD(b);
     }
-    for (AbstractNode node: getAbstractNodeList()) {
+    for (BDD_Tree node: getTreeList()) {
       node.writeBDD("trees", b);
     }
     b.append("</bddg:BDD>");
   }
 
-  public abstract void AbstractNode.writeBDD(String context, StringBuilder b);
+  public abstract void BDD_Tree.writeBDD(String context, StringBuilder b);
 
-  public void TerminalNode.writeBDD(String context, StringBuilder b) {
+  public void BDD_Leaf.writeBDD(String context, StringBuilder b) {
     b.append("  <")
       .append(context)
       .append(" xsi:type=\"bddg:Leaf\"");
-    if (getParentForZeroList().size() > 0) {
+    if (getOwnerSubtreeForZeroList().size() > 0) {
       b.append(" ownerSubtreeForZero=\"");
       boolean first = true;
-      for (AbstractNode parent: getParentForZeroList()) {
+      for (BDD_Tree parent: getOwnerSubtreeForZeroList()) {
         if (first) {
           first = false;
         } else {
@@ -180,10 +180,10 @@ aspect XMIWriter {
       }
       b.append("\"");
     }
-    if (getParentForOneList().size() > 0) {
+    if (getOwnerSubtreeForOneList().size() > 0) {
       b.append(" ownerSubtreeForOne=\"");
       boolean first = true;
-      for (AbstractNode parent: getParentForOneList()) {
+      for (BDD_Tree parent: getOwnerSubtreeForOneList()) {
         if (first) {
           first = false;
         } else {
@@ -194,7 +194,7 @@ aspect XMIWriter {
       b.append("\"");
     }
     b.append(">\n");
-    for (Assignment assignment : getAssignmentList()) {
+    for (BDD_Assignment assignment : getAssignmentList()) {
     b.append("    ")
       .append("<assignments value=\"")
       .append(Boolean.toString(assignment.getValue()))
@@ -208,14 +208,14 @@ aspect XMIWriter {
       .append(">\n");
   }
 
-  public void InnerNode.writeBDD(String context, StringBuilder b) {
+  public void BDD_Subtree.writeBDD(String context, StringBuilder b) {
     b.append("  <")
       .append(context)
       .append(" xsi:type=\"bddg:Subtree\"");
-    if (getParentForZeroList().size() > 0) {
+    if (getOwnerSubtreeForZeroList().size() > 0) {
       b.append(" ownerSubtreeForZero=\"");
       boolean first = true;
-      for (AbstractNode parent: getParentForZeroList()) {
+      for (BDD_Tree parent: getOwnerSubtreeForZeroList()) {
         if (first) {
           first = false;
         } else {
@@ -225,10 +225,10 @@ aspect XMIWriter {
       }
       b.append("\"");
     }
-    if (getParentForOneList().size() > 0) {
+    if (getOwnerSubtreeForOneList().size() > 0) {
       b.append(" ownerSubtreeForOne=\"");
       boolean first = true;
-      for (AbstractNode parent: getParentForOneList()) {
+      for (BDD_Tree parent: getOwnerSubtreeForOneList()) {
         if (first) {
           first = false;
         } else {
@@ -241,24 +241,24 @@ aspect XMIWriter {
     b.append(" port=\"")
       .append(getPort().xmiPath())
       .append("\"");
-    if (getGraphForZero() != null) {
+    if (getTreeForZero() != null) {
       b.append(" treeForZero=\"")
-        .append(getGraphForZero().xmiPath())
+        .append(getTreeForZero().xmiPath())
         .append("\"");
     } else {
-      logger.warn("GraphForZero is null in {}", xmiPath());
+      logger.warn("TreeForZero is null in {}", xmiPath());
     }
-    if (getGraphForOne() != null) {
+    if (getTreeForOne() != null) {
       b.append(" treeForOne=\"")
-        .append(getGraphForOne().xmiPath())
+        .append(getTreeForOne().xmiPath())
         .append("\"");
     } else {
-      logger.warn("GraphForOne is null in {}", xmiPath());
+      logger.warn("TreeForOne is null in {}", xmiPath());
     }
     b.append("/>\n");
   }
 
-  public void Port.writeBDD(StringBuilder b) {
+  public void BDD_Port.writeBDD(StringBuilder b) {
     b.append("  <ports xsi:type=\"bddg:")
       .append(isInput() ? "Input" : "Output")
       .append("Port\" name=\"")
@@ -267,7 +267,7 @@ aspect XMIWriter {
     if (isInput()) {
       b.append("subtrees=\"");
       boolean first = true;
-      for (InnerNode inner : asInput().getInnerNodeList()) {
+      for (BDD_Subtree inner : asInput().getSubtreeList()) {
         if (first) {
           first = false;
         } else {
@@ -278,7 +278,7 @@ aspect XMIWriter {
     } else {
       boolean first = true;
       b.append("assignments=\"");
-      for (Assignment assignment : asOutput().getAssignmentList()) {
+      for (BDD_Assignment assignment : asOutput().getAssignmentList()) {
         if (first) {
           first = false;
         } else {

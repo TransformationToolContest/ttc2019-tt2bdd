@@ -2,8 +2,8 @@ aspect Analysis {
 
   syn int BDD.decisionNodeCount() {
     int result = 0;
-    for (AbstractNode node: getAbstractNodeList()) {
-      if (node.isInnerNode()) {
+    for (BDD_Tree node: getTreeList()) {
+      if (node.isSubtree()) {
         result++;
       }
     }
@@ -11,7 +11,7 @@ aspect Analysis {
   }
 
   syn int BDD.assignmentNodeCount() {
-    return getNumAbstractNode() - decisionNodeCount();
+    return getNumTree() - decisionNodeCount();
   }
 
   syn int BDT.decisionNodeCount() = getTree().decisionNodeCount();

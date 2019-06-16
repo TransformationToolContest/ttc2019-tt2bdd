@@ -1,16 +1,23 @@
-BDD ::= <Name:String> AbstractNode*;
+BDD ::= <Name:String> Port:BDD_Port* Tree:BDD_Tree*;
 
-abstract AbstractNode;
-TerminalNode:AbstractNode ::= Assignment*;
-InnerNode:AbstractNode;
+abstract BDD_Tree;
+BDD_Leaf:BDD_Tree ::= Assignment:BDD_Assignment*;
+BDD_Subtree:BDD_Tree;
 
-Assignment ::= <Value:boolean>;
-rel OutputPort.Assignment* <-> Assignment.Port;
+abstract BDD_Port ::= <Name:String>;
+BDD_InputPort : BDD_Port;
+BDD_OutputPort : BDD_Port;
 
-rel BDD.Root -> AbstractNode;
-rel InnerNode.GraphForZero <-> AbstractNode.ParentForZero*;
-rel InnerNode.GraphForOne <-> AbstractNode.ParentForOne*;
-rel InputPort.InnerNode* <-> InnerNode.Port;
-rel BDD.Port* -> Port;
+BDD_Assignment ::= <Value:boolean>;
 
+rel BDD.Root -> BDD_Tree;
+rel BDD_Subtree.TreeForZero <-> BDD_Tree.OwnerSubtreeForZero*;
+rel BDD_Subtree.TreeForOne <-> BDD_Tree.OwnerSubtreeForOne*;
+
+rel BDD_InputPort.Subtree* <-> BDD_Subtree.Port;
+rel BDD_OutputPort.Assignment* <-> BDD_Assignment.Port;
+
+// relations to TruthTable model
 rel BDD.TruthTable -> TruthTable;
+rel BDD_InputPort.TruthTableInputPort -> InputPort;
+rel BDD_OutputPort.TruthTableOutputPort -> OutputPort;

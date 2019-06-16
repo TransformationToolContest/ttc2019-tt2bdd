@@ -1,6 +1,6 @@
 aspect BDT {
 
-  syn nta BDT TruthTable.BDT() {
+  syn BDT TruthTable.BDT() {
 
     BDT bdt = emptyBDT();
 
