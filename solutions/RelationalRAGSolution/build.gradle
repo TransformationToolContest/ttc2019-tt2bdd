@@ -114,6 +114,7 @@ task jastadd2(type: JavaExec) {
             "--flush=full",
             "--list=JastAddList",
             "--rewrite=cnta",
+            "--visitCheck=false",
             "--package=de.tudresden.inf.st.ttc19.jastadd.model",
             "--o=src/gen/java"
     ] + fileTree("./src/main/jastadd/").matching {exclude "*.relast"} + file("./src/gen/jastadd/TTBDD.ast") + file("./src/gen/jastadd/TTBDD.jadd") + file("./src/gen/jastadd/TTBDDRefResolver.jadd") + file('./src/gen/jastadd/TTBDDResolverStubs.jrag')
