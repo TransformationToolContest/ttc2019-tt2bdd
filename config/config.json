@@ -17,10 +17,11 @@
         "GeneratedI4O2Seed42.ttmodel",
         "GeneratedI8O2Seed68.ttmodel",
         "GeneratedI8O4Seed68.ttmodel",
-        "GeneratedI10O2Seed68.ttmodel"
+        "GeneratedI10O2Seed68.ttmodel",
+        "GeneratedI12O2Seed7634.ttmodel",
+        "GeneratedI14O4Seed7634.ttmodel",
+        "GeneratedI15O5Seed282316.ttmodel"
     ],
-    "Runs": 1,
-    "Timeout": 6000
+    "Runs": 10,
+    "Timeout": 10000
 }
-
-
