@@ -11,7 +11,8 @@
         "RelationalRAGSolutionOBDT",
         "RelationalRAGSolutionOBDT-H",
         "RelationalRAGSolutionROBDD",
-        "RelationalRAGSolutionROBDD-H"
+        "RelationalRAGSolutionROBDD-H",
+        "RSync"
     ],
     "Models": [
         "GeneratedI4O2Seed42.ttmodel",
