@@ -10,7 +10,8 @@
 
 ## Solution Prerequisites
 
-Add your prerequisites here!
+* Scala (optional, will be downloaded automatically via SBT if not present)
+* [SBT](https://www.scala-sbt.org/) 1.x
 
 ## Using the framework
 
