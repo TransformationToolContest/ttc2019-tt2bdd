@@ -54,24 +54,30 @@ def benchmark(conf):
     os.environ['Runs'] = str(conf.Runs)
     for r in range(0, conf.Runs):
         os.environ['RunIndex'] = str(r)
+        failed_tools = set()
+        print("## Run {}".format(r))
         for tool in conf.Tools:
             config = ConfigParser.ConfigParser()
             config.read(os.path.join(BASE_DIRECTORY, "solutions", tool, "solution.ini"))
             set_working_directory("solutions", tool)
             os.environ['Tool'] = tool
             for model in conf.Models:
-                full_model_path = os.path.abspath(os.path.join(BASE_DIRECTORY, "models", model))
-                os.environ['Model'] = model
-                os.environ['ModelPath'] = full_model_path
-                print("Running benchmark: tool = " + tool + ", model = " + full_model_path)
-                try:
-                    output = subprocess.check_output(config.get('run', 'cmd'), shell=True, timeout=conf.Timeout)
-                    with open(result_file, "ab") as file:
-                        file.write(output)
-                except CalledProcessError as e:
-                    print("Program exited with error")
-                except subprocess.TimeoutExpired as e:
-                    print("Program reached the timeout set ({0} seconds). The command we executed was '{1}'".format(e.timeout, e.cmd))
+                if not tool in failed_tools:
+                    full_model_path = os.path.abspath(os.path.join(BASE_DIRECTORY, "models", model))
+                    os.environ['Model'] = model
+                    os.environ['ModelPath'] = full_model_path
+                    print("Running benchmark: tool = " + tool + ", model = " + full_model_path)
+                    try:
+                        output = subprocess.check_output(config.get('run', 'cmd'), shell=True, timeout=conf.Timeout)
+                        with open(result_file, "ab") as file:
+                            file.write(output)
+                    except CalledProcessError as e:
+                        print("Program exited with error")
+                    except subprocess.TimeoutExpired as e:
+                        print("Program reached the timeout set ({0} seconds). The command we executed was '{1}'".format(e.timeout, e.cmd))
+                        failed_tools.add(tool)
+                else:
+                    print("Skipping tool {0} for model {1} because it already failed earlier".format(tool, model))
 
 
 def clean_dir(*path):
