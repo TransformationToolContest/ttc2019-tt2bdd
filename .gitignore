@@ -32,3 +32,7 @@ Rplots.pdf
 
 output/output.csv
 output/solutions
+
+solutions/RSync/target/
+solutions/RSync/project/target/
+solutions/RSync/project/project/target/
