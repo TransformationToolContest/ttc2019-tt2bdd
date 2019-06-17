@@ -7,9 +7,7 @@
         "Fulib",
         "RelationalRAGSolutionBDT",
         "RelationalRAGSolutionOBDD",
-        "RelationalRAGSolutionOBDD-H",
         "RelationalRAGSolutionOBDT",
-        "RelationalRAGSolutionOBDT-H",
         "RelationalRAGSolutionROBDD",
         "RelationalRAGSolutionROBDD-H",
         "RSync"
