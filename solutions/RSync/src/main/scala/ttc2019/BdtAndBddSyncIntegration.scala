@@ -202,8 +202,10 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
       val oD_port = new sync.bddg.OutputPort(Set.empty, name, null)
       val oT_port = new sync.bdd.OutputPort(Set.empty, name, null)
 
-      //Step 3: Make Connection TODO triple connection bdt comp bdd
+      //Step 3: Make Connection
       connectTargetElementWithSourceElemente(oD_port, comp)
+      connectTargetElementWithSourceElemente(oT_port, comp)
+      connectTargetElementWithSourceElemente(oD_port, oT_port)
 
       oD_port
     }
@@ -221,8 +223,10 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
       val iD_port = new sync.bddg.InputPort(Set.empty, name, null)
       val iT_port = new sync.bdd.InputPort(Set.empty, name, null)
 
-      //Step 3: Make Connection TODO triple connection bdt comp bdd
+      //Step 3: Make Connection
       connectTargetElementWithSourceElemente(iD_port, comp)
+      connectTargetElementWithSourceElemente(iT_port, comp)
+      connectTargetElementWithSourceElemente(iD_port, iT_port)
 
       iD_port
     }
@@ -241,9 +245,10 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
       val bdd = new sync.bddg.BDD(name, Set.empty, null, Set.empty)
       val bdt = new sync.bdd.BDD(name, null, Set.empty)
 
-      //Step 3: Make Connection TODO triple connection bdt comp bdd
+      //Step 3: Make Connection
       connectTargetElementWithSourceElemente(bdt, comp)
       connectTargetElementWithSourceElemente(bdd, comp)
+      connectTargetElementWithSourceElemente(bdd, bdt)
 
       ports.foreach(p => {
         val integrator = getNextIntegratorForClassName(p)

@@ -33,21 +33,18 @@ abstract class Tree(protected var ownerSubtreeForOne: Subtree, protected var own
   
   def getStringDeep(): String = {
     var result = ""
-    for(i <- 0 to this.getDeep()) {
+    for(i <- 0 to this.getMinDeep()) {
       result = result + "\t"
     }
     result
   }
   
-  def getDeep(): Int = {
-    if (ownerBDD != null) {
-      return 1
-    } 
+  def getMinDeep(): Int = {     
     if (ownerSubtreeForOne != null) {
-      return 1 + ownerSubtreeForOne.getDeep()
+      return 1 + ownerSubtreeForOne.getMinDeep()
     }
     if (ownerSubtreeForZero != null) {
-      return 1 + ownerSubtreeForZero.getDeep()
+      return 1 + ownerSubtreeForZero.getMinDeep()
     }
     0
   }

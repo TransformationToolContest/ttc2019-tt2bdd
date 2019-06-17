@@ -1,5 +1,7 @@
 package ttc2019.benchmark
 
+import ttc2019.MetricMeasurement
+
 /** The `ReportingUtility` takes care of writing benchmarking info to `stdout`.
   *
   * Such information includes time consumption for specific phases of the benchmark as well
@@ -7,7 +9,7 @@ package ttc2019.benchmark
   *
   * @param reportMemoryUsage whether the utility should log the allocated memory
   */
-class ReportingUtility(reportMemoryUsage: Boolean = true) {
+class ReportingUtility(reportMemoryUsage: Boolean = false) {
 
   private val rt = Runtime.getRuntime
 
@@ -20,12 +22,20 @@ class ReportingUtility(reportMemoryUsage: Boolean = true) {
     * @param phase     the phase that was monitored
     * @param duration  the amount of time the tool consumed for executing the benchmark
     */
-  def report(benchmark: BenchmarkInfo, phase: String, duration: Long): Unit = {
+  def report(benchmark: BenchmarkInfo, phase: String, duration: Long, metrics: Option[Metrics] = None): Unit = {
     println(s"${benchmark.tool};${benchmark.model};${benchmark.runIdx};$phase;Time;$duration")
     if (reportMemoryUsage) {
       val consumedMemory = calculateUsedMemory(overhead = initialMemoryConsumption)
       println(s"${benchmark.tool};${benchmark.model};${benchmark.runIdx};$phase;Memory;$consumedMemory")
     }
+
+    metrics.foreach(metrics => {
+      println(s"${benchmark.tool};${benchmark.model};${benchmark.runIdx};$phase;AssignmentNodes;${metrics.nLeafs}")
+      println(s"${benchmark.tool};${benchmark.model};${benchmark.runIdx};$phase;DecisionNodes;${metrics.nSubTrees}")
+      println(s"${benchmark.tool};${benchmark.model};${benchmark.runIdx};$phase;MaxPath;${metrics.maxPathLength}")
+      println(s"${benchmark.tool};${benchmark.model};${benchmark.runIdx};$phase;MinPath;${metrics.minPathLength}")
+      println(s"${benchmark.tool};${benchmark.model};${benchmark.runIdx};$phase;AvgPath;${metrics.avgPathLength}")
+    })
   }
 
   /** Checks, whether the Garbage collector should be invoked. This has to specified via the `NoGC`

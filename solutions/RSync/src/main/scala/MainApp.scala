@@ -1,4 +1,4 @@
-import ttc2019.{CompleteTTCProcess, TTCProcessConfiguration}
+import ttc2019.{CompleteTTCProcess, MetricMeasurement, TTCProcessConfiguration}
 import ttc2019.benchmark.{Benchmark, BenchmarkInfo, ReportingUtility}
 
 import scala.reflect.io.File
@@ -8,9 +8,9 @@ import scala.reflect.io.File
   */
 object MainApp extends App {
 
-  private val Initialize = "Initialize"
-  private val Load = "Load"
-  private val Run = "Run"
+  val Initialize = "Initialize"
+  val Load = "Load"
+  val Run = "Run"
 
   private val modelPath = sys.env.get("ModelPath")
   private val benchmarkInfo = fetchBenchmarkInfo()
@@ -44,7 +44,7 @@ object MainApp extends App {
     benchmarkingService.start()
     CompleteTTCProcess.run()
     benchmarkDuration = benchmarkingService.stop()
-    reportingService.report(benchmarkInfo, Run, benchmarkDuration)
+    reportingService.report(benchmarkInfo, Run, benchmarkDuration, Some(MetricMeasurement.printMetricsBDT()))
   })
 
   /** Retrieves information about the benchmark that should be executed.

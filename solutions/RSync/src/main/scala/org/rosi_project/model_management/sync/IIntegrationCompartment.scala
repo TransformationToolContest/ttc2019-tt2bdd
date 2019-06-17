@@ -44,7 +44,7 @@ trait IIntegrationCompartment extends Compartment {
   }
 
   private def addExtensionRoles(containers: ListBuffer[IntegrationContainer]): Unit = {
-    containers.foreach { cc =>
+    containers.filter(_.newManagerConnection).foreach { cc =>
       SynchronizationCompartment.getExtensions().foreach { e =>
         var role = e.getExtensionForClassName(cc.getNewPlayerInstance())
         if (role != null) {
@@ -55,7 +55,7 @@ trait IIntegrationCompartment extends Compartment {
   }
 
   private def notifyExtensionRoles(containers: ListBuffer[IntegrationContainer]): Unit = {
-    containers.foreach { cc =>
+    containers.filter(_.newManagerConnection).foreach { cc =>
       var playerInstance = cc.getNewPlayerInstance()
       +playerInstance insertNotification ()
     }
@@ -108,7 +108,7 @@ trait IIntegrationCompartment extends Compartment {
    * Combine the SynchronizationCompartment with all Players from the IntegrationContainer.
    */
   private def synchronizeCompartments(containers: ListBuffer[IntegrationContainer]): Unit = {
-    containers.foreach { cc =>
+    containers.filter(_.newManagerConnection).foreach { cc =>
       SynchronizationCompartment combine cc.getNewPlayerInstance()
     }
   }
@@ -117,7 +117,7 @@ trait IIntegrationCompartment extends Compartment {
    * Create the Synchronization mechanisms for the elements in the IntegrationContainer.
    */
   private def bindSynchronizationRules(containers: ListBuffer[IntegrationContainer]): Unit = {
-    containers.foreach { cc =>
+    containers.filter(_.newManagerConnection).foreach { cc =>
       val oldPlayer = cc.getOldPlayerInstance()
       val allManager: Set[IRoleManager] = +oldPlayer getAllManager ()
       if (allManager != null) {
@@ -155,7 +155,7 @@ trait IIntegrationCompartment extends Compartment {
    * Fill the test lists with all Players from the IntegrationContainer.
    */
   private def fillTestLists(containers: ListBuffer[IntegrationContainer]): Unit = {
-    containers.foreach { cc =>
+    containers.filter(_.newManagerConnection).foreach { cc =>
       ModelElementLists.addElement(cc.getNewPlayerInstance())
     }
   }
