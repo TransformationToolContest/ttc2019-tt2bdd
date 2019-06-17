@@ -94,6 +94,7 @@ task preprocess(type: JavaExec) {
             "./src/main/jastadd/TruthTable.relast",
             "./src/main/jastadd/BDT.relast",
             "./src/main/jastadd/BDD.relast",
+            "./src/main/jastadd/PortOrder.relast",
             "--listClass=ArrayList",
             "--jastAddList=JastAddList",
             "--useJastAddNames",
@@ -102,7 +103,7 @@ task preprocess(type: JavaExec) {
             "--grammarName=./src/gen/jastadd/TTBDD"
     ]
 
-    inputs.files file("./src/main/jastadd/TruthTable.relast"), file("./src/main/jastadd/BDT.relast"), file("./src/main/jastadd/BDD.relast"), file("./libs/relast.jar")
+    inputs.files file("./src/main/jastadd/TruthTable.relast"), file("./src/main/jastadd/BDT.relast"), file("./src/main/jastadd/BDD.relast"), file("./src/main/jastadd/PortOrder.relast"), file("./libs/relast.jar")
     outputs.files file("./src/gen/jastadd/TTBDD.ast"), file("./src/gen/jastadd/TTBDD.jadd"), file("./src/gen/jastadd/TTBDDRefResolver.jadd"), file('./src/gen/jastadd/TTBDDResolverStubs.jrag')
 }
 

@@ -12,7 +12,7 @@ aspect PortOrder {
     return result;
   }
 
-  public PortOrder TruthTable.getHeuristicPortOrder() {
+  syn nta PortOrder TruthTable.getHeuristicPortOrder() {
     List<InputPort> inputPorts = inputPorts();
     List<OutputPort> outputPorts = outputPorts();
     int[][] matchingBits = new int[inputPorts.size()][];

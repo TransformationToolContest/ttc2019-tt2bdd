@@ -1,0 +1,4 @@
+PortOrder;
+// TruthTable : LocatedElement ::= /NaturalPortOrder:PortOrder/ /HeuristicPortOrder:PortOrder/ ;
+rel TruthTable.PortOrder -> PortOrder ;
+rel PortOrder.Port* -> InputPort;
