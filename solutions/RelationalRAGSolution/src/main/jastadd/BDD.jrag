@@ -23,6 +23,9 @@ aspect BDD {
 
     if (isLeaf) {
       BDD_Leaf result = new BDD_Leaf();
+      for (Row row: rows) {
+        result.addRow(row);
+      }
       for (Map.Entry<OutputPort, Boolean> entry: firstAssignment.entrySet()) {
         BDD_Assignment assignment = new BDD_Assignment();
         assignment.setValue(entry.getValue());

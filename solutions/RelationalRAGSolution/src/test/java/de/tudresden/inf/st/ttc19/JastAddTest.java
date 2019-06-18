@@ -163,6 +163,7 @@ class JastAddTest {
       writer.write(bdtBuilder.toString());
     }
 
+    Assertions.assertTrue(new Validator().validateBDT(tt, bdt));
     validate(inputFile.getAbsolutePath(), outputPath.toString());
   }
 

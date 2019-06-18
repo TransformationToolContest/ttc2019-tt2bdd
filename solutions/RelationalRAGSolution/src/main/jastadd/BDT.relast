@@ -17,3 +17,4 @@ rel BDT_OutputPort.Assignment* <-> BDT_Assignment.Port;
 rel BDT.TruthTable -> TruthTable;
 rel BDT_InputPort.TruthTableInputPort -> InputPort;
 rel BDT_OutputPort.TruthTableOutputPort -> OutputPort;
+rel BDT_Leaf.Row* -> Row;

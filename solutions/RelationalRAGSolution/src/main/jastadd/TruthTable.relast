@@ -1,5 +1,5 @@
 LocatedElement ::= <Location:String>;
-TruthTable : LocatedElement ::= <Name:String> Port:Port* Row:Row* ;
+TruthTable : LocatedElement ::= <Name:String> Port:Port* Row:Row*;
 
 abstract Port : LocatedElement ::= <Name:String>;
 InputPort : Port;

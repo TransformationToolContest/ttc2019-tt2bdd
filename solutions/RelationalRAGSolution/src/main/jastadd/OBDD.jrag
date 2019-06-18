@@ -55,6 +55,7 @@ aspect OBDD {
       }
     } else {
       BDD_Leaf terminal = terminalNodeMap(bdd).get(row.outputString());
+      terminal.addRow(row);
       if (value == null) {
         if (parent.getTreeForOne() != null || parent.getTreeForZero() != null) {
           logger.warn("found duplicate row");

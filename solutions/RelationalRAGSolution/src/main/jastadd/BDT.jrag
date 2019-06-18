@@ -67,6 +67,9 @@ aspect BDT {
 
     if (isLeaf) {
       BDT_Leaf result = new BDT_Leaf();
+      for (Row row: rows) {
+        result.addRow(row);
+      }
       for (Map.Entry<OutputPort, Boolean> entry: firstAssignment.entrySet()) {
         BDT_Assignment assignment = new BDT_Assignment();
         assignment.setValue(entry.getValue());

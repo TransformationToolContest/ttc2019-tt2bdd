@@ -4,111 +4,82 @@ aspect OBDT {
 
     BDT bdt = emptyBDT();
 
-    // select an input port
-    // Idea:
-    // 1. pick port order
     PortOrder portOrder = getPortOrder();
-    // 1b. create tree for first port in TT
-    BDT_Subtree firstSubtree = new BDT_Subtree();
-    firstSubtree.setPort(bdt.bdtInputPort(portOrder.getPortList().get(0)));
-    bdt.setTree(firstSubtree);
-    // 2. iterate over rows, create or get inner nodes until last port which will be a leaf
-    Port leafPort = portOrder.leafPort();
+
+    BDT_Subtree root = new BDT_Subtree();
+    root.setPort(bdt.bdtInputPort(portOrder.getPortList().get(0)));
+    bdt.setTree(root);
+
     for (Row row : getRowList()) {
-      BDT_Subtree current = firstSubtree;
-      Boolean value = row.valueFor(firstSubtree.getPort().getTruthTableInputPort());
-      for (InputPort port : portOrder.subTreePortList()) {
-        if (value!=null) {
-          current = current.getOrCreateSubtree(port, value);
-        } else {
-          current.getOrCreateSubtree(port, true);
-          current = current.getOrCreateSubtree(port, false);
-        }
-        value = row.valueFor(port);
-      }
-      // create leaf node
-      current.createLeafNode(leafPort, row);
+      insertRow(bdt, root, row, 0);
     }
 
     return bdt;
   }
 
-  //--- subTreePortList ---
-  syn List<InputPort> PortOrder.subTreePortList() = getPortList().subList(1, getPortList().size());
+  public void TruthTable.insertRow(BDT bdt, BDT_Subtree parent, Row row, int position) {
 
-  //--- leafPort ---
-  syn InputPort PortOrder.leafPort() = getPortList().get(getPortList().size() - 1);
+    InputPort port = getPortOrder().getPortList().get(position);
+    Boolean value = row.valueFor(port);
 
-  //--- getOrCreateSubtree ---
-  BDT_Subtree BDT_Subtree.getOrCreateSubtree(InputPort port, Boolean value) {
-    BDT_Subtree result = null;
-    if (value == null || value) {
-      if (getTreeForOne() != null) {
-        result = getTreeForOne().asSubtree();
-      } else {
-        result = new BDT_Subtree();
-        result.setPort(bdt().bdtInputPort(port));
-        setTreeForOne(result);
-      }
-    }
-    if (value == null || !value) {
-      if (getTreeForZero() != null) {
-        result = getTreeForZero().asSubtree();
-      } else {
-        result = new BDT_Subtree();
-        result.setPort(bdt().bdtInputPort(port));
-        setTreeForZero(result);
-      }
-    }
-    return result;
-  }
-
-  //--- createLeafNode ---
-  void BDT_Subtree.createLeafNode(Port lastPort, Row row) {
-    // assumption: treeForOne/Zero is always null at this point, so no need to check first
-    BDT_Leaf leaf = new BDT_Leaf();
-    for (Cell cell : row.getCellList()) {
-      if (!cell.getPort().isInput()) {
-        // add to list of assignments
-        BDT_Assignment assignment = new BDT_Assignment();
-        assignment.setPort(bdt().bdtOutputPort(cell.getPort()));
-        assignment.setValue(cell.getValue());
-        leaf.addAssignment(assignment);
-      }
-    }
-    Boolean value = row.valueFor(lastPort);
-    if (value == null){
-      setTreeForOne(leaf);
-      BDT_Leaf leaf2 = new BDT_Leaf();
-      for (Cell cell : row.getCellList()) {
-        if (!cell.getPort().isInput()) {
-          // add to list of assignments
-          BDT_Assignment assignment = new BDT_Assignment();
-          assignment.setPort(bdt().bdtOutputPort(cell.getPort()));
-          assignment.setValue(cell.getValue());
-          leaf2.addAssignment(assignment);
+    if (position < getPortOrder().getPortList().size() - 1) {
+      BDT_InputPort nextPort = bdt.bdtInputPort(getPortOrder().getPortList().get(position + 1));
+      if (value == null || value) {
+        BDT_Subtree result;
+        if (parent.getTreeForOne() != null) {
+          result = parent.getTreeForOne().asSubtree();
+        } else {
+          result = new BDT_Subtree();
+          result.setPort(nextPort);
+          parent.setTreeForOne(result);
         }
+        insertRow(bdt, result, row, position + 1);
       }
-      setTreeForZero(leaf2);
-    } else if (value) {
-      setTreeForOne(leaf);
+      if (value == null || !value) {
+        BDT_Subtree result;
+        if (parent.getTreeForZero() != null) {
+          result = parent.getTreeForZero().asSubtree();
+        } else {
+          result = new BDT_Subtree();
+          result.setPort(nextPort);
+          parent.setTreeForZero(result);
+        }
+        insertRow(bdt, result, row, position + 1);
+      }
     } else {
-      setTreeForZero(leaf);
+      if (value == null) {
+        if (parent.getTreeForOne() != null || parent.getTreeForZero() != null) {
+          logger.warn("found duplicate row");
+        }
+        parent.setTreeForOne(bdt.createTerminal(row));
+        parent.setTreeForZero(bdt.createTerminal(row));
+      } else if (value) {
+        if (parent.getTreeForOne() != null) {
+          logger.warn("found duplicate row");
+        }
+        parent.setTreeForOne(bdt.createTerminal(row));
+      } else {
+        if (parent.getTreeForZero() != null) {
+          logger.warn("found duplicate row");
+        }
+        parent.setTreeForZero(bdt.createTerminal(row));
+      }
     }
   }
 
-  /**
-   * Return a list of rows, for which the given port has the given value.
-   * Preformance-Note: This should be done using an iterator, and not manifesting it as a new list.
-   */
-  syn List<Row> TruthTable.getRowsFor(Port port, boolean value) {
-    List<Row> result = new ArrayList<>();
-    for (Row row : getRowList()) {
-      if (row.valueFor(port) == value) {
-        result.add(row);
+  BDT_Leaf BDT.createTerminal(Row row) {
+    BDT_Leaf leaf = new BDT_Leaf();
+    leaf.addRow(row);
+    for (Cell cell: row.getCellList()) {
+      Port cellPort = cell.getPort();
+      if (!cellPort.isInput()) {
+        BDT_Assignment a = new BDT_Assignment();
+        a.setPort(bdtOutputPort(cellPort.asOutput()));
+        a.setValue(cell.getValue());
+        leaf.addAssignment(a);
       }
     }
-    return result;
+    return leaf;
   }
 
 }

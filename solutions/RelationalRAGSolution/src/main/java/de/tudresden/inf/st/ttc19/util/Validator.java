@@ -26,12 +26,19 @@ public class Validator {
   }
 
   private boolean validateBDT(int iRow, Row ttRow, BDT_Tree tree) {
-    final JastAddList<BDT_Assignment> assignments = findAssignmentsInTree(ttRow, tree);
-    if (assignments.getNumChild() == 0) {
+    final BDT_Leaf leaf = findAssignmentsInTree(ttRow, tree);
+
+    // check if the row referenced by the leaf
+    if (!leaf.getRowList().contains(ttRow)) {
+      System.err.println(String.format("Row %d is not referenced by target leaf!", iRow));
+      return false;
+    }
+
+    if (leaf.getNumChild() == 0) {
       System.err.println(String.format("Row %d of TT did not produce any assignments in BDT", iRow));
     }
 
-    for (BDT_Assignment a : assignments) {
+    for (BDT_Assignment a : leaf.getAssignmentList()) {
       final String oPortName = a.getPort().getName();
       final boolean expectedResult = getExpectedResult(ttRow, oPortName);
       if (expectedResult != a.getValue()) {
@@ -45,10 +52,10 @@ public class Validator {
   }
 
 
-  private JastAddList<BDT_Assignment> findAssignmentsInTree(Row ttRow, BDT_Tree tree) {
+  private BDT_Leaf findAssignmentsInTree(Row ttRow, BDT_Tree tree) {
     if (tree instanceof BDT_Leaf) {
       BDT_Leaf leaf = (BDT_Leaf) tree;
-      return leaf.getAssignments();
+      return leaf;
     } else if (tree instanceof BDT_Subtree) {
       BDT_Subtree sb = (BDT_Subtree) tree;
       InputPort sbInputPort = sb.getPort().getTruthTableInputPort();
@@ -63,8 +70,8 @@ public class Validator {
        * (2019-05-23 Artur Boronat) If the row in the table does not require a
        * specific value for the port checked in this subtree, try both values.
        */
-      JastAddList<BDT_Assignment> zeroList = findAssignmentsInTree(ttRow, sb.getTreeForZero());
-      if (zeroList.getNumChild() == 0) {
+      BDT_Leaf zeroList = findAssignmentsInTree(ttRow, sb.getTreeForZero());
+      if (zeroList.getNumAssignment() == 0) {
         return findAssignmentsInTree(ttRow, sb.getTreeForOne());
       } else {
         return zeroList;
@@ -93,17 +100,23 @@ public class Validator {
   }
 
   private boolean validateBDD(int iRow, Row ttRow, BDD_Tree tree) {
-    final JastAddList<BDD_Assignment> assignments = findAssignmentsInGraph(ttRow, tree);
-    if (assignments.getNumChild() == 0) {
+    final BDD_Leaf leaf = findAssignmentsInGraph(ttRow, tree);
+    if (leaf.getNumAssignment() == 0) {
       System.err.println(String.format("Row %d of TT did not produce any assignments in BDD", iRow));
     }
 
-    for (BDD_Assignment a : assignments) {
+    // check if the row referenced by the leaf
+    if (!leaf.getRowList().contains(ttRow)) {
+      System.err.println(String.format("Row %d is not referenced by target leaf!", iRow));
+      return false;
+    }
+
+    for (BDD_Assignment a : leaf.getAssignmentList()) {
       final String oPortName = a.getPort().getName();
       final boolean expectedResult = getExpectedResult(ttRow, oPortName);
       if (expectedResult != a.getValue()) {
         System.err.println(String.format("Row %s of TT produces unexpected result %s in BDD", ttRow.rowString(), a.getValue()));
-        //return false;
+        return false;
       }
     }
 
@@ -120,10 +133,10 @@ public class Validator {
     throw new NoSuchElementException("Could not find output port " + oPortName + " in the cells of the truth table");
   }
 
-  private JastAddList<BDD_Assignment> findAssignmentsInGraph(Row ttRow, BDD_Tree tree) {
+  private BDD_Leaf findAssignmentsInGraph(Row ttRow, BDD_Tree tree) {
     if (tree instanceof BDD_Leaf) {
       BDD_Leaf leaf = (BDD_Leaf) tree;
-      return leaf.getAssignmentList();
+      return leaf;
     } else if (tree instanceof BDD_Subtree) {
       BDD_Subtree sb = (BDD_Subtree) tree;
       InputPort sbInputPort = sb.getPort().getTruthTableInputPort();
@@ -138,8 +151,8 @@ public class Validator {
        * (2019-05-23 Artur Boronat) If the row in the table does not require a
        * specific value for the port checked in this subtree, try both values.
        */
-      JastAddList<BDD_Assignment> zeroList = findAssignmentsInGraph(ttRow, sb.getTreeForZero());
-      if (zeroList.getNumChild() == 0) {
+      BDD_Leaf zeroList = findAssignmentsInGraph(ttRow, sb.getTreeForZero());
+      if (zeroList.getNumAssignment() == 0) {
         return findAssignmentsInGraph(ttRow, sb.getTreeForOne());
       } else {
         return zeroList;

@@ -19,7 +19,6 @@ aspect PortOrder {
     for (int inIndex = 0; inIndex < inputPorts.size(); ++inIndex) {
       matchingBits[inIndex] = new int[outputPorts.size()];
     }
-//    int[] inMatchingBits = new int[inputPorts.size()];
     /* iterate over rows
      * check for each input port, which output port it matches
      * count those matches and normalize to number of rows
@@ -33,29 +32,29 @@ aspect PortOrder {
           OutputPort out = outputPorts.get(outIndex);
           if (row.valueFor(out).equals(inValue)) {
             matchingBits[inIndex][outIndex] += 1;
-//            inMatchingBits[inIndex] += 1;
           }
         }
       }
     }
     int[] inMatchingBits = new int[inputPorts.size()];
     int halfNumRows = getNumRow() / 2;
-//    logger.debug("half: {}", halfNumRows);
     for (int inIndex = 0; inIndex < inputPorts.size(); ++inIndex) {
         for (int outIndex = 0; outIndex < outputPorts.size(); ++outIndex) {
           inMatchingBits[inIndex] -= Math.abs(matchingBits[inIndex][outIndex] - halfNumRows);
       }
-//      logger.debug("inMatchingBits[{}] = {}", inIndex, inMatchingBits[inIndex]);
     }
     int[] sortedIndices = java.util.stream.IntStream.range(0, inMatchingBits.length)
                             .boxed().sorted((i, j) -> Integer.compare(inMatchingBits[i], inMatchingBits[j]))
                             .mapToInt(ele -> ele).toArray();
-//    logger.debug("sorted: {}", Arrays.toString(sortedIndices));
     PortOrder result = new PortOrder();
     for (int portIndex : sortedIndices) {
       result.addPort(inputPorts.get(portIndex));
     }
     return result;
   }
+
+  syn List<InputPort> PortOrder.subTreePortList() = getPortList().subList(1, getPortList().size());
+
+  syn InputPort PortOrder.leafPort() = getPortList().get(getPortList().size() - 1);
 
 }
