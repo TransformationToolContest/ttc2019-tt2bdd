@@ -29,135 +29,6 @@ public class Driver {
 
   private static Logger logger = LogManager.getLogger(Driver.class);
 
-  private static abstract class SolutionHandler {
-    void computeSolution(TruthTable tt) {
-      stopwatch = System.nanoTime();
-      computeSolution0(tt);
-      stopwatch = System.nanoTime() - stopwatch;
-      report(BenchmarkPhase.Run);
-    }
-
-    protected abstract void computeSolution0(TruthTable tt);
-
-    void writeResult() throws IOException {
-      String result = getResultAsString();
-      String directoryName = "../../output/solutions/" + solutionName();
-      String fileName = directoryName + "/" +  ModelPath.substring(ModelPath.lastIndexOf('/') + 1) + ".xmi";
-      Files.createDirectories(Paths.get(directoryName));
-      try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(fileName))) {
-        writer.write(result);
-      }
-    }
-
-    protected abstract String getResultAsString();
-
-    protected abstract boolean validate(TruthTable tt);
-
-    protected abstract int decisionNodeCount();
-    protected abstract int assignmentNodeCount();
-
-    protected abstract String solutionName();
-  }
-
-  private static class BDTSolutionHandler extends SolutionHandler {
-
-    BDT lastResult;
-
-    @Override
-    protected void computeSolution0(TruthTable tt) {
-      switch (Computation) {
-        case "dynamic":
-          lastResult = tt.BDT();
-          break;
-        case "reduced":
-          logger.warn("reduced BDT is not yet supported, using ordered BDT!");
-        case "ordered":
-          lastResult = tt.OBDT();
-          break;
-        default:
-          System.err.println("Invalid computation type for BDT: " + Computation);
-      }
-    }
-
-    @Override
-    protected String getResultAsString() {
-      StringBuilder sb = new StringBuilder();
-      lastResult.writeBDT(sb);
-      return sb.toString();
-    }
-
-    @Override
-    protected boolean validate(TruthTable tt) {
-      return new Validator().validateBDT(tt, lastResult);
-    }
-
-    @Override
-    protected int decisionNodeCount() {
-      return lastResult.decisionNodeCount();
-    }
-
-
-    @Override
-    protected int assignmentNodeCount() {
-      return lastResult.assignmentNodeCount();
-    }
-
-    @Override
-    protected String solutionName() {
-      return "RelationalRAG-BDT-" + Computation + "-" + PortOrderType;
-    }
-  }
-
-  private static class BDDSolutionHandler extends SolutionHandler {
-
-    BDD lastResult;
-
-    @Override
-    protected void computeSolution0(TruthTable tt) {
-      switch (Computation) {
-        case "dynamic":
-          lastResult = tt.BDD();
-          break;
-        case "ordered":
-          lastResult = tt.fullOBDD();
-          break;
-        case "reduced":
-          lastResult = tt.reductionOBDD();
-          break;
-        default:
-          System.err.println("Invalid computation type for BDD: " + Computation);
-      }
-    }
-
-    @Override
-    protected String getResultAsString() {
-      StringBuilder sb = new StringBuilder();
-      lastResult.writeBDD(sb);
-      return sb.toString();
-    }
-
-    @Override
-    protected boolean validate(TruthTable tt) {
-      return new Validator().validateBDD(tt, lastResult);
-    }
-
-    @Override
-    protected int decisionNodeCount() {
-      return lastResult.decisionNodeCount();
-    }
-
-
-    @Override
-    protected int assignmentNodeCount() {
-      return lastResult.assignmentNodeCount();
-    }
-
-    @Override
-    protected String solutionName() {
-      return "RelationalRAG-BDD-" + Computation + "-" + PortOrderType;
-    }
-  }
-
   public static void main(String[] args) {
     if (args.length != 3) {
       System.err.println("Usage: java -jar Driver RESULT_TYPE COMPUTATION PORT_ORDER");
@@ -256,10 +127,178 @@ public class Driver {
     if (phase == BenchmarkPhase.Run) {
       System.out.println(String.format("%s;%s;%s;%s;DecisionNodes;%s", Tool, Model, RunIndex, phase.toString(), Integer.toString(solutionHandler.decisionNodeCount())));
       System.out.println(String.format("%s;%s;%s;%s;AssignmentNodes;%s", Tool, Model, RunIndex, phase.toString(), Integer.toString(solutionHandler.assignmentNodeCount())));
+      System.out.println(String.format("%s;%s;%s;%s;MinPath;%s", Tool, Model, RunIndex, phase.toString(), Integer.toString(solutionHandler.minPathLength())));
+      System.out.println(String.format("%s;%s;%s;%s;MaxPath;%s", Tool, Model, RunIndex, phase.toString(), Integer.toString(solutionHandler.maxPathLength())));
+      System.out.println(String.format("%s;%s;%s;%s;AvgPath;%s", Tool, Model, RunIndex, phase.toString(), Double.toString(solutionHandler.avgPathLength())));
+
     }
   }
 
   enum BenchmarkPhase {
     Initialization, Load, Run
+  }
+
+  private static abstract class SolutionHandler {
+    void computeSolution(TruthTable tt) {
+      stopwatch = System.nanoTime();
+      computeSolution0(tt);
+      stopwatch = System.nanoTime() - stopwatch;
+      report(BenchmarkPhase.Run);
+    }
+
+    protected abstract void computeSolution0(TruthTable tt);
+
+    void writeResult() throws IOException {
+      String result = getResultAsString();
+      String directoryName = "../../output/solutions/" + solutionName();
+      String fileName = directoryName + "/" + ModelPath.substring(ModelPath.lastIndexOf('/') + 1) + ".xmi";
+      Files.createDirectories(Paths.get(directoryName));
+      try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(fileName))) {
+        writer.write(result);
+      }
+    }
+
+    protected abstract String getResultAsString();
+
+    protected abstract boolean validate(TruthTable tt);
+
+    protected abstract int decisionNodeCount();
+
+    protected abstract int assignmentNodeCount();
+
+    protected abstract int minPathLength();
+
+    protected abstract int maxPathLength();
+
+    protected abstract double avgPathLength();
+
+    protected abstract String solutionName();
+  }
+
+  private static class BDTSolutionHandler extends SolutionHandler {
+
+    BDT lastResult;
+
+    @Override
+    protected void computeSolution0(TruthTable tt) {
+      switch (Computation) {
+        case "dynamic":
+          lastResult = tt.BDT();
+          break;
+        case "reduced":
+          logger.warn("reduced BDT is not yet supported, using ordered BDT!");
+        case "ordered":
+          lastResult = tt.OBDT();
+          break;
+        default:
+          System.err.println("Invalid computation type for BDT: " + Computation);
+      }
+    }
+
+    @Override
+    protected String getResultAsString() {
+      StringBuilder sb = new StringBuilder();
+      lastResult.writeBDT(sb);
+      return sb.toString();
+    }
+
+    @Override
+    protected boolean validate(TruthTable tt) {
+      return new Validator().validateBDT(tt, lastResult);
+    }
+
+    @Override
+    protected int decisionNodeCount() {
+      return lastResult.decisionNodeCount();
+    }
+
+    @Override
+    protected int assignmentNodeCount() {
+      return lastResult.assignmentNodeCount();
+    }
+
+    @Override
+    protected int minPathLength() {
+      return lastResult.minPathLength();
+    }
+
+    @Override
+    protected int maxPathLength() {
+      return lastResult.maxPathLength();
+    }
+
+    @Override
+    protected double avgPathLength() {
+      return lastResult.avgPathLength();
+    }
+
+    @Override
+    protected String solutionName() {
+      return "RelationalRAG-BDT-" + Computation + "-" + PortOrderType;
+    }
+  }
+
+  private static class BDDSolutionHandler extends SolutionHandler {
+
+    BDD lastResult;
+
+    @Override
+    protected void computeSolution0(TruthTable tt) {
+      switch (Computation) {
+        case "dynamic":
+          lastResult = tt.BDD();
+          break;
+        case "ordered":
+          lastResult = tt.fullOBDD();
+          break;
+        case "reduced":
+          lastResult = tt.reductionOBDD();
+          break;
+        default:
+          System.err.println("Invalid computation type for BDD: " + Computation);
+      }
+    }
+
+    @Override
+    protected String getResultAsString() {
+      StringBuilder sb = new StringBuilder();
+      lastResult.writeBDD(sb);
+      return sb.toString();
+    }
+
+    @Override
+    protected boolean validate(TruthTable tt) {
+      return new Validator().validateBDD(tt, lastResult);
+    }
+
+    @Override
+    protected int decisionNodeCount() {
+      return lastResult.decisionNodeCount();
+    }
+
+    @Override
+    protected int assignmentNodeCount() {
+      return lastResult.assignmentNodeCount();
+    }
+
+    @Override
+    protected int minPathLength() {
+      return lastResult.minPathLength();
+    }
+
+    @Override
+    protected int maxPathLength() {
+      return lastResult.maxPathLength();
+    }
+
+    @Override
+    protected double avgPathLength() {
+      return lastResult.avgPathLength();
+    }
+
+    @Override
+    protected String solutionName() {
+      return "RelationalRAG-BDD-" + Computation + "-" + PortOrderType;
+    }
   }
 }

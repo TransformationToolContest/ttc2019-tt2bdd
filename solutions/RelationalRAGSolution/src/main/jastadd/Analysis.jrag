@@ -1,5 +1,7 @@
 aspect Analysis {
 
+  // BDD metrics
+
   syn int BDD.decisionNodeCount() {
     int result = 0;
     for (BDD_Tree node: getTreeList()) {
@@ -14,6 +16,32 @@ aspect Analysis {
     return getNumTree() - decisionNodeCount();
   }
 
+  syn int BDD.maxPathLength() = getRoot().maxPathLength();
+  syn int BDD_Tree.maxPathLength();
+  eq BDD_Subtree.maxPathLength() {
+    int length1 = getTreeForZero().maxPathLength();
+    int length2 = getTreeForOne().maxPathLength();
+    return 1 + (length1>length2?length1:length2);
+  }
+  eq BDD_Leaf.maxPathLength() = 1;
+
+
+  syn int BDD.minPathLength() = getRoot().minPathLength();
+  syn int BDD_Tree.minPathLength();
+  eq BDD_Subtree.minPathLength() {
+    int length1 = getTreeForZero().minPathLength();
+    int length2 = getTreeForOne().minPathLength();
+    return 1 + (length1<length2?length1:length2);
+  }
+  eq BDD_Leaf.minPathLength() = 1;
+
+  syn double BDD.avgPathLength() = getRoot().avgPathLength();
+  syn double BDD_Tree.avgPathLength();
+  eq BDD_Subtree.avgPathLength() = 1 + .5d * (getTreeForZero().avgPathLength() + getTreeForOne().avgPathLength());
+  eq BDD_Leaf.avgPathLength() = 1;
+
+  // BDT metrics
+
   syn int BDT.decisionNodeCount() = getTree().decisionNodeCount();
 
   syn int BDT_Tree.decisionNodeCount();
@@ -26,4 +54,42 @@ aspect Analysis {
   eq BDT_Subtree.assignmentNodeCount() = getTreeForZero().assignmentNodeCount() + getTreeForOne().assignmentNodeCount();
   eq BDT_Leaf.assignmentNodeCount() = 1;
 
+  syn int BDT.maxPathLength() = getTree().maxPathLength();
+  syn int BDT_Tree.maxPathLength();
+  eq BDT_Subtree.maxPathLength() {
+    int length1 = getTreeForZero().maxPathLength();
+    int length2 = getTreeForOne().maxPathLength();
+    return 1 + (length1>length2?length1:length2);
+  }
+  eq BDT_Leaf.maxPathLength() = 1;
+
+
+  syn int BDT.minPathLength() = getTree().minPathLength();
+  syn int BDT_Tree.minPathLength();
+  eq BDT_Subtree.minPathLength() {
+    int length1 = getTreeForZero().minPathLength();
+    int length2 = getTreeForOne().minPathLength();
+    return 1 + (length1<length2?length1:length2);
+  }
+  eq BDT_Leaf.minPathLength() = 1;
+
+//   inh int BDT_Tree.pathLength();
+//   eq BDT.getTree().pathLength() = 1;
+//   eq BDT_Subtree.getTreeForZero().pathLength() = 1 + pathLength();
+//   eq BDT_Subtree.getTreeForOne().pathLength() = 1 + pathLength();
+//
+//   syn int BDT_Leaf.multiplicity() = getRowList().stream().mapToInt(Row::multiplicity).sum();
+//
+//   syn int Row.multiplicity() = 1 << (containingTruthTable().getNumPort() - getNumCell());
+//
+//   syn double BDT.averagePathLength() = getTree().sumPathLength() / Math.pow(2.0d,getNumPort());
+//
+//   syn long BDT_Tree.sumPathLength();
+//   eq BDT_Subtree.sumPathLength() = getTreeForZero().sumPathLength() + getTreeForOne().sumPathLength();
+//   eq BDT_Leaf.sumPathLength() = multiplicity() * pathLength();
+
+  syn double BDT.avgPathLength() = getTree().avgPathLength();
+  syn double BDT_Tree.avgPathLength();
+  eq BDT_Subtree.avgPathLength() = 1 + .5d * (getTreeForZero().avgPathLength() + getTreeForOne().avgPathLength());
+  eq BDT_Leaf.avgPathLength() = 1;
 }
