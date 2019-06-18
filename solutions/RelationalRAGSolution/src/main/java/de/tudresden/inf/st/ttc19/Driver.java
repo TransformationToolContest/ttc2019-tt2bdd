@@ -2,6 +2,7 @@ package de.tudresden.inf.st.ttc19;
 
 import de.tudresden.inf.st.ttc19.jastadd.model.BDD;
 import de.tudresden.inf.st.ttc19.jastadd.model.BDT;
+import de.tudresden.inf.st.ttc19.jastadd.model.PortOrder;
 import de.tudresden.inf.st.ttc19.jastadd.model.TruthTable;
 import de.tudresden.inf.st.ttc19.parser.TruthTableParser;
 import de.tudresden.inf.st.ttc19.util.Validator;
@@ -65,19 +66,7 @@ public class Driver {
     stopwatch = System.nanoTime();
 
     try (final FileInputStream stream = new FileInputStream(ModelPath)) {
-
       truthTable = new TruthTableParser().parse(stream);
-      switch (PortOrderType) {
-        case "natural":
-          truthTable.setPortOrder(truthTable.getNaturalPortOrder());
-          break;
-        case "heuristic":
-          truthTable.setPortOrder(truthTable.getHeuristicPortOrder());
-          break;
-        default:
-          System.err.println("Invalid port order type: " + PortOrderType);
-          System.exit(1);
-      }
     } catch (IOException e) {
       logger.error("Unable to load model from '" + ModelPath + "'", e);
     }
@@ -99,6 +88,19 @@ public class Driver {
   }
 
   private static void run() throws IOException {
+
+    switch (PortOrderType) {
+      case "natural":
+        truthTable.setPortOrder(truthTable.getNaturalPortOrder());
+        break;
+      case "heuristic":
+        truthTable.setPortOrder(truthTable.getHeuristicPortOrder());
+        break;
+      default:
+        System.err.println("Invalid port order type: " + PortOrderType);
+        System.exit(1);
+    }
+
     solutionHandler.computeSolution(truthTable);
     solutionHandler.writeResult();
   }
