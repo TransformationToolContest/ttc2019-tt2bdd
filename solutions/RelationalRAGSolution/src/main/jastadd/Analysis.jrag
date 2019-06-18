@@ -23,7 +23,7 @@ aspect Analysis {
     int length2 = getTreeForOne().maxPathLength();
     return 1 + (length1>length2?length1:length2);
   }
-  eq BDD_Leaf.maxPathLength() = 1;
+  eq BDD_Leaf.maxPathLength() = 0;
 
 
   syn int BDD.minPathLength() = getRoot().minPathLength();
@@ -33,12 +33,12 @@ aspect Analysis {
     int length2 = getTreeForOne().minPathLength();
     return 1 + (length1<length2?length1:length2);
   }
-  eq BDD_Leaf.minPathLength() = 1;
+  eq BDD_Leaf.minPathLength() = 0;
 
   syn double BDD.avgPathLength() = getRoot().avgPathLength();
   syn double BDD_Tree.avgPathLength();
   eq BDD_Subtree.avgPathLength() = 1 + .5d * (getTreeForZero().avgPathLength() + getTreeForOne().avgPathLength());
-  eq BDD_Leaf.avgPathLength() = 1;
+  eq BDD_Leaf.avgPathLength() = 0;
 
   // BDT metrics
 
@@ -61,7 +61,7 @@ aspect Analysis {
     int length2 = getTreeForOne().maxPathLength();
     return 1 + (length1>length2?length1:length2);
   }
-  eq BDT_Leaf.maxPathLength() = 1;
+  eq BDT_Leaf.maxPathLength() = 0;
 
 
   syn int BDT.minPathLength() = getTree().minPathLength();
@@ -71,7 +71,7 @@ aspect Analysis {
     int length2 = getTreeForOne().minPathLength();
     return 1 + (length1<length2?length1:length2);
   }
-  eq BDT_Leaf.minPathLength() = 1;
+  eq BDT_Leaf.minPathLength() = 0;
 
 //   inh int BDT_Tree.pathLength();
 //   eq BDT.getTree().pathLength() = 1;
@@ -91,5 +91,5 @@ aspect Analysis {
   syn double BDT.avgPathLength() = getTree().avgPathLength();
   syn double BDT_Tree.avgPathLength();
   eq BDT_Subtree.avgPathLength() = 1 + .5d * (getTreeForZero().avgPathLength() + getTreeForOne().avgPathLength());
-  eq BDT_Leaf.avgPathLength() = 1;
+  eq BDT_Leaf.avgPathLength() = 0;
 }
