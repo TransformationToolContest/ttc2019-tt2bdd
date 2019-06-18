@@ -135,15 +135,15 @@ class JastAddTest {
   @ParameterizedTest
   @MethodSource("truthTableFiles")
   void testOBDD(String pathName) throws IOException {
-    testBDD(pathName, "relrag-test-natural-OBDD", TruthTable::fullOBDD, TruthTable::getNaturalPortOrder);
-    testBDD(pathName, "relrag-test-heuristic-OBDD", TruthTable::fullOBDD, TruthTable::getHeuristicPortOrder);
+    testBDD(pathName, "relrag-test-natural-OBDD", TruthTable::OBDD, TruthTable::getNaturalPortOrder);
+    testBDD(pathName, "relrag-test-heuristic-OBDD", TruthTable::OBDD, TruthTable::getHeuristicPortOrder);
   }
 
   @ParameterizedTest
   @MethodSource("truthTableFiles")
   void testROBDD(String pathName) throws IOException {
-    testBDD(pathName, "relrag-test-natural-ROBDD", TruthTable::reductionOBDD, TruthTable::getNaturalPortOrder);
-    testBDD(pathName, "relrag-test-heuristic-ROBDD", TruthTable::reductionOBDD, TruthTable::getHeuristicPortOrder);
+    testBDD(pathName, "relrag-test-natural-ROBDD", TruthTable::reducedOBDD, TruthTable::getNaturalPortOrder);
+    testBDD(pathName, "relrag-test-heuristic-ROBDD", TruthTable::reducedOBDD, TruthTable::getHeuristicPortOrder);
   }
 
   private void testBDT(String pathName, String outputFileName,

@@ -59,7 +59,7 @@ public class TruthTableReader {
 //    tt.setPortOrder(tt.getHeuristicPortOrder());
     tt.setPortOrder(tt.getNaturalPortOrder());
 
-    tt.reductionOBDD();
+    tt.reducedOBDD();
     BDD bdd = tt.BDD();
     logger.info("BDD has {} nodes.", bdd.getNumTree());
   }

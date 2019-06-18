@@ -17,7 +17,7 @@ aspect OBDT {
     return bdt;
   }
 
-  public void TruthTable.insertRow(BDT bdt, BDT_Subtree parent, Row row, int position) {
+  private void TruthTable.insertRow(BDT bdt, BDT_Subtree parent, Row row, int position) {
 
     InputPort port = getPortOrder().getPortList().get(position);
     Boolean value = row.valueFor(port);

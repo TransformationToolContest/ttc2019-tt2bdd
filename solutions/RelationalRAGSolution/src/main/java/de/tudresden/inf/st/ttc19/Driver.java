@@ -251,10 +251,10 @@ public class Driver {
           lastResult = tt.BDD();
           break;
         case "ordered":
-          lastResult = tt.fullOBDD();
+          lastResult = tt.OBDD();
           break;
         case "reduced":
-          lastResult = tt.reductionOBDD();
+          lastResult = tt.reducedOBDD();
           break;
         default:
           System.err.println("Invalid computation type for BDD: " + Computation);

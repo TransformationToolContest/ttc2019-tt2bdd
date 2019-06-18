@@ -1,11 +1,14 @@
 aspect OBDD {
 
-  syn BDD TruthTable.fullOBDD() {
+  syn BDD TruthTable.OBDD() {
+    return OBDDImpl();
+  }
+
+  private BDD TruthTable.OBDDImpl() {
+
     BDD bdd = emptyBDD();
 
-    for (BDD_Leaf terminal: terminalNodeMap(bdd).values()) {
-      bdd.addTree(terminal);
-    }
+    Map<String, BDD_Leaf> terminalNodeMap = terminalNodeMap(bdd);
 
     PortOrder portOrder = getPortOrder();
 
@@ -16,13 +19,13 @@ aspect OBDD {
 
     Port leafPort = portOrder.leafPort();
     for (Row row : getRowList()) {
-      insertRow(bdd, root, row, 0);
+      insertRow(bdd, terminalNodeMap, root, row, 0);
     }
 
     return bdd;
   }
 
-  public void TruthTable.insertRow(BDD bdd, BDD_Subtree parent, Row row, int position) {
+  private void TruthTable.insertRow(BDD bdd, Map<String, BDD_Leaf> terminalNodeMap, BDD_Subtree parent, Row row, int position) {
 
     InputPort port = getPortOrder().getPortList().get(position);
     Boolean value = row.valueFor(port);
@@ -39,7 +42,7 @@ aspect OBDD {
           parent.setTreeForOne(result);
           bdd.addTree(result);
         }
-        insertRow(bdd, result, row, position + 1);
+        insertRow(bdd, terminalNodeMap, result, row, position + 1);
       }
       if (value == null || !value) {
         BDD_Subtree result;
@@ -51,10 +54,10 @@ aspect OBDD {
           parent.setTreeForZero(result);
           bdd.addTree(result);
         }
-        insertRow(bdd, result, row, position + 1);
+        insertRow(bdd, terminalNodeMap, result, row, position + 1);
       }
     } else {
-      BDD_Leaf terminal = terminalNodeMap(bdd).get(row.outputString());
+      BDD_Leaf terminal = terminalNodeMap.get(row.outputString());
       terminal.addRow(row);
       if (value == null) {
         if (parent.getTreeForOne() != null || parent.getTreeForZero() != null) {
@@ -76,7 +79,7 @@ aspect OBDD {
     }
   }
 
-  syn Map<String, BDD_Leaf> TruthTable.terminalNodeMap(BDD bdd) {
+  private Map<String, BDD_Leaf> TruthTable.terminalNodeMap(BDD bdd) {
     Map<String, BDD_Leaf> result = new HashMap<>(getNumRow());
     for (Row row: getRowList()) {
       String outputString = row.outputString();
@@ -89,6 +92,7 @@ aspect OBDD {
             a.setPort(bdd.bddOutputPort(cellPort.asOutput()));
             a.setValue(cell.getValue());
             terminal.addAssignment(a);
+            bdd.addTree(terminal);
           }
         }
         result.put(row.outputString(), terminal);

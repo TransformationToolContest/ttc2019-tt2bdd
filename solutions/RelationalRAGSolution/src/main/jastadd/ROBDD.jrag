@@ -1,7 +1,7 @@
 aspect ROBDD {
 
-  syn BDD TruthTable.reductionOBDD() {
-    BDD bdd = fullOBDD();
+  syn BDD TruthTable.reducedOBDD() {
+    BDD bdd = OBDDImpl();
     bdd.reduce();
     return bdd;
   }
