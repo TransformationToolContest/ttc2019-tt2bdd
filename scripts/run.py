@@ -52,9 +52,9 @@ def benchmark(conf):
         shutil.copy(header, result_file)
         # os.remove(result_file)
     os.environ['Runs'] = str(conf.Runs)
+    failed_tools = set()
     for r in range(0, conf.Runs):
         os.environ['RunIndex'] = str(r)
-        failed_tools = set()
         print("## Run {}".format(r))
         for tool in conf.Tools:
             config = ConfigParser.ConfigParser()
