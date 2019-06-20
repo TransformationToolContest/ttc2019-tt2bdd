@@ -11,6 +11,7 @@ import ttc2019.ProcessMode.ProcessMode
   *   - `bddFileName` references the name (i.e. path) of the file where the generated binary
   *     decision diagram should be stored
   *   - `ttEcoreName` references the path to the truth table EMF model
+  *   - `processMode` sets the strategy to use for generating the binary decision tree / diagram
   */
 case class TTCProcessConfiguration(ttFileName: String, bddFileName: String, ttEcoreName: String = "TT.ecore", processMode: ProcessMode)
 
