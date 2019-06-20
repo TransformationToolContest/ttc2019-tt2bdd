@@ -33,16 +33,16 @@ object CompleteTTCProcess extends App {
    */
   def initialize(processConfig: TTCProcessConfiguration): Unit = {
     val sync = true
-    bdt = false
+    bdt = processConfig.processMode == ProcessMode.BDT || processConfig.processMode == ProcessMode.BDTU
     loader = new TTCLoader
     validator = new Launcher
     if (sync) {
       ctts = new CreateTruthTableSync()
       if (bdt) {
-        integrate = BdtSyncIntegration
+        integrate = if (processConfig.processMode == ProcessMode.BDT) BdtSyncIntegration else BdtSyncIntegrationWithoutOrder
         writeOut = WriteSyncBdtOutput
       } else {
-        integrate = BddSyncIntegration
+        integrate = if (processConfig.processMode == ProcessMode.BDD) BddSyncIntegration else BddSyncIntegrationWithoutOrder
         writeOut = WriteSyncBddOutput
       }
     } else {

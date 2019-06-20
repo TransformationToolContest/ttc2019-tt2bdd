@@ -1,4 +1,4 @@
-import ttc2019.{CompleteTTCProcess, MetricMeasurement, TTCProcessConfiguration}
+import ttc2019.{CompleteTTCProcess, MetricMeasurement, ProcessMode, TTCProcessConfiguration}
 import ttc2019.benchmark.{Benchmark, BenchmarkInfo, ReportingUtility}
 
 import scala.reflect.io.File
@@ -12,10 +12,18 @@ object MainApp extends App {
   val Load = "Load"
   val Run = "Run"
 
+  var processMode = ProcessMode.BDT
+  if (args.length >= 1) {
+    args.apply(1) match {
+      case "bdt" => processMode = ProcessMode.BDT
+      case "bdd" => processMode = ProcessMode.BDD
+      case "bdt-u" => processMode = ProcessMode.BDTU
+      case "bdd-u" => processMode = ProcessMode.BDDU
+    }
+  }
+
   private val modelPath = sys.env.get("ModelPath")
   private val benchmarkInfo = fetchBenchmarkInfo()
-
-  println()
 
   if (modelPath.isEmpty) {
     sys.error("Expected model to convert in the ModelPath environment variable")
@@ -24,7 +32,7 @@ object MainApp extends App {
   modelPath.foreach(modelPath => {
     val ttModelFile = File(modelPath)
     val bddModelFile = buildBddModelFile(ttModelFile)
-    val processConfig = TTCProcessConfiguration(ttFileName = modelPath, bddFileName = bddModelFile.jfile.getCanonicalPath)
+    val processConfig = TTCProcessConfiguration(ttFileName = modelPath, bddFileName = bddModelFile.jfile.getCanonicalPath, processMode = processMode)
 
     val benchmarkingService: Benchmark = new Benchmark
     var benchmarkDuration: Long = -1

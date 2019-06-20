@@ -1,5 +1,7 @@
 package ttc2019
 
+import ttc2019.ProcessMode.ProcessMode
+
 /** The `ProcessConfiguration` contains all necessary information to setup an entire transformation
   * workflow as specified by the [[CompleteTTCProcess]].
   *
@@ -10,5 +12,5 @@ package ttc2019
   *     decision diagram should be stored
   *   - `ttEcoreName` references the path to the truth table EMF model
   */
-case class TTCProcessConfiguration(ttFileName: String, bddFileName: String, ttEcoreName: String = "TT.ecore")
+case class TTCProcessConfiguration(ttFileName: String, bddFileName: String, ttEcoreName: String = "TT.ecore", processMode: ProcessMode)
 
