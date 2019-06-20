@@ -90,7 +90,7 @@ def benchmark(conf):
                     # if a tool failed running some model we remove that model as well as all "stronger" models
                     failed_model_idx = conf.Models.index(model)
                     available_models[tool] = conf.Models[ : failed_model_idx]
-                    print('# Ignoring models {models} for tool {tool} in the future'.format(models=conf.Models[failed_model_idx : ], tool=tool))
+                    print('# Ignoring models {models} for tool {tool} in the future'.format(models=conf.Models[ : failed_model_idx], tool=tool))
 
 
 def clean_dir(*path):
