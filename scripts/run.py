@@ -73,6 +73,10 @@ def benchmark(conf):
                             file.write(output)
                     except CalledProcessError as e:
                         print("Program exited with error")
+                        print('stdout:')
+                        print(e.output)
+                        print('stderr:')
+                        print(e.stderr)
                     except subprocess.TimeoutExpired as e:
                         print("Program reached the timeout set ({0} seconds). The command we executed was '{1}'".format(e.timeout, e.cmd))
                         failed_tools.add(tool)
