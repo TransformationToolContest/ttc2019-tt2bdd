@@ -9,17 +9,12 @@ import org.rosi_project.model_management.sync.roles.IRoleManager
 import org.rosi_project.model_management.sync.helper.IntegrationContainer
 import scala.collection.mutable.ListBuffer
 import org.rosi_project.model_management.core.ModelElementLists
+import util.control.Breaks._
 
-object BddSyncIntegration extends IIntegrationCompartment {
+object BddSyncIntegrationWithoutOrder extends IIntegrationCompartment {
 
   private var leafNodes: Map[Set[String], sync.bddg.Leaf] = Map.empty
   private var createdBdds: Set[sync.bddg.BDD] = Set.empty
-
-  /*def printManager(): Unit = {
-    ModelElementLists.getElementsFromType("sync.bddg.Leaf").asInstanceOf[List[sync.bddg.Leaf]].foreach(obj => {
-      +obj printAllManager ()
-    })
-  }*/
 
   def getRelationalIntegratorsForClassName(classname: Object): IIntegrator = {
     return null
@@ -41,7 +36,7 @@ object BddSyncIntegration extends IIntegrationCompartment {
 
   def finalEditFunction(): Unit = {
     var ttNode: sync.tt.TruthTable = null
-    
+
     createdBdds.foreach(bddNode => {
       val oppBDD: PlayerSync = +bddNode getRelatedClassFromName ("TruthTable")
       if (oppBDD != null) {
@@ -53,22 +48,18 @@ object BddSyncIntegration extends IIntegrationCompartment {
       bddNode.setRoot(tree)
       connectTargetElementWithSourceElementes(tree, rows.asInstanceOf[Set[PlayerSync]])
     })
-
-    //printManager()
   }
 
   def createOutputLookSubtree(bdd: sync.bddg.BDD, truthTable: sync.tt.TruthTable, rows: Set[sync.tt.Row], finishPorts: Set[sync.tt.Port]): sync.bddg.Tree = {
     var numberTrue = -1
     var numberFalse = -1
-    var max = 0
     var portTT: sync.tt.Port = null
     var cellis: Set[sync.tt.Cell] = Set.empty
 
-    //find next inputport for subtree
-    truthTable.getPorts().filter(p => p.isInstanceOf[sync.tt.InputPort] && !finishPorts.contains(p)).foreach(ttip => {
-      val newCells = ttip.getCells().filter(c => rows.contains(c.getOwner()))
-      //println("Looking Port: " + ttip.getName() + " S: " + newCells.size)
-      if (newCells.size >= max) {
+    breakable {
+      //find next inputport for subtree
+      truthTable.getPorts().filter(p => p.isInstanceOf[sync.tt.InputPort] && !finishPorts.contains(p)).foreach(ttip => {
+        val newCells = ttip.getCells().filter(c => rows.contains(c.getOwner()))
         var setTrue: Set[Set[String]] = Set.empty
         var setFalse: Set[Set[String]] = Set.empty
         newCells.foreach(cell => {
@@ -86,18 +77,13 @@ object BddSyncIntegration extends IIntegrationCompartment {
             setFalse += setPortValue
           }
         })
-        val p1 = setTrue.size
-        val p2 = setFalse.size
-        if (p1 + p2 < numberFalse + numberTrue && p1 > 0 && p2 > 0 || numberTrue < 0) {
-          numberTrue = p1
-          numberFalse = p2
-          cellis = newCells
-          portTT = ttip
-          max = newCells.size
-        }
-        //println("############################## " + newCells.size + " || T: " + p1 + " F: " + p2)
-      }
-    })
+        numberTrue = setTrue.size
+        numberFalse = setFalse.size
+        cellis = newCells
+        portTT = ttip
+        break
+      })
+    }
 
     //println("Used Port: " + portTT)
     var portBDD: sync.bddg.InputPort = null
