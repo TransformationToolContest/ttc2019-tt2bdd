@@ -15,6 +15,7 @@ import org.eclipse.m2m.atl.emftvm.util.ModuleResolver;
 import org.eclipse.m2m.atl.emftvm.util.TimingData;
 
 import ttc2019.metamodels.bdd.BDDPackage;
+import ttc2019.metamodels.bddg.BDDGPackage;
 import ttc2019.metamodels.tt.TTPackage;
 import ttc2019.metamodels.tt.TruthTable;
 
@@ -42,6 +43,10 @@ public class Solution {
           Metamodel bddMetamodel = EmftvmFactory.eINSTANCE.createMetamodel();
           bddMetamodel.setResource(BDDPackage.eINSTANCE.getTree().eResource());
           env.registerMetaModel("BDD", bddMetamodel);
+
+          Metamodel bddgMetamodel = EmftvmFactory.eINSTANCE.createMetamodel();
+          bddgMetamodel.setResource(BDDGPackage.eINSTANCE.getTree().eResource());
+          env.registerMetaModel("BDDG", bddgMetamodel);
 
           // loading models
           rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("emftvm", new EMFTVMResourceFactoryImpl());

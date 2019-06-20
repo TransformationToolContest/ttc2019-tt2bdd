@@ -30,17 +30,12 @@ The `config` directory contains the configuration for the scripts:
 * `config.json` -- configuration for the model generation and the benchmark
   * *Note:* the timeout as set in the benchmark configuration (default: 6000 seconds) applies to the gross cumulative runtime of the tool for a given changeset and update sequences. This also includes e.g. Initialization time which is not required by the benchmark framework to be measured.
     Timeout is only applied to the solutions' run phase (see `-m` for `run.py`), so it is not applied to e.g. the build phase (see `-b` for `run.py`).
-* `reporting.json` -- configuration for the visualization
 
 ### Running the benchmark
 
 The script runs the benchmark for the given number of runs, for the specified tools and input models.
 
 The benchmark results are stored in a CSV file. The header for the CSV file is stored in the `output/header.csv` file.
-
-## Reporting and visualization
-
-Make sure you read the `README.md` file in the `reporting` directory and install all the requirements for R.
 
 ## Implementing the benchmark for a new tool
 

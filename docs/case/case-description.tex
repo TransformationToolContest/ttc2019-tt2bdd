@@ -3,7 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
-\title{The TTC 2019 TT2BDD Case}
+\title{The TTC 2019 TT2BDD Case (v1.1)}
 \author{
   Antonio García-Domínguez\\
   Aston University\\
@@ -157,8 +157,15 @@ $B$ are 0, then $S$ should be 0.
 \begin{figure}
   \centering
   \includegraphics[width=.9\textwidth]{bdd}
-  \caption{Class diagram for the output Binary Decision Diagram metamodel}
+  \caption{Class diagram for the output Binary Decision Diagram metamodel, in the original tree-based version.}
   \label{fig:bdd-metamodel}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.9\textwidth]{bddGraph}
+  \caption{Changed classes in the graph-based variant of the Binary Decision Diagram metamodel (2019-05-26). Omitted clases remain the same.}
+  \label{fig:bddg-metamodel}
 \end{figure}
 
 \begin{figure}
@@ -254,10 +261,18 @@ $B$ are 0, then $S$ should be 0.
   \label{fig:bdd-equivalent}
 \end{figure}
 
-The output metamodel is shown on Figure~\ref{fig:bdd-metamodel}. The \class{BDD}
-class is the root of the model, and contains the root of the \class{Tree}
-and a collection of \class{Port}s. Similarly to the Truth Tables metamodel,
-there are \class{Input\-Port}s and \class{Output\-Port}s.
+The original output metamodel from the ATL Zoo version is shown on
+Figure~\ref{fig:bdd-metamodel}. The \class{BDD} class is the root of the model,
+and contains the root of the \class{Tree} and a collection of \class{Port}s.
+Similarly to the Truth Tables metamodel, there are \class{Input\-Port}s and
+\class{Output\-Port}s.
+
+Figure~\ref{fig:bddg-metamodel} shows the changes introduced into a revised
+version of the original metamodel, which allow the \class{BDD} to be a rooted
+acyclic graph and not just a tree. This would allow the \class{BDD} to reuse
+common subtrees, which would produce more compact circuits in some situations.
+The case provides both versions as separate metamodels: solution implementers
+are free to choose either version.
 
 \class{Tree} is the common superclass for any node in the tree. Inner nodes
 check the value of an \class{Input\-Port}: if it is a false value, evaluation
@@ -342,7 +357,8 @@ The \file{models} folder includes two additional tools, which can be run with
 \item \file{validator.jar} can validate if a BDD model is equivalent to a source
   truth table model, by evaluating all the rows in the TT model through the BDD
   and comparing the values of the \class{Output\-Port}s. This tool is required
-  to check that your transformation is correct.
+  to check that your transformation is correct. The tool accepts both tree-based
+  and graph-based BDD models.
 \end{itemize}
 
 Solutions are free to focus on any specific quality attribute of the
@@ -438,7 +454,9 @@ If all prerequisites are fulfilled, the benchmark can be run using Python with
 the command \file{python scripts/run.py}. Additional options can be queried
 using the option \file{{-}{-}help}. The benchmark framework can be configured
 through the \file{config/config.json} file: this includes the input models to be
-evaluated (some of which have been excluded by default due to their high cost with the sample solution), the names of the tools to be run, the number of runs per tool+model, and the timeout for each command in milliseconds.
+evaluated (some of which have been excluded by default due to their high cost
+with the sample solution), the names of the tools to be run, the number of runs
+per tool+model, and the timeout for each command in milliseconds.
 
 \section{Evaluation}
 \label{sec:evaluation}

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import ttc2019.metamodels.bdd.BDDPackage;
+import ttc2019.metamodels.bddg.BDDGPackage;
 import ttc2019.metamodels.tt.TTPackage;
 import ttc2019.metamodels.tt.TruthTable;
 
@@ -67,6 +68,7 @@ public class Driver {
 		repository.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 		repository.getPackageRegistry().put(TTPackage.eINSTANCE.getNsURI(), TTPackage.eINSTANCE);
 		repository.getPackageRegistry().put(BDDPackage.eINSTANCE.getNsURI(), BDDPackage.eINSTANCE);
+		repository.getPackageRegistry().put(BDDGPackage.eINSTANCE.getNsURI(), BDDGPackage.eINSTANCE);
 
 		Model = System.getenv("Model");
 		ModelPath = System.getenv("ModelPath");
@@ -81,7 +83,10 @@ public class Driver {
 
 	static void run() throws IOException {
 		stopwatch = System.nanoTime();
-		solution.run("TT2BDD");
+
+		final String moduleName = "EMFSolutionATL".equals(Tool) ? "TT2BDD" : "TT2BDDGraph";
+		solution.run(moduleName);
+
 		stopwatch = System.nanoTime() - stopwatch;
 		report(BenchmarkPhase.Run);
 		solution.save();

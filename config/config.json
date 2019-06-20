@@ -1,5 +1,5 @@
 {
-    "Tools": ["EMFSolutionATL"],
+    "Tools": ["EMFSolutionATL", "EMFSolutionATLGraph"],
     "Models": [
         "Test.ttmodel",
         "GeneratedI4O2Seed42.ttmodel",
