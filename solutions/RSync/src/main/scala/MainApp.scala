@@ -15,6 +15,8 @@ object MainApp extends App {
   private val modelPath = sys.env.get("ModelPath")
   private val benchmarkInfo = fetchBenchmarkInfo()
 
+  println()
+
   if (modelPath.isEmpty) {
     sys.error("Expected model to convert in the ModelPath environment variable")
   }
@@ -44,7 +46,11 @@ object MainApp extends App {
     benchmarkingService.start()
     CompleteTTCProcess.run()
     benchmarkDuration = benchmarkingService.stop()
-    reportingService.report(benchmarkInfo, Run, benchmarkDuration, Some(MetricMeasurement.printMetricsBDT()))
+    if (CompleteTTCProcess.bdt) {
+      reportingService.report(benchmarkInfo, Run, benchmarkDuration, Some(MetricMeasurement.printMetricsBDT()))
+    } else {
+      reportingService.report(benchmarkInfo, Run, benchmarkDuration, Some(MetricMeasurement.printMetricsBDD()))
+    }
   })
 
   /** Retrieves information about the benchmark that should be executed.

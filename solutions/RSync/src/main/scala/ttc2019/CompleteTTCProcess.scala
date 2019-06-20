@@ -24,6 +24,7 @@ object CompleteTTCProcess extends App {
   var validator: Launcher = _
   var saver: TruthTable = _
   var processConfig: TTCProcessConfiguration = _
+  var bdt: Boolean = _
 
   /**
    * Performs necessary setup instructions such as loading the ecore meta-model.
@@ -32,7 +33,7 @@ object CompleteTTCProcess extends App {
    */
   def initialize(processConfig: TTCProcessConfiguration): Unit = {
     val sync = true
-    val bdt = false
+    bdt = false
     loader = new TTCLoader
     validator = new Launcher
     if (sync) {
