@@ -91,6 +91,7 @@ def benchmark(conf):
                     failed_model_idx = conf.Models.index(model)
                     available_models[tool] = conf.Models[ : failed_model_idx]
                     print('# Ignoring models {models} for tool {tool} in the future'.format(models=conf.Models[failed_model_idx : ], tool=tool))
+                    break
 
 
 def clean_dir(*path):
