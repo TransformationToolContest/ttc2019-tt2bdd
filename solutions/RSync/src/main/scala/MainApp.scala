@@ -52,7 +52,7 @@ object MainApp extends App {
   private def fetchBenchmarkInfo(): BenchmarkInfo = {
     val tool = sys.env.getOrElse("Tool", "")
     val model = sys.env.getOrElse("Model", "")
-    val runIdx = Integer.valueOf(sys.env.getOrElse("RunIndex", ""))
+    val runIdx: Integer = Integer.valueOf(sys.env.getOrElse("RunIndex", "0"))
     BenchmarkInfo(tool, model, runIdx)
   }
 

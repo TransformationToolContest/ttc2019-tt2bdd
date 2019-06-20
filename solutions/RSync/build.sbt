@@ -4,9 +4,9 @@ val scrollVersion = "1.8"
 
 mainClass in (Compile, run) := Some("MainApp")
 
-lazy val modelmanagementprovider = (project in file(".")).
+lazy val ttcrsync = (project in file(".")).
   settings(
-    name := "ModelManagementProvider",
+    name := "TTCRSyncApproach",
     organization := "de.tu-dresden.inf.st",
     version := "0.1",
     scalaVersion := "2.12.6",
