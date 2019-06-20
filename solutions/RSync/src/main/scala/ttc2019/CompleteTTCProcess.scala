@@ -5,6 +5,9 @@ import org.rosi_project.model_management.core.SynchronizationCompartment
 import org.rosi_project.model_management.core.RsumCompartment
 import org.rosi_project.model_management.core.ModelElementLists
 import org.rosi_project.model_management.sync.IIntegrationCompartment
+import ttc2019.metamodels.tt.TruthTable
+import ttc2019.worksync._
+import ttc2019.worksum._
 
 /** The `CompleteTTCProcess` executes the entire transformation workflow. Its methods are inspired
   * by the different phases that the benchmark is expecting.
@@ -18,7 +21,7 @@ object CompleteTTCProcess extends App {
   var writeOut: IWriteOutputModel = _
   var loader: TTCLoader = _
   var validator: Validator = _
-  var saver: TTCEmfSaver = _
+  var saver: TruthTable = _
   var processConfig: TTCProcessConfiguration = _
 
   /** Performs necessary setup instructions such as loading the ecore meta-model.
@@ -39,12 +42,12 @@ object CompleteTTCProcess extends App {
       writeOut = WriteSumBdtOutput
     }
     this.processConfig = processConfig
-    saver = loader.loadEcore(processConfig.ttEcoreName, processConfig.ttFileName)
+    saver = loader.javaTTfromEcore(processConfig.ttEcoreName, processConfig.ttFileName)
   }
 
   /** Loads the truth table.
     */
-  def load(): Unit = loader.createTruthTableInstance(saver, ctts)
+  def load(): Unit = loader.createTruthTableRSYNCInstance(saver, ctts)
 
   /** Transforms the truth table instance to a binary decision diagram.
     */

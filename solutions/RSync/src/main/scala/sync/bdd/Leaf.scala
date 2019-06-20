@@ -6,19 +6,25 @@ class Leaf(protected var assignments: Set[Assignment], t_OwnerSubtreeForOne: Sub
     assignments
   }
 
-  def setAssignments(a: Set[Assignment]): Unit = {
-    assignments = a
-    +this changeAssignments ()
-  }
-
   def addAssignments(a: Assignment): Unit = {
     assignments += a
-    +this changeAssignments ()
+    +this addAssignments ()
+  }
+
+  def removeAssignments(a: Assignment): Unit = {
+    assignments -= a
+    +this removeAssignments ()
   }
 
   override def toString(): String = {
-    this.getStringDeep() + "Leaf:" + " assignments=" + assignments
+    "Leaf:"
   }
+  
+  def getAvgPath(): Double = 0.0
+  
+  def getMinPath(): Int = 0
+  
+  def getMaxPath(): Int = 0
 
 }
 

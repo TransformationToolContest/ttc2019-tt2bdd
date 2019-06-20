@@ -3,12 +3,15 @@ package ttc2019
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.emf.ecore.{ EObject, EPackage }
+import org.eclipse.emf.ecore.xmi.XMLResource
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import scala.collection.JavaConverters._
 import java.io.File
 import org.eclipse.emf.ecore.EStructuralFeature
+import ttc2019.metamodels.create._
+import ttc2019.metamodels.tt._
 
 /**
  * Simple service to load an ECORE meta and instance model from a file.
@@ -23,110 +26,119 @@ class TTCLoader {
    * @param path where to find the model
    * @return the model described by the XML
    */
-  def loadEcore(pathMeta: String, pathInstance: String): TTCEmfSaver = {
+  def javaLoadEcore(pathMeta: String, pathInstance: String): EObject = {
     require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
-    
-    val resourceSet = new ResourceSetImpl()
+
+    val loader = new LoadEObject
+    return loader.load(pathMeta, pathInstance)
+  }
+  
+  def javaSimpleLoadEcore(pathMeta: String, pathInstance: String): EObject = {
+    require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
+
+    val loader = new LoadEObject
+    return loader.loadSimple(pathMeta, pathInstance)
+  }
+  
+  def javaTTfromEcore(pathMeta: String, pathInstance: String): TruthTable = {
+    require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
+
+    val loader = new LoadEObject
+    return loader.loadTT(pathMeta, pathInstance)
+  }
+  
+  def scalaLoadEcore(pathMeta: String, pathInstance: String): EObject = {
+    require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
+
+    val resourceSet = new ResourceSetImpl();
+    /*resourceSet.getLoadOptions().put(XMLResource.OPTION_DEFER_ATTACHMENT, true.asInstanceOf[Object]);
+		resourceSet.getLoadOptions().put(XMLResource.OPTION_USE_DEPRECATED_METHODS, true.asInstanceOf[Object]);
+    resourceSet.getLoadOptions().put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, true.asInstanceOf[Object])
+  	resourceSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("ecore", new EcoreResourceFactoryImpl())
+    resourceSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("ttmodel", new IntrinsicIDXMIResourceFactoryImpl())*/
     resourceSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl())
 
-    val res = resourceSet.getResource(URI.createFileURI(pathMeta), true)
+    
+    val ressourceMeta = resourceSet.getResource(URI.createFileURI(pathMeta), true)
+    val packageMeta = ressourceMeta.getContents().get(0)
 
-    require(null != res)
-    require(!res.getContents.isEmpty)
+    require(null != ressourceMeta)
+    require(!ressourceMeta.getContents.isEmpty)
+    
+    resourceSet.getPackageRegistry().put("https://www.transformation-tool-contest.eu/2019/tt", packageMeta);
+    val ressourceModel = resourceSet.getResource(URI.createURI(pathInstance), true);
 
-    val univEPackage = res.getContents().get(0);
-    resourceSet.getPackageRegistry().put("https://www.transformation-tool-contest.eu/2019/tt", univEPackage);
-    val myModel = resourceSet.getResource(URI.createURI(pathInstance), true);
+    return ressourceModel.getContents().get(0)
+  }
 
-    return new TTCEmfSaver(res.getContents.toArray(new Array[EObject](0)).toList.find(_.isInstanceOf[EPackage]).map((p: EObject) => p.asInstanceOf[EPackage]).orNull,
-      myModel.getContents().toArray(new Array[EObject](0)).toList.head)
+  private def createObj(obj: EObject, ctts: ICreateTruthTable): Unit = {
+    var objName = obj.eClass.getName
+
+    //println(objName)
+    objName match {
+      case "TruthTable" => ctts.createTruthTable(obj.eGet(obj.eClass().getEStructuralFeature("name")).toString(), obj)
+      case "InputPort"  => ctts.createInputPort(obj.eGet(obj.eClass().getEStructuralFeature("name")).toString(), obj)
+      case "OutputPort" => ctts.createOutputPort(obj.eGet(obj.eClass().getEStructuralFeature("name")).toString(), obj)
+      case "Row"        => ctts.createRow(obj)
+      case "Cell"       => ctts.createCell(obj.eGet(obj.eClass().getEStructuralFeature("value")).asInstanceOf[Boolean], obj)
+      case _            =>
+    }
+  }
+
+  private def createReferences(o1: EObject, ctts: ICreateTruthTable): Unit = {
+    o1.eClass().getEAllReferences.forEach(sf => {
+      if (sf.getName == "port" || sf.getName == "owner") {
+        val o2 = o1.eGet(sf).asInstanceOf[EObject]
+        //println("++ " + o1.eClass().getName + " " + sf.getName + " " + o2.eClass().getName)
+        if (o1.eClass().getName == "Cell" && sf.getName == "port" && o2.eClass().getName.contains("Port")) {
+          ctts.createCellPortPort(o1, o2)
+        } else if (o1.eClass().getName == "Cell" && sf.getName == "owner" && o2.eClass().getName == "Row") {
+          ctts.createRowCellsCell(o2, o1)
+        } else if (o1.eClass().getName.contains("Port") && sf.getName == "owner" && o2.eClass().getName == "TruthTable") {
+          ctts.createTruthTablePortsPort(o2, o1)
+        } else if (o1.eClass().getName == "Row" && sf.getName == "owner" && o2.eClass().getName == "TruthTable") {
+          ctts.createTruthTableRowsRow(o2, o1)
+        }
+      }
+    })
   }
 
   /**
    * Create the input TruthTable instance from the *.ttmodel file.
    */
-  def createTruthTableInstance(clsins: TTCEmfSaver, ctts: ICreateTruthTable): Unit = {
-    //println("++++++++++++++++++++++++++++++++++++++++++++++")
-    val contents = clsins.obj.eAllContents().asScala
-    var counter = 0
-    var ecoreMap: Map[EObject, Int] = Map.empty
-    var objName = clsins.obj.eClass.getName
+  def createTruthTableInstance(obj: EObject, ctts: ICreateTruthTable): Unit = {
+    createObj(obj, ctts)
+    obj.eAllContents().asScala.foreach(o => {
+      createObj(o, ctts)
+    })
 
-    //println(objName)
-    objName match {
-      case "TruthTable" => ctts.createTruthTable(clsins.obj.eGet(clsins.obj.eClass().getEStructuralFeature("name")).toString(), counter)
-      case "InputPort"  => ctts.createInputPort(clsins.obj.eGet(clsins.obj.eClass().getEStructuralFeature("name")).toString(), counter)
-      case "OutputPort" => ctts.createOutputPort(clsins.obj.eGet(clsins.obj.eClass().getEStructuralFeature("name")).toString(), counter)
-      case "Row"        => ctts.createRow(counter)
-      case "Cell"       => ctts.createCell(clsins.obj.eGet(clsins.obj.eClass().getEStructuralFeature("value")).asInstanceOf[Boolean], counter)
-      case _            =>
-    }
-    ecoreMap += (clsins.obj -> counter)
-    counter += 1
-
-    contents.foreach(o => {
-      var objName = o.eClass().getName
-      //println(objName)
-      objName match {
-        case "TruthTable" => {
-          /*var structs: Seq[EStructuralFeature] = o.eClass().getEAllStructuralFeatures.asScala
-          structs.foreach(a => {
-            println("AName: " + a.getName)
-          })*/
-          ctts.createTruthTable(o.eGet(o.eClass().getEStructuralFeature("name")).toString(), counter)
-        }
-        case "InputPort"  => {
-          /*var structs: Seq[EStructuralFeature] = o.eClass().getEAllStructuralFeatures.asScala
-          structs.foreach(a => {
-            println("AName: " + a.getName)
-          })*/
-          ctts.createInputPort(o.eGet(o.eClass().getEStructuralFeature("name")).toString(), counter)
-        }
-        case "OutputPort" => {
-          /*var structs: Seq[EStructuralFeature] = o.eClass().getEAllStructuralFeatures.asScala
-          structs.foreach(a => {
-            println("AName: " + a.getName)
-          })*/
-          ctts.createOutputPort(o.eGet(o.eClass().getEStructuralFeature("name")).toString(), counter)
-        }
-        case "Row"        => {
-          /*var structs: Seq[EStructuralFeature] = o.eClass().getEAllStructuralFeatures.asScala
-          structs.foreach(a => {
-            println("AName: " + a.getName)
-          })*/
-          ctts.createRow(counter)
-        }
-        case "Cell"       => {
-          /*var structs: Seq[EStructuralFeature] = o.eClass().getEAllStructuralFeatures.asScala
-          structs.foreach(a => {
-            println("AName: " + a.getName)
-          })*/
-          ctts.createCell(o.eGet(o.eClass().getEStructuralFeature("value")).asInstanceOf[Boolean], counter)
-        }
-        case _            =>
-      }
-      ecoreMap += (o -> counter)
-      counter += 1
-    })    
     //add values for instances
-    ecoreMap.keySet.foreach(o1 => {
-      o1.eClass().getEAllReferences.forEach(sf => {        
-        if (sf.getName == "port" || sf.getName == "owner") {
-          val o2 = o1.eGet(sf).asInstanceOf[EObject]
-          //println("++ " + o1.eClass().getName + " " + sf.getName + " " + o2.eClass().getName)
-          if (o1.eClass().getName == "Cell" && sf.getName == "port" && o2.eClass().getName.contains("Port")) {
-            ctts.createCellPortPort(ecoreMap.get(o1).get, ecoreMap.get(o2).get)
-          }
-          if (o1.eClass().getName == "Cell" && sf.getName == "owner" && o2.eClass().getName == "Row") {
-            ctts.createRowCellsCell(ecoreMap.get(o2).get, ecoreMap.get(o1).get)
-          }
-          if (o1.eClass().getName.contains("Port") && sf.getName == "owner" && o2.eClass().getName == "TruthTable") {
-            ctts.createTruthTablePortsPort(ecoreMap.get(o2).get, ecoreMap.get(o1).get)
-          }
-          if (o1.eClass().getName == "Row" && sf.getName == "owner" && o2.eClass().getName == "TruthTable") {
-            ctts.createTruthTableRowsRow(ecoreMap.get(o2).get, ecoreMap.get(o1).get)
-          }
-        }
+    createReferences(obj, ctts)
+    obj.eAllContents().asScala.foreach(o1 => {
+      createReferences(o1, ctts)
+    })
+  }
+  
+  def createTruthTableRSYNCInstance(tt: TruthTable, cttss: ICreateTruthTable): Unit = {    
+    val ctts = new CreateTTinJava()    
+    ctts.createTruthTable(tt.getName, tt)
+    
+    tt.getPorts.forEach(p => {
+      if (p.isInstanceOf[InputPort]) {
+        ctts.createInputPort(p.getName, p)
+      } else {
+        ctts.createOutputPort(p.getName, p)
+      }
+      ctts.createTruthTablePortsPort(tt, p)      
+    })
+    
+    tt.getRows.forEach(r => {
+      ctts.createRow(r)
+      ctts.createTruthTableRowsRow(tt, r)
+      r.getCells.forEach(c => {
+        ctts.createCell(c.isValue(), c)
+        ctts.createRowCellsCell(r, c)
+        ctts.createCellPortPort(c, c.getPort)
       })
     })
   }

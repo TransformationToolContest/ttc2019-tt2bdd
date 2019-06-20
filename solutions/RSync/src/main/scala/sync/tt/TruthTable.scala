@@ -1,5 +1,7 @@
 package sync.tt
 
+//import scala.collection.mutable.Set
+
 class TruthTable(protected var name: String, protected var rows: Set[Row], protected var ports: Set[Port], l_Location: String) extends LocatedElement(l_Location) {
 
   def getName(): String = {
@@ -8,35 +10,35 @@ class TruthTable(protected var name: String, protected var rows: Set[Row], prote
 
   def setName(n: String): Unit = {
     name = n
-    +this changeName ()
+    +this setName ()
   }
 
   def getRows(): Set[Row] = {
     rows
   }
 
-  def setRows(r: Set[Row]): Unit = {
-    rows = r
-    +this changeRows ()
-  }
-
   def addRows(r: Row): Unit = {
     rows += r
-    +this changeRows ()
+    +this addRows ()
+  }
+
+  def removeRows(r: Row): Unit = {
+    rows -= r
+    +this removeRows ()
   }
 
   def getPorts(): Set[Port] = {
     ports
   }
 
-  def setPorts(p: Set[Port]): Unit = {
-    ports = p
-    +this changePorts ()
-  }
-
   def addPorts(p: Port): Unit = {
     ports += p
-    +this changePorts ()
+    +this addPorts ()
+  }
+
+  def removePorts(p: Port): Unit = {
+    ports -= p
+    +this removePorts ()
   }
 
   override def toString(): String = {

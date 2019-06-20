@@ -10,21 +10,21 @@ class BDD(protected var name: String, protected var trees: Set[Tree], protected 
 
   def setName(n: String): Unit = {
     name = n
-    +this changeName ()
+    +this setName ()
   }
 
   def getTrees(): Set[Tree] = {
     trees
   }
 
-  def setTrees(t: Set[Tree]): Unit = {
-    trees = t
-    +this changeTrees ()
-  }
-
   def addTrees(t: Tree): Unit = {
     trees += t
-    +this changeTrees ()
+    +this addTrees ()
+  }
+
+  def removeTrees(t: Tree): Unit = {
+    trees -= t
+    +this removeTrees ()
   }
 
   def getRoot(): Tree = {
@@ -33,21 +33,21 @@ class BDD(protected var name: String, protected var trees: Set[Tree], protected 
 
   def setRoot(r: Tree): Unit = {
     root = r
-    +this changeRoot ()
+    +this setRoot ()
   }
 
   def getPorts(): Set[Port] = {
     ports
   }
 
-  def setPorts(p: Set[Port]): Unit = {
-    ports = p
-    +this changePorts ()
-  }
-
   def addPorts(p: Port): Unit = {
     ports += p
-    +this changePorts ()
+    +this addPorts ()
+  }
+
+  def removePorts(p: Port): Unit = {
+    ports -= p
+    +this removePorts ()
   }
 
   override def toString(): String = {

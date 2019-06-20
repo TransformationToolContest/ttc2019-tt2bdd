@@ -10,7 +10,7 @@ abstract class Tree(protected var ownerSubtreeForOne: Subtree, protected var own
 
   def setOwnerSubtreeForOne(o: Subtree): Unit = {
     ownerSubtreeForOne = o
-    +this changeOwnerSubtreeForOne ()
+    +this setOwnerSubtreeForOne ()
   }
 
   def getOwnerSubtreeForZero(): Subtree = {
@@ -19,7 +19,7 @@ abstract class Tree(protected var ownerSubtreeForOne: Subtree, protected var own
 
   def setOwnerSubtreeForZero(o: Subtree): Unit = {
     ownerSubtreeForZero = o
-    +this changeOwnerSubtreeForZero ()
+    +this setOwnerSubtreeForZero ()
   }
 
   def getOwnerBDD(): BDD = {
@@ -28,30 +28,18 @@ abstract class Tree(protected var ownerSubtreeForOne: Subtree, protected var own
 
   def setOwnerBDD(o: BDD): Unit = {
     ownerBDD = o
-    +this changeOwnerBDD ()
-  }
-  
-  def getStringDeep(): String = {
-    var result = ""
-    for(i <- 0 to this.getMinDeep()) {
-      result = result + "\t"
-    }
-    result
-  }
-  
-  def getMinDeep(): Int = {     
-    if (ownerSubtreeForOne != null) {
-      return 1 + ownerSubtreeForOne.getMinDeep()
-    }
-    if (ownerSubtreeForZero != null) {
-      return 1 + ownerSubtreeForZero.getMinDeep()
-    }
-    0
+    +this setOwnerBDD ()
   }
 
   override def toString(): String = {
     "Tree:"
   }
+  
+  def getAvgPath(): Double
+  
+  def getMinPath(): Int
+  
+  def getMaxPath(): Int
 
 }
 

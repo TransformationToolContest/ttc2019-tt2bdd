@@ -1,6 +1,6 @@
 package sync.tt
 
-class Cell(protected var value: Boolean, protected var port: Port, protected var owner: Row, l_Location: String) extends LocatedElement(l_Location) {
+class Cell(protected var value: Boolean, protected var port: Port = null, protected var owner: Row = null, l_Location: String = null) extends LocatedElement(l_Location) {
 
   def getValue(): Boolean = {
     value
@@ -8,7 +8,7 @@ class Cell(protected var value: Boolean, protected var port: Port, protected var
 
   def setValue(v: Boolean): Unit = {
     value = v
-    +this changeValue ()
+    +this setValue ()
   }
 
   def getPort(): Port = {
@@ -17,7 +17,7 @@ class Cell(protected var value: Boolean, protected var port: Port, protected var
 
   def setPort(p: Port): Unit = {
     port = p
-    +this changePort ()
+    +this setPort ()
   }
 
   def getOwner(): Row = {
@@ -26,7 +26,7 @@ class Cell(protected var value: Boolean, protected var port: Port, protected var
 
   def setOwner(o: Row): Unit = {
     owner = o
-    +this changeOwner ()
+    +this setOwner ()
   }
 
   override def toString(): String = {

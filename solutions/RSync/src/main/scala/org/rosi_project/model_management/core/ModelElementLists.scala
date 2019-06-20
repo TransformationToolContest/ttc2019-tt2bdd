@@ -7,7 +7,7 @@ package org.rosi_project.model_management.core
  */
 object ModelElementLists {
 
-  var elements: Map[Class[_ <: AnyRef], List[_ <: AnyRef]] = Map()
+  var elements: Map[Class[_ <: AnyRef], Set[AnyRef]] = Map()
   var model2Class: Map[String, Class[_ <: AnyRef]] = Map()
 
   /**
@@ -22,15 +22,13 @@ object ModelElementLists {
       return
     }
 
-    var elementsWithClass: List[AnyRef] = elements getOrElse (obj.getClass, List())
-
-    if (elementsWithClass.contains(obj)) {
-      return
+    var elementsWithClass = elements.get(obj.getClass)
+    
+    if (elementsWithClass.isEmpty) {
+      elements += (obj.getClass -> Set(obj))
+    } else {
+      elements += (obj.getClass -> (elementsWithClass.get ++ Set(obj)))
     }
-
-    elementsWithClass = obj :: elementsWithClass
-
-    elements += (obj.getClass -> elementsWithClass)
   }
 
   /**
@@ -40,15 +38,15 @@ object ModelElementLists {
    * @return all matching instances. If none were found or the class is not yet part of the
    *         repository, an empty list will be returned
    */
-  def getElementsWithClass(clazz: Class[_ <: AnyRef], excludeSubclasses: Boolean = false): List[AnyRef] = {
-    var matchingElems: List[AnyRef] = elements.getOrElse(clazz, List())
+  def getElementsWithClass(clazz: Class[_ <: AnyRef], excludeSubclasses: Boolean = false): Set[AnyRef] = {
+    var matchingElems: Set[AnyRef] = elements.getOrElse(clazz, Set())
 
-    if (!excludeSubclasses) {
+    /*if (!excludeSubclasses) {
       matchingElems ++= elements
         .filter(elem => elem._1 != clazz && clazz.isAssignableFrom(elem._1))
         .values
         .fold(List[AnyRef]())((l1, l2) => l1 ++ l2)
-    }
+    }*/
 
     matchingElems
   }
@@ -60,12 +58,12 @@ object ModelElementLists {
    * @return if the model was found, all its instances will be wrapped in an [[Option]], otherwise
    *         [[None]] will be returned
    */
-  def getElementsForModel(name: String): Option[List[AnyRef]] = {
+  def getElementsForModel(name: String): Option[Set[AnyRef]] = {
 
     if (!model2Class.contains(name)) {
       None
     } else {
-      Some(elements.getOrElse(model2Class(name), List()))
+      Some(elements.getOrElse(model2Class(name), Set()))
     }
 
   }
@@ -97,7 +95,7 @@ object ModelElementLists {
     for (model <- model2Class) {
       println(s"Model: ${model._1}:")
 
-      elements.getOrElse(model._2, List()).foreach(e => println(s"++ $e"))
+      elements.getOrElse(model._2, Set()).foreach(e => println(s"++ $e"))
 
     }
 
@@ -105,41 +103,41 @@ object ModelElementLists {
       if (clazz.toString().contains(s)) {
         println(s"Model: $clazz:")
 
-        elements.getOrElse(clazz, List()).foreach(e => println(s"** $e"))
+        elements.getOrElse(clazz, Set()).foreach(e => println(s"** $e"))
       }
     }
   }
 
-  def getElementsFromType(s: String): List[AnyRef] = {
+  def getElementsFromType(s: String): Set[AnyRef] = {
     for { clazz <- elements.keys if !model2Class.exists(t => t._2 == clazz) } {
       if (clazz.toString().contains(s)) {
-        return elements.getOrElse(clazz, List())
+        return elements.getOrElse(clazz, Set())
       }
     }
-    return List()
+    return Set()
   }
   
-  def getDirectElementsFromType(s: String): List[AnyRef] = {
+  def getDirectElementsFromType(s: String): Set[AnyRef] = {
     for { clazz <- elements.keys if !model2Class.exists(t => t._2 == clazz) } {
       if (clazz.getName == s) {
-        return elements.getOrElse(clazz, List())
+        return elements.getOrElse(clazz, Set())
       }
     }
-    return List()
+    return Set()
   }
 
   def printAll(): Unit = {
     for (model <- model2Class) {
       println(s"Model: ${model._1}:")
 
-      elements.getOrElse(model._2, List()).foreach(e => println(s"++ $e"))
+      elements.getOrElse(model._2, Set()).foreach(e => println(s"++ $e"))
 
     }
 
     for { clazz <- elements.keys if !model2Class.exists(t => t._2 == clazz) } {
       println(s"Model: $clazz:")
 
-      elements.getOrElse(clazz, List()).foreach(e => println(s"** $e"))
+      elements.getOrElse(clazz, Set()).foreach(e => println(s"** $e"))
     }
   }
 

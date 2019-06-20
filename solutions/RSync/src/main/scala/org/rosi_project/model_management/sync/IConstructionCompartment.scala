@@ -42,22 +42,6 @@ trait IConstructionCompartment extends Compartment {
     }
   }
 
-  /*private def addNotificationRoles(containers: ListBuffer[ConstructionContainer]): Unit = {
-    containers.foreach { cc =>
-      if (cc.isConstructed) {
-        // add the notification role for the sync UI
-        val clazz = cc.getPlayerInstance.getClass
-        ModelRegistry.getModelForInstanceClass(clazz) match {
-          case Some(model) =>
-            //val notifier = SyncUpdateNotifier(model)
-            cc.getManagerInstance play SyncUpdateNotifier(model)
-          case None =>
-            println(s"No model found: $clazz")
-        }
-      }
-    }
-  }*/
-
   /**
    * Add the RoleManager roles from the synchronization compartment if necessary
    */
@@ -96,8 +80,9 @@ trait IConstructionCompartment extends Compartment {
    */
   protected def synchronizeCompartments(containers: ListBuffer[ConstructionContainer]): Unit = {
     containers.foreach { cc =>
-      if (cc.isConstructed() && !cc.isStartElement())
+      if (cc.isConstructed() && !cc.isStartElement()) {        
         SynchronizationCompartment combine cc.getPlayerInstance
+      }
     }
   }
 
@@ -133,15 +118,39 @@ trait IConstructionCompartment extends Compartment {
   }
 
   protected def makeCompleteConstructionProcess(containers: ListBuffer[ConstructionContainer]): Unit = {
-    this.addManagerRoles(containers)
-    //this.addNotificationRoles(containers)
-    this.addDeleteRoles(containers)
-    this.addRelatedRoleManager(containers)
+    //first synchronize new compartments
+    //var t1 = System.nanoTime()
     this.synchronizeCompartments(containers)
+    //var t2 = System.nanoTime()
+    
+    //add role manager and relations
+    this.addManagerRoles(containers)
+    //var t3 = System.nanoTime()
+    this.addRelatedRoleManager(containers)    
+    //var t4 = System.nanoTime()
+    
+    //binding of roles
+    //this.addDeleteRoles(containers)
     this.bindSynchronizationRules(containers)
+    //var t5 = System.nanoTime()
     this.addExtensionRoles(containers)
+    //var t6 = System.nanoTime()
+    
+    //notify extensions
     this.notifyExtensionRoles(containers)
+    //var t7 = System.nanoTime()
+    
+    //fill test list
     this.fillTestLists(containers)
+    /*var t8 = System.nanoTime()
+    println("1: " + (t2 - t1))
+    println("2: " + (t3 - t2))
+    println("3: " + (t4 - t3))
+    println("4: " + (t5 - t4))
+    println("5: " + (t6 - t5))
+    println("6: " + (t7 - t6))
+    println("7: " + (t8 - t7))*/
+    
     /*println("Construction ++++++++++++++++++++++++++++++++++++++++++++------------------------++++++++++++++++++++++++++++++++++++++++++++++++++++")
     containers.foreach { cc =>
       println((cc.getPlayerInstance).roles())

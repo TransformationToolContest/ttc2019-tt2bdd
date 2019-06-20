@@ -13,15 +13,18 @@ trait PlayerSync extends MultiCompartment {
   def buildClass(): Unit = {
     //println("Create New Class")
     if (!SynchronizationCompartment.isUnderConstruction()) {
-      this play SynchronizationCompartment.createRoleManager()
       SynchronizationCompartment combine this
-      +this manage this
+      val mani = SynchronizationCompartment.createRoleManager()
+      this play mani
+      mani.manage(this)
+      //this play SynchronizationCompartment.createRoleManager()
+      //+this manage this
     }
   }
 
   def deleteObjectFromSynchro(): Unit = {
     println("Delete Object")
-    +this deleteRoleFunction()
+    +this deleteManage this
     deleted = true
   }
 }

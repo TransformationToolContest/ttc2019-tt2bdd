@@ -5,6 +5,7 @@ import org.rosi_project.model_management.sync.IDestructionCompartment
 import org.rosi_project.model_management.sync.roles.{ IDestructor, IRoleManager }
 
 import scala.collection.mutable.ListBuffer
+import org.rosi_project.model_management.core.ModelElementLists
 
 /**
  * Calls the destruction method from all related RoleManagers and then deletes all roles from this player.
@@ -18,7 +19,7 @@ object GeneralDestructor extends IDestructionCompartment {
   class DeleteRole() extends IDestructor {
 
     def deleteRoleFunction(): Unit = {
-      println("##Delete roles and related from Player: " + this.player)
+      //println("##Delete roles and related from Player: " + this.player)
 
       var relatedManagers: Set[IRoleManager] = (+this).getRelatedManager()
       (+this).clearListsOfRelatedManager()
@@ -35,6 +36,7 @@ object GeneralDestructor extends IDestructionCompartment {
       val player = this.player
       if (player.isRight) {
         val test: PlayerSync = player.right.get.asInstanceOf[PlayerSync]
+        ModelElementLists.removeElement(test)
         val roles = test.roles()
         roles.foreach { r =>
           r.remove()

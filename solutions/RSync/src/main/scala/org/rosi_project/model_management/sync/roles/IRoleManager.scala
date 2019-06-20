@@ -74,6 +74,11 @@ trait IRoleManager {
   def manage(value: PlayerSync): Unit
   
   /**
+   * Function to manage the deletion.
+   */
+  def deleteManage(value: PlayerSync): Unit
+  
+  /**
    * Get related PlayerSync with the specific name.
    */
   def getRelatedClassFromName(name: String): PlayerSync

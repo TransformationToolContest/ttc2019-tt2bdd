@@ -9,23 +9,13 @@ object MetricMeasurement {
 
   def printMetricsBDT(directly: Boolean = false): Metrics = {
     printDirectly = directly
+    val bdd = ModelElementLists.getElementsFromType("sync.bdd.BDD").head.asInstanceOf[_root_.sync.bdd.BDD]
     val numberSubtrees = ModelElementLists.getElementsFromType("sync.bdd.Subtree").size
     val numberLeafs = ModelElementLists.getElementsFromType("sync.bdd.Leaf").size
-    var maxPath: Int = -1
-    var minPath: Int = -1
-
-    var sumDepth: Int = 0
-    ModelElementLists.getElementsFromType("sync.bdd.Leaf").asInstanceOf[List[sync.bdd.Leaf]].foreach(l => {
-      var depth = l.getMinDeep()
-      sumDepth += depth
-      if (depth > maxPath) {
-        maxPath = depth
-      }
-      if (depth < minPath || minPath == -1) {
-        minPath = depth
-      }
-    })
-    val averagePath: Double = sumDepth.toDouble / numberLeafs.toDouble
+    
+    val maxPath = bdd.getTree().getMaxPath()
+    val minPath = bdd.getTree().getMinPath()
+    val averagePath = bdd.getTree().getAvgPath()
 
     if (directly) {
       println("Number Subtrees: " + numberSubtrees)
@@ -39,25 +29,13 @@ object MetricMeasurement {
 
   def printMetricsBDD(directly: Boolean = false): Metrics = {
     printDirectly = directly
+    val bdd = ModelElementLists.getElementsFromType("sync.bddg.BDD").head.asInstanceOf[_root_.sync.bddg.BDD]
     val numberSubtrees = ModelElementLists.getElementsFromType("sync.bddg.Subtree").size
     val numberLeafs = ModelElementLists.getElementsFromType("sync.bddg.Leaf").size
-    var maxPath: Int = -1
-    var minPath: Int = -1
-
-    var sumDepth: Int = 0
-    var sumNodes: Int = 0
-    ModelElementLists.getElementsFromType("sync.bddg.Leaf").asInstanceOf[List[sync.bddg.Leaf]].foreach(l => {
-      var depth = l.getMinDeep()
-      sumNodes += l.getOwnerSubtreeForOne().size + l.getOwnerSubtreeForZero().size
-      sumDepth += l.getSumDeep()
-      if (depth > maxPath) {
-        maxPath = depth
-      }
-      if (depth < minPath || minPath == -1) {
-        minPath = depth
-      }
-    })
-    val averagePath: Double = sumDepth.toDouble / sumNodes.toDouble
+    
+    val maxPath = bdd.getRoot().getMaxPath()
+    val minPath = bdd.getRoot().getMinPath()
+    val averagePath = bdd.getRoot().getAvgPath()  
 
     if (directly) {
       println("Number Subtrees: " + numberSubtrees)

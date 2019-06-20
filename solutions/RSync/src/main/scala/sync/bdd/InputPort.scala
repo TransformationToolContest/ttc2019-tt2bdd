@@ -6,14 +6,14 @@ class InputPort(protected var subtrees: Set[Subtree], p_Name: String, p_Owner: B
     subtrees
   }
 
-  def setSubtrees(s: Set[Subtree]): Unit = {
-    subtrees = s
-    +this changeSubtrees ()
-  }
-
   def addSubtrees(s: Subtree): Unit = {
     subtrees += s
-    +this changeSubtrees ()
+    +this addSubtrees ()
+  }
+
+  def removeSubtrees(s: Subtree): Unit = {
+    subtrees -= s
+    +this removeSubtrees ()
   }
 
   override def toString(): String = {

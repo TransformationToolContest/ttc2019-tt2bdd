@@ -25,7 +25,6 @@ object SynchronizationCompartment extends ISynchronizationCompartment {
 
   changeConstructionRule(SuppressingConstructionCompartment)
   changeDestructionRule(GeneralDestructor)
-  activateExtensionCompartment(ModelElementsListGCExtension)
 
   def getConstructionRule(): IConstructionCompartment = activeConstructionCompartment
 
@@ -419,13 +418,16 @@ object SynchronizationCompartment extends ISynchronizationCompartment {
         println("-- Ma => Pl: " + m + " | " + m.player.right.get)
       })
     }
+    
+    def deleteManage(value: PlayerSync): Unit = {
+      val delete = activeDestructionCompartment.getDestructorForClassName(value)
+      if (delete != null) {
+        this play delete
+        +this deleteRoleFunction()
+      }
+    }
 
     def manage(value: PlayerSync): Unit = {
-      /*println("=== Create Related Roles from the object " + this.player + " " + (+this))
-      //combine now in registration of the models
-      SynchronizationCompartment.this combine constructionCompartment
-      SynchronizationCompartment.this combine destructionCompartment*/
-
       val construct = activeConstructionCompartment.getConstructorForClassName(value)
       if (construct != null) {
         this play construct

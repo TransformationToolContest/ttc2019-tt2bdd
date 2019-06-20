@@ -10,7 +10,7 @@ abstract class Port(protected var name: String, protected var owner: BDD) extend
 
   def setName(n: String): Unit = {
     name = n
-    +this changeName ()
+    +this setName ()
   }
 
   def getOwner(): BDD = {
@@ -19,7 +19,7 @@ abstract class Port(protected var name: String, protected var owner: BDD) extend
 
   def setOwner(o: BDD): Unit = {
     owner = o
-    +this changeOwner ()
+    +this setOwner ()
   }
 
   override def toString(): String = {

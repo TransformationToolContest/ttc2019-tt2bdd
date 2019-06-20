@@ -208,7 +208,7 @@ object RsumCompartment extends MultiCompartment {
       if (incommingPlayer == null)
         return
         
-      RSUMElementLists.addElement(incommingPlayer)
+      ModelElementLists.addElement(incommingPlayer)
 
       incommingPlayer match {
         case r: IRelationCompartment =>
@@ -236,7 +236,7 @@ object RsumCompartment extends MultiCompartment {
     def deleteEverything(): Unit = {
       val playerObj = this.player.right.get
       
-      RSUMElementLists.removeElement(playerObj)
+      ModelElementLists.removeElement(playerObj)
       
       val roles = playerObj.roles()
       //iterate over all roles and call remove methods
