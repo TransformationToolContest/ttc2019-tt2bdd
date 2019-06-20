@@ -1,6 +1,5 @@
 package ttc2019.metamodels.create;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
