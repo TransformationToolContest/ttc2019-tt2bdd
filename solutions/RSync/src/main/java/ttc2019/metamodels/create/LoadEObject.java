@@ -32,13 +32,10 @@ public class LoadEObject {
 		return ressourceModel.getContents().get(0);
 	}
 
-	public EObject load(String pathMeta, String pathInstance) throws IOException {
+	public EObject loadOptimized(String pathMeta, String pathInstance) throws IOException {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ttmodel", new IntrinsicIDXMIResourceFactoryImpl());
-		//resourceSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-
-		//resourceSet.getLoadOptions().put(XMIResource.OPTION_DEFER_IDREF_RESOLUTION, true);
 			    
 		Resource ressourceMeta = resourceSet.getResource(URI.createFileURI(pathMeta), true);
 		EObject packageMeta = ressourceMeta.getContents().get(0);
@@ -54,10 +51,9 @@ public class LoadEObject {
 		return ressourceModel.getContents().get(0);
 	}
 	
-	public TruthTable loadTT(String pathMeta, String pathInstance) throws IOException {
+	public TruthTable loadOptimizedTruthTable(String pathMeta, String pathInstance) throws IOException {
 		TTPackage.eINSTANCE.getName();
 		ResourceSet rs = new ResourceSetImpl();
-		//rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new IntrinsicIDXMIResourceFactoryImpl());
 		rs.getLoadOptions().put(XMIResource.OPTION_DEFER_IDREF_RESOLUTION, true);
 		Resource rTT = rs.getResource(URI.createFileURI(pathInstance), true);
@@ -69,26 +65,5 @@ public class LoadEObject {
 
 		TruthTable tt = (TruthTable) rTT.getContents().get(0);
 		return tt;
-		
-		
-		/*ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ttmodel", new IntrinsicIDXMIResourceFactoryImpl());
-		//resourceSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-
-		//resourceSet.getLoadOptions().put(XMIResource.OPTION_DEFER_IDREF_RESOLUTION, true);
-			    
-		Resource ressourceMeta = resourceSet.getResource(URI.createFileURI(pathMeta), true);
-		EObject packageMeta = ressourceMeta.getContents().get(0);
-			    
-		resourceSet.getPackageRegistry().put("https://www.transformation-tool-contest.eu/2019/tt", packageMeta);
-		Resource ressourceModel = resourceSet.getResource(URI.createURI(pathInstance), true);
-		
-		Map<String, Object> loadOptions = new HashMap<>();
-		loadOptions.put(XMIResource.OPTION_DEFER_IDREF_RESOLUTION, true);
-	    loadOptions.put(XMIResource.OPTION_USE_PARSER_POOL, new XMLParserPoolImpl());
-	    loadOptions.put(XMIResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP, new HashMap<>());
-	    ressourceModel.load(loadOptions);
-		return (TruthTable)ressourceModel.getContents().get(0);*/
 	}
 }

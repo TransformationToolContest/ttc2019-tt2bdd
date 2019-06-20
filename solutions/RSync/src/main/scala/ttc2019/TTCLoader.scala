@@ -25,37 +25,29 @@ class TTCLoader {
    *
    * @param path where to find the model
    * @return the model described by the XML
-   */
-  def javaLoadEcore(pathMeta: String, pathInstance: String): EObject = {
+   */  
+  def javaOptimizedTTJavaEcore(pathMeta: String, pathInstance: String): TruthTable = {
     require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
-
     val loader = new LoadEObject
-    return loader.load(pathMeta, pathInstance)
+    return loader.loadOptimizedTruthTable(pathMeta, pathInstance)
   }
   
-  def javaSimpleLoadEcore(pathMeta: String, pathInstance: String): EObject = {
+  def loadOptimizedJavaEcore(pathMeta: String, pathInstance: String): EObject = {
     require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
-
+    val loader = new LoadEObject
+    return loader.loadOptimized(pathMeta, pathInstance)
+  }
+  
+  def loadSimpleJavaEcore(pathMeta: String, pathInstance: String): EObject = {
+    require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
     val loader = new LoadEObject
     return loader.loadSimple(pathMeta, pathInstance)
   }
   
-  def javaTTfromEcore(pathMeta: String, pathInstance: String): TruthTable = {
-    require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
-
-    val loader = new LoadEObject
-    return loader.loadTT(pathMeta, pathInstance)
-  }
-  
-  def scalaLoadEcore(pathMeta: String, pathInstance: String): EObject = {
+  def loadScalaEcore(pathMeta: String, pathInstance: String): EObject = {
     require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
 
     val resourceSet = new ResourceSetImpl();
-    /*resourceSet.getLoadOptions().put(XMLResource.OPTION_DEFER_ATTACHMENT, true.asInstanceOf[Object]);
-		resourceSet.getLoadOptions().put(XMLResource.OPTION_USE_DEPRECATED_METHODS, true.asInstanceOf[Object]);
-    resourceSet.getLoadOptions().put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, true.asInstanceOf[Object])
-  	resourceSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("ecore", new EcoreResourceFactoryImpl())
-    resourceSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("ttmodel", new IntrinsicIDXMIResourceFactoryImpl())*/
     resourceSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl())
 
     
