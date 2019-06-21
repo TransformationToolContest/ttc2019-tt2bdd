@@ -8,7 +8,7 @@ import scala.reflect.io.File
   */
 object MainApp extends App {
 
-  val Initialize = "Initialize"
+  val Initialize = "Initialization"
   val Load = "Load"
   val Run = "Run"
 
