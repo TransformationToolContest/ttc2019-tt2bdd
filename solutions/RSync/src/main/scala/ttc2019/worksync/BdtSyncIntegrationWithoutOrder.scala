@@ -80,12 +80,10 @@ object BdtSyncIntegrationWithoutOrder extends IIntegrationCompartment {
         numberFalse = setFalse.size
         cellis = newCells
         portTT = ttip
-        println("in row")
         break
       })
     }
 
-    println("Used Port: " + portTT)
     var portBDD: sync.bdd.InputPort = null
     val oppo: PlayerSync = +portTT getRelatedClassFromName ("InputPort")
     if (oppo != null) {
@@ -98,7 +96,6 @@ object BdtSyncIntegrationWithoutOrder extends IIntegrationCompartment {
 
     val rowsOne = cellis.filter(_.getValue()).map(_.getOwner())
     val rowsZero = cellis.filter(!_.getValue()).map(_.getOwner())
-    //println("Rows (1) " + rowsOne.size + " (2) " + rowsZero.size)
 
     var treeZero: sync.bdd.Tree = null
     var treeOne: sync.bdd.Tree = null

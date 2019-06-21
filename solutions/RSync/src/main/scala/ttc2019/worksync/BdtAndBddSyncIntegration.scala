@@ -45,7 +45,6 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
   }
 
   def finalEditFunction(): Unit = {
-    println("FINISH FUNCTION")
     var ttNode: sync.tt.TruthTable = null
     
     createdBdds.foreach(bddNode => {
@@ -60,8 +59,7 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
       connectTargetElementWithSourceElementes(tree, rows.asInstanceOf[Set[PlayerSync]])
     })
 
-    printManager()
-    println("END FINISH FUNCTION")
+    //printManager()
   }
 
   def createOutputLookSubtree(bdd: sync.bddg.BDD, truthTable: sync.tt.TruthTable, rows: Set[sync.tt.Row], finishPorts: Set[sync.tt.Port]): sync.bddg.Tree = {
@@ -74,7 +72,6 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
     //find next inputport for subtree
     truthTable.getPorts().filter(p => p.isInstanceOf[sync.tt.InputPort] && !finishPorts.contains(p)).foreach(ttip => {
       val newCells = ttip.getCells().filter(c => rows.contains(c.getOwner()))
-      println("Looking Port: " + ttip.getName() + " S: " + newCells.size)
       if (newCells.size >= max) {
         var setTrue: Set[Set[String]] = Set.empty
         var setFalse: Set[Set[String]] = Set.empty
@@ -102,11 +99,9 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
           portTT = ttip
           max = newCells.size
         }
-        println("############################## " + newCells.size + " || T: " + p1 + " F: " + p2)
       }
     })
 
-    println("Used Port: " + portTT)
     var portBDD: sync.bddg.InputPort = null
     val oppo: PlayerSync = +portTT getRelatedClassFromName ("InputPort")
     if (oppo != null) {
@@ -120,7 +115,6 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
 
     val rowsOne = cellis.filter(_.getValue()).map(_.getOwner())
     val rowsZero = cellis.filter(!_.getValue()).map(_.getOwner())
-    println("Rows (1) " + rowsOne.size + " (2) " + rowsZero.size)
 
     var treeZero: sync.bddg.Tree = null
     var treeOne: sync.bddg.Tree = null
@@ -193,8 +187,6 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
   class OutputPortConstruct() extends IIntegrator {
 
     def integrate(comp: PlayerSync): PlayerSync = {
-      println("OutputPort Integration " + comp);
-
       //Step 1: Get construction values
       val name: String = +this getName ()
 
@@ -214,8 +206,6 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
   class InputPortConstruct() extends IIntegrator {
 
     def integrate(comp: PlayerSync): PlayerSync = {
-      println("InputPort Integration " + comp);
-
       //Step 1: Get construction values
       val name: String = +this getName ()
 
@@ -235,8 +225,6 @@ object BdtAndBddSyncIntegration extends IIntegrationCompartment {
   class TruthTableConstruct() extends IIntegrator {
 
     def integrate(comp: PlayerSync): PlayerSync = {
-      println("TruthTable Integration " + comp);
-
       //Step 1: Get construction values
       val name: String = +this getName ()
       val ports: Set[sync.tt.Port] = +this getPorts ()

@@ -85,7 +85,6 @@ object BddSyncIntegrationWithoutOrder extends IIntegrationCompartment {
       })
     }
 
-    //println("Used Port: " + portTT)
     var portBDD: sync.bddg.InputPort = null
     val oppo: PlayerSync = +portTT getRelatedClassFromName ("InputPort")
     if (oppo != null) {

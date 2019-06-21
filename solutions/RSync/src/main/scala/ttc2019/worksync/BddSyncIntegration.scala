@@ -67,7 +67,6 @@ object BddSyncIntegration extends IIntegrationCompartment {
     //find next inputport for subtree
     truthTable.getPorts().filter(p => p.isInstanceOf[sync.tt.InputPort] && !finishPorts.contains(p)).foreach(ttip => {
       val newCells = ttip.getCells().filter(c => rows.contains(c.getOwner()))
-      //println("Looking Port: " + ttip.getName() + " S: " + newCells.size)
       if (newCells.size >= max) {
         var setTrue: Set[Set[String]] = Set.empty
         var setFalse: Set[Set[String]] = Set.empty
@@ -95,11 +94,9 @@ object BddSyncIntegration extends IIntegrationCompartment {
           portTT = ttip
           max = newCells.size
         }
-        //println("############################## " + newCells.size + " || T: " + p1 + " F: " + p2)
       }
     })
 
-    //println("Used Port: " + portTT)
     var portBDD: sync.bddg.InputPort = null
     val oppo: PlayerSync = +portTT getRelatedClassFromName ("InputPort")
     if (oppo != null) {
