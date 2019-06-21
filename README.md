@@ -10,6 +10,10 @@
 
 ## Solution Prerequisites
 
+The relational RAG solutions use Gradle as build tool. Thus there are no extra prerequisites.
+
+However, in order to run the rSync solutions, the following tools are necessary:
+
 * Scala (optional, will be downloaded automatically via SBT if not present)
 * [SBT](https://www.scala-sbt.org/) 1.x
 
