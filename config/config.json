@@ -10,7 +10,10 @@
         "RelationalRAGSolutionOBDT",
         "RelationalRAGSolutionROBDD",
         "RelationalRAGSolutionROBDD-H",
-        "RSync"
+	"RSyncBDD",
+	"RSyncBDD-Unordered",
+	"RSyncBDT",
+	"RSyncBDT-Unordered"
     ],
     "Models": [
         "GeneratedI4O2Seed42.ttmodel",
@@ -24,3 +27,4 @@
     "Runs": 10,
     "Timeout": 10000
 }
+

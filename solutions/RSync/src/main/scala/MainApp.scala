@@ -14,7 +14,7 @@ object MainApp extends App {
 
   var processMode = ProcessMode.BDT
   if (args.length >= 1) {
-    args.apply(1) match {
+    args.apply(0) match {
       case "bdt" => processMode = ProcessMode.BDT
       case "bdd" => processMode = ProcessMode.BDD
       case "bdt-u" => processMode = ProcessMode.BDTU
