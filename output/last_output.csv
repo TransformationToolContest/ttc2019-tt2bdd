@@ -4349,3 +4349,4200 @@ EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;9;Load;Time;122738510
 EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;9;Load;Memory;3879016
 EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;9;Run;Time;40772829203
 EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;9;Run;Memory;4616624
+Tool;Model;RunIndex;PhaseName;MetricName;MetricValue
+EMFSolutionATLGraph;Test.ttmodel;0;Initialization;Time;270028458
+EMFSolutionATLGraph;Test.ttmodel;0;Initialization;Memory;4507264
+EMFSolutionATLGraph;Test.ttmodel;0;Load;Time;100420294
+EMFSolutionATLGraph;Test.ttmodel;0;Load;Memory;3409352
+EMFSolutionATLGraph;Test.ttmodel;0;Run;Time;557051811
+EMFSolutionATLGraph;Test.ttmodel;0;Run;Memory;7041672
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Initialization;Time;263298592
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Initialization;Memory;4513408
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Load;Time;105590993
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Load;Memory;3417520
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Run;Time;721843133
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Run;Memory;7056632
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Initialization;Time;275831233
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Initialization;Memory;4512544
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Load;Time;263677709
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Load;Memory;3780232
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Run;Time;57586230274
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Run;Memory;4604640
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Initialization;Time;331069655
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Initialization;Memory;4513128
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Load;Time;348156126
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Load;Memory;3867208
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Run;Time;73713545124
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Run;Memory;4672728
+EMFSolutionATLGraph;Test.ttmodel;1;Initialization;Time;300000819
+EMFSolutionATLGraph;Test.ttmodel;1;Initialization;Memory;4513112
+EMFSolutionATLGraph;Test.ttmodel;1;Load;Time;94586180
+EMFSolutionATLGraph;Test.ttmodel;1;Load;Memory;3408568
+EMFSolutionATLGraph;Test.ttmodel;1;Run;Time;577453398
+EMFSolutionATLGraph;Test.ttmodel;1;Run;Memory;6713536
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Initialization;Time;314593007
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Initialization;Memory;4506840
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Load;Time;116538264
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Load;Memory;3417080
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Run;Time;762110141
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Run;Memory;7046408
+------------------------------ New measurement started at 2019-06-16T08:25:06.740204 ------------------------------
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;0;Initialization;Time;48443
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;0;Initialization;Memory;4885112
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;0;Load;Time;16624365
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;0;Load;Memory;2787808
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;0;Run;Time;4561026
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;0;Run;Memory;2540920
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;14
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;15
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;0;Initialization;Time;47928
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;0;Initialization;Memory;4884600
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;0;Load;Time;53755575
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;0;Load;Memory;4119072
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;0;Run;Time;18616661
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;0;Run;Memory;4717648
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;219
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;220
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;0;Initialization;Time;56317
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;0;Initialization;Memory;4884272
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;0;Load;Time;62241264
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;0;Load;Memory;4383464
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;0;Run;Time;19959007
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;0;Run;Memory;5172080
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;249
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;250
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;0;Initialization;Time;50567
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;0;Initialization;Memory;4884456
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;0;Load;Time;81454599
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;0;Load;Memory;9286944
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;0;Run;Time;36691351
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;0;Run;Memory;13108160
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;897
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;898
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Time;43151
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Memory;4884664
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;0;Load;Time;176785901
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;0;Load;Memory;33303040
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;0;Run;Time;86569847
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;0;Run;Memory;51759008
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;0;Run;DecisionNodes;3551
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;0;Run;AssignmentNodes;3552
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Time;45923
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Memory;4881136
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;0;Load;Time;434352931
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;0;Load;Memory;160366512
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;0;Run;Time;291622186
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;0;Run;Memory;257568504
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;0;Run;DecisionNodes;15878
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;0;Run;AssignmentNodes;15879
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Time;47639
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Memory;4884784
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;0;Load;Time;876531372
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;0;Load;Memory;352031456
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;0;Run;Time;516566023
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;0;Run;Memory;568478320
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;0;Run;DecisionNodes;32266
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;0;Run;AssignmentNodes;32267
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;0;Initialization;Time;47975
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;0;Initialization;Memory;4884696
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;0;Load;Time;16510745
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;0;Load;Memory;2787528
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;0;Run;Time;4230900
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;0;Run;Memory;2538520
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;15
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;0;Initialization;Time;43777
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;0;Initialization;Memory;4884832
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;0;Load;Time;54759693
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;0;Load;Memory;4113728
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;0;Run;Time;22744708
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;0;Run;Memory;4637168
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;0;Initialization;Time;50020
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;0;Initialization;Memory;4884840
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;0;Load;Time;55145242
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;0;Load;Memory;4380232
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;0;Run;Time;16467628
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;0;Run;Memory;5062856
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;0;Initialization;Time;56961
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;0;Initialization;Memory;4884456
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;0;Load;Time;83782116
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;0;Load;Memory;9286992
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;0;Run;Time;26367445
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;0;Run;Memory;12876184
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Time;46726
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Memory;4884456
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;0;Load;Time;175822512
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;0;Load;Memory;33302872
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;0;Run;Time;70812930
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;0;Run;Memory;51129984
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;0;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Time;42697
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Memory;4884776
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;0;Load;Time;437522246
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;0;Load;Memory;160366792
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;0;Run;Time;229012763
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;0;Run;Memory;251644904
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;0;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;0;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Time;57558
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Memory;4884488
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;0;Load;Time;869093205
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;0;Load;Memory;352034000
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;0;Run;Time;411862491
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;0;Run;Memory;554372608
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;0;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;0;Run;AssignmentNodes;32
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;0;Initialization;Time;50008
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;0;Initialization;Memory;4884920
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;0;Load;Time;20455692
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;0;Load;Memory;2826552
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;0;Run;Time;3121804
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;0;Run;Memory;2521688
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;15
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;0;Initialization;Time;48655
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;0;Initialization;Memory;4884912
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;0;Load;Time;66347888
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;0;Load;Memory;4881064
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;0;Run;Time;6228367
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;0;Run;Memory;4651632
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;0;Initialization;Time;56667
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;0;Initialization;Memory;4885056
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;0;Load;Time;73067251
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;0;Load;Memory;5297264
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;0;Run;Time;6838939
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;0;Run;Memory;5076872
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;0;Initialization;Time;49299
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;0;Initialization;Memory;4884648
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;0;Load;Time;104059445
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;0;Load;Memory;12887208
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;0;Run;Time;13794964
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;0;Run;Memory;12890064
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Time;48866
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Memory;4884784
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Load;Time;258822187
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Load;Memory;50290832
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Run;Time;34693396
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Run;Memory;51136096
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Time;49624
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Memory;4884848
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Load;Time;671995307
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Load;Memory;247149424
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Run;Time;51787032
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Run;Memory;251651768
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Time;49858
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Memory;4884960
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Load;Time;1215195720
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Load;Memory;544461792
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Run;Time;91942961
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Run;Memory;554387264
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Run;AssignmentNodes;32
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;0;Initialization;Time;56680
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;0;Initialization;Memory;4884912
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;0;Load;Time;16739719
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;0;Load;Memory;2787640
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;0;Run;Time;4242630
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;0;Run;Memory;2531232
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;15
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;0;Initialization;Time;48229
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;0;Initialization;Memory;4884904
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;0;Load;Time;53454857
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;0;Load;Memory;4119064
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;0;Run;Time;15566473
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;0;Run;Memory;4706000
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;0;Initialization;Time;46946
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;0;Initialization;Memory;4884904
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;0;Load;Time;54624885
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;0;Load;Memory;4380336
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;0;Run;Time;14440599
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;0;Run;Memory;5142832
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;0;Initialization;Time;53533
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;0;Initialization;Memory;4884392
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;0;Load;Time;84190523
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;0;Load;Memory;9286856
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;0;Run;Time;36608553
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;0;Run;Memory;13013448
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;1024
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Time;48313
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Memory;4884744
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;0;Load;Time;171908645
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;0;Load;Memory;33302808
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;0;Run;Time;85412668
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;0;Run;Memory;51467160
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;0;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;0;Run;AssignmentNodes;4096
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Time;49142
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Memory;4884616
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;0;Load;Time;436141648
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;0;Load;Memory;160366664
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;0;Run;Time;198058598
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;0;Run;Memory;255273808
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;0;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;0;Run;AssignmentNodes;16384
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Time;47236
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Memory;4884752
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;0;Load;Time;868388147
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;0;Load;Memory;352034640
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;0;Run;Time;337834101
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;0;Run;Memory;563422720
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;0;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;0;Run;AssignmentNodes;32768
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;0;Initialization;Time;48247
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;0;Initialization;Memory;4884864
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;0;Load;Time;20773636
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;0;Load;Memory;2827352
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;0;Run;Time;3007271
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;0;Run;Memory;2556952
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;15
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;0;Initialization;Time;48346
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;0;Initialization;Memory;4884664
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;0;Load;Time;69543728
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;0;Load;Memory;4884984
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;0;Run;Time;4962800
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;0;Run;Memory;4709136
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;0;Initialization;Time;56052
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;0;Initialization;Memory;4883088
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;0;Load;Time;69087810
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;0;Load;Memory;5297688
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;0;Run;Time;5371792
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;0;Run;Memory;5170520
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;0;Initialization;Time;45114
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;0;Initialization;Memory;4884352
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;0;Load;Time;104450817
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;0;Load;Memory;12886016
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;0;Run;Time;8021631
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;0;Run;Memory;13102664
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;1024
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Time;46907
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Memory;4884744
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;0;Load;Time;254965991
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;0;Load;Memory;50290792
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;0;Run;Time;17715209
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;0;Run;Memory;52003024
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;0;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;0;Run;AssignmentNodes;4096
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Time;47332
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Memory;4884576
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;0;Load;Time;661116740
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;0;Load;Memory;247149072
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;0;Run;Time;51249595
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;0;Run;Memory;257375432
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;0;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;0;Run;AssignmentNodes;16384
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Time;55703
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Memory;4884400
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;0;Load;Time;1243169661
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;0;Load;Memory;544461224
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;0;Run;Time;77053799
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;0;Run;Memory;568674336
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;0;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;0;Run;AssignmentNodes;32768
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;0;Initialization;Time;46294
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;0;Initialization;Memory;4885144
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;0;Load;Time;16721218
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;0;Load;Memory;2787800
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;0;Run;Time;4637820
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;0;Run;Memory;2541672
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;11
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;0;Initialization;Time;46663
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;0;Initialization;Memory;4884728
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;0;Load;Time;54383837
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;0;Load;Memory;4119040
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;0;Run;Time;21698085
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;0;Run;Memory;4644256
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;129
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;0;Initialization;Time;43206
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;0;Initialization;Memory;4885512
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;0;Load;Time;54770107
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;0;Load;Memory;4380840
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;0;Run;Time;24669803
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;0;Run;Memory;5087496
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;220
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;0;Initialization;Time;56328
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;0;Initialization;Memory;4884512
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;0;Load;Time;81004485
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;0;Load;Memory;9287128
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;0;Run;Time;37483115
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;0;Run;Memory;12778424
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;427
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Time;48115
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Memory;4884520
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;0;Load;Time;175000628
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;0;Load;Memory;33302888
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;0;Run;Time;120974871
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;0;Run;Memory;50609488
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;0;Run;DecisionNodes;1270
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Time;55203
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Memory;4884784
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;0;Load;Time;431470410
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;0;Load;Memory;160366576
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;0;Run;Time;752289293
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;0;Run;Memory;250158144
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;0;Run;DecisionNodes;8300
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;0;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Time;50063
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Memory;4885216
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;0;Load;Time;867975437
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;0;Load;Memory;352034504
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;0;Run;Time;2237377540
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;0;Run;Memory;551506376
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;0;Run;DecisionNodes;17334
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;0;Run;AssignmentNodes;32
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;0;Initialization;Time;47514
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;0;Initialization;Memory;4885096
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;0;Load;Time;20392631
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;0;Load;Memory;2826888
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;0;Run;Time;3516820
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;0;Run;Memory;2546520
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;11
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;0;Initialization;Time;44441
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;0;Initialization;Memory;4884616
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;0;Load;Time;66035804
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;0;Load;Memory;4881920
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;0;Run;Time;12644583
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;0;Run;Memory;4652296
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;129
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;0;Initialization;Time;46657
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;0;Initialization;Memory;4884728
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;0;Load;Time;78702086
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;0;Load;Memory;5297696
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;0;Run;Time;11863542
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;0;Run;Memory;5079600
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;219
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;0;Initialization;Time;48459
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;0;Initialization;Memory;4884640
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;0;Load;Time;121666067
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;0;Load;Memory;12886880
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;0;Run;Time;22297612
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;0;Run;Memory;12782792
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;417
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Time;57998
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Initialization;Memory;4884608
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Load;Time;246752169
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Load;Memory;50290536
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Run;Time;68065996
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Run;Memory;50615952
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Run;DecisionNodes;1263
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;0;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Time;50204
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Initialization;Memory;4884712
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Load;Time;659700715
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Load;Memory;247149184
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Run;Time;488732415
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Run;Memory;250165432
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Run;DecisionNodes;8287
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;0;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Time;43041
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Initialization;Memory;4884832
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Load;Time;1196892254
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Load;Memory;544461664
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Run;Time;1878456984
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Run;Memory;551521760
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Run;DecisionNodes;17343
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;0;Run;AssignmentNodes;32
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;0;Initialization;Time;136976574
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;0;Initialization;Memory;4518208
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;0;Load;Time;54953671
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;0;Load;Memory;3423488
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;0;Run;Time;326420139
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;0;Run;Memory;7030880
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;0;Initialization;Time;134914247
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;0;Initialization;Memory;4517880
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;0;Load;Time;115738161
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;0;Load;Memory;3791448
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;0;Run;Time;31847567824
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;0;Run;Memory;4547960
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;0;Initialization;Time;135690918
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;0;Initialization;Memory;4518336
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;0;Load;Time;122567407
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;0;Load;Memory;3879424
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;0;Run;Time;39951290758
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;0;Run;Memory;4616704
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;0;Initialization;Time;136882974
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;0;Initialization;Memory;4497768
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;0;Load;Time;200755159
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;0;Load;Memory;5235888
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;0;Run;Time;826959431844
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;0;Run;Memory;5470704
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Initialization;Time;138097251
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Initialization;Memory;4518032
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Load;Time;55204628
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Load;Memory;3423576
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Run;Time;330307815
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;0;Run;Memory;6726280
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Initialization;Time;137812575
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Initialization;Memory;4517920
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Load;Time;131313554
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Load;Memory;3792880
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Run;Time;30656037694
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;0;Run;Memory;4614168
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Initialization;Time;135995664
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Initialization;Memory;4517920
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Load;Time;126517509
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Load;Memory;3878816
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Run;Time;40959468020
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;0;Run;Memory;4684392
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;0;Initialization;Time;135297635
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;0;Initialization;Memory;4517168
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;0;Load;Time;185484940
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;0;Load;Memory;5235864
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;0;Run;Time;858863538388
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;0;Run;Memory;5660176
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;1;Initialization;Time;48463
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;1;Initialization;Memory;4884624
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;1;Load;Time;16920091
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;1;Load;Memory;2786792
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;1;Run;Time;4285886
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;1;Run;Memory;2532976
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;1;Run;DecisionNodes;14
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;1;Run;AssignmentNodes;15
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;1;Initialization;Time;48188
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;1;Initialization;Memory;4884664
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;1;Load;Time;54308778
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;1;Load;Memory;4118840
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;1;Run;Time;22001770
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;1;Run;Memory;4695472
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;1;Run;DecisionNodes;219
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;1;Run;AssignmentNodes;220
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;1;Initialization;Time;48787
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;1;Initialization;Memory;4884608
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;1;Load;Time;54770385
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;1;Load;Memory;4383448
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;1;Run;Time;23078421
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;1;Run;Memory;5168960
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;1;Run;DecisionNodes;249
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;1;Run;AssignmentNodes;250
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;1;Initialization;Time;47950
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;1;Initialization;Memory;4884984
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;1;Load;Time;83086793
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;1;Load;Memory;9287440
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;1;Run;Time;23751220
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;1;Run;Memory;13083336
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;1;Run;DecisionNodes;897
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;1;Run;AssignmentNodes;898
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Time;47897
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Memory;4882608
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;1;Load;Time;171780734
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;1;Load;Memory;33302976
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;1;Run;Time;86142132
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;1;Run;Memory;51740136
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;1;Run;DecisionNodes;3551
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;1;Run;AssignmentNodes;3552
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Time;48136
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Memory;4884576
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;1;Load;Time;446639917
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;1;Load;Memory;160366624
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;1;Run;Time;334886933
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;1;Run;Memory;257592848
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;1;Run;DecisionNodes;15878
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;1;Run;AssignmentNodes;15879
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Time;54713
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Memory;4882264
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;1;Load;Time;875437290
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;1;Load;Memory;352034696
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;1;Run;Time;546253478
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;1;Run;Memory;568479336
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;1;Run;DecisionNodes;32266
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;1;Run;AssignmentNodes;32267
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;1;Initialization;Time;47130
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;1;Initialization;Memory;4884888
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;1;Load;Time;16583079
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;1;Load;Memory;2787536
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;1;Run;Time;4656255
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;1;Run;Memory;2534112
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;1;Run;DecisionNodes;15
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;1;Initialization;Time;48624
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;1;Initialization;Memory;4884656
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;1;Load;Time;53154818
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;1;Load;Memory;4118728
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;1;Run;Time;17582100
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;1;Run;Memory;4661136
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;1;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;1;Initialization;Time;51164
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;1;Initialization;Memory;4884392
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;1;Load;Time;54786531
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;1;Load;Memory;4382800
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;1;Run;Time;18676190
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;1;Run;Memory;5062640
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;1;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;1;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;1;Initialization;Time;50649
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;1;Initialization;Memory;4884944
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;1;Load;Time;81242487
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;1;Load;Memory;9287480
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;1;Run;Time;27616047
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;1;Run;Memory;12857864
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;1;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Time;48981
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Memory;4884640
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;1;Load;Time;174236702
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;1;Load;Memory;33303016
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;1;Run;Time;113096992
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;1;Run;Memory;51126328
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;1;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Time;43015
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Memory;4884560
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;1;Load;Time;430593203
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;1;Load;Memory;160366760
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;1;Run;Time;222830994
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;1;Run;Memory;251661792
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;1;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;1;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Time;43076
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Memory;4879624
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;1;Load;Time;870361094
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;1;Load;Memory;352034392
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;1;Run;Time;421752322
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;1;Run;Memory;554374968
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;1;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;1;Run;AssignmentNodes;32
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;1;Initialization;Time;48900
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;1;Initialization;Memory;4884648
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;1;Load;Time;20318537
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;1;Load;Memory;2826408
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;1;Run;Time;3083358
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;1;Run;Memory;2525536
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;1;Run;DecisionNodes;15
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;1;Initialization;Time;55592
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;1;Initialization;Memory;4884816
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;1;Load;Time;65600609
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;1;Load;Memory;4882144
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;1;Run;Time;6268521
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;1;Run;Memory;4663896
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;1;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;1;Initialization;Time;49921
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;1;Initialization;Memory;4884848
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;1;Load;Time;69815780
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;1;Load;Memory;5297256
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;1;Run;Time;9134158
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;1;Run;Memory;5073152
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;1;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;1;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;1;Initialization;Time;50988
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;1;Initialization;Memory;4885088
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;1;Load;Time;106259140
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;1;Load;Memory;12887352
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;1;Run;Time;10749210
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;1;Run;Memory;12865672
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;1;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Time;53641
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Memory;4884568
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Load;Time;244913091
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Load;Memory;50290928
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Run;Time;20494396
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Run;Memory;51134416
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Time;47974
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Memory;4884760
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Load;Time;671612758
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Load;Memory;247149640
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Run;Time;49190603
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Run;Memory;251662520
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Time;52115
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Memory;4884944
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Load;Time;1248779041
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Load;Memory;544461896
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Run;Time;92459695
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Run;Memory;554409664
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Run;AssignmentNodes;32
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;1;Initialization;Time;47427
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;1;Initialization;Memory;4884512
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;1;Load;Time;16595030
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;1;Load;Memory;2787216
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;1;Run;Time;4197708
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;1;Run;Memory;2523312
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;1;Run;DecisionNodes;15
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;1;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;1;Initialization;Time;47862
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;1;Initialization;Memory;4884688
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;1;Load;Time;54789150
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;1;Load;Memory;4115584
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;1;Run;Time;15801735
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;1;Run;Memory;4680048
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;1;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;1;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;1;Initialization;Time;50802
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;1;Initialization;Memory;4884640
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;1;Load;Time;54515468
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;1;Load;Memory;4383232
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;1;Run;Time;15005631
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;1;Run;Memory;5119144
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;1;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;1;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;1;Initialization;Time;49034
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;1;Initialization;Memory;4884496
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;1;Load;Time;81023591
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;1;Load;Memory;9286512
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;1;Run;Time;22484525
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;1;Run;Memory;13010536
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;1;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;1;Run;AssignmentNodes;1024
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Time;47612
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Memory;4884744
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;1;Load;Time;174999837
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;1;Load;Memory;33303024
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;1;Run;Time;81588318
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;1;Run;Memory;51449456
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;1;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;1;Run;AssignmentNodes;4096
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Time;47447
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Memory;4884592
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;1;Load;Time;437000912
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;1;Load;Memory;160366528
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;1;Run;Time;201125703
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;1;Run;Memory;255254064
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;1;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;1;Run;AssignmentNodes;16384
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Time;48724
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Memory;4884656
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;1;Load;Time;880370680
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;1;Load;Memory;352034248
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;1;Run;Time;340088704
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;1;Run;Memory;563446240
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;1;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;1;Run;AssignmentNodes;32768
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;1;Initialization;Time;47625
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;1;Initialization;Memory;4884456
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;1;Load;Time;20520296
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;1;Load;Memory;2826304
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;1;Run;Time;2955509
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;1;Run;Memory;2534920
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;1;Run;DecisionNodes;15
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;1;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;1;Initialization;Time;48184
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;1;Initialization;Memory;4884536
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;1;Load;Time;65533491
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;1;Load;Memory;4885448
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;1;Run;Time;4960990
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;1;Run;Memory;4728688
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;1;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;1;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;1;Initialization;Time;46489
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;1;Initialization;Memory;4884592
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;1;Load;Time;73090258
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;1;Load;Memory;5293856
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;1;Run;Time;5667332
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;1;Run;Memory;5178200
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;1;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;1;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;1;Initialization;Time;43239
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;1;Initialization;Memory;4884568
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;1;Load;Time;105528972
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;1;Load;Memory;12886760
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;1;Run;Time;9659885
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;1;Run;Memory;13088208
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;1;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;1;Run;AssignmentNodes;1024
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Time;47734
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Memory;4884664
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;1;Load;Time;240033942
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;1;Load;Memory;50290560
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;1;Run;Time;18569446
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;1;Run;Memory;51997400
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;1;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;1;Run;AssignmentNodes;4096
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Time;52796
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Memory;4884864
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;1;Load;Time;694270252
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;1;Load;Memory;247149712
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;1;Run;Time;54607495
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;1;Run;Memory;257375720
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;1;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;1;Run;AssignmentNodes;16384
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Time;48764
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Memory;4884544
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;1;Load;Time;1211259122
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;1;Load;Memory;544461584
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;1;Run;Time;84101625
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;1;Run;Memory;568698488
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;1;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;1;Run;AssignmentNodes;32768
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;1;Initialization;Time;43369
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;1;Initialization;Memory;4884600
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;1;Load;Time;16686633
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;1;Load;Memory;2787368
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;1;Run;Time;4726093
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;1;Run;Memory;2545496
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;1;Run;DecisionNodes;11
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;1;Initialization;Time;47630
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;1;Initialization;Memory;4885184
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;1;Load;Time;53684944
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;1;Load;Memory;4116136
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;1;Run;Time;21472478
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;1;Run;Memory;4620768
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;1;Run;DecisionNodes;129
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;1;Initialization;Time;47650
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;1;Initialization;Memory;4884872
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;1;Load;Time;55454572
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;1;Load;Memory;4379672
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;1;Run;Time;17743958
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;1;Run;Memory;5088768
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;1;Run;DecisionNodes;220
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;1;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;1;Initialization;Time;56348
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;1;Initialization;Memory;4884728
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;1;Load;Time;81433280
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;1;Load;Memory;9287080
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;1;Run;Time;54179129
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;1;Run;Memory;12773456
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;1;Run;DecisionNodes;427
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Time;40855
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Memory;4884608
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;1;Load;Time;174725589
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;1;Load;Memory;33303096
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;1;Run;Time;143797429
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;1;Run;Memory;50614536
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;1;Run;DecisionNodes;1270
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Time;56704
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Memory;4884600
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;1;Load;Time;432982840
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;1;Load;Memory;160366424
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;1;Run;Time;761306159
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;1;Run;Memory;250135792
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;1;Run;DecisionNodes;8300
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;1;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Time;56617
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Memory;4884816
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;1;Load;Time;883193306
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;1;Load;Memory;352034048
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;1;Run;Time;2375424197
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;1;Run;Memory;551506320
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;1;Run;DecisionNodes;17334
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;1;Run;AssignmentNodes;32
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;1;Initialization;Time;47373
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;1;Initialization;Memory;4884768
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;1;Load;Time;20432261
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;1;Load;Memory;2826896
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;1;Run;Time;3527126
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;1;Run;Memory;2534024
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;1;Run;DecisionNodes;11
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;1;Initialization;Time;45022
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;1;Initialization;Memory;4885248
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;1;Load;Time;74510395
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;1;Load;Memory;4885816
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;1;Run;Time;12909873
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;1;Run;Memory;4631304
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;1;Run;DecisionNodes;129
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;1;Initialization;Time;50253
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;1;Initialization;Memory;4868056
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;1;Load;Time;73584995
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;1;Load;Memory;5297568
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;1;Run;Time;8908480
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;1;Run;Memory;5100576
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;1;Run;DecisionNodes;219
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;1;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;1;Initialization;Time;47269
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;1;Initialization;Memory;4884568
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;1;Load;Time;101220042
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;1;Load;Memory;12886728
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;1;Run;Time;21858140
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;1;Run;Memory;12782808
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;1;Run;DecisionNodes;417
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Time;49139
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Initialization;Memory;4884552
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Load;Time;239635983
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Load;Memory;50290128
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Run;Time;73325788
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Run;Memory;50615896
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Run;DecisionNodes;1263
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;1;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Time;47827
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Initialization;Memory;4884608
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Load;Time;664482923
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Load;Memory;247149496
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Run;Time;488006859
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Run;Memory;250144568
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Run;DecisionNodes;8287
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;1;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Time;40507
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Initialization;Memory;4884568
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Load;Time;1200680197
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Load;Memory;544461608
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Run;Time;1805317465
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Run;Memory;551541312
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Run;DecisionNodes;17343
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;1;Run;AssignmentNodes;32
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;1;Initialization;Time;137264789
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;1;Initialization;Memory;4518424
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;1;Load;Time;55630945
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;1;Load;Memory;3424016
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;1;Run;Time;325371268
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;1;Run;Memory;6698768
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;1;Initialization;Time;137341271
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;1;Initialization;Memory;4517128
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;1;Load;Time;116967261
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;1;Load;Memory;3791544
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;1;Run;Time;31390554510
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;1;Run;Memory;4547208
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;1;Initialization;Time;137007413
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;1;Initialization;Memory;4518936
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;1;Load;Time;122637743
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;1;Load;Memory;3879208
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;1;Run;Time;42230475899
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;1;Run;Memory;4618344
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;1;Initialization;Time;136997935
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;1;Initialization;Memory;4518096
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;1;Load;Time;187982128
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;1;Load;Memory;5236112
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;1;Run;Time;819056007654
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;1;Run;Memory;5467608
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Initialization;Time;136716603
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Initialization;Memory;4518248
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Load;Time;55057872
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Load;Memory;3423824
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Run;Time;334703119
+EMFSolutionATLGraph;GeneratedI4O2Seed42.ttmodel;1;Run;Memory;6727528
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;1;Initialization;Time;135763122
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;1;Initialization;Memory;4519136
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;1;Load;Time;115576227
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;1;Load;Memory;3791504
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;1;Run;Time;32308863921
+EMFSolutionATLGraph;GeneratedI8O2Seed68.ttmodel;1;Run;Memory;4616104
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;1;Initialization;Time;136140512
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;1;Initialization;Memory;4517920
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;1;Load;Time;127009451
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;1;Load;Memory;3878504
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;1;Run;Time;40884903392
+EMFSolutionATLGraph;GeneratedI8O4Seed68.ttmodel;1;Run;Memory;4681960
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;1;Initialization;Time;135919557
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;1;Initialization;Memory;4496800
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;1;Load;Time;190624249
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;1;Load;Memory;5235856
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;1;Run;Time;850253638986
+EMFSolutionATLGraph;GeneratedI10O2Seed68.ttmodel;1;Run;Memory;5662080
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;2;Initialization;Time;48648
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;2;Initialization;Memory;4884608
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;2;Load;Time;17061868
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;2;Load;Memory;2787168
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;2;Run;Time;4326247
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;2;Run;Memory;2521040
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;2;Run;DecisionNodes;14
+RelationalRAGSolutionBDT;GeneratedI4O2Seed42.ttmodel;2;Run;AssignmentNodes;15
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;2;Initialization;Time;48961
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;2;Initialization;Memory;4884816
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;2;Load;Time;52547417
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;2;Load;Memory;4119224
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;2;Run;Time;20071812
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;2;Run;Memory;4691840
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;2;Run;DecisionNodes;219
+RelationalRAGSolutionBDT;GeneratedI8O2Seed68.ttmodel;2;Run;AssignmentNodes;220
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;2;Initialization;Time;46706
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;2;Initialization;Memory;4885120
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;2;Load;Time;56524097
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;2;Load;Memory;4383416
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;2;Run;Time;20868099
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;2;Run;Memory;5166592
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;2;Run;DecisionNodes;249
+RelationalRAGSolutionBDT;GeneratedI8O4Seed68.ttmodel;2;Run;AssignmentNodes;250
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;2;Initialization;Time;48792
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;2;Initialization;Memory;4884512
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;2;Load;Time;79720207
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;2;Load;Memory;9287240
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;2;Run;Time;24247356
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;2;Run;Memory;13110624
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;2;Run;DecisionNodes;897
+RelationalRAGSolutionBDT;GeneratedI10O2Seed68.ttmodel;2;Run;AssignmentNodes;898
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Time;41751
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Memory;4883888
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;2;Load;Time;174868794
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;2;Load;Memory;33303528
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;2;Run;Time;77689343
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;2;Run;Memory;51763856
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;2;Run;DecisionNodes;3551
+RelationalRAGSolutionBDT;GeneratedI12O2Seed7634.ttmodel;2;Run;AssignmentNodes;3552
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Time;43201
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Memory;4884432
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;2;Load;Time;439932233
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;2;Load;Memory;160366440
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;2;Run;Time;285840175
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;2;Run;Memory;257587808
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;2;Run;DecisionNodes;15878
+RelationalRAGSolutionBDT;GeneratedI14O4Seed7634.ttmodel;2;Run;AssignmentNodes;15879
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Time;49672
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Memory;4884424
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;2;Load;Time;862340184
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;2;Load;Memory;352033792
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;2;Run;Time;503423621
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;2;Run;Memory;568471920
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;2;Run;DecisionNodes;32266
+RelationalRAGSolutionBDT;GeneratedI15O5Seed282316.ttmodel;2;Run;AssignmentNodes;32267
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;2;Initialization;Time;46865
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;2;Initialization;Memory;4884488
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;2;Load;Time;16554522
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;2;Load;Memory;2787144
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;2;Run;Time;4394731
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;2;Run;Memory;2534056
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;2;Run;DecisionNodes;15
+RelationalRAGSolutionOBDD;GeneratedI4O2Seed42.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;2;Initialization;Time;49522
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;2;Initialization;Memory;4884504
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;2;Load;Time;54199539
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;2;Load;Memory;4118776
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;2;Run;Time;16178206
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;2;Run;Memory;4658600
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;2;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD;GeneratedI8O2Seed68.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;2;Initialization;Time;47312
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;2;Initialization;Memory;4885328
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;2;Load;Time;56754408
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;2;Load;Memory;4383664
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;2;Run;Time;22475973
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;2;Run;Memory;5070136
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;2;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD;GeneratedI8O4Seed68.ttmodel;2;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;2;Initialization;Time;45917
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;2;Initialization;Memory;4884736
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;2;Load;Time;81784228
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;2;Load;Memory;9287312
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;2;Run;Time;28372966
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;2;Run;Memory;12874296
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;2;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDD;GeneratedI10O2Seed68.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Time;46571
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Memory;4884496
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;2;Load;Time;176241455
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;2;Load;Memory;33302992
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;2;Run;Time;91354745
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;2;Run;Memory;51130056
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;2;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDD;GeneratedI12O2Seed7634.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Time;48286
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Memory;4884696
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;2;Load;Time;438207551
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;2;Load;Memory;160366864
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;2;Run;Time;240655806
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;2;Run;Memory;251661728
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;2;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDD;GeneratedI14O4Seed7634.ttmodel;2;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Time;42701
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Memory;4885136
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;2;Load;Time;869188080
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;2;Load;Memory;352034336
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;2;Run;Time;416980138
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;2;Run;Memory;554373696
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;2;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDD;GeneratedI15O5Seed282316.ttmodel;2;Run;AssignmentNodes;32
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;2;Initialization;Time;48186
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;2;Initialization;Memory;4884760
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;2;Load;Time;20696954
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;2;Load;Memory;2826568
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;2;Run;Time;3124672
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;2;Run;Memory;2525696
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;2;Run;DecisionNodes;15
+RelationalRAGSolutionOBDD-H;GeneratedI4O2Seed42.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;2;Initialization;Time;42487
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;2;Initialization;Memory;4884744
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;2;Load;Time;65380793
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;2;Load;Memory;4882152
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;2;Run;Time;8898165
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;2;Run;Memory;4663560
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;2;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD-H;GeneratedI8O2Seed68.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;2;Initialization;Time;49828
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;2;Initialization;Memory;4884672
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;2;Load;Time;78681755
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;2;Load;Memory;5298072
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;2;Run;Time;9129892
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;2;Run;Memory;5079480
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;2;Run;DecisionNodes;255
+RelationalRAGSolutionOBDD-H;GeneratedI8O4Seed68.ttmodel;2;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;2;Initialization;Time;50317
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;2;Initialization;Memory;4884984
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;2;Load;Time;104308026
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;2;Load;Memory;12886920
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;2;Run;Time;15939871
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;2;Run;Memory;12886928
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;2;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDD-H;GeneratedI10O2Seed68.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Time;59716
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Memory;4884536
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Load;Time;250821335
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Load;Memory;50290640
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Run;Time;35626088
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Run;Memory;51119384
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Time;47389
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Memory;4884792
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Load;Time;672847470
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Load;Memory;247149368
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Run;Time;52144242
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Run;Memory;251667064
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Time;48628
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Memory;4884328
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Load;Time;1208313541
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Load;Memory;544459744
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Run;Time;93371709
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Run;Memory;554409080
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Run;AssignmentNodes;32
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;2;Initialization;Time;47862
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;2;Initialization;Memory;4884600
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;2;Load;Time;16662008
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;2;Load;Memory;2787120
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;2;Run;Time;4070195
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;2;Run;Memory;2541600
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;2;Run;DecisionNodes;15
+RelationalRAGSolutionOBDT;GeneratedI4O2Seed42.ttmodel;2;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;2;Initialization;Time;48864
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;2;Initialization;Memory;4884648
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;2;Load;Time;52294327
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;2;Load;Memory;4114776
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;2;Run;Time;12890521
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;2;Run;Memory;4686360
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;2;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT;GeneratedI8O2Seed68.ttmodel;2;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;2;Initialization;Time;47671
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;2;Initialization;Memory;4884736
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;2;Load;Time;55934513
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;2;Load;Memory;4382960
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;2;Run;Time;14368059
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;2;Run;Memory;5121608
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;2;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT;GeneratedI8O4Seed68.ttmodel;2;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;2;Initialization;Time;47655
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;2;Initialization;Memory;4884696
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;2;Load;Time;81246270
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;2;Load;Memory;9286856
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;2;Run;Time;20968811
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;2;Run;Memory;13012464
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;2;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDT;GeneratedI10O2Seed68.ttmodel;2;Run;AssignmentNodes;1024
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Time;47547
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Memory;4884848
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;2;Load;Time;170633436
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;2;Load;Memory;33303184
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;2;Run;Time;87189099
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;2;Run;Memory;51446456
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;2;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDT;GeneratedI12O2Seed7634.ttmodel;2;Run;AssignmentNodes;4096
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Time;47306
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Memory;4884648
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;2;Load;Time;438639476
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;2;Load;Memory;160366704
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;2;Run;Time;203517492
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;2;Run;Memory;255258632
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;2;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDT;GeneratedI14O4Seed7634.ttmodel;2;Run;AssignmentNodes;16384
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Time;47504
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Memory;4884464
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;2;Load;Time;862469456
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;2;Load;Memory;352033832
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;2;Run;Time;335831439
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;2;Run;Memory;563440576
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;2;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDT;GeneratedI15O5Seed282316.ttmodel;2;Run;AssignmentNodes;32768
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;2;Initialization;Time;55897
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;2;Initialization;Memory;4884976
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;2;Load;Time;20694493
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;2;Load;Memory;2826688
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;2;Run;Time;3026027
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;2;Run;Memory;2532616
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;2;Run;DecisionNodes;15
+RelationalRAGSolutionOBDT-H;GeneratedI4O2Seed42.ttmodel;2;Run;AssignmentNodes;16
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;2;Initialization;Time;48777
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;2;Initialization;Memory;4884720
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;2;Load;Time;65830940
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;2;Load;Memory;4885568
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;2;Run;Time;4953047
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;2;Run;Memory;4734560
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;2;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT-H;GeneratedI8O2Seed68.ttmodel;2;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;2;Initialization;Time;48488
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;2;Initialization;Memory;4885040
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;2;Load;Time;67950823
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;2;Load;Memory;5297560
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;2;Run;Time;5343424
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;2;Run;Memory;5166360
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;2;Run;DecisionNodes;255
+RelationalRAGSolutionOBDT-H;GeneratedI8O4Seed68.ttmodel;2;Run;AssignmentNodes;256
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;2;Initialization;Time;47841
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;2;Initialization;Memory;4884568
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;2;Load;Time;104498750
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;2;Load;Memory;12887288
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;2;Run;Time;9238943
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;2;Run;Memory;13087464
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;2;Run;DecisionNodes;1023
+RelationalRAGSolutionOBDT-H;GeneratedI10O2Seed68.ttmodel;2;Run;AssignmentNodes;1024
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Time;48349
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Memory;4882656
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;2;Load;Time;248906760
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;2;Load;Memory;50290640
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;2;Run;Time;20344086
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;2;Run;Memory;52001944
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;2;Run;DecisionNodes;4095
+RelationalRAGSolutionOBDT-H;GeneratedI12O2Seed7634.ttmodel;2;Run;AssignmentNodes;4096
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Time;50361
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Memory;4884536
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;2;Load;Time;666061997
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;2;Load;Memory;247149632
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;2;Run;Time;53209274
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;2;Run;Memory;257365152
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;2;Run;DecisionNodes;16383
+RelationalRAGSolutionOBDT-H;GeneratedI14O4Seed7634.ttmodel;2;Run;AssignmentNodes;16384
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Time;47331
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Memory;4884768
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;2;Load;Time;1238246913
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;2;Load;Memory;544461288
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;2;Run;Time;75651269
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;2;Run;Memory;568698144
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;2;Run;DecisionNodes;32767
+RelationalRAGSolutionOBDT-H;GeneratedI15O5Seed282316.ttmodel;2;Run;AssignmentNodes;32768
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;2;Initialization;Time;49456
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;2;Initialization;Memory;4884800
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;2;Load;Time;16642351
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;2;Load;Memory;2787552
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;2;Run;Time;4717210
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;2;Run;Memory;2522112
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;2;Run;DecisionNodes;11
+RelationalRAGSolutionROBDD;GeneratedI4O2Seed42.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;2;Initialization;Time;54025
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;2;Initialization;Memory;4884432
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;2;Load;Time;54499753
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;2;Load;Memory;4118080
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;2;Run;Time;26484964
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;2;Run;Memory;4645960
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;2;Run;DecisionNodes;129
+RelationalRAGSolutionROBDD;GeneratedI8O2Seed68.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;2;Initialization;Time;48493
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;2;Initialization;Memory;4884632
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;2;Load;Time;57263323
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;2;Load;Memory;4383144
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;2;Run;Time;21943915
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;2;Run;Memory;5071656
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;2;Run;DecisionNodes;220
+RelationalRAGSolutionROBDD;GeneratedI8O4Seed68.ttmodel;2;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;2;Initialization;Time;51879
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;2;Initialization;Memory;4884992
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;2;Load;Time;96058291
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;2;Load;Memory;9287488
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;2;Run;Time;42869869
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;2;Run;Memory;12753024
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;2;Run;DecisionNodes;427
+RelationalRAGSolutionROBDD;GeneratedI10O2Seed68.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Time;48457
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Memory;4885096
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;2;Load;Time;177838189
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;2;Load;Memory;33303544
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;2;Run;Time;145644351
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;2;Run;Memory;50609488
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;2;Run;DecisionNodes;1270
+RelationalRAGSolutionROBDD;GeneratedI12O2Seed7634.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Time;48368
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Memory;4884512
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;2;Load;Time;434583701
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;2;Load;Memory;160366224
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;2;Run;Time;741523815
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;2;Run;Memory;250133304
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;2;Run;DecisionNodes;8300
+RelationalRAGSolutionROBDD;GeneratedI14O4Seed7634.ttmodel;2;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Time;48974
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Memory;4885232
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;2;Load;Time;873906765
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;2;Load;Memory;352034784
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;2;Run;Time;2161462806
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;2;Run;Memory;551510200
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;2;Run;DecisionNodes;17334
+RelationalRAGSolutionROBDD;GeneratedI15O5Seed282316.ttmodel;2;Run;AssignmentNodes;32
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;2;Initialization;Time;48011
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;2;Initialization;Memory;4884624
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;2;Load;Time;20590289
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;2;Load;Memory;2825976
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;2;Run;Time;3540064
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;2;Run;Memory;2530464
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;2;Run;DecisionNodes;11
+RelationalRAGSolutionROBDD-H;GeneratedI4O2Seed42.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;2;Initialization;Time;46317
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;2;Initialization;Memory;4884472
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;2;Load;Time;66087604
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;2;Load;Memory;4885520
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;2;Run;Time;9113998
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;2;Run;Memory;4630656
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;2;Run;DecisionNodes;129
+RelationalRAGSolutionROBDD-H;GeneratedI8O2Seed68.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;2;Initialization;Time;47443
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;2;Initialization;Memory;4885040
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;2;Load;Time;73752685
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;2;Load;Memory;5298032
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;2;Run;Time;8180569
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;2;Run;Memory;5076816
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;2;Run;DecisionNodes;219
+RelationalRAGSolutionROBDD-H;GeneratedI8O4Seed68.ttmodel;2;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;2;Initialization;Time;47704
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;2;Initialization;Memory;4884736
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;2;Load;Time;103837185
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;2;Load;Memory;12886872
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;2;Run;Time;21125824
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;2;Run;Memory;12760528
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;2;Run;DecisionNodes;417
+RelationalRAGSolutionROBDD-H;GeneratedI10O2Seed68.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Time;48222
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Initialization;Memory;4884824
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Load;Time;239136480
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Load;Memory;50291136
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Run;Time;110210888
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Run;Memory;50622584
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Run;DecisionNodes;1263
+RelationalRAGSolutionROBDD-H;GeneratedI12O2Seed7634.ttmodel;2;Run;AssignmentNodes;4
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Time;47268
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Initialization;Memory;4884336
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Load;Time;672633729
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Load;Memory;247149216
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Run;Time;507522390
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Run;Memory;250140224
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Run;DecisionNodes;8287
+RelationalRAGSolutionROBDD-H;GeneratedI14O4Seed7634.ttmodel;2;Run;AssignmentNodes;16
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Time;54606
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Initialization;Memory;4884744
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Load;Time;1204433398
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Load;Memory;544461336
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Run;Time;1802732534
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Run;Memory;551543680
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Run;DecisionNodes;17343
+RelationalRAGSolutionROBDD-H;GeneratedI15O5Seed282316.ttmodel;2;Run;AssignmentNodes;32
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;2;Initialization;Time;140656076
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;2;Initialization;Memory;4518512
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;2;Load;Time;55020979
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;2;Load;Memory;3424120
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;2;Run;Time;324059506
+EMFSolutionATL;GeneratedI4O2Seed42.ttmodel;2;Run;Memory;7033160
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;2;Initialization;Time;136861806
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;2;Initialization;Memory;4517880
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;2;Load;Time;126109459
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;2;Load;Memory;3792016
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;2;Run;Time;31940356763
+EMFSolutionATL;GeneratedI8O2Seed68.ttmodel;2;Run;Memory;4549232
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;2;Initialization;Time;136175175
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;2;Initialization;Memory;4518936
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;2;Load;Time;122306467
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;2;Load;Memory;3879960
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;2;Run;Time;40926270591
+EMFSolutionATL;GeneratedI8O4Seed68.ttmodel;2;Run;Memory;4617344
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;2;Initialization;Time;136176403
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;2;Initialization;Memory;4517880
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;2;Load;Time;184724873
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;2;Load;Memory;5236136
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;2;Run;Time;865845532314
+EMFSolutionATL;GeneratedI10O2Seed68.ttmodel;2;Run;Memory;5469792
+------------------------------ New measurement started at 2019-06-21T05:15:03.934460 ------------------------------
+RSyncBDD;GeneratedI4O2Seed42.ttmodel;0;Initialize;Time;237339444
+RSyncBDD;GeneratedI4O2Seed42.ttmodel;0;Load;Time;189142012
+RSyncBDD;GeneratedI4O2Seed42.ttmodel;0;Run;Time;48157984
+RSyncBDD;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;4
+RSyncBDD;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;11
+RSyncBDD;GeneratedI4O2Seed42.ttmodel;0;Run;MaxPath;4
+RSyncBDD;GeneratedI4O2Seed42.ttmodel;0;Run;MinPath;2
+RSyncBDD;GeneratedI4O2Seed42.ttmodel;0;Run;AvgPath;3.375
+RSyncBDD;GeneratedI8O2Seed68.ttmodel;0;Initialize;Time;350869499
+RSyncBDD;GeneratedI8O2Seed68.ttmodel;0;Load;Time;1633552683
+RSyncBDD;GeneratedI8O2Seed68.ttmodel;0;Run;Time;321557416
+RSyncBDD;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RSyncBDD;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;194
+RSyncBDD;GeneratedI8O2Seed68.ttmodel;0;Run;MaxPath;8
+RSyncBDD;GeneratedI8O2Seed68.ttmodel;0;Run;MinPath;6
+RSyncBDD;GeneratedI8O2Seed68.ttmodel;0;Run;AvgPath;7.5078125
+RSyncBDD;GeneratedI8O4Seed68.ttmodel;0;Initialize;Time;322133640
+RSyncBDD;GeneratedI8O4Seed68.ttmodel;0;Load;Time;2106262583
+RSyncBDD;GeneratedI8O4Seed68.ttmodel;0;Run;Time;468420419
+RSyncBDD;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;16
+RSyncBDD;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;232
+RSyncBDD;GeneratedI8O4Seed68.ttmodel;0;Run;MaxPath;8
+RSyncBDD;GeneratedI8O4Seed68.ttmodel;0;Run;MinPath;7
+RSyncBDD;GeneratedI8O4Seed68.ttmodel;0;Run;AvgPath;7.8203125
+RSyncBDD;GeneratedI10O2Seed68.ttmodel;0;Initialize;Time;397258636
+RSyncBDD;GeneratedI10O2Seed68.ttmodel;0;Load;Time;27319820606
+RSyncBDD;GeneratedI10O2Seed68.ttmodel;0;Run;Time;4219118852
+RSyncBDD;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RSyncBDD;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;788
+RSyncBDD;GeneratedI10O2Seed68.ttmodel;0;Run;MaxPath;10
+RSyncBDD;GeneratedI10O2Seed68.ttmodel;0;Run;MinPath;8
+RSyncBDD;GeneratedI10O2Seed68.ttmodel;0;Run;AvgPath;9.525390625
+RSyncBDD-Unordered;GeneratedI4O2Seed42.ttmodel;0;Initialize;Time;247176692
+RSyncBDD-Unordered;GeneratedI4O2Seed42.ttmodel;0;Load;Time;186019300
+RSyncBDD-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;Time;50367345
+RSyncBDD-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;4
+RSyncBDD-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;14
+RSyncBDD-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;MaxPath;4
+RSyncBDD-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;MinPath;3
+RSyncBDD-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;AvgPath;3.875
+RSyncBDD-Unordered;GeneratedI8O2Seed68.ttmodel;0;Initialize;Time;333842369
+RSyncBDD-Unordered;GeneratedI8O2Seed68.ttmodel;0;Load;Time;1629257273
+RSyncBDD-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;Time;332646828
+RSyncBDD-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RSyncBDD-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;220
+RSyncBDD-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;MaxPath;8
+RSyncBDD-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;MinPath;7
+RSyncBDD-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;AvgPath;7.7265625
+RSyncBDD-Unordered;GeneratedI8O4Seed68.ttmodel;0;Initialize;Time;331744570
+RSyncBDD-Unordered;GeneratedI8O4Seed68.ttmodel;0;Load;Time;2103382993
+RSyncBDD-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;Time;472320170
+RSyncBDD-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;16
+RSyncBDD-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;243
+RSyncBDD-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;MaxPath;8
+RSyncBDD-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;MinPath;6
+RSyncBDD-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;AvgPath;7.8984375
+RSyncBDD-Unordered;GeneratedI10O2Seed68.ttmodel;0;Initialize;Time;429760836
+RSyncBDD-Unordered;GeneratedI10O2Seed68.ttmodel;0;Load;Time;27484295559
+RSyncBDD-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;Time;4547064680
+RSyncBDD-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;4
+RSyncBDD-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;870
+RSyncBDD-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;MaxPath;10
+RSyncBDD-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;MinPath;8
+RSyncBDD-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;AvgPath;9.6875
+RSyncBDT;GeneratedI4O2Seed42.ttmodel;0;Initialize;Time;244011960
+RSyncBDT;GeneratedI4O2Seed42.ttmodel;0;Load;Time;186667451
+RSyncBDT;GeneratedI4O2Seed42.ttmodel;0;Run;Time;57270230
+RSyncBDT;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;12
+RSyncBDT;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;11
+RSyncBDT;GeneratedI4O2Seed42.ttmodel;0;Run;MaxPath;4
+RSyncBDT;GeneratedI4O2Seed42.ttmodel;0;Run;MinPath;2
+RSyncBDT;GeneratedI4O2Seed42.ttmodel;0;Run;AvgPath;3.375
+RSyncBDT;GeneratedI8O2Seed68.ttmodel;0;Initialize;Time;319644016
+RSyncBDT;GeneratedI8O2Seed68.ttmodel;0;Load;Time;1646163061
+RSyncBDT;GeneratedI8O2Seed68.ttmodel;0;Run;Time;827797127
+RSyncBDT;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;185
+RSyncBDT;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;184
+RSyncBDT;GeneratedI8O2Seed68.ttmodel;0;Run;MaxPath;8
+RSyncBDT;GeneratedI8O2Seed68.ttmodel;0;Run;MinPath;6
+RSyncBDT;GeneratedI8O2Seed68.ttmodel;0;Run;AvgPath;7.4140625
+RSyncBDT;GeneratedI8O4Seed68.ttmodel;0;Initialize;Time;325782506
+RSyncBDT;GeneratedI8O4Seed68.ttmodel;0;Load;Time;2136096650
+RSyncBDT;GeneratedI8O4Seed68.ttmodel;0;Run;Time;1863032972
+RSyncBDT;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;240
+RSyncBDT;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;239
+RSyncBDT;GeneratedI8O4Seed68.ttmodel;0;Run;MaxPath;8
+RSyncBDT;GeneratedI8O4Seed68.ttmodel;0;Run;MinPath;7
+RSyncBDT;GeneratedI8O4Seed68.ttmodel;0;Run;AvgPath;7.875
+RSyncBDT;GeneratedI10O2Seed68.ttmodel;0;Initialize;Time;399807801
+RSyncBDT;GeneratedI10O2Seed68.ttmodel;0;Load;Time;26755568181
+RSyncBDT;GeneratedI10O2Seed68.ttmodel;0;Run;Time;16652455380
+RSyncBDT;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;808
+RSyncBDT;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;807
+RSyncBDT;GeneratedI10O2Seed68.ttmodel;0;Run;MaxPath;10
+RSyncBDT;GeneratedI10O2Seed68.ttmodel;0;Run;MinPath;8
+RSyncBDT;GeneratedI10O2Seed68.ttmodel;0;Run;AvgPath;9.5546875
+RSyncBDT-Unordered;GeneratedI4O2Seed42.ttmodel;0;Initialize;Time;248937270
+RSyncBDT-Unordered;GeneratedI4O2Seed42.ttmodel;0;Load;Time;187143520
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+RSyncBDT-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;Time;59151429
+RSyncBDT-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;AssignmentNodes;13
+RSyncBDT-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;DecisionNodes;12
+RSyncBDT-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;MaxPath;4
+RSyncBDT-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;MinPath;3
+RSyncBDT-Unordered;GeneratedI4O2Seed42.ttmodel;0;Run;AvgPath;3.625
+RSyncBDT-Unordered;GeneratedI8O2Seed68.ttmodel;0;Initialize;Time;322926378
+RSyncBDT-Unordered;GeneratedI8O2Seed68.ttmodel;0;Load;Time;1589008883
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+RSyncBDT-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;Time;893348726
+RSyncBDT-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;AssignmentNodes;206
+RSyncBDT-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;DecisionNodes;205
+RSyncBDT-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;MaxPath;8
+RSyncBDT-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;MinPath;6
+RSyncBDT-Unordered;GeneratedI8O2Seed68.ttmodel;0;Run;AvgPath;7.5859375
+RSyncBDT-Unordered;GeneratedI8O4Seed68.ttmodel;0;Initialize;Time;356020810
+RSyncBDT-Unordered;GeneratedI8O4Seed68.ttmodel;0;Load;Time;2155555122
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+RSyncBDT-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;Time;2036491287
+RSyncBDT-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;AssignmentNodes;252
+RSyncBDT-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;DecisionNodes;251
+RSyncBDT-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;MaxPath;8
+RSyncBDT-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;MinPath;7
+RSyncBDT-Unordered;GeneratedI8O4Seed68.ttmodel;0;Run;AvgPath;7.96875
+RSyncBDT-Unordered;GeneratedI10O2Seed68.ttmodel;0;Initialize;Time;461722889
+RSyncBDT-Unordered;GeneratedI10O2Seed68.ttmodel;0;Load;Time;27176312786
+in row
+Used Port: InputPort: name=I6 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I7 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I0 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I3 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I1 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I2 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I9 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I5 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I8 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+in row
+Used Port: InputPort: name=I4 location=null
+RSyncBDT-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;Time;19030006092
+RSyncBDT-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;AssignmentNodes;900
+RSyncBDT-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;DecisionNodes;899
+RSyncBDT-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;MaxPath;10
+RSyncBDT-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;MinPath;8
+RSyncBDT-Unordered;GeneratedI10O2Seed68.ttmodel;0;Run;AvgPath;9.751953125
