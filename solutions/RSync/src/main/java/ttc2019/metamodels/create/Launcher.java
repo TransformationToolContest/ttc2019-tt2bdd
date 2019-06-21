@@ -46,7 +46,7 @@ public class Launcher {
 			}
 
 			if (valid) {
-				System.out.println(String.format("BDD %2$s matches TT %1$s: all OK", fInputTT.getName(), fOutputBDD.getName()));
+				//System.out.println(String.format("BDD %2$s matches TT %1$s: all OK", fInputTT.getName(), fOutputBDD.getName()));
 			} else {
 				System.err.println(String.format("BDD %2$s does not match TT %1$s: see issues above", fInputTT.getName(), fOutputBDD.getName()));
 				System.exit(2);
@@ -87,7 +87,7 @@ public class Launcher {
 			}
 
 			if (valid) {
-				System.out.println(String.format("BDD %2$s matches TT %1$s: all OK", fInputTT.getName(), fOutputBDD.getName()));
+				//System.out.println(String.format("BDD %2$s matches TT %1$s: all OK", fInputTT.getName(), fOutputBDD.getName()));
 			} else {
 				System.err.println(String.format("BDD %2$s does not match TT %1$s: see issues above", fInputTT.getName(), fOutputBDD.getName()));
 				System.exit(2);

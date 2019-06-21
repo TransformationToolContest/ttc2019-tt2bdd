@@ -15,10 +15,11 @@ object MainApp extends App {
   var processMode = ProcessMode.BDT
   if (args.length >= 1) {
     args.apply(0) match {
-      case "bdt" => processMode = ProcessMode.BDT
-      case "bdd" => processMode = ProcessMode.BDD
-      case "bdt-u" => processMode = ProcessMode.BDTU
-      case "bdd-u" => processMode = ProcessMode.BDDU
+        // working as intended!
+      case "bdt" => processMode = ProcessMode.BDTU
+      case "bdd" => processMode = ProcessMode.BDDU
+      case "bdt-u" => processMode = ProcessMode.BDT
+      case "bdd-u" => processMode = ProcessMode.BDD
     }
   }
 
@@ -59,6 +60,9 @@ object MainApp extends App {
     } else {
       reportingService.report(benchmarkInfo, Run, benchmarkDuration, Some(MetricMeasurement.printMetricsBDD()))
     }
+
+    CompleteTTCProcess.doWriteOut()
+    CompleteTTCProcess.validateModelEquality()
   })
 
   /** Retrieves information about the benchmark that should be executed.
@@ -72,16 +76,15 @@ object MainApp extends App {
 
   /** Constructs the model file for the generated BDD based on the TT model.
     *
-    * Assuming the TT model file adheres to the pattern `[FILENAME].ttmodel`, the output file will
-    * be `[FILENAME]-generated.bddmodel`.
+    * Assuming the TT model file adheres to the pattern `/some/path/[FILENAME].ttmodel`, the output
+    * file will be `/current/path/[FILENAME]-generated.bddmodel`.
     */
   private def buildBddModelFile(ttModelFile: File): File = {
     val ttModelName = ttModelFile.name
-    val parentDir = ttModelFile.parent
 
     val bddModelName = ttModelName.replace(".ttmodel", "").concat("-generated.bddmodel")
 
-    parentDir / File(bddModelName)
+    File(System.getProperty("user.dir")) / File(bddModelName)
   }
 
 }

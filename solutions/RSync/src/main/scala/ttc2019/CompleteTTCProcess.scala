@@ -68,7 +68,8 @@ object CompleteTTCProcess extends App {
     * [[TTCProcessConfiguration process configuration]] specified during
     * [[initialize() initialization]] '''after transformation'''.
     */
-  def writeBdd(): Unit = writeOut.generateEverything(processConfig.bddFileName)
+  def doWriteOut(): Unit = writeOut.generateEverything(processConfig.bddFileName)
+
 
   /** Checks, whether the generated BDD and the original TT work as expected (after
     * transformation!).
@@ -86,7 +87,7 @@ object CompleteTTCProcess extends App {
     load()
     run()
     printModelElements()
-    writeBdd()
+    doWriteOut()
     validateModelEquality()
   }
 
