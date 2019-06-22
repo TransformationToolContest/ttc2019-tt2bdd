@@ -29,4 +29,4 @@ The target graph BDD metamodel `BBDv2.ecore` has been adapted and renamed to [BB
 
 ### Graph Validator
 
-The graph validator has been generalized in order to validate each of the produced ROBDD. The main change is the loop at [line 40]().
+The graph validator has been generalized in order to validate each of the produced ROBDD. The main change is the loop at [line 42](https://github.com/arturboronat/ttc2019-tt2bdd/blob/ee50b6e223d07775fe78a3205c213d45ae4d6c95/solutions/EMFSolutionYAMTL/src/main/java/validator/GraphValidator.java#L42) in `src/main/java/validator/GraphValidator.java`.
