@@ -1,4 +1,3 @@
-
 package ttc19
 
 import java.util.ArrayList
@@ -77,7 +76,6 @@ class YAMTLSolution extends YAMTLModule {
 		))
 	}
 	
-	
 	// ------------------------------------------------
 	// HELPERS FOR BUILDING ROBDDs
 	// ------------------------------------------------
@@ -137,12 +135,9 @@ class YAMTLSolution extends YAMTLModule {
 		dnf
 	}
 	
-	
-	
 	// ------------------------------------------------
 	// UTILITY HELPERS
 	// ------------------------------------------------
-	
 	def createSubtree(InputPort iPort, Tree tree0, Tree tree1, AuxStruct aux) {
 		val subTree = BddgFactory.eINSTANCE.createSubtree
 		subTree.port = iPort
@@ -183,5 +178,4 @@ class YAMTLSolution extends YAMTLModule {
 	def clone(List<List<Integer>> dnf) {
 		new ArrayList<List<Integer>>(dnf)
 	}
-	
 }
