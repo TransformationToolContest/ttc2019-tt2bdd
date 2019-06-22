@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated NMetaChanges -->
+      <package
+            uri="http://nmf.codeplex.com/changes"
+            class="Changes.ChangesPackage"
+            genModel="NMetaChanges.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated social_network -->
+      <package
+            uri="https://www.transformation-tool-contest.eu/2018/social_media"
+            class="SocialNetwork.SocialNetworkPackage"
+            genModel="social_network.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BDD -->
+      <package
+            uri="https://www.transformation-tool-contest.eu/2019/bdd"
+            class="ttc2019.metamodels.bdd.bddPackage"
+            genModel="src/main/resources/metamodels/BDD.genmodel"/>
+   </extension>
+
+</plugin>
