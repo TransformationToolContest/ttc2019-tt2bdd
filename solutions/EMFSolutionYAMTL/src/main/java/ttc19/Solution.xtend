@@ -24,19 +24,17 @@ class Solution {
 	def load(String modelPath) {
 		xform.loadInputModels(#{'tt' -> modelPath})
 	}
+
 	def load(Resource mRes) {
 		xform.loadInputResources(#{'tt' -> mRes})
 	}
 
 	def void run() {
-		
 		// EXECUTE TRAFO 
 		xform.execute()
-		
 	}
 
 	def void save(String modelPath) throws IOException {
 		xform.saveOutputModels(#{'bdd' -> modelPath + '.output.xmi'})
 	}
-
 }
