@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="https://www.transformation-tool-contest.eu/2019/tt" Prefix="tt" Name="TT" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <Types xsi:type="nmeta:Class" Name="LocatedElement">
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="location" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IdentifierScope="Local" BaseTypes="#//LocatedElement" Identifier="#//TruthTable/name" Name="TruthTable">
+    <References IsContainment="True" Opposite="#//Port/owner" ReferenceType="nmeta:Class #//Port" IsOrdered="True" IsUnique="True" LowerBound="1" UpperBound="-1" Name="ports" />
+    <References IsContainment="True" Opposite="#//Row/owner" ReferenceType="nmeta:Class #//Row" IsOrdered="True" IsUnique="True" LowerBound="2" UpperBound="-1" Name="rows" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" IdentifierScope="Local" BaseTypes="#//LocatedElement" Identifier="#//Port/name" Name="Port">
+    <References Opposite="#//TruthTable/ports" ReferenceType="nmeta:Class #//TruthTable" IsUnique="True" LowerBound="1" Name="owner" />
+    <References Opposite="#//Cell/port" ReferenceType="nmeta:Class #//Cell" IsUnique="True" UpperBound="-1" Name="cells" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Port" Name="InputPort" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Port" Name="OutputPort" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//LocatedElement" Name="Row">
+    <References Opposite="#//TruthTable/rows" ReferenceType="nmeta:Class #//TruthTable" IsUnique="True" LowerBound="1" Name="owner" />
+    <References IsContainment="True" Opposite="#//Cell/owner" ReferenceType="nmeta:Class #//Cell" IsOrdered="True" IsUnique="True" LowerBound="1" UpperBound="-1" Name="cells" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//LocatedElement" Name="Cell">
+    <References Opposite="#//Row/cells" ReferenceType="nmeta:Class #//Row" IsUnique="True" LowerBound="1" Name="owner" />
+    <References Opposite="#//Port/cells" ReferenceType="nmeta:Class #//Port" IsUnique="True" LowerBound="1" Name="port" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Boolean" Name="value" />
+  </Types>
+</nmeta:Namespace>

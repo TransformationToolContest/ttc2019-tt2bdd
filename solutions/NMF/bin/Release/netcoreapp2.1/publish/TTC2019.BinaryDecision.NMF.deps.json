@@ -1,0 +1,144 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "a1ca90d92fd0a5220551027c916a252af4bd8900"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "TTC2019.BinaryDecision.NMF/1.0.0": {
+        "dependencies": {
+          "NMF-Basics": "2.0.138",
+          "NMF-Synchronizations": "2.0.138"
+        },
+        "runtime": {
+          "TTC2019.BinaryDecision.NMF.dll": {}
+        }
+      },
+      "NMF-Basics/2.0.138": {
+        "dependencies": {
+          "NMF-Expressions": "2.0.138",
+          "NMF-Repository": "2.0.138"
+        }
+      },
+      "NMF-Expressions/2.0.138": {
+        "runtime": {
+          "lib/netstandard2.0/NMF.Expressions.Linq.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          },
+          "lib/netstandard2.0/NMF.Expressions.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "NMF-Repository/2.0.138": {
+        "dependencies": {
+          "NMF-Expressions": "2.0.138",
+          "NMF-Utilities": "2.0.138"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NMF.Collections.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          },
+          "lib/netstandard2.0/NMF.Models.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          },
+          "lib/netstandard2.0/NMF.Serialization.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "NMF-Synchronizations/2.0.138": {
+        "dependencies": {
+          "NMF-Expressions": "2.0.138",
+          "NMF-Transformations": "2.0.138",
+          "NMF-Utilities": "2.0.138"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NMF.Synchronizations.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "NMF-Transformations/2.0.138": {
+        "dependencies": {
+          "NMF-Expressions": "2.0.138",
+          "NMF-Utilities": "2.0.138"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NMF.Transformations.Core.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          },
+          "lib/netstandard2.0/NMF.Transformations.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "NMF-Utilities/2.0.138": {
+        "runtime": {
+          "lib/netstandard2.0/NMF.Utilities.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TTC2019.BinaryDecision.NMF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NMF-Basics/2.0.138": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h/4J5YhPQ9au+ujCfUolgdQHNZx94p2bdpKgoWPX+FSe0p8xCElw/ghmX/m9W7TtwUvpuevcNLTtmH4S5TvupQ==",
+      "path": "nmf-basics/2.0.138",
+      "hashPath": "nmf-basics.2.0.138.nupkg.sha512"
+    },
+    "NMF-Expressions/2.0.138": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5q/uQ8aqtZKMyhAfYIDeUHcVb5tRoJueEod49Vm0CvwbI7rOphnXa6jl5C2fehcMC33fYLST5/BFJ3BeyGrbvA==",
+      "path": "nmf-expressions/2.0.138",
+      "hashPath": "nmf-expressions.2.0.138.nupkg.sha512"
+    },
+    "NMF-Repository/2.0.138": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lYJ09BjCEY5uBscTGRKhcH7gMYSOLLrGerF03Fx7X6UpB6F7bDSq8REITHst+v82MqDGTKZpyG32XlN21b0fog==",
+      "path": "nmf-repository/2.0.138",
+      "hashPath": "nmf-repository.2.0.138.nupkg.sha512"
+    },
+    "NMF-Synchronizations/2.0.138": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rhDI7khQS/GntRHCN3OuHfZjp0yZS1rSm++TleiJeRV0evKEsJ2txVFOKdO3qRc91sMfV5uDAJhbneKVb8SEHg==",
+      "path": "nmf-synchronizations/2.0.138",
+      "hashPath": "nmf-synchronizations.2.0.138.nupkg.sha512"
+    },
+    "NMF-Transformations/2.0.138": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-F1SqazhbbDY79ggkfLqHdPkTr9qwJsP2snZn5rh0pWpy7kyaxbINEB0mcUg09hNlR7YZI1AUUxz+6TpFjA4TTw==",
+      "path": "nmf-transformations/2.0.138",
+      "hashPath": "nmf-transformations.2.0.138.nupkg.sha512"
+    },
+    "NMF-Utilities/2.0.138": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h3FlHL2maWR3c7ovCgdNY/I5uqDVPFdHwZcD8yykFYURx79HFNxoSdcZ+7+yBFY4KGd1MAfZgXk0iL3mzJd+jg==",
+      "path": "nmf-utilities/2.0.138",
+      "hashPath": "nmf-utilities.2.0.138.nupkg.sha512"
+    }
+  }
+}
