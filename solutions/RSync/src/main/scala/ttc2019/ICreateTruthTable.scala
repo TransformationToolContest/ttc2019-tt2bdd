@@ -2,6 +2,9 @@ package ttc2019
 
 import org.eclipse.emf.ecore.EObject
 
+/**
+ * Interface for creating a truth Table.
+ */
 trait ICreateTruthTable {
   
   def createTruthTable(name: String, id: EObject): Unit

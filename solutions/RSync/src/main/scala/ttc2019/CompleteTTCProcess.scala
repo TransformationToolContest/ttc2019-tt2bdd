@@ -96,7 +96,7 @@ object CompleteTTCProcess extends App {
   }
 
   override def main(args: Array[String]): Unit = {
-    val processConfig = TTCProcessConfiguration(ttFileName = "TT.ttmodel", bddFileName = "Generated.bddmodel", processMode = ProcessMode.BDD)
+    val processConfig = TTCProcessConfiguration(ttFileName = "TT.ttmodel", bddFileName = "Generated.bddmodel", processMode = ProcessMode.BDTU)
     executeEntireProcess(processConfig)
   }
 

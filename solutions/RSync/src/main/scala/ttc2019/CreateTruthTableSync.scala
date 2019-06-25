@@ -3,6 +3,11 @@ package ttc2019
 import sync.tt._
 import org.eclipse.emf.ecore.EObject
 
+/**
+ * Create the instances of the truth table in Scala. 
+ * 
+ * @author Christopher Werner
+ */
 class CreateTruthTableSync extends ICreateTruthTable {
   
   var mapping: Map[EObject, Object] = Map.empty 

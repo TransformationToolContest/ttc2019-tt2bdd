@@ -3,6 +3,9 @@ package ttc2019
 import org.rosi_project.model_management.core.ModelElementLists
 import ttc2019.benchmark.Metrics
 
+/**
+ * Object to create the metric values from the created target models.
+ */
 object MetricMeasurement {
 
   var printDirectly = false
