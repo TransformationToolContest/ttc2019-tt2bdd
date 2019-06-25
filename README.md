@@ -2,7 +2,7 @@
 
 ## Solutions
 
-**Please note** that unfortunately - like provided ATL solution - the solutions cannot be started directly using MS Windows, since they use `cd ../dir && ./gradlew`. If only Windows is available, these commands have to be adapted.
+**Please note** that unfortunately - like the provided ATL solution - the solutions cannot be started directly using MS Windows, since they use `cd ../dir && ./gradlew`. If only Windows is available, these commands have to be adapted.
 
 ### JastAdd Relational RAGs Solution
 
