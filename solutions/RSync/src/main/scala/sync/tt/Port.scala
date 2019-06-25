@@ -1,7 +1,5 @@
 package sync.tt
 
-//import scala.collection.mutable.Set
-
 abstract class Port(protected var name: String, protected var cells: Set[Cell], protected var owner: TruthTable, l_Location: String) extends LocatedElement(l_Location) {
 
   def getName(): String = {
@@ -10,7 +8,7 @@ abstract class Port(protected var name: String, protected var cells: Set[Cell], 
 
   def setName(n: String): Unit = {
     name = n
-    +this setName ()
+    +this syncSetName ()
   }
 
   def getCells(): Set[Cell] = {
@@ -19,12 +17,12 @@ abstract class Port(protected var name: String, protected var cells: Set[Cell], 
 
   def addCells(c: Cell): Unit = {
     cells += c
-    +this addCells ()
+    +this syncAddCells (c)
   }
 
   def removeCells(c: Cell): Unit = {
     cells -= c
-    +this removeCells ()
+    +this syncRemoveCells (c)
   }
 
   def getOwner(): TruthTable = {
@@ -33,7 +31,7 @@ abstract class Port(protected var name: String, protected var cells: Set[Cell], 
 
   def setOwner(o: TruthTable): Unit = {
     owner = o
-    +this setOwner ()
+    +this syncSetOwner ()
   }
 
   override def toString(): String = {

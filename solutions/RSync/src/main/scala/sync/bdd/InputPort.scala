@@ -8,12 +8,12 @@ class InputPort(protected var subtrees: Set[Subtree], p_Name: String, p_Owner: B
 
   def addSubtrees(s: Subtree): Unit = {
     subtrees += s
-    +this addSubtrees ()
+    +this syncAddSubtrees (s)
   }
 
   def removeSubtrees(s: Subtree): Unit = {
     subtrees -= s
-    +this removeSubtrees ()
+    +this syncRemoveSubtrees (s)
   }
 
   override def toString(): String = {

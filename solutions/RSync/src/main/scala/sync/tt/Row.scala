@@ -1,7 +1,5 @@
 package sync.tt
 
-//import scala.collection.mutable.Set
-
 class Row(protected var cells: Set[Cell], protected var owner: TruthTable, l_Location: String) extends LocatedElement(l_Location) {
 
   def getCells(): Set[Cell] = {
@@ -10,12 +8,12 @@ class Row(protected var cells: Set[Cell], protected var owner: TruthTable, l_Loc
 
   def addCells(c: Cell): Unit = {
     cells += c
-    +this addCells ()
+    +this syncAddCells (c)
   }
 
   def removeCells(c: Cell): Unit = {
     cells -= c
-    +this removeCells ()
+    +this syncRemoveCells (c)
   }
 
   def getOwner(): TruthTable = {
@@ -24,7 +22,7 @@ class Row(protected var cells: Set[Cell], protected var owner: TruthTable, l_Loc
 
   def setOwner(o: TruthTable): Unit = {
     owner = o
-    +this setOwner ()
+    +this syncSetOwner ()
   }
 
   override def toString(): String = {

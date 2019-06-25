@@ -8,7 +8,7 @@ class Subtree(protected var treeForOne: Tree, protected var treeForZero: Tree, p
 
   def setTreeForOne(t: Tree): Unit = {
     treeForOne = t
-    +this setTreeForOne ()
+    +this syncSetTreeForOne ()
   }
 
   def getTreeForZero(): Tree = {
@@ -17,7 +17,7 @@ class Subtree(protected var treeForOne: Tree, protected var treeForZero: Tree, p
 
   def setTreeForZero(t: Tree): Unit = {
     treeForZero = t
-    +this setTreeForZero ()
+    +this syncSetTreeForZero ()
   }
 
   def getPort(): InputPort = {
@@ -26,33 +26,23 @@ class Subtree(protected var treeForOne: Tree, protected var treeForZero: Tree, p
 
   def setPort(p: InputPort): Unit = {
     port = p
-    +this setPort ()
+    +this syncSetPort ()
   }
 
   override def toString(): String = {
     "Subtree:"
   }
   
-  def getAvgPath(): Double = {
-    return 0.5 * treeForOne.getAvgPath() + 0.5 * treeForZero.getAvgPath() + 1
+  override def getAvgPath(): Double = {
+    return 0.5 * (treeForOne.getAvgPath() + treeForZero.getAvgPath()) + 1
   }
-  
-  def getMinPath(): Int = {
-    val minZero = treeForZero.getMinPath()
-    val minOne = treeForOne.getMinPath()
-    if (minZero < minOne) {
-      return minZero + 1
-    }
-    return minOne + 1
+
+  override def getMinPath(): Int = {
+    Math.min(treeForZero.getMinPath(), treeForOne.getMinPath()) + 1
   }
-  
-  def getMaxPath(): Int = {
-    val maxZero = treeForZero.getMaxPath()
-    val maxOne = treeForOne.getMaxPath()
-    if (maxZero > maxOne) {
-      return maxZero + 1
-    }
-    return maxOne + 1
+
+  override def getMaxPath(): Int = {
+    Math.max(treeForZero.getMaxPath(), treeForOne.getMaxPath()) + 1
   }
 
 }

@@ -10,7 +10,7 @@ class Assignment(protected var value: Boolean, protected var owner: Leaf, protec
 
   def setValue(v: Boolean): Unit = {
     value = v
-    +this setValue ()
+    +this syncSetValue ()
   }
 
   def getOwner(): Leaf = {
@@ -19,7 +19,7 @@ class Assignment(protected var value: Boolean, protected var owner: Leaf, protec
 
   def setOwner(o: Leaf): Unit = {
     owner = o
-    +this setOwner ()
+    +this syncSetOwner ()
   }
 
   def getPort(): OutputPort = {
@@ -28,7 +28,7 @@ class Assignment(protected var value: Boolean, protected var owner: Leaf, protec
 
   def setPort(p: OutputPort): Unit = {
     port = p
-    +this setPort ()
+    +this syncSetPort ()
   }
 
   override def toString(): String = {

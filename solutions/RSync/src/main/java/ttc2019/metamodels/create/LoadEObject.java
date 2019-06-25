@@ -17,8 +17,21 @@ import org.eclipse.emf.ecore.xmi.impl.XMLParserPoolImpl;
 import ttc2019.metamodels.tt.TTPackage;
 import ttc2019.metamodels.tt.TruthTable;
 
+/**
+ * Load the EObject of an incoming Model in two different ways.
+ * Third time we load and EObject and cast it to a TruthTable.
+ * 
+ * @author Christopher Werner
+ */
 public class LoadEObject {
 	
+	/**
+	 * Simple loading of an EObject without extra Optimization stuff.
+	 * @param pathMeta Path of metamodel
+	 * @param pathInstance Path of model
+	 * @return Instance of EObject
+	 * @throws IOException
+	 */
 	public EObject loadSimple(String pathMeta, String pathInstance) throws IOException {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
@@ -32,6 +45,13 @@ public class LoadEObject {
 		return ressourceModel.getContents().get(0);
 	}
 
+	/**
+	 * Loading an EObject with optimized settings.
+	 * @param pathMeta Path of metamodel
+	 * @param pathInstance Path of model
+	 * @return Instance of EObject
+	 * @throws IOException
+	 */
 	public EObject loadOptimized(String pathMeta, String pathInstance) throws IOException {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
@@ -51,6 +71,13 @@ public class LoadEObject {
 		return ressourceModel.getContents().get(0);
 	}
 	
+	/**
+	 * Load directly a truth table from the Java representation.
+	 * @param pathMeta Path of metamodel
+	 * @param pathInstance Path of model
+	 * @return Instance of EObject
+	 * @throws IOException
+	 */
 	public TruthTable loadOptimizedTruthTable(String pathMeta, String pathInstance) throws IOException {
 		TTPackage.eINSTANCE.getName();
 		ResourceSet rs = new ResourceSetImpl();

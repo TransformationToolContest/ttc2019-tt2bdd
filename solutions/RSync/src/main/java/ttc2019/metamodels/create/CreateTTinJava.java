@@ -17,50 +17,50 @@ public class CreateTTinJava {
 	private Map<EObject, Row> rows = new HashMap<EObject, Row>();
 	private Map<EObject, Port> ports = new HashMap<EObject, Port>();
 	private Map<EObject, Cell> cells = new HashMap<EObject, Cell>();
-	
+
 	public void createTruthTable(String name, EObject id) {
-	    truthttable = TTFactory.getTruthTable(name);
-	  }
+		truthttable = TTFactory.getTruthTable(name);
+	}
 
 	public void createInputPort(String name, EObject id) {
-	    ports.put(id, TTFactory.getInputPort(name));
-	  }
+		ports.put(id, TTFactory.getInputPort(name));
+	}
 
 	public void createOutputPort(String name, EObject id) {
-	    ports.put(id, TTFactory.getOutputPort(name));
-	  }
+		ports.put(id, TTFactory.getOutputPort(name));
+	}
 
 	public void createRow(EObject id) {
-	    rows.put(id, TTFactory.getRow());
-	  }
+		rows.put(id, TTFactory.getRow());
+	}
 
 	public void createCell(Boolean value, EObject id) {
-	    cells.put(id, TTFactory.getCell(value));
-	  }
+		cells.put(id, TTFactory.getCell(value));
+	}
 
 	public void createTruthTableRowsRow(EObject tt, EObject row) {
-	    Row r = rows.get(row);
-	    truthttable.addRows(r);
-	    r.setOwner(truthttable);
-	  }
+		Row r = rows.get(row);
+		truthttable.addRows(r);
+		r.setOwner(truthttable);
+	}
 
 	public void createTruthTablePortsPort(EObject tt, EObject port) {
-	    Port p = ports.get(port);
-	    truthttable.addPorts(p);
-	    p.setOwner(truthttable);
-	  }
+		Port p = ports.get(port);
+		truthttable.addPorts(p);
+		p.setOwner(truthttable);
+	}
 
 	public void createRowCellsCell(EObject row, EObject cell) {
-	    Cell c = cells.get(cell);
-	    Row r = rows.get(row);
-	    c.setOwner(r);
-	    r.addCells(c);
-	  }
+		Cell c = cells.get(cell);
+		Row r = rows.get(row);
+		c.setOwner(r);
+		r.addCells(c);
+	}
 
 	public void createCellPortPort(EObject cell, EObject port) {
-	    Cell c = cells.get(cell);
-	    Port p = ports.get(port);
-	    c.setPort(p);
-	    p.addCells(c);
-	  }
+		Cell c = cells.get(cell);
+		Port p = ports.get(port);
+		c.setPort(p);
+		p.addCells(c);
+	}
 }

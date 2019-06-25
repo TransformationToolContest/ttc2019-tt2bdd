@@ -19,6 +19,11 @@ import ttc2019.metamodels.tt.Row;
 import ttc2019.metamodels.tt.TruthTable;
 import ttc2019.metamodels.tt.TTFactory;
 
+/**
+ * Generate for each TT from Scala an identical one in Javas generated EMF format and save it in a file.
+ * 
+ * @author Christopher Werner
+ */
 public class TtCreationHelper {
 
 	private TruthTable tt;

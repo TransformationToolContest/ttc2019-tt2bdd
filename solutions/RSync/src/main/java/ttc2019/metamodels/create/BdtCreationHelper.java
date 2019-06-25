@@ -21,6 +21,11 @@ import ttc2019.metamodels.bdd.Port;
 import ttc2019.metamodels.bdd.Subtree;
 import ttc2019.metamodels.bdd.Tree;
 
+/**
+ * Generate for each BDT from Scala an identical one in Javas generated EMF format and save it in a file.
+ * 
+ * @author Christopher Werner
+ */
 public class BdtCreationHelper {
 	
 	private BDD bdd;

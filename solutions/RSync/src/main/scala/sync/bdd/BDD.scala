@@ -10,7 +10,7 @@ class BDD(protected var name: String, protected var tree: Tree, protected var po
 
   def setName(n: String): Unit = {
     name = n
-    +this setName ()
+    +this syncSetName ()
   }
 
   def getTree(): Tree = {
@@ -19,7 +19,7 @@ class BDD(protected var name: String, protected var tree: Tree, protected var po
 
   def setTree(t: Tree): Unit = {
     tree = t
-    +this setTree ()
+    +this syncSetTree ()
   }
 
   def getPorts(): Set[Port] = {
@@ -28,12 +28,12 @@ class BDD(protected var name: String, protected var tree: Tree, protected var po
 
   def addPorts(p: Port): Unit = {
     ports += p
-    +this addPorts ()
+    +this syncAddPorts (p)
   }
 
   def removePorts(p: Port): Unit = {
     ports -= p
-    +this removePorts ()
+    +this syncRemovePorts (p)
   }
 
   override def toString(): String = {

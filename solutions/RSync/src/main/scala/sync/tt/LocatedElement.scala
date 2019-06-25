@@ -10,7 +10,7 @@ class LocatedElement(protected var location: String) extends PlayerSync {
 
   def setLocation(l: String): Unit = {
     location = l
-    +this setLocation ()
+    +this syncSetLocation ()
   }
 
   override def toString(): String = {

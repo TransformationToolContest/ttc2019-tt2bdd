@@ -8,23 +8,17 @@ class Leaf(protected var assignments: Set[Assignment], t_OwnerSubtreeForOne: Set
 
   def addAssignments(a: Assignment): Unit = {
     assignments += a
-    +this addAssignments ()
+    +this syncAddAssignments (a)
   }
 
   def removeAssignments(a: Assignment): Unit = {
     assignments -= a
-    +this removeAssignments ()
+    +this syncRemoveAssignments (a)
   }
 
   override def toString(): String = {
     "Leaf:"
   }
-  
-  def getAvgPath(): Double = 0.0
-  
-  def getMinPath(): Int = 0
-  
-  def getMaxPath(): Int = 0
 
 }
 

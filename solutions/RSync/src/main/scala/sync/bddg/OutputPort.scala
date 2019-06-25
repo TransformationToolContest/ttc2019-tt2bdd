@@ -8,12 +8,12 @@ class OutputPort(protected var assignments: Set[Assignment], p_Name: String, p_O
 
   def addAssignments(a: Assignment): Unit = {
     assignments += a
-    +this addAssignments ()
+    +this syncAddAssignments (a)
   }
 
   def removeAssignments(a: Assignment): Unit = {
     assignments -= a
-    +this removeAssignments ()
+    +this syncRemoveAssignments (a)
   }
 
   override def toString(): String = {
