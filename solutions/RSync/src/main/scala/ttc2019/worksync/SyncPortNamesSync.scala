@@ -4,41 +4,41 @@ import org.rosi_project.model_management.sync.ISyncCompartment
 import org.rosi_project.model_management.sync.roles.ISyncRole
 
 /**
-  * Synchronization compartment for output port names.
+  * Synchronization compartment for port names.
   */
-class SyncOutputPortNamesSync() extends ISyncCompartment {
+class SyncPortNamesSync extends ISyncCompartment {
 
   override def getNextRole(classname: Object): ISyncRole = {
-    if (classname.isInstanceOf[sync.bdd.OutputPort] || classname.isInstanceOf[sync.bddg.OutputPort] || classname.isInstanceOf[sync.tt.OutputPort])
+    if (classname.isInstanceOf[sync.bdd.Port] || classname.isInstanceOf[sync.bddg.Port] || classname.isInstanceOf[sync.tt.Port])
       return new Sync()
     return null
   }
 
   def getFirstRole(classname: Object): ISyncRole = {
-    if (classname.isInstanceOf[sync.tt.OutputPort])
+    if (classname.isInstanceOf[sync.tt.Port])
       return new Sync()
     return null
   }
 
   override def isNextIntegration(classname: Object): Boolean = {
-    if (classname.isInstanceOf[sync.bdd.OutputPort] || classname.isInstanceOf[sync.bddg.OutputPort] || classname.isInstanceOf[sync.tt.OutputPort])
+    if (classname.isInstanceOf[sync.bdd.Port] || classname.isInstanceOf[sync.bddg.Port] || classname.isInstanceOf[sync.tt.Port])
       return true
     return false
   }
 
   def isFirstIntegration(classname: Object): Boolean = {
-    if (classname.isInstanceOf[sync.tt.OutputPort])
+    if (classname.isInstanceOf[sync.tt.Port])
       return true
     return false
   }
 
-  def getNewInstance(): ISyncCompartment = new SyncOutputPortNamesSync
+  def getNewInstance(): ISyncCompartment = new SyncPortNamesSync
 
-  def getRuleName(): String = "SyncOutputPortNamesSync"
+  def getRuleName(): String = "SyncPortNamesSync"
 
   class Sync() extends ISyncRole {
 
-    def getOuterCompartment(): ISyncCompartment = SyncOutputPortNamesSync.this
+    def getOuterCompartment(): ISyncCompartment = SyncPortNamesSync.this
 
     def changeName(): Unit = {
       if (!doSync) {

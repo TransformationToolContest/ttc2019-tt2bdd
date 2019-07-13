@@ -256,7 +256,7 @@ object SynchronizationCompartment extends ISynchronizationCompartment {
                 case _ =>
               }
 
-              //if role manager was not integrated before then integrate now
+              //if synchronization compartment was not integrated before then integrate now
               if (proof) {
                 //add new role to the player
                 //the new compartment
@@ -275,8 +275,10 @@ object SynchronizationCompartment extends ISynchronizationCompartment {
                     val player = r.player
                     if (player.isRight) {
                       val realPlayer = player.right.get
-                      val newRole = newComp.getNextIntegrationRole(realPlayer)
-                      r play newRole
+                      if (newComp.isNextIntegration(realPlayer)) {
+                        val newRole = newComp.getNextIntegrationRole(realPlayer)
+                        r play newRole
+                      }
                     }
                   }
                   this combine newComp
@@ -397,6 +399,17 @@ object SynchronizationCompartment extends ISynchronizationCompartment {
       null
     }
 
+    def getSetRelatedClassesFromName(name: String): Set[PlayerSync] = {
+      var resultSet: Set[PlayerSync] = Set.empty
+      getRelatedManager.foreach(rm => {
+        val realPlayer = rm.player.right.get
+        if (realPlayer.getClass.getName.contains(name) || realPlayer.getClass.getSuperclass.getName.contains(name)) {
+          resultSet += realPlayer.asInstanceOf[PlayerSync]
+        }
+      })
+      resultSet
+    }
+
     def insertNotification(): Unit = {
       //println("Insert Notification")
       +this notifyInsertion ()
@@ -418,12 +431,12 @@ object SynchronizationCompartment extends ISynchronizationCompartment {
         println("-- Ma => Pl: " + m + " | " + m.player.right.get)
       })
     }
-    
+
     def deleteManage(value: PlayerSync): Unit = {
       val delete = activeDestructionCompartment.getDestructorForClassName(value)
       if (delete != null) {
         this play delete
-        +this deleteRoleFunction()
+        +this deleteRoleFunction ()
       }
     }
 
@@ -432,10 +445,17 @@ object SynchronizationCompartment extends ISynchronizationCompartment {
       if (construct != null) {
         this play construct
         underConstruction = true;
-        var list = +this construct (value, this)
+        val _ = +this construct (value, this)
         underConstruction = false;
         construct.remove()
       }
+    }
+
+    /**
+     * Create a relation between two IRoleManager and RoleManager of other PlayerSync instances.
+     */
+    def makePlayerSyncRelated(playerSync: PlayerSync): Unit = {
+      +playerSync makeRelated (this)
     }
   }
 

@@ -21,10 +21,10 @@ import ttc2019.metamodels.tt._
 class TTCLoader {
 
   /**
-   * Fetches an ecore model from XMI directly converted into a truth table.
+   * Fetches an ecore model from XML.
    *
-   * @param path where to find the (meta-)model
-   * @return the truth table instance from the model
+   * @param path where to find the model
+   * @return the model described by the XML
    */  
   def javaOptimizedTTJavaEcore(pathMeta: String, pathInstance: String): TruthTable = {
     require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
@@ -32,36 +32,18 @@ class TTCLoader {
     return loader.loadOptimizedTruthTable(pathMeta, pathInstance)
   }
   
-  /**
-   * Fetches an ecore model from XMI as EObject.
-   *
-   * @param path where to find the (meta-)model
-   * @return the EObject instance from the model
-   */ 
   def loadOptimizedJavaEcore(pathMeta: String, pathInstance: String): EObject = {
     require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
     val loader = new LoadEObject
     return loader.loadOptimized(pathMeta, pathInstance)
   }
   
-  /**
-   * Fetches an ecore model from XMI as EObject.
-   *
-   * @param path where to find the (meta-)model
-   * @return the EObject instance from the model
-   */ 
   def loadSimpleJavaEcore(pathMeta: String, pathInstance: String): EObject = {
     require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
     val loader = new LoadEObject
     return loader.loadSimple(pathMeta, pathInstance)
   }
   
-  /**
-   * Fetches an ecore model from XMI as EObject.
-   *
-   * @param path where to find the (meta-)model
-   * @return the EObject instance from the model
-   */ 
   def loadScalaEcore(pathMeta: String, pathInstance: String): EObject = {
     require(null != pathMeta && pathMeta.nonEmpty && null != pathInstance && pathInstance.nonEmpty)
 
@@ -81,9 +63,6 @@ class TTCLoader {
     return ressourceModel.getContents().get(0)
   }
 
-  /**
-   * Create a new object from the incoming element.
-   */
   private def createObj(obj: EObject, ctts: ICreateTruthTable): Unit = {
     var objName = obj.eClass.getName
 
@@ -98,9 +77,6 @@ class TTCLoader {
     }
   }
 
-  /**
-   * Create references between the created objects.
-   */
   private def createReferences(o1: EObject, ctts: ICreateTruthTable): Unit = {
     o1.eClass().getEAllReferences.forEach(sf => {
       if (sf.getName == "port" || sf.getName == "owner") {
@@ -135,10 +111,7 @@ class TTCLoader {
     })
   }
   
-  /**
-   * Create the input TruthTable instance from the *.ttmodel file.
-   */
-  def createTruthTableRSYNCInstance(tt: TruthTable, ctts: ICreateTruthTable): Unit = { 
+  def createTruthTableRSYNCInstance(tt: TruthTable, ctts: ICreateTruthTable): Unit = {
     ctts.createTruthTable(tt.getName, tt)
     
     tt.getPorts.forEach(p => {
@@ -152,12 +125,14 @@ class TTCLoader {
     
     tt.getRows.forEach(r => {
       ctts.createRow(r)
-      ctts.createTruthTableRowsRow(tt, r)
       r.getCells.forEach(c => {
+        //print("(" + c.getPort.getName + "|" + (if (c.isValue()) "1" else "0") + ") ")
         ctts.createCell(c.isValue(), c)
-        ctts.createRowCellsCell(r, c)
         ctts.createCellPortPort(c, c.getPort)
+        ctts.createRowCellsCell(r, c)
       })
+      ctts.createTruthTableRowsRow(tt, r)
+      //println("")
     })
   }
 

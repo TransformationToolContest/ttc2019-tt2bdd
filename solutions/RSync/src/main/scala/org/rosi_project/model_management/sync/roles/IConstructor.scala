@@ -2,7 +2,6 @@ package org.rosi_project.model_management.sync.roles
 
 import org.rosi_project.model_management.core.PlayerSync
 import org.rosi_project.model_management.sync.helper.ConstructionContainer
-import scala.collection.mutable.ListBuffer
 
 /**
   * Interface for the constructor roles.
@@ -12,7 +11,7 @@ trait IConstructor {
   /**
     * Container list for the construction process.
     */
-  protected var containers: ListBuffer[ConstructionContainer] = ListBuffer[ConstructionContainer]()
+  protected var containers: Set[ConstructionContainer] = Set.empty
 
   /**
     * Create a container element with the incoming configuration.
@@ -20,8 +19,7 @@ trait IConstructor {
   protected def createContainerElement(start: Boolean, con: Boolean, play: PlayerSync, man: IRoleManager): Unit = {
     if (play == null)
       return
-    var cc = new ConstructionContainer(start, con, play, man)
-    containers += cc
+    containers += new ConstructionContainer(start, con, play, man)
   }
 
   /**

@@ -15,11 +15,11 @@ object BddSyncIntegration extends IIntegrationCompartment {
   private var leafNodes: Map[Set[String], sync.bddg.Leaf] = Map.empty
   private var createdBdds: Set[sync.bddg.BDD] = Set.empty
 
-  /*def printManager(): Unit = {
+  def printManager(): Unit = {
     ModelElementLists.getElementsFromType("sync.bddg.Leaf").asInstanceOf[List[sync.bddg.Leaf]].foreach(obj => {
       +obj printAllManager ()
     })
-  }*/
+  }
 
   def getRelationalIntegratorsForClassName(classname: Object): IIntegrator = {
     return null
@@ -67,6 +67,7 @@ object BddSyncIntegration extends IIntegrationCompartment {
     //find next inputport for subtree
     truthTable.getPorts().filter(p => p.isInstanceOf[sync.tt.InputPort] && !finishPorts.contains(p)).foreach(ttip => {
       val newCells = ttip.getCells().filter(c => rows.contains(c.getOwner()))
+      //println("Looking Port: " + ttip.getName() + " S: " + newCells.size)
       if (newCells.size >= max) {
         var setTrue: Set[Set[String]] = Set.empty
         var setFalse: Set[Set[String]] = Set.empty
@@ -94,6 +95,7 @@ object BddSyncIntegration extends IIntegrationCompartment {
           portTT = ttip
           max = newCells.size
         }
+        //println("############################## " + newCells.size + " || T: " + p1 + " F: " + p2)
       }
     })
 
@@ -127,6 +129,69 @@ object BddSyncIntegration extends IIntegrationCompartment {
       //create new subtree from rows
       treeOne = createOutputLookSubtree(bdd, truthTable, rowsOne, newPorts)
     }
+
+    treeOne.addOwnerSubtreeForOne(subtree)
+    subtree.setTreeForOne(treeOne)
+    //connect to rows
+    connectTargetElementWithSourceElementes(treeOne, rowsOne.asInstanceOf[Set[PlayerSync]])
+
+    treeZero.addOwnerSubtreeForZero(subtree)
+    subtree.setTreeForZero(treeZero)
+    //connect to rows
+    connectTargetElementWithSourceElementes(treeZero, rowsZero.asInstanceOf[Set[PlayerSync]])
+
+    subtree
+  }
+  
+  def createInputLookSubtree(bdd: sync.bddg.BDD, truthTable: sync.tt.TruthTable, rows: Set[sync.tt.Row], finishPorts: Set[sync.tt.Port]): sync.bddg.Tree = {
+    var max = 0
+    var portTT: sync.tt.Port = null
+    var cellis: Set[sync.tt.Cell] = Set.empty
+
+    truthTable.getPorts().filter(p => p.isInstanceOf[sync.tt.InputPort] && !finishPorts.contains(p)).foreach(ttip => {
+      val newCells = ttip.getCells().filter(c => rows.contains(c.getOwner()))
+      if (newCells.size > max) {
+        max = newCells.size
+        portTT = ttip
+        cellis = newCells
+      } else if (newCells.size == max) {
+        val p1 = newCells.count(_.getValue())
+        val p2 = newCells.count(!_.getValue())
+        if (Math.abs(max / 2 - p1) > Math.abs(max / 2 - p2)) {
+          portTT = ttip
+          cellis = newCells
+        }
+      }
+    })
+    var portBDD: sync.bddg.InputPort = null
+    val oppo: PlayerSync = +portTT getRelatedClassFromName ("InputPort")
+    if (oppo != null) {
+      portBDD = oppo.asInstanceOf[sync.bddg.InputPort]
+    }    
+
+    val newPorts = finishPorts + portTT
+    val subtree = new sync.bddg.Subtree(null, null, portBDD, Set.empty, Set.empty, bdd)
+    bdd.addTrees(subtree)
+    portBDD.addSubtrees(subtree)
+
+    val rowsOne = cellis.filter(_.getValue()).map(_.getOwner())
+    val rowsZero = cellis.filter(!_.getValue()).map(_.getOwner())
+
+    var treeZero: sync.bddg.Tree = null
+    var treeOne: sync.bddg.Tree = null
+    if (rowsZero.size == 1) {
+      //create leaf from rows
+      treeZero = createLeafFromRows(bdd, rowsZero)
+    } else {
+      treeZero = createInputLookSubtree(bdd, truthTable, rowsZero, newPorts)
+    }
+    if (rowsOne.size == 1) {
+      //create leaf from rows
+      treeOne = createLeafFromRows(bdd, rowsOne)
+    } else {
+      treeOne = createInputLookSubtree(bdd, truthTable, rowsOne, newPorts)
+    }
+    //TODO: Assignment what to do for more than one output cell
 
     treeOne.addOwnerSubtreeForOne(subtree)
     subtree.setTreeForOne(treeOne)

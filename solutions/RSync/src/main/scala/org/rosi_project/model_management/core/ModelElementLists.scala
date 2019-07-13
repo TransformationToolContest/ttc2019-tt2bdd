@@ -27,7 +27,8 @@ object ModelElementLists {
     if (elementsWithClass.isEmpty) {
       elements += (obj.getClass -> Set(obj))
     } else {
-      elements += (obj.getClass -> (elementsWithClass.get ++ Set(obj)))
+      //var seti = (elementsWithClass.get ++ Set(obj))
+      elements += (obj.getClass -> (elementsWithClass.get + obj))
     }
   }
 

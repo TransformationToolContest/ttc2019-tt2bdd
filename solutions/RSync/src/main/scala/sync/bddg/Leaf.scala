@@ -7,11 +7,15 @@ class Leaf(protected var assignments: Set[Assignment], t_OwnerSubtreeForOne: Set
   }
 
   def addAssignments(a: Assignment): Unit = {
+    require(a != null)
+    require(!assignments.contains(a))
     assignments += a
     +this syncAddAssignments (a)
   }
 
   def removeAssignments(a: Assignment): Unit = {
+    require(a != null)
+    require(assignments.contains(a))
     assignments -= a
     +this syncRemoveAssignments (a)
   }

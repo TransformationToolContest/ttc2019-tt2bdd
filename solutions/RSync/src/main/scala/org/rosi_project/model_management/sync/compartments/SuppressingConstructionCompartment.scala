@@ -22,7 +22,7 @@ object SuppressingConstructionCompartment extends IConstructionCompartment {
     override def construct(comp: PlayerSync, man: IRoleManager): Unit = {
       // just set up the player
       createContainerElement(start=true, con=true, comp, man)
-      SuppressingConstructionCompartment.this.makeCompleteConstructionProcess(containers)
+      makeCompleteConstructionProcess(containers)
     }
 
   }

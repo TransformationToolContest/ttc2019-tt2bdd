@@ -1,13 +1,8 @@
 package ttc2019
 
-import sync.tt._
+import _root_.sync.tt._
 import org.eclipse.emf.ecore.EObject
 
-/**
- * Create the instances of the truth table in Scala. 
- * 
- * @author Christopher Werner
- */
 class CreateTruthTableSync extends ICreateTruthTable {
   
   var mapping: Map[EObject, Object] = Map.empty 
@@ -33,6 +28,7 @@ class CreateTruthTableSync extends ICreateTruthTable {
   }
   
   def createTruthTableRowsRow(tt: EObject, row: EObject): Unit = {
+    //println("addRow")
     val t = mapping.get(tt).get.asInstanceOf[TruthTable]
     val r = mapping.get(row).get.asInstanceOf[Row]
     t.addRows(r)
@@ -40,6 +36,7 @@ class CreateTruthTableSync extends ICreateTruthTable {
   }
   
   def createTruthTablePortsPort(tt: EObject, port: EObject): Unit = {
+    //println("addPort")
     val t = mapping.get(tt).get.asInstanceOf[TruthTable]
     val p = mapping.get(port).get.asInstanceOf[Port]
     t.addPorts(p)
@@ -47,6 +44,7 @@ class CreateTruthTableSync extends ICreateTruthTable {
   }
   
   def createRowCellsCell(row: EObject, cell: EObject): Unit = {
+    //println("addCellInRow")
     val c = mapping.get(cell).get.asInstanceOf[Cell]
     val r = mapping.get(row).get.asInstanceOf[Row]
     c.setOwner(r)
@@ -54,6 +52,7 @@ class CreateTruthTableSync extends ICreateTruthTable {
   }
   
   def createCellPortPort(cell: EObject, port: EObject): Unit = {
+    //println("addCellInPort")
     val c = mapping.get(cell).get.asInstanceOf[Cell]
     val p = mapping.get(port).get.asInstanceOf[Port]
     c.setPort(p)

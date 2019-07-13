@@ -30,7 +30,9 @@ object TTandBDTandBDDSyncConstruction extends IConstructionCompartment {
       return new BDDOutputPortConstruct()
     if (classname.isInstanceOf[sync.bdd.OutputPort])
       return new BDTOutputPortConstruct()
-    return null
+    //if (classname.isInstanceOf[sync.tt.Cell])
+    //  return new CellConstruct()
+    return new Suppressor
   }
   
   def getRuleName: String = "TTandBDTandBDDSyncConstruction"
@@ -215,11 +217,36 @@ object TTandBDTandBDDSyncConstruction extends IConstructionCompartment {
     }
   }
   
-  class TTRowConstruct() extends IConstructor {
+  /*class CellConstruct extends IConstructor {
+    //TODO: should only be for output cells
+    override def construct(comp: PlayerSync, man: IRoleManager): Unit = {
+      //Step 1: Get construction values
+      val value: Boolean = +this getValue()
 
-    def construct(comp: PlayerSync, man: IRoleManager): Unit = {
-      //TODO: modify the whole tree
-      //TODO: Cell construct does not make sense directly
+      //Step 2: Create the object in the other models
+      val dAll = new sync.bddg.Assignment(value, null, null)
+      val tAll = new sync.bdd.Assignment(value, null, null)
+
+      //Step 3: Create Containers 
+      createContainerElement(true, true, comp, man)
+      createContainerElement(false, true, dAll, SynchronizationCompartment.createRoleManager())
+      createContainerElement(false, true, tAll, SynchronizationCompartment.createRoleManager())
+
+      //Step 4: Finish Creation
+      makeCompleteConstructionProcess(containers)      
+      
+      /*// just set up the player
+      createContainerElement(start=true, con=true, comp, man)
+      makeCompleteConstructionProcess(containers)*/
+    }
+  }*/
+  
+  class Suppressor extends IConstructor {
+
+    override def construct(comp: PlayerSync, man: IRoleManager): Unit = {
+      // just set up the player
+      createContainerElement(start=true, con=true, comp, man)
+      makeCompleteConstructionProcess(containers)
     }
   }
 

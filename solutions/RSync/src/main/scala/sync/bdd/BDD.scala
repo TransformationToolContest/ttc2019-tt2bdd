@@ -9,6 +9,7 @@ class BDD(protected var name: String, protected var tree: Tree, protected var po
   }
 
   def setName(n: String): Unit = {
+    require(n != null)
     name = n
     +this syncSetName ()
   }
@@ -18,6 +19,7 @@ class BDD(protected var name: String, protected var tree: Tree, protected var po
   }
 
   def setTree(t: Tree): Unit = {
+    require(t != null)
     tree = t
     +this syncSetTree ()
   }
@@ -27,11 +29,15 @@ class BDD(protected var name: String, protected var tree: Tree, protected var po
   }
 
   def addPorts(p: Port): Unit = {
+    require(p != null)
+    require(!ports.contains(p))
     ports += p
     +this syncAddPorts (p)
   }
 
   def removePorts(p: Port): Unit = {
+    require(p != null)
+    require(ports.contains(p))
     ports -= p
     +this syncRemovePorts (p)
   }

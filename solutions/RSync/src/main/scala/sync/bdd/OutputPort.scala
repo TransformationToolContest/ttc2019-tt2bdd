@@ -7,11 +7,15 @@ class OutputPort(protected var assignments: Set[Assignment], p_Name: String, p_O
   }
 
   def addAssignments(a: Assignment): Unit = {
+    require(a != null)
+    require(!assignments.contains(a))
     assignments += a
     +this syncAddAssignments (a)
   }
 
   def removeAssignments(a: Assignment): Unit = {
+    require(a != null)
+    require(assignments.contains(a))
     assignments -= a
     +this syncRemoveAssignments (a)
   }

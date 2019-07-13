@@ -8,26 +8,26 @@ import org.rosi_project.model_management.sync.roles.ISyncRole
   */
 class SyncHeadNamesSync() extends ISyncCompartment {
 
-  def getNextRole(classname: Object): ISyncRole = {
+  override def getNextRole(classname: Object): ISyncRole = {
     if (classname.isInstanceOf[sync.bdd.BDD] || classname.isInstanceOf[sync.bddg.BDD] || classname.isInstanceOf[sync.tt.TruthTable])
       return new Sync()
     return null
   }
 
   def getFirstRole(classname: Object): ISyncRole = {
-    if (classname.isInstanceOf[sync.bdd.BDD] || classname.isInstanceOf[sync.bddg.BDD] || classname.isInstanceOf[sync.tt.TruthTable])
+    if (classname.isInstanceOf[sync.tt.TruthTable])
       return new Sync()
     return null
   }
 
-  def isNextIntegration(classname: Object): Boolean = {
+  override def isNextIntegration(classname: Object): Boolean = {
     if (classname.isInstanceOf[sync.bdd.BDD] || classname.isInstanceOf[sync.bddg.BDD] || classname.isInstanceOf[sync.tt.TruthTable])
       return true
     return false
   }
 
   def isFirstIntegration(classname: Object): Boolean = {
-    if (classname.isInstanceOf[sync.bdd.BDD] || classname.isInstanceOf[sync.bddg.BDD] || classname.isInstanceOf[sync.tt.TruthTable])
+    if (classname.isInstanceOf[sync.tt.TruthTable])
       return true
     return false
   }
@@ -44,7 +44,7 @@ class SyncHeadNamesSync() extends ISyncCompartment {
       if (!doSync) {
         doSync = true;
         var name: String = +this getName();
-        syncer.foreach { a =>
+        getSyncer().foreach { a =>
           if (!a.equals(this)) {
             (+a).setName(name);
           }

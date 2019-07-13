@@ -9,6 +9,7 @@ abstract class Port(protected var name: String, protected var owner: BDD) extend
   }
 
   def setName(n: String): Unit = {
+    require(n != null)
     name = n
     +this syncSetName ()
   }
@@ -18,6 +19,7 @@ abstract class Port(protected var name: String, protected var owner: BDD) extend
   }
 
   def setOwner(o: BDD): Unit = {
+    require(o != null)
     owner = o
     +this syncSetOwner ()
   }

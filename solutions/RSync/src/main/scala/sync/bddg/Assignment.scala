@@ -18,6 +18,7 @@ class Assignment(protected var value: Boolean, protected var owner: Leaf, protec
   }
 
   def setOwner(o: Leaf): Unit = {
+    require(o != null)
     owner = o
     +this syncSetOwner ()
   }
@@ -27,6 +28,7 @@ class Assignment(protected var value: Boolean, protected var owner: Leaf, protec
   }
 
   def setPort(p: OutputPort): Unit = {
+    require(p != null)
     port = p
     +this syncSetPort ()
   }

@@ -7,6 +7,7 @@ abstract class Port(protected var name: String, protected var cells: Set[Cell], 
   }
 
   def setName(n: String): Unit = {
+    require(n != null)
     name = n
     +this syncSetName ()
   }
@@ -16,11 +17,15 @@ abstract class Port(protected var name: String, protected var cells: Set[Cell], 
   }
 
   def addCells(c: Cell): Unit = {
+    require(c != null)
+    require(!cells.contains(c))
     cells += c
     +this syncAddCells (c)
   }
 
   def removeCells(c: Cell): Unit = {
+    require(c != null)
+    require(cells.contains(c))
     cells -= c
     +this syncRemoveCells (c)
   }
@@ -30,6 +35,7 @@ abstract class Port(protected var name: String, protected var cells: Set[Cell], 
   }
 
   def setOwner(o: TruthTable): Unit = {
+    require(o != null)
     owner = o
     +this syncSetOwner ()
   }

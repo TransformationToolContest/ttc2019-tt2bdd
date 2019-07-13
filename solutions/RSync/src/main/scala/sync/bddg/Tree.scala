@@ -9,11 +9,15 @@ abstract class Tree(protected var ownerSubtreeForOne: Set[Subtree], protected va
   }
 
   def addOwnerSubtreeForOne(o: Subtree): Unit = {
+    require(o != null)
+    require(!ownerSubtreeForOne.contains(o))
     ownerSubtreeForOne += o
     +this syncAddOwnerSubtreeForOne (o)
   }
 
   def removeOwnerSubtreeForOne(o: Subtree): Unit = {
+    require(o != null)
+    require(ownerSubtreeForOne.contains(o))
     ownerSubtreeForOne -= o
     +this syncRemoveOwnerSubtreeForOne (o)
   }
@@ -23,11 +27,15 @@ abstract class Tree(protected var ownerSubtreeForOne: Set[Subtree], protected va
   }
 
   def addOwnerSubtreeForZero(o: Subtree): Unit = {
+    require(o != null)
+    require(!ownerSubtreeForZero.contains(o))
     ownerSubtreeForZero += o
     +this syncAddOwnerSubtreeForZero (o)
   }
 
   def removeOwnerSubtreeForZero(o: Subtree): Unit = {
+    require(o != null)
+    require(ownerSubtreeForZero.contains(o))
     ownerSubtreeForZero -= o
     +this syncRemoveOwnerSubtreeForZero (o)
   }
@@ -37,6 +45,7 @@ abstract class Tree(protected var ownerSubtreeForOne: Set[Subtree], protected va
   }
 
   def setOwnerBDD(o: BDD): Unit = {
+    require(o != null)
     ownerBDD = o
     +this syncSetOwnerBDD ()
   }
@@ -44,7 +53,7 @@ abstract class Tree(protected var ownerSubtreeForOne: Set[Subtree], protected va
   override def toString(): String = {
     "Tree:"
   }
-
+  
   def getAvgPath(): Double = 0.0
 
   def getMinPath(): Int = 0

@@ -7,6 +7,7 @@ class Subtree(protected var treeForOne: Tree, protected var treeForZero: Tree, p
   }
 
   def setTreeForOne(t: Tree): Unit = {
+    require(t != null)
     treeForOne = t
     +this syncSetTreeForOne ()
   }
@@ -16,6 +17,7 @@ class Subtree(protected var treeForOne: Tree, protected var treeForZero: Tree, p
   }
 
   def setTreeForZero(t: Tree): Unit = {
+    require(t != null)
     treeForZero = t
     +this syncSetTreeForZero ()
   }
@@ -25,6 +27,7 @@ class Subtree(protected var treeForOne: Tree, protected var treeForZero: Tree, p
   }
 
   def setPort(p: InputPort): Unit = {
+    require(p != null)
     port = p
     +this syncSetPort ()
   }

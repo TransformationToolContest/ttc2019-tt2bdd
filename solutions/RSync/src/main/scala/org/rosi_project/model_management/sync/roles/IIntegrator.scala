@@ -1,6 +1,5 @@
 package org.rosi_project.model_management.sync.roles
 
-import scala.collection.mutable.ListBuffer
 import org.rosi_project.model_management.sync.helper.IntegrationContainer
 import org.rosi_project.model_management.core.PlayerSync
 import org.rosi_project.model_management.core.SynchronizationCompartment
@@ -13,16 +12,15 @@ trait IIntegrator {
   /**
    * Container list for the integration process.
    */
-  protected var containers = ListBuffer[IntegrationContainer]()
+  protected var containers: Set[IntegrationContainer] = Set.empty
 
   /**
    * Create a container element with the incoming configuration.
    */
   protected def createContainerElement(newPlayer: PlayerSync, oldPlayer: PlayerSync): Unit = {
-    if (oldPlayer == null || oldPlayer == null)
+    if (newPlayer == null || oldPlayer == null)
       return
-    var cc = new IntegrationContainer(newPlayer, oldPlayer)
-    containers += cc
+    containers += new IntegrationContainer(newPlayer, oldPlayer)
   }
   
   /**

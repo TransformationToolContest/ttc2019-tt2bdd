@@ -9,6 +9,7 @@ class LocatedElement(protected var location: String) extends PlayerSync {
   }
 
   def setLocation(l: String): Unit = {
+    require(l != null)
     location = l
     +this syncSetLocation ()
   }

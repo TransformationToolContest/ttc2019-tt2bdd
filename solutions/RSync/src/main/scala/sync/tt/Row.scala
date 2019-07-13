@@ -7,11 +7,15 @@ class Row(protected var cells: Set[Cell], protected var owner: TruthTable, l_Loc
   }
 
   def addCells(c: Cell): Unit = {
+    require(c != null)
+    require(!cells.contains(c))
     cells += c
     +this syncAddCells (c)
   }
 
   def removeCells(c: Cell): Unit = {
+    require(c != null)
+    require(cells.contains(c))
     cells -= c
     +this syncRemoveCells (c)
   }
@@ -21,6 +25,7 @@ class Row(protected var cells: Set[Cell], protected var owner: TruthTable, l_Loc
   }
 
   def setOwner(o: TruthTable): Unit = {
+    require(o != null)
     owner = o
     +this syncSetOwner ()
   }

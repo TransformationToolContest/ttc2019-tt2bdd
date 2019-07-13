@@ -16,6 +16,7 @@ class Cell(protected var value: Boolean, protected var port: Port, protected var
   }
 
   def setPort(p: Port): Unit = {
+    require(p != null)
     port = p
     +this syncSetPort ()
   }
@@ -25,6 +26,7 @@ class Cell(protected var value: Boolean, protected var port: Port, protected var
   }
 
   def setOwner(o: Row): Unit = {
+    require(o != null)
     owner = o
     +this syncSetOwner ()
   }

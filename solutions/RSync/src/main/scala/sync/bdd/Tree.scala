@@ -9,6 +9,7 @@ abstract class Tree(protected var ownerSubtreeForOne: Subtree, protected var own
   }
 
   def setOwnerSubtreeForOne(o: Subtree): Unit = {
+    require(o != null)
     ownerSubtreeForOne = o
     +this syncSetOwnerSubtreeForOne ()
   }
@@ -18,6 +19,7 @@ abstract class Tree(protected var ownerSubtreeForOne: Subtree, protected var own
   }
 
   def setOwnerSubtreeForZero(o: Subtree): Unit = {
+    require(o != null)
     ownerSubtreeForZero = o
     +this syncSetOwnerSubtreeForZero ()
   }
@@ -27,6 +29,7 @@ abstract class Tree(protected var ownerSubtreeForOne: Subtree, protected var own
   }
 
   def setOwnerBDD(o: BDD): Unit = {
+    require(o != null)
     ownerBDD = o
     +this syncSetOwnerBDD ()
   }

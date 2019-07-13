@@ -7,6 +7,7 @@ class TruthTable(protected var name: String, protected var rows: Set[Row], prote
   }
 
   def setName(n: String): Unit = {
+    require(n != null)
     name = n
     +this syncSetName ()
   }
@@ -16,11 +17,15 @@ class TruthTable(protected var name: String, protected var rows: Set[Row], prote
   }
 
   def addRows(r: Row): Unit = {
+    require(r != null)
+    require(!rows.contains(r))
     rows += r
     +this syncAddRows (r)
   }
 
   def removeRows(r: Row): Unit = {
+    require(r != null)
+    require(rows.contains(r))
     rows -= r
     +this syncRemoveRows (r)
   }
@@ -30,11 +35,15 @@ class TruthTable(protected var name: String, protected var rows: Set[Row], prote
   }
 
   def addPorts(p: Port): Unit = {
+    require(p != null)
+    require(!ports.contains(p))
     ports += p
     +this syncAddPorts (p)
   }
 
   def removePorts(p: Port): Unit = {
+    require(p != null)
+    require(ports.contains(p))
     ports -= p
     +this syncRemovePorts (p)
   }

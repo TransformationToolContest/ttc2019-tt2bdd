@@ -7,11 +7,15 @@ class InputPort(protected var subtrees: Set[Subtree], p_Name: String, p_Owner: B
   }
 
   def addSubtrees(s: Subtree): Unit = {
+    require(s != null)
+    require(!subtrees.contains(s))
     subtrees += s
     +this syncAddSubtrees (s)
   }
 
   def removeSubtrees(s: Subtree): Unit = {
+    require(s != null)
+    require(subtrees.contains(s))
     subtrees -= s
     +this syncRemoveSubtrees (s)
   }

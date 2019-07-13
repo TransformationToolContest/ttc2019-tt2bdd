@@ -58,6 +58,7 @@ object BdtSyncIntegration extends IIntegrationCompartment {
 
     truthTable.getPorts().filter(p => p.isInstanceOf[sync.tt.InputPort] && !finishPorts.contains(p)).foreach(ttip => {
       val newCells = ttip.getCells().filter(c => rows.contains(c.getOwner()))
+      //println("Looking Port: " + ttip.getName() + " S: " + newCells.size)
       if (newCells.size >= max) {
         var setTrue: Set[Set[String]] = Set.empty
         var setFalse: Set[Set[String]] = Set.empty
@@ -85,6 +86,7 @@ object BdtSyncIntegration extends IIntegrationCompartment {
           portTT = ttip
           max = newCells.size
         }
+        //println("############################## " + newCells.size + " || T: " + p1 + " F: " + p2)
       }
     })
 

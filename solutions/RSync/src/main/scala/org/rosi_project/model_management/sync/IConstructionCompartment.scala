@@ -2,25 +2,23 @@ package org.rosi_project.model_management.sync
 
 import scroll.internal.Compartment
 
-import scala.collection.mutable.ListBuffer
 import org.rosi_project.model_management.core._
 import org.rosi_project.model_management.sync.helper.ConstructionContainer
 import org.rosi_project.model_management.sync.roles.IConstructor
 
-
 /**
-  * Interface for each construction rule.
-  */
+ * Interface for each construction rule.
+ */
 trait IConstructionCompartment extends Compartment {
 
   /**
-    * Return a role instance that handles the construction process for the object.
-    */
+   * Return a role instance that handles the construction process for the object.
+   */
   def getConstructorForClassName(classname: Object): IConstructor
 
   def getRuleName: String
 
-  private def addExtensionRoles(containers: ListBuffer[ConstructionContainer]): Unit = {
+  private def addExtensionRoles(containers: Set[ConstructionContainer]): Unit = {
     containers.foreach { cc =>
       if (cc.isConstructed) {
         SynchronizationCompartment.getExtensions().foreach { e =>
@@ -33,11 +31,13 @@ trait IConstructionCompartment extends Compartment {
     }
   }
 
-  private def notifyExtensionRoles(containers: ListBuffer[ConstructionContainer]): Unit = {
-    containers.foreach { cc =>
-      if (cc.isConstructed) {
-        var playerInstance = cc.getPlayerInstance()
-        +playerInstance insertNotification()
+  private def notifyExtensionRoles(containers: Set[ConstructionContainer]): Unit = {
+    if (!SynchronizationCompartment.getExtensions().isEmpty) {
+      containers.foreach { cc =>
+        if (cc.isConstructed) {
+          var playerInstance = cc.getPlayerInstance()
+          +playerInstance insertNotification ()
+        }
       }
     }
   }
@@ -45,7 +45,7 @@ trait IConstructionCompartment extends Compartment {
   /**
    * Add the RoleManager roles from the synchronization compartment if necessary
    */
-  protected def addManagerRoles(containers: ListBuffer[ConstructionContainer]): Unit = {
+  protected def addManagerRoles(containers: Set[ConstructionContainer]): Unit = {
     containers.foreach { cc =>
       if (cc.isConstructed && !cc.isStartElement) {
         cc.getPlayerInstance play cc.getManagerInstance
@@ -56,7 +56,7 @@ trait IConstructionCompartment extends Compartment {
   /**
    * Add the delete roles for the elements in the ConstructionContainers.
    */
-  protected def addDeleteRoles(containers: ListBuffer[ConstructionContainer]): Unit = {
+  protected def addDeleteRoles(containers: Set[ConstructionContainer]): Unit = {
     containers.foreach { cc =>
       if (cc.isConstructed) {
         cc.getManagerInstance() play SynchronizationCompartment.getDestructionRule().getDestructorForClassName(cc.getPlayerInstance())
@@ -67,7 +67,7 @@ trait IConstructionCompartment extends Compartment {
   /**
    * Add the related RoleManagers for the elements in the ConstructionContainers.
    */
-  protected def addRelatedRoleManager(containers: ListBuffer[ConstructionContainer]): Unit = {
+  protected def addRelatedRoleManager(containers: Set[ConstructionContainer]): Unit = {
     containers.foreach { cc =>
       containers.foreach { inner =>
         cc.getManagerInstance.addRelatedManager(inner.getManagerInstance)
@@ -78,9 +78,9 @@ trait IConstructionCompartment extends Compartment {
   /**
    * Combine the SynchronizationCompartment with all Players from the ConstructionContainers.
    */
-  protected def synchronizeCompartments(containers: ListBuffer[ConstructionContainer]): Unit = {
+  protected def synchronizeCompartments(containers: Set[ConstructionContainer]): Unit = {
     containers.foreach { cc =>
-      if (cc.isConstructed() && !cc.isStartElement()) {        
+      if (cc.isConstructed() && !cc.isStartElement()) {
         SynchronizationCompartment combine cc.getPlayerInstance
       }
     }
@@ -89,7 +89,7 @@ trait IConstructionCompartment extends Compartment {
   /**
    * Create the Synchronization mechanisms for the elements in the ConstructionContainers.
    */
-  protected def bindSynchronizationRules(containers: ListBuffer[ConstructionContainer]): Unit = {
+  protected def bindSynchronizationRules(containers: Set[ConstructionContainer]): Unit = {
     SynchronizationCompartment.getSyncRules().foreach { s =>
       var sync: ISyncCompartment = null
       //Proof all container for integration
@@ -111,35 +111,35 @@ trait IConstructionCompartment extends Compartment {
   /**
    * Fill the test lists with all Players from the ConstructionContainers.
    */
-  protected def fillTestLists(containers: ListBuffer[ConstructionContainer]): Unit = {
+  protected def fillTestLists(containers: Set[ConstructionContainer]): Unit = {
     containers.foreach { cc =>
       ModelElementLists.addElement(cc.getPlayerInstance)
     }
   }
 
-  protected def makeCompleteConstructionProcess(containers: ListBuffer[ConstructionContainer]): Unit = {
+  protected def makeCompleteConstructionProcess(containers: Set[ConstructionContainer]): Unit = {
     //first synchronize new compartments
     //var t1 = System.nanoTime()
     this.synchronizeCompartments(containers)
     //var t2 = System.nanoTime()
-    
+
     //add role manager and relations
     this.addManagerRoles(containers)
     //var t3 = System.nanoTime()
-    this.addRelatedRoleManager(containers)    
+    this.addRelatedRoleManager(containers)
     //var t4 = System.nanoTime()
-    
+
     //binding of roles
     //this.addDeleteRoles(containers)
     this.bindSynchronizationRules(containers)
     //var t5 = System.nanoTime()
     this.addExtensionRoles(containers)
     //var t6 = System.nanoTime()
-    
+
     //notify extensions
     this.notifyExtensionRoles(containers)
     //var t7 = System.nanoTime()
-    
+
     //fill test list
     this.fillTestLists(containers)
     /*var t8 = System.nanoTime()
@@ -150,7 +150,7 @@ trait IConstructionCompartment extends Compartment {
     println("5: " + (t6 - t5))
     println("6: " + (t7 - t6))
     println("7: " + (t8 - t7))*/
-    
+
     /*println("Construction ++++++++++++++++++++++++++++++++++++++++++++------------------------++++++++++++++++++++++++++++++++++++++++++++++++++++")
     containers.foreach { cc =>
       println((cc.getPlayerInstance).roles())

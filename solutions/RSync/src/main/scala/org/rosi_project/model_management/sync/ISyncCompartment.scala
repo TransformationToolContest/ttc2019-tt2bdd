@@ -17,12 +17,15 @@ trait ISyncCompartment extends Compartment {
   /**
     * All sync roles of this synchronization rule.
     */
-  protected var syncer = Set.empty[ISyncRole]
+  private var syncer: Set[ISyncRole] = Set.empty
 
   /**
     * Get roles for all integration classes.
     */
-  protected def getNextRole(classname: Object) : ISyncRole
+  protected def getNextRole(classname: Object) : ISyncRole = {
+    getFirstRole(classname)
+  }
+  
   /**
     * Get roles for integration classes. Should give less roles than getNextRole.
     */
@@ -30,13 +33,10 @@ trait ISyncCompartment extends Compartment {
   
   def containsSyncer(value: Object): Boolean = {
     syncer.foreach { s =>
-      //println("Equals: " + s.player + " " + value.player)
-      //TODO: das hier muss cleaner werden
-      if (s.player.equals(value.player)) {
-        //println("++Equals true")
+      if (+s == +value) {
+      //if (s.player.equals(value.player)) {
         return true;
       }
-      //println("++Equals false")
     }
     return false
   }
@@ -54,7 +54,7 @@ trait ISyncCompartment extends Compartment {
     * Clear the list of all sync roles.
     */
   def clearSyncer(): Unit = {
-    syncer = Set.empty[ISyncRole]
+    syncer = Set.empty
   }
 
   /**
@@ -85,7 +85,9 @@ trait ISyncCompartment extends Compartment {
   /**
     * Get boolean if next integration
     */
-  def isNextIntegration(classname: Object): Boolean
+  def isNextIntegration(classname: Object): Boolean = {
+    isFirstIntegration(classname)
+  }
 
   /**
     * Create a new instance of this class.
