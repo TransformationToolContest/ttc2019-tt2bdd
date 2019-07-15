@@ -13,7 +13,8 @@
 	"RSyncBDD",
 	"RSyncBDD-Unordered",
 	"RSyncBDT",
-	"RSyncBDT-Unordered"
+	"RSyncBDT-Unordered",
+        "EMFSolutionYAMTL"
     ],
     "Models": [
         "GeneratedI4O2Seed42.ttmodel",
@@ -27,4 +28,5 @@
     "Runs": 10,
     "Timeout": 10000
 }
+
 

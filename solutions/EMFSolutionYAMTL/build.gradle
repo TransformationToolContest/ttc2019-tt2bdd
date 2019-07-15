@@ -1,0 +1,112 @@
+plugins {
+	id "org.xtext.xtend" version "2.0.4" 
+}
+
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+
+group 'yamtl'
+version '0.0.4-SNAPSHOT'
+
+
+
+eclipse {
+	project {
+	  name = 'EMFSolutionYAMTL'
+	  buildCommand 'org.eclipse.jdt.core.javabuilder'
+	  buildCommand 'org.eclipse.buildship.core.gradleprojectbuilder'
+	  buildCommand 'org.eclipse.wst.common.project.facet.core.builder'
+
+	  natures 'org.eclipse.jdt.core.javanature',
+		'org.eclipse.buildship.core.gradleprojectnature',
+		'org.eclipse.wst.common.project.facet.core.nature',
+		'org.eclipse.xtext.ui.shared.xtextNature',
+		'org.eclipse.pde.PluginNature'
+	}
+}
+
+repositories {
+	maven {
+		url "https://github.com/yamtl/yamtl.github.io/raw/mvn-repo/mvn-repo/snapshot-repo"
+	}
+	mavenCentral()
+    jcenter()
+}
+
+
+ext {
+	yamtlVersion = '0.0.4-SNAPSHOT'
+	xtendVersion = '2.17.1'
+	xtextVersion = '2.17.1'
+	aspectJVersion = '1.9.3'
+}
+
+
+// XTEND: configures output directories for generated java
+xtend {
+	sourceSets {
+		main.xtendOutputDir = 'src/main/xtend-gen'
+		test.xtendOutputDir = 'src/test/xtend-gen'
+	}
+}
+
+
+sourceSets {
+	main {
+		java {
+			srcDirs = [
+				'src/main/java',
+				'src/main/emf-gen',
+				'src/main/xtend-gen'
+			]
+		}
+	}
+	test {
+		java {
+			srcDir 'src/test/xtend-gen'
+		}
+	}
+}
+
+
+dependencies {
+	compile "org.eclipse.xtend:org.eclipse.xtend.lib:$xtendVersion"
+	compile "org.eclipse.xtext:org.eclipse.xtext.xbase.lib:$xtextVersion"
+	compile "yamtl:yamtl:${yamtlVersion}"
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+	
+	compile 'org.eclipse.emf:org.eclipse.emf.ecore.change:2.11+'
+	compile 'org.eclipse.emf:org.eclipse.emf.common:2.14'
+	compile 'org.eclipse.emf:org.eclipse.emf.ecore.xmi:2.15.0'
+}
+
+
+// create a single Jar with all dependencies
+// source: https://www.mkyong.com/gradle/gradle-create-a-jar-file-with-dependencies/
+task fatJar(type: Jar) {
+	manifest {
+		attributes 'LiveContestDriver': 'YAMTL solution',
+			'Implementation-Version': version,
+			'Main-Class': 'ttc19.Driver'
+	}
+	// remove signatures as we are not signing this jar to avoid security warnings
+	exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+	baseName = project.name + '-all'
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	with jar
+}
+
+
+
+
+configurations {
+	customConfiguration.extendsFrom(implementation)
+}
+task customTask {
+	doLast {
+		println(configurations.customConfiguration.asPath)
+		println(sourceSets.main.output.classesDirs[0].absolutePath)
+	}
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<bdd:BDD xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bdd="https://www.transformation-tool-contest.eu/2019/bdd" tree="//@trees.7">
+  <ports xsi:type="bdd:InputPort" name="a" subtrees="//@trees.7"/>
+  <ports xsi:type="bdd:InputPort" name="b" subtrees="//@trees.4 //@trees.6"/>
+  <ports xsi:type="bdd:InputPort" name="c" subtrees="//@trees.3 //@trees.5"/>
+  <ports xsi:type="bdd:InputPort" name="d" subtrees="//@trees.2"/>
+  <ports xsi:type="bdd:OutputPort" name="s" assignments="//@trees.0/@assignments.0 //@trees.1/@assignments.0"/>
+  <trees xsi:type="bdd:Leaf" ownerSubtreeForZero="//@trees.4 //@trees.5" ownerSubtreeForOne="//@trees.2 //@trees.3">
+    <assignments port="//@ports.4"/>
+  </trees>
+  <trees xsi:type="bdd:Leaf" ownerSubtreeForZero="//@trees.2">
+    <assignments value="true" port="//@ports.4"/>
+  </trees>
+  <trees xsi:type="bdd:Subtree" ownerSubtreeForZero="//@trees.3" ownerSubtreeForOne="//@trees.5" port="//@ports.3" treeForZero="//@trees.1" treeForOne="//@trees.0"/>
+  <trees xsi:type="bdd:Subtree" ownerSubtreeForOne="//@trees.4 //@trees.6" port="//@ports.2" treeForZero="//@trees.2" treeForOne="//@trees.0"/>
+  <trees xsi:type="bdd:Subtree" ownerSubtreeForZero="//@trees.7" port="//@ports.1" treeForZero="//@trees.0" treeForOne="//@trees.3"/>
+  <trees xsi:type="bdd:Subtree" ownerSubtreeForZero="//@trees.6" port="//@ports.2" treeForZero="//@trees.0" treeForOne="//@trees.2"/>
+  <trees xsi:type="bdd:Subtree" ownerSubtreeForOne="//@trees.7" port="//@ports.1" treeForZero="//@trees.5" treeForOne="//@trees.3"/>
+  <trees xsi:type="bdd:Subtree" port="//@ports.0" treeForZero="//@trees.4" treeForOne="//@trees.6"/>
+</bdd:BDD>
