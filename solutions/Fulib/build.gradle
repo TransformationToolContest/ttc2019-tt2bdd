@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id "org.xtext.xtend" version "2.0.4"
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
+}
+
+group 'fulib.org'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    mavenCentral()
+}
+
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.eclipse.emf/org.eclipse.emf.common
+    compile group: 'org.eclipse.emf', name: 'org.eclipse.emf.common', version: '2.10.1'
+    compile 'org.eclipse.emf:ecore-xmi:2.2.3'
+
+    // https://mvnrepository.com/artifact/org.eclipse.emf/org.eclipse.emf.ecore
+    compile group: 'org.eclipse.emf', name: 'org.eclipse.emf.ecore', version: '2.10.1'
+    compile files( 'libs/fulibYaml-1.0.3-SNAPSHOT.jar' )
+    compile 'org.fulib:fulib:1.0.2-SNAPSHOT'
+    compile 'org.fulib:fulibTables:1.0.1-SNAPSHOT'
+    compile 'org.fulib:fulibTools:1.0.2-SNAPSHOT'
+    testCompile files('../../models/validator.jar')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+test {
+    dependsOn cleanTest
+    testLogging.showStandardStreams = true
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'fulib.FulibSolution'
+    }
+}

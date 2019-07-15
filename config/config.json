@@ -3,7 +3,8 @@
         "EMFSolutionATL",
         "EMFSolutionATLGraph",
         "ATLEMFTVMImproved",
-        "NMF"
+        "NMF",
+        "Fulib"
     ],
     "Models": [
         "Test.ttmodel",
