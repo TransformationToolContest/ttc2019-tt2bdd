@@ -10,7 +10,9 @@ apply plugin: 'eclipse'
 group 'yamtl'
 version '0.0.4-SNAPSHOT'
 
-
+// compileJava.options.fork = true
+// compileJava.options.forkOptions.executable = '/home/antonio/bin/jdk-11.0.1/bin/javac'
+mainClassName = 'ttc19.Driver'
 
 eclipse {
 	project {
