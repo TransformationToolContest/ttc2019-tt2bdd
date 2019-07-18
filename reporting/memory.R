@@ -27,7 +27,7 @@ bwTheme <- theme(text=element_text(family="Helvetica", size=16),
 plot <- ggplot(data, aes_string(x="Model",y="Memory"))
 plot <- plot + geom_line(aes_string(group="Tool",colour="Tool"),size=lineSize)
 plot <- plot + geom_point(aes_string(shape="Tool", colour="Tool"), size=pointSize)
-plot <- plot + scale_shape_manual(values=1:4) + ylab("Memory (Mbyte)")
+plot <- plot + scale_shape_manual(values=1:15) + ylab("Memory (Mbyte)")
 plot <- plot + xlab("Model")
 plot <- plot + bwTheme
 plot <- plot + scale_x_discrete()
