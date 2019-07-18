@@ -12,7 +12,7 @@ RUN  (echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.l
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823 && \
     wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb && \
-    apt-get update && \
+    apt-get clean -y && apt-get update -y && \
     apt-get install -y sbt python3 openjdk-11-jdk-headless dotnet-sdk-2.1
 
 # Prepare YAMTL solution
