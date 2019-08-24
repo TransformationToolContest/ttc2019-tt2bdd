@@ -297,10 +297,11 @@ public class FulibSolution
 
    public static long report(long startTime, String model, String phase, String runIndex, String tool)
    {
-      long diffTime = System.nanoTime() - startTime;
-      System.out.println(String.format("%s;%s;%s;%s;Time;%s;%s", tool, model, runIndex, phase, Long.toString(diffTime), numberOfBDDNodes));
-      long memory = getMemory();
-      System.out.println(String.format("%s;%s;%s;%s;Memory;%s;%s", tool, model, runIndex, phase, Long.toString(memory), numberOfBDDNodes));
+      final long diffTime = System.nanoTime() - startTime;
+      System.out.println(String.format("%s;%s;%s;%s;Time;%s", tool, model, runIndex, phase, Long.toString(diffTime)));
+      final long memory = getMemory();
+      System.out.println(String.format("%s;%s;%s;%s;Memory;%s", tool, model, runIndex, phase, Long.toString(memory)));
+      System.out.println(String.format("%s;%s;%s;%s;BDDNodes;%s", tool, model, runIndex, phase, Integer.toString(numberOfBDDNodes)));
 
       return System.nanoTime();
    }
