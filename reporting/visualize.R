@@ -5,7 +5,7 @@ source("functions.R")
 source("plot.R")
 source("constants.R")
 
-args <- commandArgs(trailingOnly = TRUE)
+args <- '../config/reporting.json' #commandArgs(trailingOnly = TRUE)
 configPath <- args[1]
 
 results <-read.csv2(resultsPath, header=TRUE, row.names = NULL)

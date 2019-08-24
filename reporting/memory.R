@@ -16,7 +16,7 @@ bwTheme <- theme(text=element_text(family="Helvetica", size=16),
                  panel.grid.minor = element_line(size=0.15, colour="#CCCCCC"),
                  axis.text.x = element_text(colour="black"),
                  axis.text.y = element_text(colour="black"),
-                 legend.position="right")
+                 legend.position='bottom')
   
   data = testset
   
@@ -25,6 +25,7 @@ bwTheme <- theme(text=element_text(family="Helvetica", size=16),
   maxValue <- max(data$Memory)
 
 plot <- ggplot(data, aes_string(x="Model",y="Memory"))
+
 plot <- plot + geom_line(aes_string(group="Tool",colour="Tool"),size=lineSize)
 plot <- plot + geom_point(aes_string(shape="Tool", colour="Tool"), size=pointSize)
 plot <- plot + scale_shape_manual(values=1:15) + ylab("Memory (Mbyte)")
@@ -33,6 +34,8 @@ plot <- plot + bwTheme
 plot <- plot + scale_x_discrete()
 plot <- plot + scale_y_log10(breaks = 10^seq(round(log10(minValue)), round(log10(maxValue)), by=1), 
                              labels = 10^seq(round(log10(minValue)), round(log10(maxValue)), by=1))
-plot <- plot + ggtitle("working set")
+#plot <- plot + guides(shape=guide_legend(nrow=4))
 
-ggsave(plot, filename="../diagrams/memory.pdf", width=7, height=4, dpi=192)
+plot
+
+ggsave(plot, filename="../diagrams/memory.pdf", width=10, height=5, dpi=192)
